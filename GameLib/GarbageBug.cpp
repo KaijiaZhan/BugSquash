@@ -16,6 +16,3 @@ const wstring GarbageBugSpriteImageName = L"blue-maize-bug.png";
 
 /// The splat image
 const wstring GarbageBugSplatImageName = L"blue-maize-splat.png";
-
-/// Number of sprite images
-const int GarbageBugNumSpriteImages = 5;

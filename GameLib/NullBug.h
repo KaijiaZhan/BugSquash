@@ -15,6 +15,14 @@ class NullBug
 private:
 
 public:
+	/// Default constructor (disabled)
+	NullBug() = delete;
+
+	/// Copy constructor (disabled)
+	NullBug(const NullBug &) = delete;
+
+	/// Assignment operator
+	void operator=(const NullBug &) = delete;
 
 };
 

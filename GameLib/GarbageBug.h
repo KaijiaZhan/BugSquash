@@ -20,6 +20,14 @@ class GarbageBug
 private:
 
 public:
+	/// Default constructor (disabled)
+	GarbageBug() = delete;
+
+	/// Copy constructor (disabled)
+	GarbageBug(const GarbageBug &) = delete;
+
+	/// Assignment operator
+	void operator=(const GarbageBug &) = delete;
 
 };
 
