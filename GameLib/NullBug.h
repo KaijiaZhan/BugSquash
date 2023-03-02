@@ -10,6 +10,9 @@
 
 //#include "BugCollection.h"
 /// : public BugCollection
+/**
+ * Class for bug type NullBug
+ */
 class NullBug
 {
 private:
