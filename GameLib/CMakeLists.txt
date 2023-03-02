@@ -1,6 +1,6 @@
 project(GameLib)
 
-set(SOURCE_FILES GarbageBug.cpp GarbageBug.h NullBug.cpp NullBug.h)
+set(SOURCE_FILES GarbageBug.cpp GarbageBug.h NullBug.cpp NullBug.h Feature.cpp Feature.h RedundancyFly.cpp RedundancyFly.h FatBug.cpp FatBug.h)
 
 set(wxBUILD_PRECOMP OFF)
 find_package(wxWidgets COMPONENTS core base xrc html xml REQUIRED)
