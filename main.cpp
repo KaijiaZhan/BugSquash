@@ -1,7 +1,8 @@
-#include <iostream>
+/**
+ * @file main.cpp
+ * @author Courtney Thang
+ */
 
-int main()
-{
-	std::cout << "Hello, World!" << std::endl;
-	return 0;
-}
+#include "GameApp.h"
+
+wxIMPLEMENT_APP(GameApp);
