@@ -1,6 +1,6 @@
 /**
  * @file GarbageBug.h
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  *
  * Header for bug type Garbage Bug
  */
@@ -8,14 +8,13 @@
 #ifndef PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
 #define PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
 
-//#include "BugCollection.h"
+#include "BugCollection.h"
 
 /**
  * Class for type GarbageBug
  */
 
-///: public BugCollection
-class GarbageBug
+class GarbageBug : public BugCollection
 {
 private:
 
