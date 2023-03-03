@@ -18,6 +18,9 @@ using namespace std;
  */
 class Level2 : public Level
 {
+    private:
+
+    public:
 
 };
 
