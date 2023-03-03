@@ -8,7 +8,9 @@
 #ifndef PROJECT1_GAMELIB_ITEM_H
 #define PROJECT1_GAMELIB_ITEM_H
 
-class Player
+class Game;
+
+class Item
 {
 private:
 
