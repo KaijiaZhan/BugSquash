@@ -16,6 +16,17 @@ class Level0
 private:
 
 public:
+    /*
+     * Constructor of Level0
+     */
+    Level0();
+
+    /*
+     * Destructor
+     */
+    virtual ~Level0() = default;
+
+
 
 };
 
