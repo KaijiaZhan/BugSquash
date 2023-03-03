@@ -1,6 +1,6 @@
 /**
  * @file NullBug.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  *
  * Source file for NullBug
  */
@@ -16,3 +16,6 @@ const std::wstring NullBugSpriteImageName = L"scarlet-gray-bug.png";
 
 /// The splat image
 const std::wstring NullBugSplatImageName = L"scarlet-gray-splat.png";
+
+/// Number of sprite images
+const int NullBugNumSpriteImages = 6;
