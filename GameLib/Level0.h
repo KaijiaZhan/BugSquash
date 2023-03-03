@@ -13,7 +13,7 @@
 /**
  * Class for Level 0
  */
-class Level0
+class Level0 : public Level
 {
 private:
 
