@@ -21,6 +21,15 @@ class Level2 : public Level
 private:
 
 public:
+    /*
+     * Constructor of Level3
+     */
+    Level2();
+
+    /*
+     * Destructor
+     */
+    virtual ~Level2() = default;
 
 };
 
