@@ -9,6 +9,8 @@
 #ifndef PROJECT1_GAMELIB_LEVEL1_H
 #define PROJECT1_GAMELIB_LEVEL1_H
 
+#include "Level.h"
+
 using namespace std;
 
 /**

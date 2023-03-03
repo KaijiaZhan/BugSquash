@@ -8,6 +8,8 @@
 #ifndef PROJECT1_GAMELIB_LEVEL0_H
 #define PROJECT1_GAMELIB_LEVEL0_H
 
+#include "Level.h"
+
 /**
  * Class for Level 0
  */
