@@ -1,6 +1,6 @@
 /**
  * @file GarbageBug.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  *
  * Source file for type GarbageBug
  */

@@ -1,6 +1,6 @@
 /**
  * @file NullBug.h
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  *
  *
  */
@@ -8,12 +8,12 @@
 #ifndef PROJECT1_COPY_GAMELIB_NULLBUG_H
 #define PROJECT1_COPY_GAMELIB_NULLBUG_H
 
-//#include "BugCollection.h"
-/// : public BugCollection
+#include "BugCollection.h"
+
 /**
  * Class for bug type NullBug
  */
-class NullBug
+class NullBug : public BugCollection
 {
 private:
 
