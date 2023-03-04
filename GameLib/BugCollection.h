@@ -46,7 +46,7 @@ private:
 	bool mMirror = false;
 
 protected:
-	BugCollection(Game *game, const std::wstring &filename)
+	BugCollection(Game *game, const std::wstring &filename);
 
 public:
 
