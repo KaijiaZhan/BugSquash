@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.25)
+# Declare the minimum required CMake version
+cmake_minimum_required(VERSION 3.24)
+
 project(project1)
 set(APPLICATION_LIBRARY GameLib)
 
@@ -19,6 +21,3 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES} ${APPLICATION_LIBRARY})
 
 target_precompile_headers(${PROJECT_NAME} PRIVATE pch.h)
-
-# Declare the minimum required CMake version
-cmake_minimum_required(VERSION 3.24)
