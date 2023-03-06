@@ -5,7 +5,7 @@
 
 #include "pch.h"
 #include "GameApp.h"
-//#include <MainFrame.h>
+#include <MainFrame.h>
 
 
 #ifdef WIN32
@@ -29,7 +29,7 @@ bool GameApp::OnInit()
 	// Add image type handlers
 	wxInitAllImageHandlers();
 
-//	auto frame = new MainFrame();
+	auto frame = new MainFrame();
 //	frame->Initialize();
 //	frame->Show(true);
 
