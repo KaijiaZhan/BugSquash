@@ -30,8 +30,8 @@ bool GameApp::OnInit()
 	wxInitAllImageHandlers();
 
 	auto frame = new MainFrame();
-//	frame->Initialize();
-//	frame->Show(true);
+	frame->Initialize();
+	frame->Show(true);
 
 	return true;
 }

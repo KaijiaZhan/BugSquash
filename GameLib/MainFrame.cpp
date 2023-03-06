@@ -18,44 +18,45 @@ void MainFrame::Initialize()
 
 	// Create a sizer that will lay out child windows vertically
 	// one above each other
-	auto sizer = new wxBoxSizer( wxVERTICAL );
+//	auto sizer = new wxBoxSizer( wxVERTICAL );
+//
+//	// Create the view class object as a child of MainFrame
+//	mGameView = new GameView();
+//	mGameView->Initialize(this);
 
-	// Create the view class object as a child of MainFrame
-	mGameView = new GameView();
-	mGameView->Initialize(this);
-
-	// Add it to the sizer
-	sizer->Add(mGameView,1, wxEXPAND | wxALL );
-
-	// Set the sizer for this frame
-	SetSizer( sizer );
-
-	auto menuBar = new wxMenuBar( );
-
-	auto fileMenu = new wxMenu();
-	auto helpMenu = new wxMenu();
-
-	// Bug menu option is to test if populating the bugs work to see if they draw
-	auto bugMenu = new wxMenu();
-
-	menuBar->Append(fileMenu, L"&File" );
-
-	// Delete bugMenu when done testing populating bugs
-	menuBar->Append(bugMenu, L"&Add Bug");
-	menuBar->Append(helpMenu, L"&Help");
-
-	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
-	helpMenu->Append(wxID_ABOUT, "&About\tF1", "Show about dialog");
-
-	SetMenuBar( menuBar );
-
-	CreateStatusBar( 1, wxSTB_SIZEGRIP, wxID_ANY );
-
-	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
-	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);
-
-	//Layout (place) the child windows
-	Layout();
+//
+//	// Add it to the sizer
+//	sizer->Add(mGameView,1, wxEXPAND | wxALL );
+//
+//	// Set the sizer for this frame
+//	SetSizer( sizer );
+//
+//	auto menuBar = new wxMenuBar( );
+//
+//	auto fileMenu = new wxMenu();
+//	auto helpMenu = new wxMenu();
+//
+//	// Bug menu option is to test if populating the bugs work to see if they draw
+//	auto bugMenu = new wxMenu();
+//
+//	menuBar->Append(fileMenu, L"&File" );
+//
+//	// Delete bugMenu when done testing populating bugs
+//	menuBar->Append(bugMenu, L"&Add Bug");
+//	menuBar->Append(helpMenu, L"&Help");
+//
+//	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
+//	helpMenu->Append(wxID_ABOUT, "&About\tF1", "Show about dialog");
+//
+//	SetMenuBar( menuBar );
+//
+//	CreateStatusBar( 1, wxSTB_SIZEGRIP, wxID_ANY );
+//
+//	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
+//	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);
+//
+//	//Layout (place) the child windows
+//	Layout();
 
 }
 
