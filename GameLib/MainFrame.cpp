@@ -13,6 +13,8 @@
  */
 void MainFrame::Initialize()
 {
+	//Creates the frame
+	Create(nullptr,wxID_ANY, L"Project1",wxDefaultPosition, wxSize( 1000,800 ));
 
 	// Create a sizer that will lay out child windows vertically
 	// one above each other
@@ -28,6 +30,9 @@ void MainFrame::Initialize()
 	// Set the sizer for this frame
 	SetSizer( sizer );
 
+	//Layout (place) the child windows
+	Layout();
+
 }
 
 /**
@@ -39,6 +44,8 @@ void MainFrame::OnExit(wxCommandEvent& event)
 	Close(true);
 }
 
+
+//do we need this?
 void OnMinimize(wxCommandEvent& event)
 {
 }
