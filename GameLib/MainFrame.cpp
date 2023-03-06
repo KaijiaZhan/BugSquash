@@ -28,6 +28,29 @@ void MainFrame::Initialize()
 	// Set the sizer for this frame
 	SetSizer( sizer );
 
+	auto menuBar = new wxMenuBar( );
+
+	auto fileMenu = new wxMenu();
+	auto helpMenu = new wxMenu();
+
+	// Bug menu option is to test if populating the bugs work to see if they draw
+	auto bugMenu = new wxMenu();
+
+	menuBar->Append(fileMenu, L"&File" );
+
+	// Delete bugMenu when done testing populating bugs
+	menuBar->Append(bugMenu, L"&Add Bug");
+	menuBar->Append(helpMenu, L"&Help");
+
+	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
+	helpMenu->Append(wxID_ABOUT, "&About\tF1", "Show about dialog");
+
+	SetMenuBar( menuBar );
+
+	CreateStatusBar( 1, wxSTB_SIZEGRIP, wxID_ANY );
+
+	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
+	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);
 }
 
 /**
@@ -41,4 +64,16 @@ void MainFrame::OnExit(wxCommandEvent& event)
 
 void OnMinimize(wxCommandEvent& event)
 {
+}
+
+/**
+ * About menu option handler
+ * @param event
+ */
+void MainFrame::OnAbout(wxCommandEvent& event)
+{
+	wxMessageBox(L"Welcome to BugSquash! Squash all the bugs before they reach your program!",
+				 L"About Aquarium",
+				 wxOK,
+				 this);
 }

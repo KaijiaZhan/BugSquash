@@ -24,6 +24,8 @@ private:
 public:
 	void Initialize();
 
+	void OnAbout(wxCommandEvent& event);
+
 };
 
 #endif //PROJECT1_GAMELIB_MAINFRAME_H
