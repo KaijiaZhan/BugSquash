@@ -11,8 +11,6 @@
 
 #include "Level.h"
 
-using namespace std;
-
 /**
  * Class that describes first Level in bug game.
  */
