@@ -17,22 +17,22 @@
 class Game
 {
 private:
-	/// Background image for Game
-	std::unique_ptr<wxBitmap> mBackground;
-
-	/// All of the items in our Game
-	std::vector<std::shared_ptr<Item>> mItems;
+//	/// Background image for Game
+//	std::unique_ptr<wxBitmap> mBackground;
+//
+//	/// All of the items in our Game
+//	std::vector<std::shared_ptr<Item>> mItems;
 public:
 
-	/**
-	 * Constructor
-	 */
-	Game();
-
-	/**
-	 * Destructor
-	 */
-	virtual ~Game() = default;
+//	/**
+//	 * Constructor
+//	 */
+//	Game();
+//
+//	/**
+//	 * Destructor
+//	 */
+//	virtual ~Game() = default;
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

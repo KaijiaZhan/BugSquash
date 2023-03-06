@@ -19,7 +19,7 @@ private:
 	void OnLeftUp(wxMouseEvent& event);
 
 	/// the game
-	Game mGame;
+//	Game mGame;
 
 	/// Any item we are currently dragging
 	std::shared_ptr<Item> mGrabbedItem;
