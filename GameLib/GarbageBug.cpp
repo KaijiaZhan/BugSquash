@@ -9,7 +9,7 @@
 #include "pch.h"
 #include <string>
 #include "GarbageBug.h"
-//#include "BugCollection.h"
+#include "BugCollection.h"
 using namespace std;
 
 /// The bug sprite image
@@ -24,6 +24,6 @@ const wstring GarbageBugSplatImageName = L"blue-maize-splat.png";
  */
 GarbageBug::GarbageBug(Game *game) : BugCollection(game)
 {
-    mFishImage = make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
-    mFishBitmap = make_unique<wxBitmap>(*mFishImage);
+    mGarbageBugImage = make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
+    mGarbageBugBitmap = make_unique<wxBitmap>(*mGarbageBugImage);
 }
