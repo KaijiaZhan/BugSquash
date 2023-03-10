@@ -1,7 +1,7 @@
 /**
  * @file NullBug.h
  * @author Kaijia Joanna Zhan
- *
+ * @author Flora Pieters
  *
  */
 
@@ -16,6 +16,11 @@
 class NullBug : public BugCollection
 {
 private:
+	/// The underlying NullBug image
+    std::unique_ptr<wxImage> mNullBugImage;
+
+    /// The bitmap we can display for this bug
+    std::unique_ptr<wxBitmap> mNullBugBitmap;
 
 public:
 	/// Default constructor (disabled)
@@ -26,6 +31,10 @@ public:
 
 	/// Assignment operator
 	void operator=(const NullBug &) = delete;
+
+	NullBug(Game* game);
+
+    void Draw(wxDC* dc) override;
 
 };
 
