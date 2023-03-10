@@ -66,6 +66,18 @@ public:
      * @param dc Device context to draw on
      */
     virtual void Draw(wxDC *dc) = 0;
+
+	/**
+     * The X location of the bug
+     * @return X location in pixels
+     */
+    double GetX() const { return mX; }
+
+    /**
+     * The Y location of the bug
+     * @return Y location in pixels
+     */
+    double GetY() const { return mY; }
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
