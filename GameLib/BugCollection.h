@@ -60,6 +60,12 @@ public:
 
 	/// Assignment operator
 	void operator=(const BugCollection &) = delete;
+
+	/**
+     * Draw this item
+     * @param dc Device context to draw on
+     */
+    virtual void Draw(wxDC *dc) = 0;
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
