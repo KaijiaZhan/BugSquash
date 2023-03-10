@@ -8,6 +8,8 @@
 #ifndef PROJECT1_GAMELIB_FATBUG_H
 #define PROJECT1_GAMELIB_FATBUG_H
 
+#include "BugCollection.h"
+
 class FatBug
 {
 private:
