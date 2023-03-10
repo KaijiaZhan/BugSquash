@@ -1,6 +1,7 @@
 /**
  * @file GarbageBug.h
  * @author Kaijia Joanna Zhan
+ * @author Flora Pieters
  *
  * Header for bug type Garbage Bug
  */
@@ -17,6 +18,11 @@
 class GarbageBug : public BugCollection
 {
 private:
+	/// The underlying GarbageBug image
+    std::unique_ptr<wxImage> mGarbageBugImage;
+
+    /// The bitmap we can display for this bug
+    std::unique_ptr<wxBitmap> mGarbageBugBitmap;
 
 public:
 	/// Default constructor (disabled)
@@ -27,6 +33,8 @@ public:
 
 	/// Assignment operator
 	void operator=(const GarbageBug &) = delete;
+
+	GarbageBug(Game* game);
 
 };
 
