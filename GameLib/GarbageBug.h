@@ -36,6 +36,8 @@ public:
 
 	GarbageBug(Game* game);
 
+	void Draw(wxDC* dc) override;
+
 };
 
 #endif //PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
