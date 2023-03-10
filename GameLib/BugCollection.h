@@ -48,6 +48,8 @@ private:
 protected:
 	BugCollection(Game *game, const std::wstring &filename);
 
+	BugCollection(Game *pGame);
+
 public:
 
 	/// Default constructor (disabled)
