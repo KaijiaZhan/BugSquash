@@ -1,7 +1,7 @@
 /**
  * @file Game.h
  * @author rmpal
- *
+ * @author Courtney Thang
  *
  */
 
@@ -33,6 +33,8 @@ public:
 //	 * Destructor
 //	 */
 //	virtual ~Game() = default;
+
+	void OnDraw(wxDC *dc);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

@@ -19,8 +19,8 @@ class GameView;
 class MainFrame : public wxFrame
 {
 private:
-	/// View class for our city
-	GameView *mGameView;
+	/// View class for our city; possibly not needed?
+	//GameView *mGameView;
 
 	///Command event for when the user wants to exit the game
 	void OnExit(wxCommandEvent& event);

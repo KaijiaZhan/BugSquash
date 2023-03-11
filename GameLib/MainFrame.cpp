@@ -22,12 +22,12 @@ void MainFrame::Initialize()
 	auto sizer = new wxBoxSizer( wxVERTICAL );
 
 	// Create the view class object as a child of MainFrame
-	mGameView = new GameView();
-	mGameView->Initialize(this);
+	auto gameView = new GameView();
+	gameView->Initialize(this);
 
 
 	// Add it to the sizer
-	sizer->Add(mGameView,1, wxEXPAND | wxALL );
+	sizer->Add(gameView,1, wxEXPAND | wxALL );
 
 	// Set the sizer for this frame
 	SetSizer( sizer );
