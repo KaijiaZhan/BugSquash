@@ -1,7 +1,7 @@
 /**
  * @file Game.h
  * @author rmpal
- *
+ * @author Courtney Thang
  *
  */
 
@@ -24,15 +24,17 @@ private:
 //	std::vector<std::shared_ptr<Item>> mItems;
 public:
 
-	/**
-	 * Constructor
-	 */
-	Game();
+//	/**
+//	 * Constructor
+//	 */
+//	Game();
+//
+//	/**
+//	 * Destructor
+//	 */
+//	virtual ~Game() = default;
 
-	/**
-	 * Destructor
-	 */
-	//virtual ~Game() = default;
+	void OnDraw(wxDC *dc);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H
