@@ -1,6 +1,7 @@
 /**
  * @file MainFrame.cpp
  * @author joann
+ * @author Courtney Thang
  */
 
 #include "pch.h"

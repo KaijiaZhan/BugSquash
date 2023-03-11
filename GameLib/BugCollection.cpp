@@ -2,6 +2,7 @@
  * @file BugCollection.cpp
  * @author rmpal
  * @author Flora Pieters
+ * @author Courtney Thang
  */
 
 #include "pch.h"
@@ -10,6 +11,6 @@
 /*
  * Constructor
  */
-BugCollection::BugCollection(Game *pGame) {
-
-}
+//BugCollection::BugCollection(Game *pGame) {
+//
+//}
