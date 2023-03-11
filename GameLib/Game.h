@@ -2,7 +2,7 @@
  * @file Game.h
  * @author rmpal
  * @author Courtney Thang
- *
+ * @author Kaijia Joanna Zhan
  */
 
 #ifndef PROJECT1_GAMELIB_GAME_H
@@ -24,10 +24,10 @@ private:
 //	std::vector<std::shared_ptr<Item>> mItems;
 public:
 
-//	/**
-//	 * Constructor
-//	 */
-//	Game();
+	/**
+	 * Constructor
+	 */
+	Game();
 //
 //	/**
 //	 * Destructor
