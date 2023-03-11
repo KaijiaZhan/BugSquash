@@ -10,6 +10,5 @@
 /*
  * Constructor
  */
-BugCollection::BugCollection(Game *pGame) {
-
-}
+//BugCollection::BugCollection(Game *pGame) {
+//}

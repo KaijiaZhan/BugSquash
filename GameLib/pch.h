@@ -1,6 +1,6 @@
 /**
  * @file pch.h
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  *
  * pch.h file
  */

@@ -5,3 +5,11 @@
 
 #include "pch.h"
 #include "Game.h"
+
+/**
+* Game Constructor
+*/
+Game::Game()
+{
+
+}

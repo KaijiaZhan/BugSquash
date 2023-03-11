@@ -24,15 +24,15 @@ private:
 //	std::vector<std::shared_ptr<Item>> mItems;
 public:
 
-//	/**
-//	 * Constructor
-//	 */
-//	Game();
-//
-//	/**
-//	 * Destructor
-//	 */
-//	virtual ~Game() = default;
+	/**
+	 * Constructor
+	 */
+	Game();
+
+	/**
+	 * Destructor
+	 */
+	//virtual ~Game() = default;
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H
