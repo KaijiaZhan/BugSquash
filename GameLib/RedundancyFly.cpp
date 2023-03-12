@@ -22,7 +22,7 @@ const wstring FlySplat = L"images/redundancy-fly-splat.png";
  * Constructor
  * @param game Game this fly is a member of
  */
-RedundancyFly::RedundancyFly(Game *game) : Item(game)
+RedundancyFly::RedundancyFly(Game *game) : Item(game, FlyBaseImage)
 {
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);

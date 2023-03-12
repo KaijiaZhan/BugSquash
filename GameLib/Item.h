@@ -2,6 +2,7 @@
  * @file Item.h
  * @author Parker Morgan
  * @author Joanna Rodriguez
+ * @author Courtney Thang
  *
  * Base class for any item in our game.
  */
@@ -23,7 +24,7 @@ private:
 	std::unique_ptr<wxImage> mItemImage;
 
 	/// The bitmap that can be displayed for the item
-	std::unique_ptr<wxImage> mItemBitmap;
+	std::unique_ptr<wxBitmap> mItemBitmap;
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
@@ -32,7 +33,7 @@ private:
 
 
 protected:
-	Item(Game *game);
+	Item(Game *game, const std::wstring &filename);
 
 public:
 	virtual ~Item();
