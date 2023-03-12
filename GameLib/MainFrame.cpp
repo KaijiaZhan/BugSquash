@@ -84,7 +84,7 @@ void OnMinimize(wxCommandEvent& event)
 void MainFrame::OnAbout(wxCommandEvent& event)
 {
 	wxMessageBox(L"Welcome to BugSquash! Squash all the bugs before they reach your program!",
-				 L"About Aquarium",
+				 L"About BugSquash",
 				 wxOK,
 				 this);
 }

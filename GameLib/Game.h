@@ -9,19 +9,21 @@
 #define PROJECT1_GAMELIB_GAME_H
 
 #include <memory>
-#include <vector>
 
-#include "Item.h"
+using namespace std;
+
+class Item;
 
 
 class Game
 {
 private:
-//	/// Background image for Game
-//	std::unique_ptr<wxBitmap> mBackground;
-//
-//	/// All of the items in our Game
-//	std::vector<std::shared_ptr<Item>> mItems;
+	/// Background image for Game
+	std::unique_ptr<wxBitmap> mBackground;
+
+	/// All of the items in our Game
+	std::vector<std::shared_ptr<Item>> mItems;
+
 public:
 
 	/**
@@ -35,6 +37,7 @@ public:
 //	virtual ~Game() = default;
 
 	void OnDraw(wxDC *dc);
+
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

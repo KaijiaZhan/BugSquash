@@ -22,15 +22,10 @@ const int FrameDuration = 30;
 void GameView::Initialize(wxFrame* parent)
 {
 	Create(parent, wxID_ANY);
-	//SetBackgroundColour(*wxWHITE);
+	SetBackgroundColour(*wxWHITE);
+	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
 
-	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
-
-//	// Determine where the images are stored
-//	//auto standardPaths = wxStandardPaths::Get();
-//	wxStandardPaths& standardPaths = wxStandardPaths::Get();
-//	std::wstring resourcesDir = standardPaths.GetResourcesDir().ToStdWstring();
 //
 //	SetBackgroundStyle(wxBG_STYLE_PAINT);
 //
@@ -61,8 +56,8 @@ void GameView::OnPaint(wxPaintEvent& event)
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_NORMAL);
 	dc.SetFont(font);
-
 	dc.SetTextForeground(FontColor);
+
 	dc.DrawText(L"Fixed",  // Text to draw
 				50,     // x coordinate for the left size of the text
 				ScoreLabelY);    // y coordinate for the top of the text
@@ -74,6 +69,9 @@ void GameView::OnPaint(wxPaintEvent& event)
 	dc.DrawText(L"Oops",  // Text to draw
 				875,     // x coordinate for the left size of the text
 				ScoreLabelY);    // y coordinate for the top of the text
+
+	mGame.OnDraw(&dc);
+
 }
 
 ///**
