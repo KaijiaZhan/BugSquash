@@ -19,9 +19,17 @@ private:
 	/// The game the item is contained in
 	Game *mGame;
 
-	// Item location in the aquarium
+	/// Underlying Image
+	std::unique_ptr<wxImage> mItemImage;
+
+	/// The bitmap that can be displayed for the item
+	std::unique_ptr<wxImage> mItemBitmap;
+
+	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
 	double  mY = 0;     ///< Y location for the center of the item
+
+
 
 protected:
 	Item(Game *game);

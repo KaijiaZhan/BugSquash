@@ -10,6 +10,9 @@
 
 class Game;
 
+/// Laptop Image
+const std::wstring LaptopImage = L"laptop.png";
+
 using namespace std;
 
 /**
@@ -26,4 +29,19 @@ Item::Item(Game *game) : mGame(game)
 Item::~Item()
 {
 
+}
+
+
+/**
+ * Draw this item
+ * @param dc Device context to draw on
+ */
+void Item::Draw(wxDC *dc)
+{
+	double wid = mItemBitmap->GetWidth();
+	double hit = mItemBitmap->GetHeight();
+
+	dc->DrawBitmap(*mItemBitmap,
+				   int(GetX() - wid / 2),
+				   int(GetY() - hit / 2));
 }

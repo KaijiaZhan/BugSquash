@@ -22,18 +22,6 @@ private:
 	/// The game the bug is contained in
 	Game* mGame;
 
-	/// Underlying Bug Image
-	std::unique_ptr<wxImage> mBugImage;
-
-	/// The bitmap that can be displayed for the bug
-	std::unique_ptr<wxImage> mBugBitmap;
-
-	/// X location for Center of Bug
-	double mX = 0;
-
-	/// Y location for Center of Bug
-	double mY = 0;
-
 	/// Bug Speed in X direction
 	/// Pixels per second
 	double mSpeedX = 0;
@@ -67,17 +55,6 @@ public:
      */
     virtual void Draw(wxDC *dc) = 0;
 
-	/**
-     * The X location of the bug
-     * @return X location in pixels
-     */
-    double GetX() const { return mX; }
-
-    /**
-     * The Y location of the bug
-     * @return Y location in pixels
-     */
-    double GetY() const { return mY; }
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
