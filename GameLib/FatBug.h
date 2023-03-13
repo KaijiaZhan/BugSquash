@@ -10,6 +10,9 @@
 
 #include "BugCollection.h"
 
+/**
+ * Class for type GarbageBug
+ */
 class FatBug : public BugCollection
 {
 private:
