@@ -70,7 +70,7 @@ public:
 	 * Draw this item
 	 * @param dc Device context to draw on
 	 */
-	virtual void Draw(wxDC *dc) = 0;
+	virtual void Draw(wxDC *dc);
 
 };
 
