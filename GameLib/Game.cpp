@@ -9,6 +9,7 @@
 #include "pch.h"
 #include "Game.h"
 #include "Laptop.h"
+#include "Feature.h"
 
 using namespace std;
 
@@ -21,11 +22,20 @@ Game::Game()
 	// This creates a shared pointer pointing at this laptop
 	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
+	//temp
+	shared_ptr<Item> feature = make_shared<Feature>(this);
+
 	// Set the location
 	laptop->SetLocation(500, 400);
 
+	//temp
+	feature->SetLocation(500, 400);
+
 	// Add to the list of laptop.
 	mItems.push_back(laptop);
+
+	//temp
+	mItems.push_back(feature);
 
 }
 
