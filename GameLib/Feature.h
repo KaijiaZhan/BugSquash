@@ -16,7 +16,7 @@
 /**
  * Initializes the feature item
  */
-class Feature
+class Feature : public Item
 {
 private:
 	/// The underlying Feature image
@@ -36,7 +36,7 @@ public:
 
 	Feature(Game* game);
 
-	//void Draw(wxDC* dc) override;
+	void Draw(wxDC* dc) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H
