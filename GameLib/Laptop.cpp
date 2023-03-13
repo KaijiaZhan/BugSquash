@@ -1,6 +1,6 @@
 /**
  * @file Laptop.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  */
 
 #include "pch.h"
@@ -36,4 +36,11 @@ void Laptop::Draw(wxDC *dc)
 	dc->DrawBitmap(*mLaptopBitmap,
 	int(GetX() - wid / 2),
 	int(GetY() - hit / 2));
+	wxFont font(wxSize(0, 20),
+				wxFONTFAMILY_SWISS,
+				wxFONTSTYLE_NORMAL,
+				wxFONTWEIGHT_NORMAL);
+	dc->SetFont(font);
+	dc->SetTextForeground(wxColour(120, 0, 120));
+	dc->DrawText(L"BugSquash", int(GetX() - wid / 2), int(GetY() - hit / 2));
 }

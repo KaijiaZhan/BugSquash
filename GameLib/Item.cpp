@@ -6,10 +6,10 @@
 
 #include "pch.h"
 #include "Item.h"
+#include "Game.h"
 
 #include <string>
 
-class Game;
 
 using namespace std;
 

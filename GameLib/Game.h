@@ -5,12 +5,12 @@
  * @author Kaijia Joanna Zhan
  */
 
+
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
 #include <memory>
-
-using namespace std;
+#include <string>
 
 class Item;
 
