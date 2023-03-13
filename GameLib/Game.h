@@ -11,6 +11,7 @@
 
 #include <memory>
 #include <string>
+#include "item.h"
 
 class Item;
 

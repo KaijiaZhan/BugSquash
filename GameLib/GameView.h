@@ -17,6 +17,7 @@ private:
 	void OnTimer(wxTimerEvent& event);
 	void OnLeftDown(wxMouseEvent &event);
 	void OnLeftUp(wxMouseEvent& event);
+	void OnLeftDoubleClick(wxMouseEvent &event);
 
 	void OnPaint(wxPaintEvent& event);
 

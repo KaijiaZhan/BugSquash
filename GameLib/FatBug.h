@@ -10,6 +10,9 @@
 
 #include "BugCollection.h"
 
+/**
+ * Class for type Fatbug
+ */
 class FatBug : public BugCollection
 {
 private:
@@ -19,7 +22,7 @@ private:
 	/// The bitmap we can display for this bug
 	std::unique_ptr<wxBitmap> mFatNullBitImage;
 
-	/// The underlying fatnull image
+	/// The underlying fatgarbage image
 	std::unique_ptr<wxImage> mFatGarbageImage;
 
 	/// The bitmap we can display for this bug

@@ -26,17 +26,16 @@ void GameView::Initialize(wxFrame* parent)
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
 
-//
-//	SetBackgroundStyle(wxBG_STYLE_PAINT);
-//
-//	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
-//	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
-//	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
-//
-//
-//	mTimer.SetOwner(this);
-//	mTimer.Start(FrameDuration);
-//	mStopWatch.Start();
+
+	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
+	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
+	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
+	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
+
+
+	mTimer.SetOwner(this);
+	mTimer.Start(FrameDuration);
+	mStopWatch.Start();
 }
 
 /**
@@ -74,27 +73,35 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 }
 
-///**
-// * Handle the left mouse button down event
-// * @param event
-// */
-//void GameView::OnLeftDown(wxMouseEvent &event)
-//{
-//}
-//
-///**
-//* Handle the left mouse button down event
-//* @param event
-//*/
-//void GameView::OnLeftUp(wxMouseEvent &event)
-//{
-//}
-//
-///**
-// * Handle timer events
-// * @param event timer event
-// */
-//void GameView::OnTimer(wxTimerEvent& event)
-//{
-//	Refresh();
-//}
+/**
+ * Handle the left mouse button down event
+ * @param event
+ */
+void GameView::OnLeftDown(wxMouseEvent &event)
+{
+}
+
+/**
+* Handle the left mouse button down event
+* @param event
+*/
+void GameView::OnLeftUp(wxMouseEvent &event)
+{
+}
+
+/**
+* Handle the left mouse double click event
+* @param event
+*/
+void GameView::OnLeftDoubleClick(wxMouseEvent &event)
+{
+}
+
+/**
+ * Handle timer events
+ * @param event timer event
+ */
+void GameView::OnTimer(wxTimerEvent& event)
+{
+	Refresh();
+}
