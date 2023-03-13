@@ -1,6 +1,7 @@
 /**
  * @file RedundancyFly.h
  * @author Courtney Thang
+ * @author Parker Morgan
  *
  * Initializes the Redundancy Fly in the game
  */
@@ -24,7 +25,8 @@ private:
 	std::unique_ptr<wxImage> mFlyRightWingImage;
 	/// The underlying fly top image
 	std::unique_ptr<wxImage> mFlyTopImage;
-
+	/// The underlying fly splat image
+	std::unique_ptr<wxImage> mFlySplat;
 	/// The bitmap we can display for this fly
 	std::unique_ptr<wxBitmap> mFlyBitmap;
 

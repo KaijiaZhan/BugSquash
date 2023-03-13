@@ -2,6 +2,7 @@
  * @file RedundancyFly.cpp
  * @author Courtney Thang
  * @author Joanna Rodriguez
+ * @author Parker Morgan
  */
 
 #include "pch.h"
@@ -27,6 +28,15 @@ RedundancyFly::RedundancyFly(Game *game) : Item(game, FlyBaseImage)
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);
 	mFlyBitmap = make_unique<wxBitmap>(*mFlyBaseImage);
+	mFlyLeftWingImage = make_unique<wxImage>(FlyLeftWing, wxBITMAP_TYPE_ANY);
+	//mFlyBitmap = make_unique<wxBitmap>(*mFlyLeftWingImage);
+	mFlyRightWingImage = make_unique<wxImage>(FlyRightWing, wxBITMAP_TYPE_ANY);
+	//mFlyBitmap = make_unique<wxBitmap>(*mFlyRightWingImage);
+	mFlyTopImage = make_unique<wxImage>(FlyTopImage, wxBITMAP_TYPE_ANY);
+	//mFlyBitmap = make_unique<wxBitmap>(*mFlyTopImage);
+	mFlySplat = make_unique<wxImage>(FlySplat, wxBITMAP_TYPE_ANY);
+	//mFlyBitmap = make_unique<wxBitmap>(*mFlySplat);
+
 }
 
 
