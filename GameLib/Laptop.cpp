@@ -30,10 +30,10 @@ Laptop::Laptop(Game *game) : Item(game, LaptopImage)
  */
 void Laptop::Draw(wxDC *dc)
 {
-//	double wid = mLaptopBitmap->GetWidth();
-//	double hit = mLaptopBitmap->GetHeight();
-//
-//	dc->DrawBitmap(*mLaptopBitmap,
-//	int(GetX() - wid / 2),
-//	int(GetY() - hit / 2));
+	double wid = mLaptopBitmap->GetWidth();
+	double hit = mLaptopBitmap->GetHeight();
+
+	dc->DrawBitmap(*mLaptopBitmap,
+	int(GetX() - wid / 2),
+	int(GetY() - hit / 2));
 }

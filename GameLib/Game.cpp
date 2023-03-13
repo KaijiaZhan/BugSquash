@@ -22,7 +22,7 @@ Game::Game()
 	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
 	// Set the location
-	laptop->SetLocation(50, 150);
+	laptop->SetLocation(500, 400);
 
 	// Add to the list of laptop.
 	mItems.push_back(laptop);
