@@ -17,13 +17,12 @@ using namespace std;
 */
 Game::Game()
 {
-
 }
 
-//**
-// * Draw the game
-// * @param dc The device context to draw on
-// */
+/**
+ * Draw the game
+ * @param dc The device context to draw on
+ */
 void Game::OnDraw(wxDC *dc)
 {
 	for (auto item : mItems)
