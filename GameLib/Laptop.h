@@ -15,6 +15,11 @@ class Laptop : public Item
 {
 private:
 
+	/// The laptop image
+	std::unique_ptr<wxImage> mLaptopImage;
+	/// The laptop bitmap
+	std::unique_ptr<wxBitmap> mLaptopBitmap;
+
 protected:
 
 public:
@@ -34,7 +39,7 @@ public:
 	 * Draw this item
 	 * @param dc Device context to draw on
 	 */
-	virtual void Draw(wxDC *dc) = 0;
+	void Draw(wxDC *dc) override;
 
 };
 

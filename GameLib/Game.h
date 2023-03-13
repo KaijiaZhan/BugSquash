@@ -24,6 +24,9 @@ private:
 
 public:
 
+	/**
+	 * Constructor
+	 */
 	Game();
 
 	void OnDraw(wxDC *dc);

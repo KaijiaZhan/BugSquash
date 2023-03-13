@@ -7,6 +7,8 @@
 #include "Laptop.h"
 #include <string>
 
+using namespace std;
+
 class Game;
 
 /// Laptop Image
@@ -18,6 +20,8 @@ const std::wstring LaptopImage = L"images/laptop.png";
  */
 Laptop::Laptop(Game *game) : Item(game, LaptopImage)
 {
+	mLaptopImage = make_unique<wxImage>(LaptopImage, wxBITMAP_TYPE_ANY);
+	mLaptopBitmap = make_unique<wxBitmap>(*mLaptopImage);
 }
 
 /**
