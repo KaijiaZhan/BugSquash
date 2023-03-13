@@ -17,15 +17,15 @@ using namespace std;
 */
 Game::Game()
 {
-//	// Create a new laptop.
-//	// This creates a shared pointer pointing at this laptop
-//	shared_ptr<Item> Laptop = make_shared<Laptop>(this);
-//
-//	// Set the location
-//	Laptop->SetLocation(50, 150);
-//
-//	// Add to the list of laptop.
-//	mItems.push_back(Laptop);
+	// Create a new laptop.
+	// This creates a shared pointer pointing at this laptop
+	shared_ptr<Item> laptop = make_shared<Laptop>(this);
+
+	// Set the location
+	laptop->SetLocation(50, 150);
+
+	// Add to the list of laptop.
+	mItems.push_back(laptop);
 
 }
 
