@@ -105,3 +105,5 @@ void GameView::OnTimer(wxTimerEvent& event)
 {
 	Refresh();
 }
+
+

@@ -72,10 +72,10 @@ void MainFrame::OnExit(wxCommandEvent& event)
 }
 
 
-//do we need this?
-void OnMinimize(wxCommandEvent& event)
-{
-}
+////do we need this?
+//void OnMinimize(wxCommandEvent& event)
+//{
+//}
 
 /**
  * About menu option handler

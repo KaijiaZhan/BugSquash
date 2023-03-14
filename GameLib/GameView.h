@@ -11,7 +11,9 @@
 #include <wx/wx.h>
 #include "Game.h"
 
-
+/**
+ * Class that is the view of our Game
+ */
 class GameView : public wxWindow {
 private:
 	void OnTimer(wxTimerEvent& event);
@@ -58,7 +60,7 @@ private:
 public:
 	void Initialize(wxFrame *mainFrame);
 
-	void Stop() {mTimer.Stop();}
+	//void Stop() {mTimer.Stop();}
 
 };
 

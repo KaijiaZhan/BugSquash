@@ -34,8 +34,20 @@ private:
 	bool mMirror = false;
 
 protected:
+
+	/**
+ 	 * Constructor
+     * @param game The game this item is a member of
+     * @param filename The name of the file to display for this item
+     * Move these comments to cpp once the BugCollection Constructor is in the cpp file
+     */
 	BugCollection(Game *game, const std::wstring &filename);
 
+	/**
+     * Constructor
+     * @param pGame The aquarium this item is a member of
+     * Move these comments to cpp once the BugCollection Constructor is in the cpp file
+     */
 	BugCollection(Game *pGame);
 
 public:

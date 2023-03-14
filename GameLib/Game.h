@@ -15,7 +15,9 @@
 
 class Item;
 
-
+/**
+ * Class game that holds all of the items
+ */
 class Game
 {
 private:
