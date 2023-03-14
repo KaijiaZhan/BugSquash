@@ -27,7 +27,7 @@ private:
 
 	///Command event for when the user presses the minimize, as doing so, we must show the bugs position before
 		///they appear on the main window, do we need this?
-	void OnMinimize(wxCommandEvent& event);
+	//void OnMinimize(wxCommandEvent& event);
 
 public:
 	///creates the frame for our game

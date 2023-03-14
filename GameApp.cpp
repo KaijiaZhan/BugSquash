@@ -14,7 +14,10 @@
 #include <crtdbg.h>
 #endif
 
-
+/**
+ * OnInit initialize function
+ * @return bool
+ */
 bool GameApp::OnInit()
 {
 

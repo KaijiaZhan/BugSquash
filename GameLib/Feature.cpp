@@ -12,8 +12,10 @@ using namespace std;
 
 class Game;
 
+/// Feature filename
+const wstring FeatureImage = L"feature.png";
+
 /// Feature filenames
-const wstring FeatureImage = L"images/feature.png";
 const wstring FeatureSplat = L"feature-splat.png";
 
 /**

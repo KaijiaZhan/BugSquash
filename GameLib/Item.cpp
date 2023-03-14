@@ -16,6 +16,7 @@ using namespace std;
 /**
  * Constructor
  * @param game The game this item is a member of
+ * @param filename that the item is taking the image of
  */
 Item::Item(Game *game, const std::wstring &filename) : mGame(game)
 {

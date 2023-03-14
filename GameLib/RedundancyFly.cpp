@@ -12,11 +12,19 @@
 #include <string>
 using namespace std;
 
-/// Redundancy fly filenames
+/// Redundancy fly filename
 const wstring FlyBaseImage = L"images/redundancy-fly-base.png";
+
+/// Redundancy fly filename
 const wstring FlyLeftWing = L"images/redundancy-fly-lwing.png";
+
+/// Redundancy fly filename
 const wstring FlyRightWing = L"images/redundancy-fly-rwing.png";
+
+/// Redundancy fly filename
 const wstring FlyTopImage = L"images/redundancy-fly-top.png";
+
+/// Redundancy fly filename
 const wstring FlySplat = L"images/redundancy-fly-splat.png";
 
 /**

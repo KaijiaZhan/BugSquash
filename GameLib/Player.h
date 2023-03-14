@@ -8,6 +8,9 @@
 #ifndef PROJECT1_GAMELIB_PLAYER_H
 #define PROJECT1_GAMELIB_PLAYER_H
 
+/**
+ * Class that is our Player
+ */
 class Player
 {
 private:

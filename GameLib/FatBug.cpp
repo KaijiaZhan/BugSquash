@@ -13,16 +13,16 @@
 using namespace std;
 
 /// The bug sprite image
-const wstring GarbageBugSpriteImageName = L"blue-maize-bug.png";
+const wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
 
 /// The splat image
-const wstring GarbageBugSplatImageName = L"blue-maize-splat.png";
+const wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 
 /// The bug sprite image
-const std::wstring NullBugSpriteImageName = L"scarlet-gray-bug.png";
+const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
 
 /// The splat image
-const std::wstring NullBugSplatImageName = L"scarlet-gray-splat.png";
+const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
 
 /**
  * Constructor

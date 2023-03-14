@@ -18,6 +18,7 @@ class GameApp : public wxApp
 private:
 
 public:
+	/// OnInit function initialize
 	bool OnInit() override;
 };
 

@@ -8,6 +8,9 @@
 #ifndef PROJECT1_GAMELIB_IDE_H
 #define PROJECT1_GAMELIB_IDE_H
 
+/**
+ * Class that is our IDE
+ */
 class IDE
 {
 private:
