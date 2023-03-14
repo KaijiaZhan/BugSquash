@@ -8,9 +8,13 @@
 #ifndef PROJECT1_GAMELIB_PCH_H
 #define PROJECT1_GAMELIB_PCH_H
 
-#include <wx/wxprec.h>
+
 #ifndef WX_PRECOMP
+#include <wx/wxprec.h>
+
 #include <wx/wx.h>
+#include <wx/xml/xml.h>
+
 #endif
 
 #endif //PROJECT1_GAMELIB_PCH_H

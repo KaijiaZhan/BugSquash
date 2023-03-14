@@ -55,6 +55,8 @@ public:
      */
     virtual void Draw(wxDC *dc) = 0;
 
+	virtual void XmlLoad(wxXmlNode *node); //override;
+
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
