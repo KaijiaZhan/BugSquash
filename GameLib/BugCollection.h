@@ -24,14 +24,14 @@ private:
 
 	/// Bug Speed in X direction
 	/// Pixels per second
-	double mSpeedX = 10;
+	double mSpeedX = 50;
 
 	/// Bug Speed in Y direction
 	/// Pixels per second
-	double mSpeedY = 0;
+	double mSpeedY = 50;
 
 	/// Elapsed Time that the bug should start to move
-	double mStartTime = 0;
+	double mStartTime = 3;
 
 	/// If true the item is mirrored
 	bool mMirror = false;
@@ -70,7 +70,7 @@ public:
 //     */
 //    virtual void Draw(wxDC *dc) = 0;
 
-	void Update(double elapsed);
+	void Update(double elapsed, long totalTime);
 
 	virtual void XmlLoad(wxXmlNode *node); //override;
 

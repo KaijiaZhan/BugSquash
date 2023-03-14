@@ -57,10 +57,10 @@ void Game::OnDraw(wxDC *dc)
  * Handle updates for animation
  * @param elapsed The time since the last update
  */
-void Game::Update(double elapsed)
+void Game::Update(double elapsed, long totalTime)
 {
 	for (auto item : mItems)
 	{
-		item->Update(elapsed);
+		item->Update(elapsed, totalTime);
 	}
 }

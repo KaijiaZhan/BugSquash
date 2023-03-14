@@ -74,7 +74,7 @@ public:
 	 */
 	virtual void Draw(wxDC *dc);
 
-	virtual void Update(double elapsed) {}
+	virtual void Update(double elapsed, long totalTime) {}
 
 };
 

@@ -50,7 +50,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 	auto elapsed = (double)(newTime - mTime) * 0.001;
 	mTime = newTime;
 
-	mGame.Update(elapsed);
+	mGame.Update(elapsed, mTime);
 
 
 	wxAutoBufferedPaintDC dc(this);

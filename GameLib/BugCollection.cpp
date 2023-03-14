@@ -25,18 +25,17 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
  * of time that has elapsed.
  * @param elapsed Time elapsed since the class call
  */
-void BugCollection::Update(double elapsed)
+void BugCollection::Update(double elapsed, long totalTime)
 {
 
 	double angle = atan2(400-GetY(), 500-GetX());
-	if (elapsed > mStartTime)
+	if (totalTime > mStartTime*1000)
 	{
-//		SetLocation(GetX() + mSpeedX * (elapsed - mStartTime) * cos(angle),
-//					GetY() + mSpeedY * (elapsed - mStartTime) * sin(angle));
+		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),
+					GetY() + mSpeedY * (elapsed) * sin(angle));
 
 	}
-	SetLocation(GetX() + mSpeedX * elapsed,
-				GetY() + mSpeedY * elapsed);
+
 
 
 }
