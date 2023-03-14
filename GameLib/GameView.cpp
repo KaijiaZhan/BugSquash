@@ -23,8 +23,9 @@ void GameView::Initialize(wxFrame* parent)
 {
 	Create(parent, wxID_ANY);
 	SetBackgroundColour(*wxWHITE);
-	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
+	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
+
 
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
@@ -44,6 +45,14 @@ void GameView::Initialize(wxFrame* parent)
  */
 void GameView::OnPaint(wxPaintEvent& event)
 {
+
+	auto newTime = mStopWatch.Time();
+	auto elapsed = (double)(newTime - mTime) * 0.001;
+	mTime = newTime;
+
+	mGame.Update(elapsed);
+
+
 	wxAutoBufferedPaintDC dc(this);
 
 	wxBrush background(*wxWHITE);
@@ -70,6 +79,9 @@ void GameView::OnPaint(wxPaintEvent& event)
 				ScoreLabelY);    // y coordinate for the top of the text
 
 	mGame.OnDraw(&dc);
+
+
+
 
 }
 

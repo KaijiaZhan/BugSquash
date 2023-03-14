@@ -8,8 +8,8 @@
 #include "pch.h"
 #include "RedundancyFly.h"
 #include "Game.h"
-
 #include <string>
+
 using namespace std;
 
 /// Redundancy fly filename
@@ -31,7 +31,7 @@ const wstring FlySplat = L"images/redundancy-fly-splat.png";
  * Constructor
  * @param game Game this fly is a member of
  */
-RedundancyFly::RedundancyFly(Game *game) : Item(game, FlyBaseImage)
+RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 {
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);

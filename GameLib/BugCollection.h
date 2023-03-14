@@ -24,11 +24,14 @@ private:
 
 	/// Bug Speed in X direction
 	/// Pixels per second
-	double mSpeedX = 0;
+	double mSpeedX = 10;
 
 	/// Bug Speed in Y direction
 	/// Pixels per second
 	double mSpeedY = 0;
+
+	/// Elapsed Time that the bug should start to move
+	double mStartTime = 0;
 
 	/// If true the item is mirrored
 	bool mMirror = false;
@@ -61,11 +64,13 @@ public:
 	/// Assignment operator
 	void operator=(const BugCollection &) = delete;
 
-	/**
-     * Draw this item
-     * @param dc Device context to draw on
-     */
-    virtual void Draw(wxDC *dc) = 0;
+//	/**
+//     * Draw this item
+//     * @param dc Device context to draw on
+//     */
+//    virtual void Draw(wxDC *dc) = 0;
+
+	void Update(double elapsed);
 
 	virtual void XmlLoad(wxXmlNode *node); //override;
 

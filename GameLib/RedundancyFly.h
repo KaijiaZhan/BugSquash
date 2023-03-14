@@ -9,12 +9,15 @@
 #ifndef PROJECT1_GAMELIB_REDUNDANCYFLY_H
 #define PROJECT1_GAMELIB_REDUNDANCYFLY_H
 
-#include "Item.h"
+#include "Game.h"
+#include "BugCollection.h"
+
+#include "GameView.h"
 
 /**
  * Initializes the Redundancy Fly in the game
  */
-class RedundancyFly : public Item
+class RedundancyFly : public BugCollection
 {
 private:
 	/// The underlying fly image

@@ -13,10 +13,10 @@ using namespace std;
 class Game;
 
 /// Feature filename
-const wstring FeatureImage = L"feature.png";
+const wstring FeatureImage = L"images/feature.png";
 
 /// Feature filenames
-const wstring FeatureSplat = L"feature-splat.png";
+const wstring FeatureSplat = L"images/feature-splat.png";
 
 /**
  * Constructor

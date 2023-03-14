@@ -74,6 +74,8 @@ public:
 	 */
 	virtual void Draw(wxDC *dc);
 
+	virtual void Update(double elapsed) {}
+
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

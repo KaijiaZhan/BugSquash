@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "Laptop.h"
 #include "Feature.h"
+#include "RedundancyFly.h"
 
 using namespace std;
 
@@ -23,19 +24,19 @@ Game::Game()
 	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
 	//temp
-	shared_ptr<Item> feature = make_shared<Feature>(this);
+	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
 
 	// Set the location
 	laptop->SetLocation(500, 400);
 
 	//temp
-	feature->SetLocation(500, 400);
+	rfly->SetLocation(200, 100);
 
 	// Add to the list of laptop.
 	mItems.push_back(laptop);
 
 	//temp
-	mItems.push_back(feature);
+	mItems.push_back(rfly);
 
 }
 
@@ -48,5 +49,18 @@ void Game::OnDraw(wxDC *dc)
 	for (auto item : mItems)
 	{
 		item->Draw(dc);
+	}
+}
+
+
+/**
+ * Handle updates for animation
+ * @param elapsed The time since the last update
+ */
+void Game::Update(double elapsed)
+{
+	for (auto item : mItems)
+	{
+		item->Update(elapsed);
 	}
 }

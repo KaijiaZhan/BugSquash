@@ -33,6 +33,7 @@ public:
 	Game();
 
 	void OnDraw(wxDC *dc);
+	void Update(double elapsed);
 
 };
 
