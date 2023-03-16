@@ -84,6 +84,38 @@ std::shared_ptr<Item> Game::HitTest(int x, int y)
 //
 	return  nullptr;
 }
+/**
+ * Load the aquarium from a .aqua XML file.
+ *
+ * Opens the XML file and reads the nodes, creating items as appropriate.
+ *
+ * @param filename The filename of the file to load the aquarium from.
+ */
+void Game::Load(const wxString &filename)
+{
+	wxXmlDocument xmlDoc;
+	if(!xmlDoc.Load(filename))
+	{
+		wxMessageBox(L"Unable to load level file.");
+		return;
+	}
+
+	Clear();
+
+	auto root = xmlDoc.GetRoot();
+
+	auto child = root->GetChildren();
+
+	for( ; child; child=child->GetNext())
+	{
+		auto name = child->GetName();
+		if(name == L"item")
+		{
+			// uncomment when parker is done with XmlItem function
+			// XmlItem(child);
+		}
+	}
+}
 
 /**
  * Clear the game data

@@ -36,6 +36,8 @@ public:
 	void Update(double elapsed, long totalTime);
 	std::shared_ptr<Item> HitTest(int x, int y);
 
+	void Load(const wxString &filename);
+
 
 	/// Initializing clearing the old data
 	void Clear();
