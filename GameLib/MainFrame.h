@@ -19,22 +19,16 @@ class GameView;
 class MainFrame : public wxFrame
 {
 private:
-	/// View class for our city; possibly not needed?
-	//GameView *mGameView;
 
 	///Command event for when the user wants to exit the game
 	void OnExit(wxCommandEvent& event);
 
-	///Command event for when the user presses the minimize, as doing so, we must show the bugs position before
-		///they appear on the main window, do we need this?
-	//void OnMinimize(wxCommandEvent& event);
+	///Command event for when the user wants to read about the game
+	void OnAbout(wxCommandEvent& event);
 
 public:
 	///creates the frame for our game
 	void Initialize();
-
-	void OnAbout(wxCommandEvent& event);
-
 };
 
 #endif //PROJECT1_GAMELIB_MAINFRAME_H
