@@ -40,16 +40,13 @@ void MainFrame::Initialize()
 	auto fileMenu = new wxMenu();
 	auto helpMenu = new wxMenu();
 
-	// Bug menu option is to test if populating the bugs work to see if they draw
-	auto bugMenu = new wxMenu();
-
 	menuBar->Append(fileMenu, L"&File" );
-
-	// Delete bugMenu when done testing populating bugs
-	menuBar->Append(bugMenu, L"&Add Bug");
 	menuBar->Append(helpMenu, L"&Help");
 
+	fileMenu->Append(wxID_OPEN, "Open &File...\tCtrl-F", L"Open level file...");
+	fileMenu->Append(wxID_SAVEAS, "Save &As...\tCtrl-S", L"Save game as...");
 	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
+
 	helpMenu->Append(wxID_ABOUT, "&About\tF1", "Show about dialog");
 
 	SetMenuBar( menuBar );
@@ -58,7 +55,6 @@ void MainFrame::Initialize()
 
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);
-
 
 }
 
@@ -70,12 +66,6 @@ void MainFrame::OnExit(wxCommandEvent& event)
 {
 	Close(true);
 }
-
-
-////do we need this?
-//void OnMinimize(wxCommandEvent& event)
-//{
-//}
 
 /**
  * About menu option handler
