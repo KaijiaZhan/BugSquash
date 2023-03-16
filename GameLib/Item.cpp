@@ -46,3 +46,25 @@ void Item::Draw(wxDC *dc)
 				   int(GetX() - wid / 2),
 				   int(GetY() - hit / 2));
 }
+
+/**
+ * Test to see if we hit this object with a mouse.
+ * @param x X position to test
+ * @param y Y position to test
+ * @return true if hit.
+ */
+bool Item::HitTest(int x, int y)
+{
+	double width = mItemBitmap->GetWidth();
+	double height = mItemBitmap->GetHeight();
+
+	double testX = x - GetX() + width / 2;
+	double testY = y - GetY() + height / 2;
+
+	if (testX < 0 || testY < 0 || testX >= width || testY >= height)
+	{
+		return false;
+	}
+
+	return !mItemImage->IsTransparent((int)testX, (int)testY);
+}

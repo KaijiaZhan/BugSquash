@@ -76,6 +76,8 @@ public:
 
 	virtual void Update(double elapsed, long totalTime) {}
 
+	virtual bool HitTest(int x, int y);
+
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
