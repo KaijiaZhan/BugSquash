@@ -38,9 +38,11 @@ public:
 
 	void Load(const wxString &filename);
 
-
 	/// Initializing clearing the old data
 	void Clear();
+
+	/// Adds new bug to the game
+	void Add(std::shared_ptr<Item> item);
 
 };
 
