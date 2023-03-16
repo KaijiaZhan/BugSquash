@@ -125,3 +125,22 @@ void Game::Clear()
 {
 	mItems.erase(mItems.begin(), mItems.end());
 }
+
+/**
+ * Add an item to the game
+ * @param item New item to add
+ */
+void Game::Add(std::shared_ptr<Item> item)
+{
+    auto nextBug = 50;
+    item->SetLocation(10, 10);
+
+    for (auto bugs : mItems)
+    {
+        for (auto bug : mItems)
+        {
+            item->SetLocation(item->GetX() + nextBug, item->GetY() + nextBug);
+        }
+    }
+    mItems.push_back(item);
+}
