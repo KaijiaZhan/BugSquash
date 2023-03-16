@@ -35,6 +35,9 @@ public:
 	void OnDraw(wxDC *dc);
 	void Update(double elapsed, long totalTime);
 
+	/// Initializing clearing the old data
+	void Clear();
+
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

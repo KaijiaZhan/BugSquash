@@ -64,3 +64,12 @@ void Game::Update(double elapsed, long totalTime)
 		item->Update(elapsed, totalTime);
 	}
 }
+
+/**
+ * Clear the aquarium data
+ * Deletes all known items in the aquarium
+*/
+void Game::Clear()
+{
+	mItems.erase(mItems.begin(), mItems.end());
+}
