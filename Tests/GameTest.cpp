@@ -145,3 +145,26 @@ TEST(BugTest, HitTest) {
 //	// On a bug transparent pixel
 //	ASSERT_FALSE(bug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
 }
+
+TEST_F(GameTest, Clear)
+{
+	// Create a path to temporary files
+	auto path = TempPath();
+
+	// Create a game
+	Game game;
+
+	// Populate it
+	PopulateThreeFlies(&game);
+
+	// Clear the items in the game
+	game.Clear();
+
+	// First test, saving an empty game
+	auto file1 = path + L"/test1.game";
+
+	//game.Save(file1);
+
+	//TestEmpty(file1);
+
+}
