@@ -34,6 +34,8 @@ public:
 
 	void OnDraw(wxDC *dc);
 	void Update(double elapsed, long totalTime);
+	std::shared_ptr<Item> HitTest(int x, int y);
+
 
 	/// Initializing clearing the old data
 	void Clear();

@@ -1,7 +1,7 @@
 project(Tests)
 
 set(TEST_FILES
-        GameTest.cpp)
+        EmptyTest.cpp GameTest.cpp)
 
 # Get Google Tests
 include(FetchContent)
@@ -20,13 +20,6 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 # adding the Tests_run target
 add_executable(Tests_run ${TEST_FILES})
-
-add_subdirectory(${CMAKE_BINARY_DIR}/googletest)
-
-target_link_libraries(${PROJECT_TEST_NAME}
-        gtest
-        gtest_main
-        )
 
 # linking Tests_run with library which will be tested and wxWidgets
 target_link_libraries(Tests_run ${APPLICATION_LIBRARY} ${wxWidgets_LIBRARIES} )

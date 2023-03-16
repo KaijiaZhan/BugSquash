@@ -66,8 +66,28 @@ void Game::Update(double elapsed, long totalTime)
 }
 
 /**
- * Clear the aquarium data
- * Deletes all known items in the aquarium
+ * Test an x,y click location to see if it clicked
+ * on some item in the game.
+ * @param x X location in pixels
+ * @param y Y location in pixels
+ * @returns Pointer to item we clicked on or nullptr if none.
+*/
+std::shared_ptr<Item> Game::HitTest(int x, int y)
+{
+//	for (auto i = mItems.rbegin(); i != mItems.rend();  i++)
+//	{
+//		if ((*i)->HitTest(x, y))
+//		{
+//			return *i;
+//		}
+//	}
+//
+	return  nullptr;
+}
+
+/**
+ * Clear the game data
+ * Deletes all known items in the game
 */
 void Game::Clear()
 {
