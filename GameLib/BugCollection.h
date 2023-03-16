@@ -74,6 +74,12 @@ public:
 
 	virtual void XmlLoad(wxXmlNode *node); //override;
 
+	/**
+	 * Set the item speed
+	 * @param x SpeedX*x in pixels
+	 * @param y SpeedY*y in pixels
+	 */
+	 virtual void SetSpeed(double x, double y) { mSpeedX=mSpeedX * x; mSpeedY=mSpeedY *y;};
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
