@@ -85,11 +85,11 @@ std::shared_ptr<Item> Game::HitTest(int x, int y)
 	return  nullptr;
 }
 /**
- * Load the aquarium from a .aqua XML file.
+ * Load the game level from an XML file.
  *
  * Opens the XML file and reads the nodes, creating items as appropriate.
  *
- * @param filename The filename of the file to load the aquarium from.
+ * @param filename The filename of the file to load the game level from.
  */
 void Game::Load(const wxString &filename)
 {

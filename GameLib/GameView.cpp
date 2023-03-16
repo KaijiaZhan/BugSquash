@@ -26,13 +26,11 @@ void GameView::Initialize(wxFrame* parent)
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 
-
-
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
-
+	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnFileOpen, this, wxID_OPEN);
 
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
@@ -80,9 +78,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	mGame.OnDraw(&dc);
 
-
-
-
 }
 
 /**
@@ -116,6 +111,25 @@ void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 void GameView::OnTimer(wxTimerEvent& event)
 {
 	Refresh();
+}
+
+/**
+ * File>Open menu handler
+ * @param event Menu event
+ */
+void GameView::OnFileOpen(wxCommandEvent& event)
+{
+	wxFileDialog loadFileDialog(this, L"Load game level file", L"", L"",
+								L"Level Files (*.xml)|*.xml", wxFD_OPEN);
+	if (loadFileDialog.ShowModal() == wxID_CANCEL)
+	{
+		return;
+	}
+
+	auto filename = loadFileDialog.GetPath();
+	mGame.Load(filename);
+	Refresh();
+
 }
 
 
