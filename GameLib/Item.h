@@ -35,7 +35,7 @@ private:
 
 
 protected:
-	Item(Game *game, const std::wstring &filename);
+	Item(Game *game, const std::wstring image);
 
 public:
 	virtual ~Item();
@@ -72,7 +72,7 @@ public:
 	 * Draw this item
 	 * @param dc Device context to draw on
 	 */
-	virtual void Draw(wxDC *dc);
+	virtual void Draw(wxDC *dc) = 0;
 
 	virtual void Update(double elapsed, long totalTime) {}
 

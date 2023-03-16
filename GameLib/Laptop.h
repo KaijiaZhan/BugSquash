@@ -9,7 +9,7 @@
 #define PROJECT1_GAMELIB_LAPTOP_H
 
 #include "Item.h"
-class Game;
+
 
 /**
  * Class that is our Laptop/program Item

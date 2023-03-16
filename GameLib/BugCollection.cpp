@@ -48,3 +48,14 @@ void BugCollection::XmlLoad(wxXmlNode *node)
 	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
 }
 
+/**
+ * Save the game as a .game XML file.
+ *
+ * Open an XML file and stream the game data to it.
+ *
+ * @param filename The filename of the file to save the game to
+ */
+void BugCollection::Save(const wxString &filename)
+{
+
+}
