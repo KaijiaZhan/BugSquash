@@ -80,8 +80,6 @@ public:
 
 	virtual void XmlLoad(wxXmlNode *node);
 
-	void Item::Save(const wxString &filename);
-
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

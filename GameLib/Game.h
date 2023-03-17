@@ -47,6 +47,8 @@ public:
 
 	void Game::XmlItem(wxXmlNode *node);
 
+	void Game::Save(const wxString &filename);
+
 
 };
 

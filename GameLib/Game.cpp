@@ -155,15 +155,39 @@ void Game::XmlItem(wxXmlNode *node)
 	shared_ptr<Item> item;
 
 	auto type = node->GetAttribute(L"type");
-	//dont know how to implement this with bugs
-//	if (type == L"beta")
-//	{
-//		item = make_shared<FishBeta>(this);
-//	}
-//
+
+		if (type == L"redundancyfly")
+	{
+		item = make_shared<RedundancyFly>(this);
+	}
+
 	if (item != nullptr)
 	{
 		Add(item);
 		item->XmlLoad(node);
+	}
+}
+
+/**
+* @param filename The filename of the file to save the aquarium to
+*/
+void Game::Save(const wxString &filename)
+{
+	wxXmlDocument xmlDoc;
+
+	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"item");
+	xmlDoc.SetRoot(root);
+
+
+	// dont know how to implement this
+//	for (auto item : mItems)
+//	{
+//		item->XmlSave(root);
+//	}
+
+	if(!xmlDoc.Save(filename, wxXML_NO_INDENTATION))
+	{
+		wxMessageBox(L"Write to XML failed");
+		return;
 	}
 }
