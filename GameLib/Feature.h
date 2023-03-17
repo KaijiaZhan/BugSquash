@@ -34,8 +34,10 @@ public:
 	/// Assignment operator
 	void operator=(const Feature &) = delete;
 
+	/// Constructor
 	Feature(Game* game);
 
+	/// Draws feature 
 	void Draw(wxDC* dc) override;
 };
 
