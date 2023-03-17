@@ -113,7 +113,7 @@ void Game::Load(const wxString &filename)
 		if(name == L"item")
 		{
 			// uncomment when parker is done with XmlItem function
-			// XmlItem(child);
+			 XmlItem(child);
 		}
 	}
 }
@@ -152,19 +152,18 @@ void Game::Add(std::shared_ptr<Item> item)
  */
 void Game::XmlItem(wxXmlNode *node)
 {
-	// A pointer for the item we are loading
 	shared_ptr<Item> item;
 
-	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
+	//dont know how to implement this with bugs
 //	if (type == L"beta")
 //	{
 //		item = make_shared<FishBeta>(this);
 //	}
 //
-//	if (item != nullptr)
-//	{
-//		Add(item);
-//		item->XmlLoad(node);
-//	}
+	if (item != nullptr)
+	{
+		Add(item);
+		item->XmlLoad(node);
+	}
 }

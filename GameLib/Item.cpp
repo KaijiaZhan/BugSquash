@@ -92,7 +92,8 @@ void Item::Save(const wxString &filename)
 	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"item");
 	xmlDoc.SetRoot(root);
 
-	// Iterate over all items and save them
+
+	// dont know how to implement this
 //	for (auto item : mItems)
 //	{
 //		item->XmlSave(root);
