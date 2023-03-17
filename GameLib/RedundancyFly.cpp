@@ -35,13 +35,13 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 {
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);
-	mFlyBitmap = make_unique<wxBitmap>(*mFlyBaseImage);
+	mFlyBaseBitmap = make_unique<wxBitmap>(*mFlyBaseImage);
 	mFlyLeftWingImage = make_unique<wxImage>(FlyLeftWing, wxBITMAP_TYPE_ANY);
-	//mFlyBitmap = make_unique<wxBitmap>(*mFlyLeftWingImage);
+	mFlyLeftWingBitmap = make_unique<wxBitmap>(*mFlyLeftWingImage);
 	mFlyRightWingImage = make_unique<wxImage>(FlyRightWing, wxBITMAP_TYPE_ANY);
-	//mFlyBitmap = make_unique<wxBitmap>(*mFlyRightWingImage);
+	mFlyRightWingBitmap = make_unique<wxBitmap>(*mFlyRightWingImage);
 	mFlyTopImage = make_unique<wxImage>(FlyTopImage, wxBITMAP_TYPE_ANY);
-	//mFlyBitmap = make_unique<wxBitmap>(*mFlyTopImage);
+	mFlyTopBitmap = make_unique<wxBitmap>(*mFlyTopImage);
 	mFlySplat = make_unique<wxImage>(FlySplat, wxBITMAP_TYPE_ANY);
 	//mFlyBitmap = make_unique<wxBitmap>(*mFlySplat);
 
@@ -54,9 +54,27 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
  */
 void RedundancyFly::Draw(wxDC *dc)
 {
-	double wid = mFlyBitmap->GetWidth();
-	double hit = mFlyBitmap->GetHeight();
-	dc->DrawBitmap(*mFlyBitmap,
+	double wid = mFlyBaseBitmap->GetWidth();
+	double hit = mFlyBaseBitmap->GetHeight();
+	dc->DrawBitmap(*mFlyBaseBitmap,
+				   int(GetX() - wid / 2),
+				   int(GetY() - hit / 2));
+
+	double widleft = mFlyLeftWingBitmap->GetWidth();
+	double hitleft = mFlyLeftWingBitmap->GetHeight();
+	dc->DrawBitmap(*mFlyLeftWingBitmap,
+				   int(GetX() - wid / 2),
+				   int(GetY() - hit / 2));
+
+	double widright = mFlyRightWingBitmap->GetWidth();
+	double hitright = mFlyRightWingBitmap->GetHeight();
+	dc->DrawBitmap(*mFlyRightWingBitmap,
+				   int(GetX() - wid / 2),
+				   int(GetY() - hit / 2));
+
+	double widtop = mFlyTopBitmap->GetWidth();
+	double hittop = mFlyTopBitmap->GetHeight();
+	dc->DrawBitmap(*mFlyTopBitmap,
 				   int(GetX() - wid / 2),
 				   int(GetY() - hit / 2));
 }

@@ -31,7 +31,16 @@ private:
 	/// The underlying fly splat image
 	std::unique_ptr<wxImage> mFlySplat;
 	/// The bitmap we can display for this fly
-	std::unique_ptr<wxBitmap> mFlyBitmap;
+	std::unique_ptr<wxBitmap> mFlyBaseBitmap;
+
+	std::unique_ptr<wxBitmap> mFlyLeftWingBitmap;
+
+	std::unique_ptr<wxBitmap> mFlyRightWingBitmap;
+
+	std::unique_ptr<wxBitmap> mFlyTopBitmap;
+
+	std::unique_ptr<wxBitmap> mFlySplatBitmap;
+
 
 public:
 	/// Default constructor (disabled)
