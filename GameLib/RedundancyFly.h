@@ -47,6 +47,8 @@ public:
 
 	void Draw(wxDC* dc) override;
 
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H
