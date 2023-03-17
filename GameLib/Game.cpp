@@ -25,6 +25,7 @@ Game::Game()
 	mLevel2.Load(L"levels/level2.xml", this);
 	mLevel3.Load(L"levels/level3.xml", this);
 
+
 }
 
 /**
