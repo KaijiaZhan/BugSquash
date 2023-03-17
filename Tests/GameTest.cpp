@@ -90,27 +90,27 @@ protected:
 		fly3->SetLocation(600, 100);
 	}
 
-//	void TestThreeFlies(wxString filename)
-//	{
-//		cout << "Temp file: " << filename << endl;
-//
-//		auto xml = ReadFile(filename);
-//		cout << xml << endl;
-//
-//		// Ensure three items
-//
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item.*<item.*<item.*</game>")));
-//
-//		// Ensure the positions are correct
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"100\" y=\"200\"")));
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"400\" y=\"400\"")));
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"600\" y=\"100\"")));
-//
-//		// Ensure the types are correct
-//		ASSERT_TRUE(regex_search(xml,
-//								 wregex(
-//									 L"<game><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/></game>")));
-//	}
+	void TestThreeFlies(wxString filename)
+	{
+		cout << "Temp file: " << filename << endl;
+
+		auto xml = ReadFile(filename);
+		cout << xml << endl;
+
+		// Ensure three items
+
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item.*<item.*<item.*</game>")));
+
+		// Ensure the positions are correct
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"100\" y=\"200\"")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"400\" y=\"400\"")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"600\" y=\"100\"")));
+
+		// Ensure the types are correct
+		ASSERT_TRUE(regex_search(xml,
+								 wregex(
+									 L"<game><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/></game>")));
+	}
 };
 
 TEST_F(GameTest, Construct)
@@ -197,7 +197,11 @@ TEST_F(GameTest, Load)
 	auto file2 = path + L"/test2.game";
 	game.Save(file2);
 
-	///TestThreeFlies(file2);
+	TestThreeFlies(file2);
+
+	game2.Load(file2);
+	game2.Save(file2);
+	TestThreeFlies(file2);
 
 	//Need to test all types once we populate all types of bugs
 }
