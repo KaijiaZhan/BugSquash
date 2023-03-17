@@ -80,6 +80,7 @@ public:
 
 	virtual void XmlLoad(wxXmlNode *node);
 
+	virtual wxXmlNode *XmlSave(wxXmlNode *node);
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
