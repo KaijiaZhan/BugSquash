@@ -25,18 +25,21 @@ const int FrameDuration = 30;
  * Constructor
  * @param parent Pointer to wxFrame object, the main frame for the application
  */
-void GameView::Initialize(wxFrame* parent)
+void GameView::Initialize(wxFrame* mainFrame)
 {
-	Create(parent, wxID_ANY);
-	SetBackgroundColour(*wxWHITE);
+	Create(mainFrame, wxID_ANY,
+		   wxDefaultPosition, wxDefaultSize,
+		   wxFULL_REPAINT_ON_RESIZE);
+	SetBackgroundColour(*wxBLACK);
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
+
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
-	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnFileOpen, this, wxID_OPEN);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnFileOpen, this, wxID_OPEN);
 
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
@@ -70,18 +73,26 @@ void GameView::Initialize(wxFrame* parent)
 void GameView::OnPaint(wxPaintEvent& event)
 {
 
+	// Create a double-buffered display context
+	wxAutoBufferedPaintDC dc(this);
+
+	// Clear the image to black
+	wxBrush background(*wxBLACK);
+	dc.SetBackground(background);
+	dc.Clear();
+
+//	// Create a graphics context
+//	auto gc = std::shared_ptr<wxGraphicsContext>(wxGraphicsContext::Create(dc));
+//
+//	// Tell the game class to draw
+//	wxRect rect = GetRect();
+//	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
+
 	auto newTime = mStopWatch.Time();
 	auto elapsed = (double)(newTime - mTime) * 0.001;
 	mTime = newTime;
 
 	mGame.Update(elapsed, mTime);
-
-
-	wxAutoBufferedPaintDC dc(this);
-
-	wxBrush background(*wxWHITE);
-	dc.SetBackground(background);
-	dc.Clear();
 
 	wxFont font(LabelSize,
 				wxFONTFAMILY_SWISS,

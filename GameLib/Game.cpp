@@ -47,6 +47,34 @@ Game::Game()
  */
 void Game::OnDraw(wxDC *dc)
 {
+//	//
+//	// Automatic Scaling
+//	//
+//	auto scaleX = double(width) / double(Width);
+//	auto scaleY = double(height) / double(Height);
+//	mScale = std::min(scaleX, scaleY);
+//
+//	if(mShrinked)
+//	{
+//		mScale *= ShrinkScale;
+//	}
+//
+//	mXOffset = (width - Width * mScale) / 2;
+//	mYOffset = (height - Height * mScale) / 2;
+//
+//	graphics->PushState();
+//
+//	graphics->Translate(mXOffset, mYOffset);
+//	graphics->Scale(mScale, mScale);
+//
+//	// From here on you are drawing virtual pixels
+//
+//	//
+//	// Your drawing code goes here
+//	//
+//
+//	graphics->PopState();
+
 	for (auto item : mItems)
 	{
 		item->Draw(dc);

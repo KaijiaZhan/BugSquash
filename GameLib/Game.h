@@ -32,6 +32,15 @@ private:
 	///Random number generator
 	std::mt19937 mRandom;
 
+	/// Game area in virtual pixels
+	const static int Width = 1250;
+
+	/// Game area height in virtual pixels
+	const static int Height = 1000;
+
+	/// boolean that sets window size
+	bool mShrinked = false;
+
 public:
 
 	/**
