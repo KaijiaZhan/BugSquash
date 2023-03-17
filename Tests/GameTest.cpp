@@ -75,9 +75,9 @@ protected:
 	*/
 	void PopulateThreeFlies(Game *game)
 	{
-		auto fly1 = make_shared<RedundancyFly>(game);
+		game->GetRandom().seed(RandomSeed);
 
-		/// Add functions have not been made yet, uncomment when Flora makes
+		auto fly1 = make_shared<RedundancyFly>(game);
 		game->Add(fly1);
 		fly1->SetLocation(100, 200);
 
@@ -98,7 +98,6 @@ protected:
 		cout << xml << endl;
 
 		// Ensure three items
-
 		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item.*<item.*<item.*</game>")));
 
 		// Ensure the positions are correct
