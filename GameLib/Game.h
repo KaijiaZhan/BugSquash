@@ -11,6 +11,7 @@
 #define PROJECT1_GAMELIB_GAME_H
 
 #include "Item.h"
+#include "Level.h"
 
 #include <memory>
 #include <string>
@@ -41,6 +42,18 @@ private:
 	/// boolean that sets window size
 	bool mShrinked = false;
 
+	/// XML for level 0
+	Level mLevel0;
+
+	/// XML for level 1
+	Level mLevel1;
+
+	/// XML for level 2
+	Level mLevel2;
+
+	/// XML for level 3
+	Level mLevel3;
+
 public:
 
 	/**
@@ -52,15 +65,13 @@ public:
 	void Update(double elapsed, long totalTime);
 	std::shared_ptr<Item> HitTest(int x, int y);
 
-	void Load(const wxString &filename);
+	void LoadLevel(int level);
 
 	/// Initializing clearing the old data
 	void Clear();
 
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
-
-	void XmlItem(wxXmlNode *node);
 
 	void Save(const wxString &filename);
 
@@ -69,6 +80,8 @@ public:
 	 * @return Pointer to the random number generator
 	 */
 	std::mt19937 &GetRandom() { return mRandom; }
+
+	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
 };
 

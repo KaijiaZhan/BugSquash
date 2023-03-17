@@ -10,6 +10,7 @@
 #include "Item.h"
 #include "RedundancyFly.h"
 #include "Laptop.h"
+#include "ids.h"
 
 #include <sstream>
 #include <wx/stdpaths.h>
@@ -39,7 +40,10 @@ void GameView::Initialize(wxFrame* mainFrame)
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
-	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnFileOpen, this, wxID_OPEN);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel0, this, IDM_LEVEL0);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel1, this, IDM_LEVEL1);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel2, this, IDM_LEVEL2);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel3, this, IDM_LEVEL3);
 
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
@@ -163,20 +167,45 @@ void GameView::OnTimer(wxTimerEvent& event)
 }
 
 /**
- * File>Open menu handler
+ * Level>Level 0 menu handler
  * @param event Menu event
  */
-void GameView::OnFileOpen(wxCommandEvent& event)
+void GameView::OnLevel0(wxCommandEvent& event)
 {
-	wxFileDialog loadFileDialog(this, L"Load game level file", L"", L"",
-								L"Level Files (*.xml)|*.xml", wxFD_OPEN);
-	if (loadFileDialog.ShowModal() == wxID_CANCEL)
-	{
-		return;
-	}
+	mGame.LoadLevel(0);
+	Refresh();
 
-	auto filename = loadFileDialog.GetPath();
-	mGame.Load(filename);
+}
+
+/**
+ * Level>Level 1 menu handler
+ * @param event Menu event
+ */
+void GameView::OnLevel1(wxCommandEvent& event)
+{
+	mGame.LoadLevel(1);
+	Refresh();
+
+}
+
+/**
+ * Level>Level 2 menu handler
+ * @param event Menu event
+ */
+void GameView::OnLevel2(wxCommandEvent& event)
+{
+	mGame.LoadLevel(2);
+	Refresh();
+
+}
+
+/**
+ * Level>Level 3 menu handler
+ * @param event Menu event
+ */
+void GameView::OnLevel3(wxCommandEvent& event)
+{
+	mGame.LoadLevel(3);
 	Refresh();
 
 }

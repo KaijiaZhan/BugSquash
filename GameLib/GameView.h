@@ -20,7 +20,11 @@ private:
 	void OnLeftDown(wxMouseEvent& event);
 	void OnLeftUp(wxMouseEvent& event);
 	void OnLeftDoubleClick(wxMouseEvent& event);
-	void OnFileOpen(wxCommandEvent& event);
+	void OnLevel0(wxCommandEvent& event);
+	void OnLevel1(wxCommandEvent& event);
+	void OnLevel2(wxCommandEvent& event);
+	void OnLevel3(wxCommandEvent& event);
+
 
 	void OnPaint(wxPaintEvent& event);
 

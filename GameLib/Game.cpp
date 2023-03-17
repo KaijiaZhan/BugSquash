@@ -20,24 +20,10 @@ using namespace std;
 */
 Game::Game()
 {
-	// Create a new laptop.
-	// This creates a shared pointer pointing at this laptop
-//	shared_ptr<Item> laptop = make_shared<Laptop>(this);
-
-//	//temp
-//	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
-//
-//	// Set the location
-//	laptop->SetLocation(500, 400);
-//
-//	//temp
-//	rfly->SetLocation(200, 100);
-
-	// Add to the list of laptop.
-//	mItems.push_back(laptop);
-
-	//temp
-//	mItems.push_back(rfly);
+	mLevel0.Load(L"levels/level0.xml", this);
+	mLevel1.Load(L"levels/level1.xml", this);
+	mLevel2.Load(L"levels/level2.xml", this);
+	mLevel3.Load(L"levels/level3.xml", this);
 
 }
 
@@ -113,36 +99,32 @@ std::shared_ptr<Item> Game::HitTest(int x, int y)
 
 	return  nullptr;
 }
-/**
- * Load the game level from an XML file.
- *
- * Opens the XML file and reads the nodes, creating items as appropriate.
- *
- * @param filename The filename of the file to load the game level from.
- */
-void Game::Load(const wxString &filename)
-{
-	wxXmlDocument xmlDoc;
-	if(!xmlDoc.Load(filename))
-	{
-		wxMessageBox(L"Unable to load level file.");
-		return;
-	}
 
+/**
+ * Load level
+ * @param level the level number
+ */
+void Game::LoadLevel(int level)
+{
 	Clear();
 
-	auto root = xmlDoc.GetRoot();
-
-	auto child = root->GetChildren();
-
-	for( ; child; child=child->GetNext())
+	if (level == 0)
 	{
-		auto name = child->GetName();
-		if(name == L"item")
-		{
-			 XmlItem(child);
-		}
+		SetLevel(mLevel0.GetLevel());
 	}
+	if (level == 1)
+	{
+		SetLevel(mLevel1.GetLevel());
+	}
+	if (level == 2)
+	{
+		SetLevel(mLevel2.GetLevel());
+	}
+	if (level == 3)
+	{
+		SetLevel(mLevel3.GetLevel());
+	}
+
 }
 
 /**
@@ -171,28 +153,6 @@ void Game::Add(std::shared_ptr<Item> item)
 //        }
 //    }
     mItems.push_back(item);
-}
-
-/**
- * Handle a node of type item.
- * @param node XML node
- */
-void Game::XmlItem(wxXmlNode *node)
-{
-	shared_ptr<Item> item;
-
-	auto type = node->GetAttribute(L"type");
-
-	if (type == L"redundancyfly")
-	{
-		item = make_shared<RedundancyFly>(this);
-	}
-
-	if (item != nullptr)
-	{
-		Add(item);
-		item->XmlLoad(node);
-	}
 }
 
 /**
