@@ -30,7 +30,7 @@ public:
 	Level();
 
 	void Load(const wxString &filename, Game * game);
-	void XmlItem(wxXmlNode *node);
+	void XmlItem(wxXmlNode *node, Game * game);
 
 	/**
 	 * Getter for mLevelItems
