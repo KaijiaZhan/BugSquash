@@ -21,6 +21,8 @@
 
 using namespace std;
 
+const unsigned int RandomSeed = 1238197374;
+
 class GameTest : public ::testing::Test
 {
 protected:
@@ -170,3 +172,31 @@ TEST_F(GameTest, Clear)
 	TestEmpty(file1);
 
 }
+
+//TEST_F(GameTest, Load)
+//{
+//	auto path = TempPath();
+//
+//	Game game;
+//	game.GetRandom().seed(RandomSeed);
+//	Game game2;
+//	game2.GetRandom().seed(RandomSeed);
+//
+//	auto file1 = path + L"/test1.game";
+//	game.Save(file1);
+//
+//	TestEmpty(file1);
+//
+//	game2.Load(file1);
+//	game2.Save(file1);
+//	TestEmpty(file1);
+//
+//	PopulateThreeFlies(&game);
+//
+//	auto file2 = path + L"/test2.game";
+//	game.Save(file2);
+//
+//	///TestThreeFlies(file2);
+//
+//	//Need to test all types once we populate all types of bugs
+//}

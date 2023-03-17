@@ -10,9 +10,12 @@
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
+#include "item.h"
+
 #include <memory>
 #include <string>
-#include "item.h"
+#include <algorithm>
+#include <random>
 
 class Item;
 
@@ -25,6 +28,9 @@ private:
 
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
+
+	///Random number generator
+	std::mt19937 mRandom;
 
 public:
 
@@ -49,6 +55,11 @@ public:
 
 	void Game::Save(const wxString &filename);
 
+	/**
+	 * Get the random number generator
+	 * @return Pointer to the random number generator
+	 */
+	std::mt19937 &GetRandom() { return mRandom; }
 
 };
 
