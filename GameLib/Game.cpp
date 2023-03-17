@@ -175,15 +175,15 @@ void Game::Save(const wxString &filename)
 {
 	wxXmlDocument xmlDoc;
 
-	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"item");
+	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"game");
 	xmlDoc.SetRoot(root);
 
 
-	// dont know how to implement this
-//	for (auto item : mItems)
-//	{
-//		item->XmlSave(root);
-//	}
+	//dont know how to implement this
+	for (auto item : mItems)
+	{
+		item->XmlSave(root);
+	}
 
 	if(!xmlDoc.Save(filename, wxXML_NO_INDENTATION))
 	{
