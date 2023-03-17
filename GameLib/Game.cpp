@@ -168,7 +168,7 @@ void Game::XmlItem(wxXmlNode *node)
 }
 
 /**
-* @param filename The filename of the file to save the aquarium to
+* @param filename The filename of the file to save the game to
 */
 void Game::Save(const wxString &filename)
 {

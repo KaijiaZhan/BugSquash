@@ -1,7 +1,6 @@
 /**
  * @file BugCollection.h
- * @author rmpal
- *
+ * @author Rossi Palomba
  *
  */
 
@@ -22,12 +21,10 @@ private:
 	/// The game the bug is contained in
 	Game* mGame;
 
-	/// Bug Speed in X direction
-	/// Pixels per second
+	/// Bug Speed in X direction (Pixels per second)
 	double mSpeedX = 50;
 
-	/// Bug Speed in Y direction
-	/// Pixels per second
+	/// Bug Speed in Y direction (Pixels per second)
 	double mSpeedY = 50;
 
 	/// Elapsed Time that the bug should start to move
