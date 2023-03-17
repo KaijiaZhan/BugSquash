@@ -1,6 +1,6 @@
 project(GameLib)
 
-set(SOURCE_FILES GarbageBug.cpp GarbageBug.h NullBug.cpp NullBug.h Feature.cpp Feature.h RedundancyFly.cpp RedundancyFly.h FatBug.cpp FatBug.h Level0.h Level0.cpp GameView.cpp GameView.h MainFrame.cpp MainFrame.h ScoreBoard.cpp ScoreBoard.h Level.cpp Level.h BugCollection.cpp BugCollection.h Game.h Game.cpp Level1.h Level1.cpp Level2.h Level2.cpp Level3.h Level3.cpp Item.cpp Item.h Player.cpp Player.h IDE.cpp IDE.cpp Laptop.cpp Laptop.h)
+set(SOURCE_FILES GarbageBug.cpp GarbageBug.h NullBug.cpp NullBug.h Feature.cpp Feature.h RedundancyFly.cpp RedundancyFly.h FatBug.cpp FatBug.h Level0.h Level0.cpp GameView.cpp GameView.h MainFrame.cpp MainFrame.h ScoreBoard.cpp ScoreBoard.h Level.cpp Level.h BugCollection.cpp BugCollection.h Game.h Game.cpp Level1.h Level1.cpp Level2.h Level2.cpp Level3.h Level3.cpp Item.cpp Item.h Player.cpp Player.h IDE.cpp IDE.cpp Laptop.cpp Laptop.h ids.h)
 
 set(wxBUILD_PRECOMP OFF)
 find_package(wxWidgets COMPONENTS core base xrc html xml REQUIRED)
