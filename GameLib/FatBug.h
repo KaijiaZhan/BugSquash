@@ -38,8 +38,10 @@ public:
 	/// Assignment operator
 	void operator=(const FatBug &) = delete;
 
+	/// Constructor 
 	FatBug(Game* game);
 
+	/// Draws FatBug
 	void Draw(wxDC* dc) override;
 };
 
