@@ -38,12 +38,14 @@ void MainFrame::Initialize()
 	auto menuBar = new wxMenuBar( );
 
 	auto fileMenu = new wxMenu();
+	auto levelMenu = new wxMenu();
 	auto helpMenu = new wxMenu();
 
 	menuBar->Append(fileMenu, L"&File" );
+	menuBar->Append(levelMenu, L"&Level" );
 	menuBar->Append(helpMenu, L"&Help");
 
-	fileMenu->Append(wxID_OPEN, "Open &File...\tCtrl-F", L"Open level file...");
+	levelMenu->Append(wxID_OPEN, "Open &File...\tCtrl-F", L"Open level file...");
 	fileMenu->Append(wxID_SAVEAS, "Save &As...\tCtrl-S", L"Save game as...");
 	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
 
