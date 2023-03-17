@@ -9,6 +9,8 @@
 #ifndef PROJECT1_GAMELIB_LEVEL_H
 #define PROJECT1_GAMELIB_LEVEL_H
 
+#include <random>
+
 class Game;
 class Item;
 
@@ -24,6 +26,9 @@ private:
 	/// All of the items in level
 	std::vector<std::shared_ptr<Item>> mLevelItems;
 
+	///Random number generator
+	std::mt19937 mRandom;
+
 public:
 
 	/// Constructor
@@ -37,6 +42,12 @@ public:
 	 * @return mLevelItems
 	 */
 	std::vector<std::shared_ptr<Item>> GetLevel() { return mLevelItems; }
+
+	/**
+	* Get the random number generator
+	* @return Pointer to the random number generator
+	*/
+	std::mt19937 &GetRandom() { return mRandom; }
 
 };
 

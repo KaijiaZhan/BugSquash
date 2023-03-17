@@ -16,7 +16,6 @@
 #include <memory>
 #include <string>
 #include <algorithm>
-#include <random>
 
 class Item;
 
@@ -29,9 +28,6 @@ private:
 
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
-
-	///Random number generator
-	std::mt19937 mRandom;
 
 	/// Game area in virtual pixels
 	const static int Width = 1250;
@@ -81,14 +77,6 @@ public:
 
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
-
-	void Save(const wxString &filename);
-
-	/**
-	 * Get the random number generator
-	 * @return Pointer to the random number generator
-	 */
-	std::mt19937 &GetRandom() { return mRandom; }
 
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 

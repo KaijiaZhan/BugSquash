@@ -26,7 +26,7 @@ Game::Game()
 	mItems.push_back(laptop);
 
 	shared_ptr<Item> bug = make_shared<RedundancyFly>(this);
-	bug->SetLocation(-100, 500);
+	bug->SetLocation(200, 500);
 	mItems.push_back(bug);
 
 	mLevel0.Load(L"levels/level0.xml", this);
@@ -169,24 +169,3 @@ void Game::Add(std::shared_ptr<Item> item)
     mItems.push_back(item);
 }
 
-/**
-* @param filename The filename of the file to save the game to
-*/
-void Game::Save(const wxString &filename)
-{
-	wxXmlDocument xmlDoc;
-
-	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"game");
-	xmlDoc.SetRoot(root);
-
-	for (auto item : mItems)
-	{
-		item->XmlSave(root);
-	}
-
-	if(!xmlDoc.Save(filename, wxXML_NO_INDENTATION))
-	{
-		wxMessageBox(L"Write to XML failed");
-		return;
-	}
-}

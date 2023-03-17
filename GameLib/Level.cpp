@@ -82,3 +82,4 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 		item->XmlLoad(node);
 	}
 }
+
