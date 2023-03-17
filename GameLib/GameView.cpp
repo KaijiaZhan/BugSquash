@@ -2,6 +2,7 @@
  * @file GameView.cpp
  * @author joann
  * @author Courtney Thang
+ * @author Flora Pieters
  */
 
 #include "pch.h"
@@ -68,13 +69,25 @@ void GameView::OnPaint(wxPaintEvent& event)
 				50,     // x coordinate for the left size of the text
 				ScoreLabelY);    // y coordinate for the top of the text
 
+	dc.DrawText(L"0",  // Text to draw
+                90,     // x coordinate for the left size of the text
+                ScoreLabelY - 50);    // y coordinate for the top of the text
+
 	dc.DrawText(L"Missed",  // Text to draw
 				450,     // x coordinate for the left size of the text
 				ScoreLabelY);    // y coordinate for the top of the text
 
+	dc.DrawText(L"0",  // Text to draw
+                490,     // x coordinate for the left size of the text
+                ScoreLabelY - 50);    // y coordinate for the top of the text
+
 	dc.DrawText(L"Oops",  // Text to draw
 				875,     // x coordinate for the left size of the text
 				ScoreLabelY);    // y coordinate for the top of the text
+
+	dc.DrawText(L"0",  // Text to draw
+                915,     // x coordinate for the left size of the text
+                ScoreLabelY - 50);    // y coordinate for the top of the text
 
 	mGame.OnDraw(&dc);
 
