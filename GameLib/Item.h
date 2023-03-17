@@ -32,6 +32,8 @@ private:
 	double  mX = 0;     ///< X location for the center of the item
 	double  mY = 0;     ///< Y location for the center of the item
 
+	double mSpeed = 0;
+
 
 
 protected:
@@ -67,6 +69,8 @@ public:
 	 * @param y Y location in pixels
 	 */
 	void SetLocation(double x, double y) { mX = x; mY = y; }
+
+	void SetSpeed(double speed) {mSpeed = speed;}
 
 	/**
 	 * Draw this item

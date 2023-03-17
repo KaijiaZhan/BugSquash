@@ -28,7 +28,7 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 void BugCollection::Update(double elapsed, long totalTime)
 {
 
-	double angle = atan2(400-GetY(), 500-GetX());
+	double angle = atan2(500-GetY(), 625-GetX());
 	if (totalTime > mStartTime*1000)
 	{
 		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),

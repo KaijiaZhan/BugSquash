@@ -155,7 +155,6 @@ void GameView::OnTimer(wxTimerEvent& event)
 void GameView::OnLevel0(wxCommandEvent& event)
 {
 	mGame.LoadLevel(0);
-	Refresh();
 
 }
 
@@ -166,7 +165,6 @@ void GameView::OnLevel0(wxCommandEvent& event)
 void GameView::OnLevel1(wxCommandEvent& event)
 {
 	mGame.LoadLevel(1);
-	Refresh();
 
 }
 
@@ -177,7 +175,6 @@ void GameView::OnLevel1(wxCommandEvent& event)
 void GameView::OnLevel2(wxCommandEvent& event)
 {
 	mGame.LoadLevel(2);
-	Refresh();
 
 }
 
@@ -188,7 +185,6 @@ void GameView::OnLevel2(wxCommandEvent& event)
 void GameView::OnLevel3(wxCommandEvent& event)
 {
 	mGame.LoadLevel(3);
-	Refresh();
 
 }
 

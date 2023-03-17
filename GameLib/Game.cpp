@@ -135,6 +135,10 @@ void Game::LoadLevel(int level)
 		SetLevel(mLevel3.GetLevel());
 	}
 
+	shared_ptr<Item> laptop = make_shared<Laptop>(this);
+	laptop->SetLocation(Width/2, Height/2);
+	mItems.push_back(laptop);
+
 }
 
 /**

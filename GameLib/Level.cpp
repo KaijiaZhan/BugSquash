@@ -66,10 +66,14 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	node->GetAttribute(L"x").ToDouble(&x);
 	node->GetAttribute(L"y").ToDouble(&y);
 
+	double speed;
+	node->GetAttribute(L"speed").ToDouble(&speed);
+
 	if (type == L"redundancy")
 	{
 		item = make_shared<RedundancyFly>(mGame);
-		item->SetLocation(x,y);
+		item->SetLocation(100,200);
+		item->SetSpeed(speed);
 	}
 
 	if (item != nullptr)
