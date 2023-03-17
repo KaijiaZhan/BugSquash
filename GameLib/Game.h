@@ -39,8 +39,17 @@ private:
 	/// Game area height in virtual pixels
 	const static int Height = 1000;
 
+	/// Scale to shrink to when in shrink mode
+	const double ShrinkScale = 0.75;
+
 	/// boolean that sets window size
 	bool mShrinked = false;
+
+	double mXOffset = 0;
+
+	double mYOffset = 0;
+
+	double mScale = 0;
 
 	/// XML for level 0
 	Level mLevel0;
@@ -61,7 +70,7 @@ public:
 	 */
 	Game();
 
-	void OnDraw(wxDC *dc);
+	void OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 	void Update(double elapsed, long totalTime);
 	std::shared_ptr<Item> HitTest(int x, int y);
 
@@ -82,6 +91,11 @@ public:
 	std::mt19937 &GetRandom() { return mRandom; }
 
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
+
+	double GetWidth() const { return Width; }
+
+	double GetHeight() const { return Height; }
+
 
 };
 

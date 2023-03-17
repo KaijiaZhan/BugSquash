@@ -7,6 +7,7 @@
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
 #define PROJECT1_GAMELIB_BUGCOLLECTION_H
 
+#include "Game.h"
 #include "Item.h"
 
 class Game;
