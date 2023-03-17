@@ -66,7 +66,7 @@ protected:
 
 		ASSERT_TRUE(regex_search(xml, wregex(L"<\\?xml.*\\?>")));
 		//not sure if the next like is correct because no aqua files
-		ASSERT_TRUE(regex_search(xml, wregex(L"<item/>")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game/>")));
 
 	}
 
@@ -163,7 +163,7 @@ TEST_F(GameTest, Clear)
 	game.Clear();
 
 	// First test, saving an empty game
-	auto file1 = path + L"/test1.item";
+	auto file1 = path + L"/test1.game";
 
 	// Save the file
 	game.Save(file1);
