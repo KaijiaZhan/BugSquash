@@ -15,7 +15,6 @@
 #include <sstream>
 #include <wx/stdpaths.h>
 #include <wx/dcbuffer.h>
-#include <wx/graphics.h>
 
 using namespace std;
 
@@ -86,12 +85,12 @@ void GameView::OnPaint(wxPaintEvent& event)
 	dc.SetBackground(background);
 	dc.Clear();
 
-	// Create a graphics context
-	auto gc = std::shared_ptr<wxGraphicsContext>(wxGraphicsContext::Create(dc));
-
-	// Tell the game class to draw
-	wxRect rect = GetRect();
-	mGame.OnDraw(&dc, gc, rect.GetWidth(), rect.GetHeight());
+//	// Create a graphics context
+//	auto gc = std::shared_ptr<wxGraphicsContext>(wxGraphicsContext::Create(dc));
+//
+//	// Tell the game class to draw
+//	wxRect rect = GetRect();
+//	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
 	auto newTime = mStopWatch.Time();
 	auto elapsed = (double)(newTime - mTime) * 0.001;
@@ -130,7 +129,7 @@ void GameView::OnPaint(wxPaintEvent& event)
                 915,     // x coordinate for the left size of the text
                 ScoreLabelY - 50);    // y coordinate for the top of the text
 
-	mGame.OnDraw(&dc, gc, rect.GetWidth(), rect.GetHeight());
+	mGame.OnDraw(&dc);
 
 }
 
