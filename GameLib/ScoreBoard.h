@@ -24,6 +24,23 @@ private:
 	int mMissed = 0;
 
 public:
+    /**
+	 * Get fixed score
+	 * @return fixed score
+	 */
+    double GetFixed() const { return mFixed; }
+
+    /**
+	 * Get oops
+	 * @return oops number
+	 */
+    double GetOops() const { return mOops; }
+
+    /**
+	 * Get missed
+	 * @return missed number
+	 */
+    double GetMissed() const { return mMissed; }
 
 };
 
