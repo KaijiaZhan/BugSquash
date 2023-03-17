@@ -3,6 +3,7 @@
  * @author rmpal
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
+ * @author Parker Morgan
  */
 
 
@@ -43,6 +44,9 @@ public:
 
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
+
+	void Game::XmlItem(wxXmlNode *node);
+
 
 };
 

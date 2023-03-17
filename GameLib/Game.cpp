@@ -3,7 +3,7 @@
  * @author rmpal
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
- *
+ * @author Parker Morgan
  */
 
 #include "pch.h"
@@ -11,6 +11,7 @@
 #include "Laptop.h"
 #include "Feature.h"
 #include "RedundancyFly.h"
+#include "wx/xml/xml.h"
 
 using namespace std;
 
@@ -143,4 +144,27 @@ void Game::Add(std::shared_ptr<Item> item)
         }
     }
     mItems.push_back(item);
+}
+
+/**
+ * Handle a node of type item.
+ * @param node XML node
+ */
+void Game::XmlItem(wxXmlNode *node)
+{
+	// A pointer for the item we are loading
+	shared_ptr<Item> item;
+
+	// We have an item. What type?
+	auto type = node->GetAttribute(L"type");
+//	if (type == L"beta")
+//	{
+//		item = make_shared<FishBeta>(this);
+//	}
+//
+//	if (item != nullptr)
+//	{
+//		Add(item);
+//		item->XmlLoad(node);
+//	}
 }
