@@ -64,7 +64,7 @@ protected:
 
 		ASSERT_TRUE(regex_search(xml, wregex(L"<\\?xml.*\\?>")));
 		//not sure if the next like is correct because no aqua files
-		//ASSERT_TRUE(regex_search(xml, wregex(L"<aqua/>")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item/>")));
 
 	}
 
@@ -76,15 +76,15 @@ protected:
 		auto fly1 = make_shared<RedundancyFly>(game);
 
 		/// Add functions have not been made yet, uncomment when Flora makes
-		//game->Add(fly1);
+		game->Add(fly1);
 		fly1->SetLocation(100, 200);
 
 		auto fly2 = make_shared<RedundancyFly>(game);
-		//game->Add(fly2);
+		game->Add(fly2);
 		fly2->SetLocation(400, 400);
 
 		auto fly3 = make_shared<RedundancyFly>(game);
-		//game->Add(fish3);
+		game->Add(fly3);
 		fly3->SetLocation(600, 100);
 	}
 
@@ -111,40 +111,40 @@ protected:
 //	}
 };
 
-TEST(GameTest, Construct){
+TEST_F(GameTest, Construct){
 	Game game;
 }
 
-TEST(BugTest, HitTest) {
-//	// Create a bug to test
-//	Game game;
-//
-//	ASSERT_EQ(game.HitTest(100, 200), nullptr) <<
-//												   L"Testing empty game";
-//
-//	shared_ptr <RedundancyFly> bug = make_shared<RedundancyFly>(&game);
-//
-//	///game.Add(bug); NEEDS ADD FUNCTION
-//	bug->SetLocation(100, 200);
-//
-//	// Center of the bug should be a true
-//	ASSERT_TRUE(bug->HitTest(100, 200));
-//
-//	// Left of the bug
-//	ASSERT_FALSE(bug->HitTest(10, 200));
-//
-//	// Right of the bug
-//	ASSERT_FALSE(bug->HitTest(200, 200));
-//
-//	// Above the bug
-//	ASSERT_FALSE(bug->HitTest(100, 0));
-//
-//	// Below the bug
-//	ASSERT_FALSE(bug->HitTest(100, 300));
-//
-//	// On a bug transparent pixel
-//	ASSERT_FALSE(bug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
-}
+//TEST_F(BugTest, HitTest) {
+////	// Create a bug to test
+////	Game game;
+////
+////	ASSERT_EQ(game.HitTest(100, 200), nullptr) <<
+////												   L"Testing empty game";
+////
+////	shared_ptr <RedundancyFly> bug = make_shared<RedundancyFly>(&game);
+////
+////	///game.Add(bug); NEEDS ADD FUNCTION
+////	bug->SetLocation(100, 200);
+////
+////	// Center of the bug should be a true
+////	ASSERT_TRUE(bug->HitTest(100, 200));
+////
+////	// Left of the bug
+////	ASSERT_FALSE(bug->HitTest(10, 200));
+////
+////	// Right of the bug
+////	ASSERT_FALSE(bug->HitTest(200, 200));
+////
+////	// Above the bug
+////	ASSERT_FALSE(bug->HitTest(100, 0));
+////
+////	// Below the bug
+////	ASSERT_FALSE(bug->HitTest(100, 300));
+////
+////	// On a bug transparent pixel
+////	ASSERT_FALSE(bug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
+//}
 
 TEST_F(GameTest, Clear)
 {
@@ -161,10 +161,12 @@ TEST_F(GameTest, Clear)
 	game.Clear();
 
 	// First test, saving an empty game
-	auto file1 = path + L"/test1.game";
+	auto file1 = path + L"/test1.item";
 
-	//game.Save(file1);
+	// Save the file
+	game.Save(file1);
 
-	//TestEmpty(file1);
+	// Test to see if it is empty
+	TestEmpty(file1);
 
 }
