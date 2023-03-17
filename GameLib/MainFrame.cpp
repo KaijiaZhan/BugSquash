@@ -15,7 +15,7 @@
 void MainFrame::Initialize()
 {
 	//Creates the frame
-	Create(nullptr,wxID_ANY, L"BugSquash",wxDefaultPosition, wxSize( 1000,800 ));
+	Create(nullptr,wxID_ANY, L"BugSquash",wxDefaultPosition, wxSize(1250,1000 ));
 
 	// Create a sizer that will lay out child windows vertically
 	// one above each other
