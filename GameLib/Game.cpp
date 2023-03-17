@@ -22,7 +22,7 @@ Game::Game()
 {
 	// Create a new laptop.
 	// This creates a shared pointer pointing at this laptop
-	shared_ptr<Item> laptop = make_shared<Laptop>(this);
+//	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
 //	//temp
 //	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
@@ -132,16 +132,16 @@ void Game::Clear()
  */
 void Game::Add(std::shared_ptr<Item> item)
 {
-    auto nextBug = 50;
-    item->SetLocation(10, 10);
-
-    for (auto bugs : mItems)
-    {
-        for (auto bug : mItems)
-        {
-            item->SetLocation(item->GetX() + nextBug, item->GetY() + nextBug);
-        }
-    }
+//    auto nextBug = 50;
+//    item->SetLocation(10, 10);
+//
+//    for (auto bugs : mItems)
+//    {
+//        for (auto bug : mItems)
+//        {
+//            item->SetLocation(item->GetX() + nextBug, item->GetY() + nextBug);
+//        }
+//    }
     mItems.push_back(item);
 }
 

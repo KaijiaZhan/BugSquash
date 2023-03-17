@@ -41,6 +41,6 @@ void Laptop::Draw(wxDC *dc)
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_NORMAL);
 	dc->SetFont(font);
-	dc->SetTextForeground(wxColour(120, 0, 120));
+	dc->SetTextForeground(*wxWHITE);
 	dc->DrawText(L"BugSquash", int(GetX() - wid / 2) + 50, int(GetY() - hit / 2) + 40);
 }

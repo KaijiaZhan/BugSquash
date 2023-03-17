@@ -7,10 +7,15 @@
 
 #include "pch.h"
 #include "GameView.h"
+#include "Item.h"
+#include "RedundancyFly.h"
+#include "Laptop.h"
 
 #include <sstream>
 #include <wx/stdpaths.h>
 #include <wx/dcbuffer.h>
+
+using namespace std;
 
 
 /// Frame duration in milliseconds, this will be changed
@@ -36,6 +41,26 @@ void GameView::Initialize(wxFrame* parent)
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
 	mStopWatch.Start();
+
+	// Create a new laptop.
+	// This creates a shared pointer pointing at this laptop
+	// shared_ptr<Item> laptop = make_shared<Laptop>(this);
+	auto laptop = make_shared<Laptop>(&mGame);
+
+	//temp
+	auto rfly = make_shared<RedundancyFly>(&mGame);
+
+	// Set the location
+	laptop->SetLocation(500, 400);
+
+	//temp
+	rfly->SetLocation(200, 100);
+
+	// Add to the list of laptop.
+	mGame.Add(laptop);
+
+	//temp
+	mGame.Add(rfly);
 }
 
 /**
