@@ -4,6 +4,7 @@
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
  * @author Parker Morgan
+ * @author Flora Pieters
  */
 
 #include "pch.h"
@@ -24,19 +25,19 @@ Game::Game()
 	// This creates a shared pointer pointing at this laptop
 	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
-	//temp
+	// Create a new redundancy fly
 	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
 
-	// Set the location
+	// Set the location of laptop
 	laptop->SetLocation(500, 400);
 
-	//temp
+	// Set the location of redundancy fly
 	rfly->SetLocation(200, 100);
 
-	// Add to the list of laptop.
+	// Adds the laptop
 	mItems.push_back(laptop);
 
-	//temp
+	// Adds the redundancy fly 
 	mItems.push_back(rfly);
 
 }
@@ -52,7 +53,6 @@ void Game::OnDraw(wxDC *dc)
 		item->Draw(dc);
 	}
 }
-
 
 /**
  * Handle updates for animation
@@ -85,6 +85,7 @@ std::shared_ptr<Item> Game::HitTest(int x, int y)
 
 	return  nullptr;
 }
+
 /**
  * Load the game level from an XML file.
  *
@@ -168,7 +169,7 @@ void Game::XmlItem(wxXmlNode *node)
 }
 
 /**
-* @param filename The filename of the file to save the aquarium to
+* @param filename The filename of the file to save the game to
 */
 void Game::Save(const wxString &filename)
 {
