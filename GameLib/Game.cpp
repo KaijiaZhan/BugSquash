@@ -24,20 +24,20 @@ Game::Game()
 	// This creates a shared pointer pointing at this laptop
 	shared_ptr<Item> laptop = make_shared<Laptop>(this);
 
-	//temp
-	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
-
-	// Set the location
-	laptop->SetLocation(500, 400);
-
-	//temp
-	rfly->SetLocation(200, 100);
+//	//temp
+//	shared_ptr<Item> rfly = make_shared<RedundancyFly>(this);
+//
+//	// Set the location
+//	laptop->SetLocation(500, 400);
+//
+//	//temp
+//	rfly->SetLocation(200, 100);
 
 	// Add to the list of laptop.
-	mItems.push_back(laptop);
+//	mItems.push_back(laptop);
 
 	//temp
-	mItems.push_back(rfly);
+//	mItems.push_back(rfly);
 
 }
 
@@ -155,7 +155,7 @@ void Game::XmlItem(wxXmlNode *node)
 
 	auto type = node->GetAttribute(L"type");
 
-		if (type == L"redundancyfly")
+	if (type == L"redundancyfly")
 	{
 		item = make_shared<RedundancyFly>(this);
 	}

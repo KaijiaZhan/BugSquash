@@ -65,7 +65,6 @@ protected:
 		cout << xml << endl;
 
 		ASSERT_TRUE(regex_search(xml, wregex(L"<\\?xml.*\\?>")));
-		//not sure if the next like is correct because no aqua files
 		ASSERT_TRUE(regex_search(xml, wregex(L"<game/>")));
 
 	}
@@ -116,37 +115,6 @@ TEST_F(GameTest, Construct)
 {
 	Game game;
 }
-
-//TEST_F(BugTest, HitTest) {
-////	// Create a bug to test
-////	Game game;
-////
-////	ASSERT_EQ(game.HitTest(100, 200), nullptr) <<
-////												   L"Testing empty game";
-////
-////	shared_ptr <RedundancyFly> bug = make_shared<RedundancyFly>(&game);
-////
-////	///game.Add(bug); NEEDS ADD FUNCTION
-////	bug->SetLocation(100, 200);
-////
-////	// Center of the bug should be a true
-////	ASSERT_TRUE(bug->HitTest(100, 200));
-////
-////	// Left of the bug
-////	ASSERT_FALSE(bug->HitTest(10, 200));
-////
-////	// Right of the bug
-////	ASSERT_FALSE(bug->HitTest(200, 200));
-////
-////	// Above the bug
-////	ASSERT_FALSE(bug->HitTest(100, 0));
-////
-////	// Below the bug
-////	ASSERT_FALSE(bug->HitTest(100, 300));
-////
-////	// On a bug transparent pixel
-////	ASSERT_FALSE(bug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
-//}
 
 TEST_F(GameTest, Clear)
 {
@@ -220,4 +188,10 @@ TEST_F(GameTest, Save) {
 
 	TestEmpty(file1);
 
+	PopulateThreeFlies(&game);
+
+	auto file2 = path + L"/test2.game";
+	game.Save(file2);
+
+	TestThreeFlies(file2);
 }

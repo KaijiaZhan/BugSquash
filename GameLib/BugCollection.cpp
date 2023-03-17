@@ -42,7 +42,7 @@ void BugCollection::Update(double elapsed, long totalTime)
 
 void BugCollection::XmlLoad(wxXmlNode *node)
 {
-	//Item::XmlLoad(node);
+	Item::XmlLoad(node);
 
 	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
 	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
