@@ -60,3 +60,12 @@ void RedundancyFly::Draw(wxDC *dc)
 				   int(GetX() - wid / 2),
 				   int(GetY() - hit / 2));
 }
+
+wxXmlNode* RedundancyFly::XmlSave(wxXmlNode* node)
+{
+	auto itemNode = Item::XmlSave(node);
+
+	itemNode->AddAttribute(L"type", L"redundancyfly");
+
+	return itemNode;
+}

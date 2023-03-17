@@ -2,7 +2,6 @@
  * @file GameTest.cpp
  * @author joann
  * @author Courtney Thang
- * @author Parker Morgan
  */
 
 #include <pch.h>
@@ -67,7 +66,7 @@ protected:
 
 		ASSERT_TRUE(regex_search(xml, wregex(L"<\\?xml.*\\?>")));
 		//not sure if the next like is correct because no aqua files
-		ASSERT_TRUE(regex_search(xml, wregex(L"<item/>")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game/>")));
 
 	}
 
@@ -76,9 +75,9 @@ protected:
 	*/
 	void PopulateThreeFlies(Game *game)
 	{
-		auto fly1 = make_shared<RedundancyFly>(game);
+		game->GetRandom().seed(RandomSeed);
 
-		/// Add functions have not been made yet, uncomment when Flora makes
+		auto fly1 = make_shared<RedundancyFly>(game);
 		game->Add(fly1);
 		fly1->SetLocation(100, 200);
 
@@ -91,30 +90,30 @@ protected:
 		fly3->SetLocation(600, 100);
 	}
 
-//	void TestThreeFlies(wxString filename)
-//	{
-//		cout << "Temp file: " << filename << endl;
-//
-//		auto xml = ReadFile(filename);
-//		cout << xml << endl;
-//
-//		// Ensure three items
-//		/// aqua?
-//		//ASSERT_TRUE(regex_search(xml, wregex(L"<aqua><item.*<item.*<item.*</aqua>")));
-//
-//		// Ensure the positions are correct
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"100\" y=\"200\"")));
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"400\" y=\"400\"")));
-//		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"600\" y=\"100\"")));
-//
-//		// Ensure the types are correct
-//		ASSERT_TRUE(regex_search(xml,
-//								 wregex(
-//									 L"<aqua><item.* type=\"beta\"/><item.* type=\"beta\"/><item.* type=\"beta\"/></aqua>")));
-//	}
+	void TestThreeFlies(wxString filename)
+	{
+		cout << "Temp file: " << filename << endl;
+
+		auto xml = ReadFile(filename);
+		cout << xml << endl;
+
+		// Ensure three items
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item.*<item.*<item.*</game>")));
+
+		// Ensure the positions are correct
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"100\" y=\"200\"")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"400\" y=\"400\"")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<item x=\"600\" y=\"100\"")));
+
+		// Ensure the types are correct
+		ASSERT_TRUE(regex_search(xml,
+								 wregex(
+									 L"<game><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/><item.* type=\"redundancyfly\"/></game>")));
+	}
 };
 
-TEST_F(GameTest, Construct){
+TEST_F(GameTest, Construct)
+{
 	Game game;
 }
 
@@ -164,7 +163,7 @@ TEST_F(GameTest, Clear)
 	game.Clear();
 
 	// First test, saving an empty game
-	auto file1 = path + L"/test1.item";
+	auto file1 = path + L"/test1.game";
 
 	// Save the file
 	game.Save(file1);
@@ -174,45 +173,34 @@ TEST_F(GameTest, Clear)
 
 }
 
-//TEST_F(GameTest, Load)
-//{
-//	auto path = TempPath();
-//
-//	Game game;
-//	game.GetRandom().seed(RandomSeed);
-//	Game game2;
-//	game2.GetRandom().seed(RandomSeed);
-//
-//	auto file1 = path + L"/test1.game";
-//	game.Save(file1);
-//
-//	TestEmpty(file1);
-//
-//	game2.Load(file1);
-//	game2.Save(file1);
-//	TestEmpty(file1);
-//
-//	PopulateThreeFlies(&game);
-//
-//	auto file2 = path + L"/test2.game";
-//	game.Save(file2);
-//
-//	///TestThreeFlies(file2);
-//
-//	//Need to test all types once we populate all types of bugs
-//}
+TEST_F(GameTest, Load)
+{
+	auto path = TempPath();
 
-//TEST_F(GameTest, Save) {
-//	// Create a path to temporary files
-//	auto path = TempPath();
-//
-//	// Create a game
-//	Game game;
-//
-//	// First test, saving an empty game
-//	auto file1 = path + L"/test1.game";
-//	game.Save(file1);
-//
-//	TestEmpty(file1);
-//
-//}
+	Game game;
+	game.GetRandom().seed(RandomSeed);
+	Game game2;
+	game2.GetRandom().seed(RandomSeed);
+
+	auto file1 = path + L"/test1.game";
+	game.Save(file1);
+
+	TestEmpty(file1);
+
+	game2.Load(file1);
+	game2.Save(file1);
+	TestEmpty(file1);
+
+	PopulateThreeFlies(&game);
+
+	auto file2 = path + L"/test2.game";
+	game.Save(file2);
+
+	TestThreeFlies(file2);
+
+	game2.Load(file2);
+	game2.Save(file2);
+	TestThreeFlies(file2);
+
+	//Need to test all types once we populate all types of bugs
+}

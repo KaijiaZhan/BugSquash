@@ -75,14 +75,14 @@ void Game::Update(double elapsed, long totalTime)
 */
 std::shared_ptr<Item> Game::HitTest(int x, int y)
 {
-//	for (auto i = mItems.rbegin(); i != mItems.rend();  i++)
-//	{
-//		if ((*i)->HitTest(x, y))
-//		{
-//			return *i;
-//		}
-//	}
-//
+	for (auto i = mItems.rbegin(); i != mItems.rend();  i++)
+	{
+		if ((*i)->HitTest(x, y))
+		{
+			return *i;
+		}
+	}
+
 	return  nullptr;
 }
 /**
@@ -112,7 +112,6 @@ void Game::Load(const wxString &filename)
 		auto name = child->GetName();
 		if(name == L"item")
 		{
-			// uncomment when parker is done with XmlItem function
 			 XmlItem(child);
 		}
 	}
