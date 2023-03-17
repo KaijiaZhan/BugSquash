@@ -21,6 +21,14 @@ using namespace std;
 */
 Game::Game()
 {
+	shared_ptr<Item> laptop = make_shared<Laptop>(this);
+	laptop->SetLocation(Width/2, Height/2);
+	mItems.push_back(laptop);
+
+	shared_ptr<Item> bug = make_shared<RedundancyFly>(this);
+	bug->SetLocation(-100, 500);
+	mItems.push_back(bug);
+
 	mLevel0.Load(L"levels/level0.xml", this);
 	mLevel1.Load(L"levels/level1.xml", this);
 	mLevel2.Load(L"levels/level2.xml", this);

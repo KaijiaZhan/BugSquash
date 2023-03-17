@@ -34,8 +34,11 @@ void Level::Load(const wxString &filename, Game * game)
 
 	auto root = xmlDoc.GetRoot();
 
+	auto rootName = root->GetName();
 
-	auto child = root->GetChildren();
+	auto firstChild = root->GetChildren();
+
+	auto child = firstChild->GetChildren();
 
 	for( ; child; child=child->GetNext())
 	{
@@ -57,15 +60,17 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	shared_ptr<Item> item;
 
 	auto type = node->GetAttribute(L"type");
-	auto xLocation = node->GetAttribute(L"x");
-	auto yLocation = node->GetAttribute(L"y");
+
+	double x;
+	double y;
+	node->GetAttribute(L"x").ToDouble(&x);
+	node->GetAttribute(L"y").ToDouble(&y);
 
 	if (type == L"redundancy")
 	{
 		item = make_shared<RedundancyFly>(mGame);
-//		item->SetLocation(xLocation, yLocation);
+		item->SetLocation(x,y);
 	}
-
 
 	if (item != nullptr)
 	{
