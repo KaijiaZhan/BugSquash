@@ -6,8 +6,8 @@
 
 #include "pch.h"
 #include "MainFrame.h"
-#include "Game.h"
 #include "GameView.h"
+#include "ids.h"
 
 /**
  * Initialize the MainFrame window.
@@ -15,7 +15,7 @@
 void MainFrame::Initialize()
 {
 	//Creates the frame
-	Create(nullptr,wxID_ANY, L"BugSquash",wxDefaultPosition, wxSize( 1250,1000 ));
+	Create(nullptr,wxID_ANY, L"BugSquash",wxDefaultPosition, wxSize( 1000,800 ));
 
 	// Create a sizer that will lay out child windows vertically
 	// one above each other
@@ -45,7 +45,11 @@ void MainFrame::Initialize()
 	menuBar->Append(levelMenu, L"&Level" );
 	menuBar->Append(helpMenu, L"&Help");
 
-	levelMenu->Append(wxID_OPEN, "Open &File...\tCtrl-F", L"Open level file...");
+	levelMenu->Append(IDM_LEVEL0, "Open &Level 0", L"Open level file...");
+	levelMenu->Append(IDM_LEVEL1, "Open &Level 1", L"Open level file...");
+	levelMenu->Append(IDM_LEVEL2, "Open &Level 2", L"Open level file...");
+	levelMenu->Append(IDM_LEVEL3, "Open &Level 3", L"Open level file...");
+
 	fileMenu->Append(wxID_SAVEAS, "Save &As...\tCtrl-S", L"Save game as...");
 	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
 

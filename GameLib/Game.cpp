@@ -12,7 +12,6 @@
 #include "Feature.h"
 #include "RedundancyFly.h"
 #include "wx/xml/xml.h"
-#include <wx/graphics.h>
 
 using namespace std;
 
@@ -33,35 +32,35 @@ Game::Game()
  * Draw the game
  * @param dc The device context to draw on
  */
-void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
+void Game::OnDraw(wxDC *dc)
 {
-	//
-	// Automatic Scaling
-	//
-	auto scaleX = double(width) / double(Width);
-	auto scaleY = double(height) / double(Height);
-	mScale = std::min(scaleX, scaleY);
-
-	if(mShrinked)
-	{
-		mScale *= ShrinkScale;
-	}
-
-	mXOffset = (width - Width * mScale) / 2;
-	mYOffset = (height - Height * mScale) / 2;
-
-	graphics->PushState();
-
-	graphics->Translate(mXOffset, mYOffset);
-	graphics->Scale(mScale, mScale);
-
-	// From here on you are drawing virtual pixels
-
-	//
-	// Your drawing code goes here
-	//
-
-	graphics->PopState();
+//	//
+//	// Automatic Scaling
+//	//
+//	auto scaleX = double(width) / double(Width);
+//	auto scaleY = double(height) / double(Height);
+//	mScale = std::min(scaleX, scaleY);
+//
+//	if(mShrinked)
+//	{
+//		mScale *= ShrinkScale;
+//	}
+//
+//	mXOffset = (width - Width * mScale) / 2;
+//	mYOffset = (height - Height * mScale) / 2;
+//
+//	graphics->PushState();
+//
+//	graphics->Translate(mXOffset, mYOffset);
+//	graphics->Scale(mScale, mScale);
+//
+//	// From here on you are drawing virtual pixels
+//
+//	//
+//	// Your drawing code goes here
+//	//
+//
+//	graphics->PopState();
 
 	for (auto item : mItems)
 	{

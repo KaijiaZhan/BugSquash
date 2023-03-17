@@ -10,7 +10,8 @@
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
-#include "item.h"
+#include "Item.h"
+#include "Level.h"
 
 #include <memory>
 #include <string>
@@ -38,17 +39,20 @@ private:
 	/// Game area height in virtual pixels
 	const static int Height = 1000;
 
-	/// Scale to shrink to when in shrink mode
-	const double ShrinkScale = 0.75;
-
 	/// boolean that sets window size
-	bool mShrinked  = false;
+	bool mShrinked = false;
 
-	double mXOffset = 0;
+	/// XML for level 0
+	Level mLevel0;
 
-	double mYOffset = 0;
+	/// XML for level 1
+	Level mLevel1;
 
-	double mScale = 0;
+	/// XML for level 2
+	Level mLevel2;
+
+	/// XML for level 3
+	Level mLevel3;
 
 public:
 
@@ -57,11 +61,11 @@ public:
 	 */
 	Game();
 
-	void OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+	void OnDraw(wxDC *dc);
 	void Update(double elapsed, long totalTime);
 	std::shared_ptr<Item> HitTest(int x, int y);
 
-	void Load(const wxString &filename);
+	void LoadLevel(int level);
 
 	/// Initializing clearing the old data
 	void Clear();
@@ -69,9 +73,7 @@ public:
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
 
-	void Game::XmlItem(wxXmlNode *node);
-
-	void Game::Save(const wxString &filename);
+	void Save(const wxString &filename);
 
 	/**
 	 * Get the random number generator
@@ -79,9 +81,7 @@ public:
 	 */
 	std::mt19937 &GetRandom() { return mRandom; }
 
-	double GetWidth() const { return Width; }
-
-	double GetHeight() const { return Height; }
+	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
 };
 
