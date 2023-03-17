@@ -10,7 +10,7 @@
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
-#include "item.h"
+#include "Item.h"
 
 #include <memory>
 #include <string>
@@ -60,9 +60,9 @@ public:
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
 
-	void Game::XmlItem(wxXmlNode *node);
+	void XmlItem(wxXmlNode *node);
 
-	void Game::Save(const wxString &filename);
+	void Save(const wxString &filename);
 
 	/**
 	 * Get the random number generator
