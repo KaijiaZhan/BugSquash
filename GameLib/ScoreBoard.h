@@ -15,13 +15,13 @@ class ScoreBoard
 {
 private:
 	///Bug fixed header for the game
-	int mFixed;
+	int mFixed = 0;
 
 	///Bug oops header for the game
-	int mOops;
+	int mOops = 0;
 
 	///Bug missed header for the game
-	int mMissed;
+	int mMissed = 0;
 
 public:
 
