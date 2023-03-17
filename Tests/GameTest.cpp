@@ -204,3 +204,20 @@ TEST_F(GameTest, Load)
 
 	//Need to test all types once we populate all types of bugs
 }
+
+TEST_F(GameTest, Save) {
+	// Create a path to temporary files
+	auto path = TempPath();
+
+	// Create a game
+	Game game;
+
+	//
+	// First test, saving an empty game
+	//
+	auto file1 = path + L"/test1.game";
+	game.Save(file1);
+
+	TestEmpty(file1);
+
+}
