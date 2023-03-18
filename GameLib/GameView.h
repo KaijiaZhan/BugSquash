@@ -43,6 +43,8 @@ private:
 	/// The last stopwatch time
 	long mTime = 0;
 
+	bool mShrinked = false;
+
 //	/// Score font size to use
 //	const int ScoreSize = 85;
 //
@@ -66,7 +68,11 @@ public:
 	void Initialize(wxFrame *mainFrame);
 
 	//void Stop() {mTimer.Stop();}
+	void AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu);
 
+	void OnShrink(wxCommandEvent& event);
+
+	void OnShrinkUpdate(wxUpdateUIEvent& event);
 };
 
 #endif //PROJECT1_GAMELIB_GAMEVIEW_H

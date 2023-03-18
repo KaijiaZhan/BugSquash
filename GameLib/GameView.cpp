@@ -11,7 +11,7 @@
 #include "RedundancyFly.h"
 #include "Laptop.h"
 #include "ids.h"
-
+#include "Game.h"
 #include <sstream>
 #include <wx/stdpaths.h>
 #include <wx/dcbuffer.h>
@@ -188,4 +188,32 @@ void GameView::OnLevel3(wxCommandEvent& event)
 
 }
 
+/**
+ * Add menus specific to the view
+ * @param mainFrame The main frame that owns the menu bar
+ * @param menuBar The menu bar to add menus to
+ * @param viewMenu The view menu, so we can add to it if we wish
+ */
+void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu)
+{
+	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
+	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_VIEW);
+	mainFrame->Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, this, IDM_VIEW);
+}
 
+/**
+* Shrink function
+*/
+void GameView::OnShrink(wxCommandEvent& event)
+{
+	mShrinked = !mShrinked;
+	mGame.SetShrink(mShrinked);
+}
+/**
+ *
+ * @param event
+ */
+void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
+{
+	event.Check(mShrinked);
+}

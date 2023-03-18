@@ -39,11 +39,19 @@ void MainFrame::Initialize()
 
 	auto fileMenu = new wxMenu();
 	auto levelMenu = new wxMenu();
+	auto viewMenu = new wxMenu();
 	auto helpMenu = new wxMenu();
 
 	menuBar->Append(fileMenu, L"&File" );
 	menuBar->Append(levelMenu, L"&Level" );
+	menuBar->Append(viewMenu, L"&View" );
+
 	menuBar->Append(helpMenu, L"&Help");
+
+	mGameView->AddMenus(this, menuBar, viewMenu);
+
+	//viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
+	//Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnShrink, this, IDM_VIEW);
 
 	levelMenu->Append(IDM_LEVEL0, "Open &Level 0", L"Open level file...");
 	levelMenu->Append(IDM_LEVEL1, "Open &Level 1", L"Open level file...");
@@ -84,3 +92,4 @@ void MainFrame::OnAbout(wxCommandEvent& event)
 				 wxOK,
 				 this);
 }
+
