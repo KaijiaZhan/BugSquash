@@ -21,7 +21,6 @@ const std::wstring LaptopImage = L"images/laptop.png";
 Laptop::Laptop(Game *game) : Item(game, LaptopImage)
 {
 	mLaptopImage = make_unique<wxImage>(LaptopImage, wxBITMAP_TYPE_ANY);
-	mLaptopBitmap = make_unique<wxBitmap>(*mLaptopImage);
 
 	SetLocation(game->GetWidth()/2,game->GetHeight()/2);
 }
@@ -30,19 +29,23 @@ Laptop::Laptop(Game *game) : Item(game, LaptopImage)
  * Draw this item
  * @param dc Device context to draw on
  */
-void Laptop::Draw(wxDC *dc)
+void Laptop::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
-	double wid = mLaptopBitmap->GetWidth();
-	double hit = mLaptopBitmap->GetHeight();
+	int wid = mLaptopImage->GetWidth();
+	int hit = mLaptopImage->GetHeight();
 
-	dc->DrawBitmap(*mLaptopBitmap,
-	int(GetX() - wid / 2),
-	int(GetY() - hit / 2));
+	if(mLaptopBitmap.IsNull())
+	{
+		mLaptopBitmap = graphics->CreateBitmapFromImage(*mLaptopImage);
+	}
+
+	graphics->DrawBitmap(mLaptopBitmap,
+						 int(GetX() - wid / 2),
+						 int(GetY() - hit / 2), wid, hit);
 	wxFont font(wxSize(0, 20),
 				wxFONTFAMILY_SWISS,
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_NORMAL);
-	dc->SetFont(font);
-	dc->SetTextForeground(*wxWHITE);
-	dc->DrawText(L"BugSquash", int(GetX() - wid / 2) + 50, int(GetY() - hit / 2) + 40);
+	graphics->SetFont(font, *wxWHITE);
+	graphics->DrawText(L"BugSquash", int(GetX() - wid / 2) + 50, int(GetY() - hit / 2) + 40);
 }

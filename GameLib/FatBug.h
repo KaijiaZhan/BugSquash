@@ -41,8 +41,8 @@ public:
 	/// Constructor 
 	FatBug(Game* game);
 
-	/// Draws FatBug
-	void Draw(wxDC* dc) override;
+//	/// Draws FatBug
+//	void Draw(wxDC* dc) override;
 };
 
 #endif //PROJECT1_GAMELIB_FATBUG_H

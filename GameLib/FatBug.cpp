@@ -37,26 +37,26 @@ FatBug::FatBug(Game *game) : BugCollection(game)
 	mFatNullBitImage = make_unique<wxBitmap>(*mFatNullImage);
 }
 
-/**
- * Draw this bug
- * @param dc Device context to draw on
- */
-void FatBug::Draw(wxDC *dc)
-{
-	double wid = (mFatGarbageBitImage->GetWidth()) * 1.25;
-	double hit = mFatGarbageBitImage->GetHeight() * 1.25;
-
-	double wid2 = mFatNullBitImage->GetWidth() * 1.25;
-	double hit2 = mFatNullBitImage->GetHeight() * 1.25;
-
-	dc->DrawBitmap(*mFatGarbageBitImage,
-				   int(GetX() - wid / 2),
-				   int(GetY() - hit / 2));
-
-	dc->DrawBitmap(*mFatNullBitImage,
-				   int(GetX() - wid2 / 2),
-				   int(GetY() - hit2 / 2));
-}
+///**
+// * Draw this bug
+// * @param dc Device context to draw on
+// */
+//void FatBug::Draw(wxDC *dc)
+//{
+//	double wid = (mFatGarbageBitImage->GetWidth()) * 1.25;
+//	double hit = mFatGarbageBitImage->GetHeight() * 1.25;
+//
+//	double wid2 = mFatNullBitImage->GetWidth() * 1.25;
+//	double hit2 = mFatNullBitImage->GetHeight() * 1.25;
+//
+//	dc->DrawBitmap(*mFatGarbageBitImage,
+//				   int(GetX() - wid / 2),
+//				   int(GetY() - hit / 2));
+//
+//	dc->DrawBitmap(*mFatNullBitImage,
+//				   int(GetX() - wid2 / 2),
+//				   int(GetY() - hit2 / 2));
+//}
 
 
 

@@ -31,16 +31,16 @@ NullBug::NullBug(Game *game) : BugCollection(game)
     mNullBugBitmap = make_unique<wxBitmap>(*mNullBugImage);
 }
 
-/**
- * Draw this bug
- * @param dc Device context to draw on
- */
-void NullBug::Draw(wxDC *dc)
-{
-    double wid = mNullBugBitmap->GetWidth();
-    double hit = mNullBugBitmap->GetHeight();
-
-    dc->DrawBitmap(*mNullBugBitmap,
-                   int(GetX() - wid / 2),
-                   int(GetY() - hit / 2));
-}
+///**
+// * Draw this bug
+// * @param dc Device context to draw on
+// */
+//void NullBug::Draw(wxDC *dc)
+//{
+//    double wid = mNullBugBitmap->GetWidth();
+//    double hit = mNullBugBitmap->GetHeight();
+//
+//    dc->DrawBitmap(*mNullBugBitmap,
+//                   int(GetX() - wid / 2),
+//                   int(GetY() - hit / 2));
+//}

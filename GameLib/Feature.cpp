@@ -28,18 +28,18 @@ Feature::Feature(Game *game) : Item(game, FeatureImage)
 	mFeatureBitmap = make_unique<wxBitmap>(*mFeatureImage);
 }
 
-/**
- * Draw this feature
- * @param dc Device context to draw on
- */
-void Feature::Draw(wxDC *dc)
-{
-	double wid = mFeatureBitmap->GetWidth();
-	double hit = mFeatureBitmap->GetHeight();
-
-	dc->DrawBitmap(*mFeatureBitmap,
-				   int(GetX() - wid / 2),
-				   int(GetY() - hit / 2));
-
-
-}
+///**
+// * Draw this feature
+// * @param dc Device context to draw on
+// */
+//void Feature::Draw(wxDC *dc)
+//{
+//	double wid = mFeatureBitmap->GetWidth();
+//	double hit = mFeatureBitmap->GetHeight();
+//
+//	dc->DrawBitmap(*mFeatureBitmap,
+//				   int(GetX() - wid / 2),
+//				   int(GetY() - hit / 2));
+//
+//
+//}

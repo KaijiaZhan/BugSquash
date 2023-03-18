@@ -34,7 +34,7 @@ public:
 
 	NullBug(Game* game);
 
-    void Draw(wxDC* dc) override;
+//    void Draw(wxDC* dc) override;
 
 };
 

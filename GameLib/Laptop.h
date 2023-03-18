@@ -21,7 +21,8 @@ private:
 	/// The laptop image
 	std::unique_ptr<wxImage> mLaptopImage;
 	/// The laptop bitmap
-	std::unique_ptr<wxBitmap> mLaptopBitmap;
+	wxGraphicsBitmap mLaptopBitmap;
+
 
 protected:
 
@@ -42,7 +43,7 @@ public:
 	 * Draw this item
 	 * @param dc Device context to draw on
 	 */
-	void Draw(wxDC *dc) override;
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 };
 

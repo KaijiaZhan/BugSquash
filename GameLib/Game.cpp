@@ -14,6 +14,7 @@
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
 
+
 using namespace std;
 
 /**
@@ -57,17 +58,48 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
 	graphics->Scale(mScale, mScale);
 
 	// From here on you are drawing virtual pixels
-
-	//
-	// Your drawing code goes here
-	//
-
-	graphics->PopState();
+	graphics->SetBrush(*wxWHITE_BRUSH);
+	graphics->DrawRectangle(0,0,Width,Height);
 
 	for (auto item : mItems)
 	{
-		item->Draw(dc);
+		item->Draw(graphics);
 	}
+	// need to draw white rectangle, items, then scoreboard
+
+	wxFont font(LabelSize,
+				wxFONTFAMILY_SWISS,
+				wxFONTSTYLE_NORMAL,
+				wxFONTWEIGHT_NORMAL);
+	graphics->SetFont(font, wxColour(0,200,200));
+	//graphics->SetTextForeground(FontColor);
+
+	graphics->DrawText(L"Fixed",  // Text to draw
+				50,     // x coordinate for the left size of the text
+				ScoreLabelY);    // y coordinate for the top of the text
+
+	graphics->DrawText(L"0",  // Text to draw
+				90,     // x coordinate for the left size of the text
+				ScoreLabelY - 50);    // y coordinate for the top of the text
+
+	graphics->DrawText(L"Missed",  // Text to draw
+				450,     // x coordinate for the left size of the text
+				ScoreLabelY);    // y coordinate for the top of the text
+
+	graphics->DrawText(L"0",  // Text to draw
+				490,     // x coordinate for the left size of the text
+				ScoreLabelY - 50);    // y coordinate for the top of the text
+
+	graphics->DrawText(L"Oops",  // Text to draw
+				875,     // x coordinate for the left size of the text
+				ScoreLabelY);    // y coordinate for the top of the text
+
+	graphics->DrawText(L"0",  // Text to draw
+				915,     // x coordinate for the left size of the text
+				ScoreLabelY - 50);    // y coordinate for the top of the text
+
+				// need laptop and bug scaled
+	graphics->PopState();
 }
 
 

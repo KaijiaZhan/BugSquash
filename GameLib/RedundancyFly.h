@@ -12,6 +12,7 @@
 #include "Game.h"
 #include "BugCollection.h"
 
+
 #include "GameView.h"
 
 /**
@@ -31,15 +32,15 @@ private:
 	/// The underlying fly splat image
 	std::unique_ptr<wxImage> mFlySplat;
 	/// The bitmap we can display for this fly
-	std::unique_ptr<wxBitmap> mFlyBaseBitmap;
+	wxGraphicsBitmap mFlyBaseBitmap;
 
-	std::unique_ptr<wxBitmap> mFlyLeftWingBitmap;
+	wxGraphicsBitmap mFlyLeftWingBitmap;
 
-	std::unique_ptr<wxBitmap> mFlyRightWingBitmap;
+	wxGraphicsBitmap mFlyRightWingBitmap;
 
-	std::unique_ptr<wxBitmap> mFlyTopBitmap;
+	wxGraphicsBitmap mFlyTopBitmap;
 
-	std::unique_ptr<wxBitmap> mFlySplatBitmap;
+	wxGraphicsBitmap mFlySplatBitmap;
 
 	/// Wing flapping period in seconds
 	const double WingPeriod = 0.2;
@@ -76,7 +77,7 @@ public:
 
 	RedundancyFly(Game *game);
 
-	void Draw(wxDC* dc) override;
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 

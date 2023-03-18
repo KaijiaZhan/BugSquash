@@ -10,7 +10,9 @@
 #ifndef PROJECT1_GAMELIB_ITEM_H
 #define PROJECT1_GAMELIB_ITEM_H
 
+#include <wx/graphics.h>
 #include "Game.h"
+
 
 class Game;
 
@@ -26,7 +28,7 @@ private:
 	std::unique_ptr<wxImage> mItemImage;
 
 	/// The bitmap that can be displayed for the item
-	std::unique_ptr<wxBitmap> mItemBitmap;
+	wxGraphicsBitmap mItemBitmap;
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
@@ -76,7 +78,7 @@ public:
 	 * Draw this item
 	 * @param dc Device context to draw on
 	 */
-	virtual void Draw(wxDC *dc) = 0;
+	virtual void Draw(std::shared_ptr<wxGraphicsContext> graphics) = 0;
 
 	virtual void Update(double elapsed, long totalTime) {}
 

@@ -36,9 +36,9 @@ public:
 
 	/// Constructor
 	Feature(Game* game);
-
-	/// Draws feature 
-	void Draw(wxDC* dc) override;
+//
+//	/// Draws feature
+//	void Draw(wxDC* dc) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H

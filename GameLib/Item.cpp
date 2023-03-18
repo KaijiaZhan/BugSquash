@@ -36,14 +36,14 @@ Item::~Item()
  * Draw this item
  * @param dc Device context to draw on
  */
-void Item::Draw(wxDC *dc)
+void Item::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
-	double wid = mItemBitmap->GetWidth();
-	double hit = mItemBitmap->GetHeight();
+	int wid = mItemImage->GetWidth();
+	int hit = mItemImage->GetHeight();
 
-	dc->DrawBitmap(*mItemBitmap,
-				   int(GetX() - wid / 2),
-				   int(GetY() - hit / 2));
+	graphics->DrawBitmap(mItemBitmap,
+						 int(GetX() - wid / 2),
+						 int(GetY() - hit / 2), wid, hit);
 }
 
 /**
@@ -54,8 +54,8 @@ void Item::Draw(wxDC *dc)
  */
 bool Item::HitTest(int x, int y)
 {
-	double width = mItemBitmap->GetWidth();
-	double height = mItemBitmap->GetHeight();
+	double width = mItemImage->GetWidth();
+	double height = mItemImage->GetHeight();
 
 	double testX = x - GetX() + width / 2;
 	double testY = y - GetY() + height / 2;

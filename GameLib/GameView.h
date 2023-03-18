@@ -43,24 +43,24 @@ private:
 	/// The last stopwatch time
 	long mTime = 0;
 
-	/// Score font size to use
-	const int ScoreSize = 85;
-
-/// Lable for score font size to use
-	const int LabelSize = 40;
-
-/// The font color to use
-	const wxColour FontColor = wxColour(0, 200, 200);
-
-/// Left score X location. The right score is
-/// the width minus this value.
-	const int LeftScoreX = 150;
-
-/// Score Y location
-	const int ScoreY = 20;
-
-/// Score label Y location
-	const int ScoreLabelY = 100;
+//	/// Score font size to use
+//	const int ScoreSize = 85;
+//
+///// Lable for score font size to use
+//	const int LabelSize = 40;
+//
+///// The font color to use
+//	const wxColour FontColor = wxColour(0, 200, 200);
+//
+///// Left score X location. The right score is
+///// the width minus this value.
+//	const int LeftScoreX = 150;
+//
+///// Score Y location
+//	const int ScoreY = 20;
+//
+///// Score label Y location
+//	const int ScoreLabelY = 100;
 
 public:
 	void Initialize(wxFrame *mainFrame);

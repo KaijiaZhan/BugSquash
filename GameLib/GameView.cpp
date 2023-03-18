@@ -80,36 +80,36 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	mGame.Update(elapsed, mTime);
 
-	wxFont font(LabelSize,
-				wxFONTFAMILY_SWISS,
-				wxFONTSTYLE_NORMAL,
-				wxFONTWEIGHT_NORMAL);
-	dc.SetFont(font);
-	dc.SetTextForeground(FontColor);
-
-	dc.DrawText(L"Fixed",  // Text to draw
-				50,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
-
-	dc.DrawText(L"0",  // Text to draw
-                90,     // x coordinate for the left size of the text
-                ScoreLabelY - 50);    // y coordinate for the top of the text
-
-	dc.DrawText(L"Missed",  // Text to draw
-				450,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
-
-	dc.DrawText(L"0",  // Text to draw
-                490,     // x coordinate for the left size of the text
-                ScoreLabelY - 50);    // y coordinate for the top of the text
-
-	dc.DrawText(L"Oops",  // Text to draw
-				875,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
-
-	dc.DrawText(L"0",  // Text to draw
-                915,     // x coordinate for the left size of the text
-                ScoreLabelY - 50);    // y coordinate for the top of the text
+//	wxFont font(LabelSize,
+//				wxFONTFAMILY_SWISS,
+//				wxFONTSTYLE_NORMAL,
+//				wxFONTWEIGHT_NORMAL);
+//	dc.SetFont(font);
+//	dc.SetTextForeground(FontColor);
+//
+//	dc.DrawText(L"Fixed",  // Text to draw
+//				50,     // x coordinate for the left size of the text
+//				ScoreLabelY);    // y coordinate for the top of the text
+//
+//	dc.DrawText(L"0",  // Text to draw
+//                90,     // x coordinate for the left size of the text
+//                ScoreLabelY - 50);    // y coordinate for the top of the text
+//
+//	dc.DrawText(L"Missed",  // Text to draw
+//				450,     // x coordinate for the left size of the text
+//				ScoreLabelY);    // y coordinate for the top of the text
+//
+//	dc.DrawText(L"0",  // Text to draw
+//                490,     // x coordinate for the left size of the text
+//                ScoreLabelY - 50);    // y coordinate for the top of the text
+//
+//	dc.DrawText(L"Oops",  // Text to draw
+//				875,     // x coordinate for the left size of the text
+//				ScoreLabelY);    // y coordinate for the top of the text
+//
+//	dc.DrawText(L"0",  // Text to draw
+//                915,     // x coordinate for the left size of the text
+//                ScoreLabelY - 50);    // y coordinate for the top of the text
 
 	mGame.OnDraw(&dc, gc, rect.GetWidth(), rect.GetHeight());
 
