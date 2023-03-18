@@ -21,19 +21,12 @@ using namespace std;
 */
 Game::Game()
 {
-	shared_ptr<Item> laptop = make_shared<Laptop>(this);
-	laptop->SetLocation(Width/2, Height/2);
-	mItems.push_back(laptop);
-
-	shared_ptr<Item> bug = make_shared<RedundancyFly>(this);
-	bug->SetLocation(200, 500);
-	mItems.push_back(bug);
-
 	mLevel0.Load(L"levels/level0.xml", this);
 	mLevel1.Load(L"levels/level1.xml", this);
 	mLevel2.Load(L"levels/level2.xml", this);
 	mLevel3.Load(L"levels/level3.xml", this);
 
+	LoadLevel(0);
 
 }
 
@@ -135,10 +128,6 @@ void Game::LoadLevel(int level)
 		SetLevel(mLevel3.GetLevel());
 	}
 
-	shared_ptr<Item> laptop = make_shared<Laptop>(this);
-	laptop->SetLocation(Width/2, Height/2);
-	mItems.push_back(laptop);
-
 }
 
 /**
@@ -149,6 +138,29 @@ void Game::Clear()
 {
 	mItems.erase(mItems.begin(), mItems.end());
 }
+
+/**
+* @param filename The filename of the file to save the game to
+*/
+void Game::Save(const wxString &filename)
+{
+	wxXmlDocument xmlDoc;
+
+	auto root = new wxXmlNode(wxXML_ELEMENT_NODE, L"game");
+	xmlDoc.SetRoot(root);
+
+	for (auto item : mItems)
+	{
+		item->XmlSave(root);
+	}
+
+	if(!xmlDoc.Save(filename, wxXML_NO_INDENTATION))
+	{
+		wxMessageBox(L"Write to XML failed");
+		return;
+	}
+}
+
 
 /**
  * Add an item to the game

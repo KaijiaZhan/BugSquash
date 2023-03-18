@@ -54,6 +54,7 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
  */
 void RedundancyFly::Draw(wxDC *dc)
 {
+
 	double wid = mFlyBaseBitmap->GetWidth();
 	double hit = mFlyBaseBitmap->GetHeight();
 	dc->DrawBitmap(*mFlyBaseBitmap,
@@ -63,13 +64,36 @@ void RedundancyFly::Draw(wxDC *dc)
 	double widleft = mFlyLeftWingBitmap->GetWidth();
 	double hitleft = mFlyLeftWingBitmap->GetHeight();
 	dc->DrawBitmap(*mFlyLeftWingBitmap,
-				   int(GetX() - wid / 2),
+				   int(GetX()- wid / 2),
+				   int(GetY() - hit / 2));
+
+	dc->DrawBitmap(*mFlyLeftWingBitmap,
+				   int(GetX() - WingSetXOffset - wid / 2),
+				   int(GetY() - hit / 2));
+
+	dc->DrawBitmap(*mFlyLeftWingBitmap,
+				   int(GetX() - (WingSetXOffset * 2) - wid / 2),
+				   int(GetY() - hit / 2));
+
+	dc->DrawBitmap(*mFlyLeftWingBitmap,
+				   int(GetX() - (WingSetXOffset * 3) - wid / 2),
 				   int(GetY() - hit / 2));
 
 	double widright = mFlyRightWingBitmap->GetWidth();
 	double hitright = mFlyRightWingBitmap->GetHeight();
 	dc->DrawBitmap(*mFlyRightWingBitmap,
 				   int(GetX() - wid / 2),
+				   int(GetY() - hit / 2));
+	dc->DrawBitmap(*mFlyRightWingBitmap,
+				   int(GetX() - WingSetXOffset - wid / 2),
+				   int(GetY() - hit / 2));
+
+	dc->DrawBitmap(*mFlyRightWingBitmap,
+				   int(GetX() - (WingSetXOffset * 2) - wid / 2),
+				   int(GetY() - hit / 2));
+
+	dc->DrawBitmap(*mFlyRightWingBitmap,
+				   int(GetX() - (WingSetXOffset * 3) - wid / 2),
 				   int(GetY() - hit / 2));
 
 	double widtop = mFlyTopBitmap->GetWidth();

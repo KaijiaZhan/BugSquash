@@ -16,6 +16,7 @@
 #include <memory>
 #include <string>
 #include <algorithm>
+#include <random>
 
 class Item;
 
@@ -59,6 +60,9 @@ private:
 	/// XML for level 3
 	Level mLevel3;
 
+	///Random number generator
+	std::mt19937 mRandom;
+
 public:
 
 	/**
@@ -75,6 +79,8 @@ public:
 	/// Initializing clearing the old data
 	void Clear();
 
+	void Save(const wxString &filename);
+
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
 
@@ -83,6 +89,12 @@ public:
 	double GetWidth() const { return Width; }
 
 	double GetHeight() const { return Height; }
+
+	/**
+	* Get the random number generator
+	* @return Pointer to the random number generator
+	*/
+	std::mt19937 &GetRandom() { return mRandom; }
 
 
 };

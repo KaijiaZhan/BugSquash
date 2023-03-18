@@ -34,8 +34,6 @@ private:
 
 	double mSpeed = 0;
 
-
-
 protected:
 	Item(Game *game, const std::wstring image);
 
@@ -71,6 +69,8 @@ public:
 	void SetLocation(double x, double y) { mX = x; mY = y; }
 
 	void SetSpeed(double speed) {mSpeed = speed;}
+
+	double GetSpeed() { return mSpeed; }
 
 	/**
 	 * Draw this item

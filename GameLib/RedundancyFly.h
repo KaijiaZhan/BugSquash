@@ -41,6 +41,28 @@ private:
 
 	std::unique_ptr<wxBitmap> mFlySplatBitmap;
 
+	/// Wing flapping period in seconds
+	const double WingPeriod = 0.2;
+
+/// Starting rotation angle for wings in radians
+	const double WingRotateStart = 0.0;
+
+/// End rotation angle for wings in radians
+	const double WingRotateEnd = 1.5;
+
+/// How many sets of wings does this bug have?
+	const int NumberOfSetsOfWings = 4;
+
+/// Number of virtual pixels between each of the wing sets
+	const int WingSetXOffset = 12;
+
+/// X position relative to center of bug for the first (back) wing set
+	const int FirstWingSetX = -36;
+
+/// Y position relative to center of bug for the right wings. The negative
+/// of this is the Y position for the left wings.
+	const int WingSetY = 5;
+
 
 public:
 	/// Default constructor (disabled)

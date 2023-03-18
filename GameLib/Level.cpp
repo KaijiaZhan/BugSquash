@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "RedundancyFly.h"
+#include "Laptop.h"
 
 using namespace std;
 
@@ -40,6 +41,9 @@ void Level::Load(const wxString &filename, Game * game)
 
 	auto child = firstChild->GetChildren();
 
+	shared_ptr<Item> laptop = make_shared<Laptop>(game);
+	mLevelItems.push_back(laptop);
+
 	for( ; child; child=child->GetNext())
 	{
 		auto name = child->GetName();
@@ -56,7 +60,6 @@ void Level::Load(const wxString &filename, Game * game)
  */
 void Level::XmlItem(wxXmlNode *node, Game * game)
 {
-
 	shared_ptr<Item> item;
 
 	auto type = node->GetAttribute(L"type");

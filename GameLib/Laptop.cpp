@@ -22,6 +22,8 @@ Laptop::Laptop(Game *game) : Item(game, LaptopImage)
 {
 	mLaptopImage = make_unique<wxImage>(LaptopImage, wxBITMAP_TYPE_ANY);
 	mLaptopBitmap = make_unique<wxBitmap>(*mLaptopImage);
+
+	SetLocation(game->GetWidth()/2,game->GetHeight()/2);
 }
 
 /**

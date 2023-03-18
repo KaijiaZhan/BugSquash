@@ -31,8 +31,8 @@ void BugCollection::Update(double elapsed, long totalTime)
 	double angle = atan2(500-GetY(), 625-GetX());
 	if (totalTime > mStartTime*1000)
 	{
-		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),
-					GetY() + mSpeedY * (elapsed) * sin(angle));
+		SetLocation(GetX() + GetSpeed() * (elapsed) * cos(angle),
+					GetY() + GetSpeed() * (elapsed) * sin(angle));
 
 	}
 
