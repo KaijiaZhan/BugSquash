@@ -155,7 +155,6 @@ void GameView::OnTimer(wxTimerEvent& event)
 void GameView::OnLevel0(wxCommandEvent& event)
 {
 	mGame.LoadLevel(0);
-
 }
 
 /**
@@ -165,7 +164,6 @@ void GameView::OnLevel0(wxCommandEvent& event)
 void GameView::OnLevel1(wxCommandEvent& event)
 {
 	mGame.LoadLevel(1);
-
 }
 
 /**
@@ -175,7 +173,6 @@ void GameView::OnLevel1(wxCommandEvent& event)
 void GameView::OnLevel2(wxCommandEvent& event)
 {
 	mGame.LoadLevel(2);
-
 }
 
 /**
@@ -209,6 +206,7 @@ void GameView::OnShrink(wxCommandEvent& event)
 	mShrinked = !mShrinked;
 	mGame.SetShrink(mShrinked);
 }
+
 /**
  *
  * @param event
