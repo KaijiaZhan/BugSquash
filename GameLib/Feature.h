@@ -22,8 +22,14 @@ private:
 	/// The underlying Feature image
 	std::unique_ptr<wxImage> mFeatureImage;
 
-	/// The bitmap we can display for feature
-	std::unique_ptr<wxBitmap> mFeatureBitmap;
+    /// The underlying fly splat image
+    std::unique_ptr<wxImage> mFeatureSplat;
+
+    /// The bitmap we can display for feature
+    wxGraphicsBitmap mFeatureBitmap;
+
+    /// The bitmap we can display for feature
+    wxGraphicsBitmap mFeatureSplatBitmap;
 public:
 	/// Default constructor (disabled)
 	Feature() = delete;
