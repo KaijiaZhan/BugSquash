@@ -149,3 +149,17 @@ wxXmlNode* RedundancyFly::XmlSave(wxXmlNode* node)
 
 	return itemNode;
 }
+
+/**
+ * Test to see if we hit this object with a mouse.
+ * @param x X position to test
+ * @param y Y position to test
+ * @return true if hit.
+ */
+bool RedundancyFly::HitTest(int x, int y)
+{
+	double dx = x - GetX();
+	double dy = y - GetY();
+
+	return sqrt(dx * dx + dy * dy) < 50;
+}
