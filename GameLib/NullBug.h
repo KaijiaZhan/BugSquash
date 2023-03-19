@@ -36,6 +36,8 @@ public:
 
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
+	bool HitTest(int x, int y);
+
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
 };

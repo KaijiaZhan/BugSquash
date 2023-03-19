@@ -25,7 +25,7 @@ const int NullBugNumSpriteImages = 6;
  * Constructor
  * @param game Game this bug is a member of
  */
-NullBug::NullBug(Game *game) : BugCollection(game)
+NullBug::NullBug(Game *game) : BugCollection(game,NullBugSpriteImageName)
 {
     mNullBugImage = make_unique<wxImage>(NullBugSpriteImageName, wxBITMAP_TYPE_ANY);
 }
@@ -50,11 +50,25 @@ void NullBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 						 int(GetY() - hit / 2), wid, hit);
 }
 
-//wxXmlNode* NullBug::XmlSave(wxXmlNode* node)
-//{
-//	auto itemNode = Item::XmlSave(node);
-//
-//	itemNode->AddAttribute(L"type", L"redundancyfly");
-//
-//	return itemNode;
-//}
+/**
+ * Test to see if we hit this object with a mouse.
+ * @param x X position to test
+ * @param y Y position to test
+ * @return true if hit.
+ */
+bool NullBug::HitTest(int x, int y)
+{
+	double dx = x - GetX();
+	double dy = y - GetY();
+
+	return sqrt(dx * dx + dy * dy) < GetHitRange();
+}
+
+wxXmlNode* NullBug::XmlSave(wxXmlNode* node)
+{
+	auto itemNode = Item::XmlSave(node);
+
+	itemNode->AddAttribute(L"type", L"null");
+
+	return itemNode;
+}

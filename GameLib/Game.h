@@ -40,7 +40,7 @@ private:
 	const double ShrinkScale = 0.75;
 
 	/// boolean that sets window size
-	bool mShrinked = false;
+	bool mShrinked = true;
 
 	double mXOffset = 0;
 

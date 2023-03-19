@@ -57,6 +57,11 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
 	graphics->Translate(mXOffset, mYOffset);
 	graphics->Scale(mScale, mScale);
 
+	if(!mShrinked)
+	{
+		graphics->Clip(0, 0, Game::Width, Game::Height);
+	}
+
 	// From here on you are drawing virtual pixels
 	graphics->SetBrush(*wxWHITE_BRUSH);
 	graphics->DrawRectangle(0,0,Width,Height);

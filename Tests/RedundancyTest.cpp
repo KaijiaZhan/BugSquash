@@ -1,6 +1,6 @@
 /**
  * @file RedundancyTest.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  */
 
 

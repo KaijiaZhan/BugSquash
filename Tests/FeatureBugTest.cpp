@@ -1,4 +1,4 @@
 /**
  * @file FeatureBugTest.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  */

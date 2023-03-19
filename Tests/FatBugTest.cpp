@@ -1,4 +1,4 @@
 /**
  * @file FatBugTest.cpp
- * @author Kaijia
+ * @author Kaijia Joanna Zhan
  */
