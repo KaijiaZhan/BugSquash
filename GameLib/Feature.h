@@ -22,8 +22,14 @@ private:
 	/// The underlying Feature image
 	std::unique_ptr<wxImage> mFeatureImage;
 
-	/// The bitmap we can display for feature
-	std::unique_ptr<wxBitmap> mFeatureBitmap;
+    /// The underlying fly splat image
+    std::unique_ptr<wxImage> mFeatureSplat;
+
+    /// The bitmap we can display for feature
+    wxGraphicsBitmap mFeatureBitmap;
+
+    /// The bitmap we can display for feature
+    wxGraphicsBitmap mFeatureSplatBitmap;
 public:
 	/// Default constructor (disabled)
 	Feature() = delete;
@@ -36,9 +42,11 @@ public:
 
 	/// Constructor
 	Feature(Game* game);
-//
-//	/// Draws feature
-//	void Draw(wxDC* dc) override;
+
+	/// Draws Feature
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+    wxXmlNode* XmlSave(wxXmlNode* node) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H
