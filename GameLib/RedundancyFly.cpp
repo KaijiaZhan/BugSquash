@@ -102,36 +102,37 @@ void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	int hitleft = mFlyLeftWingImage->GetHeight();
 	graphics->DrawBitmap(mFlyLeftWingBitmap,
 						 int(GetX()- wid / 2),
-						 int(GetY() - hit / 2), widleft, hitleft);
+						 int(GetY() - WingSetY - hit / 2), widleft, hitleft);
 
 	graphics->DrawBitmap(mFlyLeftWingBitmap,
 						 int(GetX() - WingSetXOffset - wid / 2),
-						 int(GetY() - hit / 2), widleft, hitleft);
+						 int(GetY() - WingSetY - hit / 2), widleft, hitleft);
 
 	graphics->DrawBitmap(mFlyLeftWingBitmap,
 						 int(GetX() - (WingSetXOffset * 2) - wid / 2),
-						 int(GetY() - hit / 2), widleft, hitleft);
+						 int(GetY() - WingSetY - hit / 2), widleft, hitleft);
 
 	graphics->DrawBitmap(mFlyLeftWingBitmap,
 						 int(GetX() - (WingSetXOffset * 3) - wid / 2),
-						 int(GetY() - hit / 2), widleft, hitleft);
+						 int(GetY() - WingSetY - hit / 2), widleft, hitleft);
+
 	int widright = mFlyRightWingImage->GetWidth();
 	int hitright = mFlyLeftWingImage->GetHeight();
 	graphics->DrawBitmap(mFlyRightWingBitmap,
 						 int(GetX()- wid / 2),
-						 int(GetY() - hit / 2), widright, hitright);
+						 int(GetY() + WingSetY - hit / 2), widright, hitright);
 
 	graphics->DrawBitmap(mFlyRightWingBitmap,
 						 int(GetX() - WingSetXOffset - wid / 2),
-						 int(GetY() - hit / 2), widright, hitright);
+						 int(GetY() + WingSetY - hit / 2), widright, hitright);
 
 	graphics->DrawBitmap(mFlyRightWingBitmap,
 						 int(GetX() - (WingSetXOffset * 2) - wid / 2),
-						 int(GetY() - hit / 2), widright, hitright);
+						 int(GetY() + WingSetY - hit / 2), widright, hitright);
 
 	graphics->DrawBitmap(mFlyRightWingBitmap,
 						 int(GetX() - (WingSetXOffset * 3) - wid / 2),
-						 int(GetY() - hit / 2), widright, hitright);
+						 int(GetY() + WingSetY - hit / 2), widright, hitright);
 
 	int widtop = mFlyTopImage->GetWidth();
 	int hittop = mFlyTopImage->GetHeight();
