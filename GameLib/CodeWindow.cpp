@@ -1,10 +1,10 @@
 /**
- * @file IDE.cpp
+ * @file CodeWindow.cpp
  * @author Parker Morgan
  */
 
 #include "pch.h"
-#include "IDE.h"
+#include "CodeWindow.h"
 
 #include <string>
 
