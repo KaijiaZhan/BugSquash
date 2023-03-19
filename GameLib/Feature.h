@@ -36,9 +36,11 @@ public:
 
 	/// Constructor
 	Feature(Game* game);
-//
-//	/// Draws feature
-//	void Draw(wxDC* dc) override;
+
+	/// Draws Feature
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+    wxXmlNode* XmlSave(wxXmlNode* node) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H
