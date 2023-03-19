@@ -81,6 +81,8 @@ public:
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
+	bool HitTest(int x, int y) override;
+
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H
