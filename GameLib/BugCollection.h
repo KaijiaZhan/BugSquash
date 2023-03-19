@@ -34,6 +34,8 @@ private:
 	/// If true the item is mirrored
 	bool mMirror = false;
 
+	double BugHitRange = 50;
+
 protected:
 
 	/**
@@ -80,6 +82,8 @@ public:
 	 virtual void SetSpeed(double x, double y) { mSpeedX=mSpeedX * x; mSpeedY=mSpeedY *y;};
 
 	void Save(const wxString &filename);
+
+	double GetHitRange() { return BugHitRange; }
 
 };
 

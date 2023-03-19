@@ -13,35 +13,37 @@
 TEST(GarbageBugTest, Construct){
 	Game game;
 	/// needs garbagebug draw function
-//	GarbageBug bug(&game);
+//	GarbageBug gbug(&game);
 }
 
 //TEST(GarbageBugTest, HitTest) {
 // Create a fish to test
 //	Game game;
-//	GarbageBug bug(&game);
+//	game.Clear();
 //
-// Give it a location
-// Always make the numbers different, in case they are mixed up
-//	bug.SetLocation(100, 200);
+//	shared_ptr<Item> gbug = std::make_shared<GarbageBug>(&game);
+//	gbug->SetLocation(100, 200);
+//	game.Add(gbug);
 //
-// Center of the bug should be a true
-//	ASSERT_TRUE(bug.HitTest(100, 200));
 //
-// Left of the bug
-//	ASSERT_FALSE(bug.HitTest(10, 200));
 //
-// Right of the bug
-//	ASSERT_FALSE(bug.HitTest(200, 200));
+//	// Center of the fish should be a true
+//	ASSERT_TRUE(gbug->HitTest(100, 200));
 //
-// Above the bug
-//	ASSERT_FALSE(bug.HitTest(100, 0));
+//	// Left of the fish
+//	ASSERT_FALSE(gbug->HitTest(10, 200));
 //
-// Below the bug
-//	ASSERT_FALSE(bug.HitTest(100, 300));
+//	// Right of the fish
+//	ASSERT_FALSE(gbug->HitTest(200, 200));
 //
-// On a bug transparent pixel
-//	ASSERT_FALSE(bug.HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
+//	// Above the fish
+//	ASSERT_FALSE(gbug->HitTest(100, 0));
+//
+//	// Below the fish
+//	ASSERT_FALSE(gbug->HitTest(100, 300));
+//
+//	// On a fish transparent pixel
+//	ASSERT_FALSE(gbug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
 
 
 //}
