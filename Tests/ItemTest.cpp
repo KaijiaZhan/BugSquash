@@ -4,19 +4,19 @@
  */
 
 #include <pch.h>
-#include "gtest/gtest.h"
 #include <Item.h>
 #include <Game.h>
 
-/// Bug filename
-const std::wstring FlyImageName = L"images/redundancy-fly-base.png";
+#include "gtest/gtest.h"
 
 /** Mock class for testing the class Item */
 class ItemMock : public Item {
 public:
-	ItemMock(Game *game) : Item(game, FlyImageName) {}
+	ItemMock(Game *game) : Item(game) {}
 
-	void Draw(wxDC *dc) override {}
+	void Draw(std::shared_ptr<wxGraphicsContext>) override {}
+	bool HitTest(int x, int y) override { return false; }
+
 };
 
 TEST(ItemTest, Construct) {
@@ -48,33 +48,4 @@ TEST(ItemTest, GettersSetters){
 	ASSERT_NEAR(-107, item.GetY(), 0.0001);
 }
 
-//TEST(FeatureTest, HitTest) {
-//	// Create a bug to test
-//	Game game;
-//	ItemMock bug(&game);
-//
-//	// Give it a location
-//	// Always make the numbers different, in case they are mixed up
-//	bug.SetLocation(100, 200);
-//
-//	// Center of the bug should be a true
-//	ASSERT_TRUE(bug.HitTest(100, 200));
-//
-//	// Left of the bug
-//	ASSERT_FALSE(bug.HitTest(10, 200));
-//
-//	// Right of the bug
-//	ASSERT_FALSE(bug.HitTest(200, 200));
-//
-//	// Above the bug
-//	ASSERT_FALSE(bug.HitTest(100, 0));
-//
-//	// Below the bug
-//	ASSERT_FALSE(bug.HitTest(100, 300));
-//
-//	// On a bug transparent pixel
-//	ASSERT_FALSE(bug.HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
-//
-//
-//}
 

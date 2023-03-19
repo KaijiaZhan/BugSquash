@@ -37,7 +37,7 @@ private:
 	double mSpeed = 0;
 
 protected:
-	Item(Game *game, const std::wstring image);
+	Item(Game *game);
 
 public:
 	virtual ~Item();

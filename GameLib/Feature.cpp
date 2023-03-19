@@ -22,7 +22,7 @@ const wstring FeatureSplat = L"images/feature-splat.png";
  * Constructor
  * @param game Game this bug is a member of
  */
-Feature::Feature(Game *game) : Item(game, FeatureImage)
+Feature::Feature(Game *game) : Item(game)
 {
     mFeatureImage = make_unique<wxImage>(FeatureImage, wxBITMAP_TYPE_ANY);
 

@@ -18,7 +18,7 @@ using namespace std;
  * @param game The game this item is a member of
  * @param filename that the item is taking the image of
  */
-Item::Item(Game *game, const std::wstring image) : mGame(game)
+Item::Item(Game *game) : mGame(game)
 {
 
 }

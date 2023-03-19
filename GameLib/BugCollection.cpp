@@ -12,7 +12,7 @@
  * Constructor
  */
 BugCollection::BugCollection(Game *game, const std::wstring &filename) :
-	Item(game, filename)
+	Item(game)
 {
 
 }

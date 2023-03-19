@@ -18,7 +18,7 @@ const std::wstring LaptopImage = L"images/laptop.png";
  * Constructor
  * @param game The game this item is a member of
  */
-Laptop::Laptop(Game *game) : Item(game, LaptopImage)
+Laptop::Laptop(Game *game) : Item(game)
 {
 	mLaptopImage = make_unique<wxImage>(LaptopImage, wxBITMAP_TYPE_ANY);
 
