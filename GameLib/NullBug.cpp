@@ -49,3 +49,12 @@ void NullBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 						 int(GetX() - wid / 2),
 						 int(GetY() - hit / 2), wid, hit);
 }
+
+//wxXmlNode* NullBug::XmlSave(wxXmlNode* node)
+//{
+//	auto itemNode = Item::XmlSave(node);
+//
+//	itemNode->AddAttribute(L"type", L"redundancyfly");
+//
+//	return itemNode;
+//}

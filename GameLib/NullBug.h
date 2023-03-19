@@ -38,8 +38,6 @@ public:
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
-//    void Draw(wxDC* dc) override;
-
 };
 
 #endif //PROJECT1_COPY_GAMELIB_NULLBUG_H

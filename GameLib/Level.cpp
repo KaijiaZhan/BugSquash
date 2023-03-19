@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "RedundancyFly.h"
+#include "GarbageBug.h"
 #include "Laptop.h"
 
 using namespace std;
@@ -75,10 +76,15 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	if (type == L"redundancy")
 	{
 		item = make_shared<RedundancyFly>(mGame);
-		item->SetLocation(100,200);
+		item->SetLocation(x,y);
 		item->SetSpeed(speed);
 	}
-
+	if (type == L"garbage")
+	{
+		item = make_shared<GarbageBug>(mGame);
+		item->SetLocation(x,y);
+		item->SetSpeed(speed);
+	}
 	if (item != nullptr)
 	{
 		mLevelItems.push_back(item);
