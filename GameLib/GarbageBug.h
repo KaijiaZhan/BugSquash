@@ -38,6 +38,8 @@ public:
 
 //	void Draw(wxDC* dc) override;
 
+	bool HitTest(int x, int y);
+
 };
 
 #endif //PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
