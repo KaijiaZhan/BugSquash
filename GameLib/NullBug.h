@@ -20,7 +20,7 @@ private:
     std::unique_ptr<wxImage> mNullBugImage;
 
     /// The bitmap we can display for this bug
-    std::unique_ptr<wxBitmap> mNullBugBitmap;
+	wxGraphicsBitmap mNullBugBitmap;
 
 public:
 	/// Default constructor (disabled)
@@ -32,7 +32,11 @@ public:
 	/// Assignment operator
 	void operator=(const NullBug &) = delete;
 
-	NullBug(Game* game);
+	NullBug(Game *game);
+
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
 //    void Draw(wxDC* dc) override;
 

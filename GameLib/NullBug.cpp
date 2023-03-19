@@ -13,10 +13,10 @@
 using namespace std;
 
 /// The bug sprite image
-const std::wstring NullBugSpriteImageName = L"scarlet-gray-bug.png";
+const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
 
 /// The splat image
-const std::wstring NullBugSplatImageName = L"scarlet-gray-splat.png";
+const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
 
 /// Number of sprite images
 const int NullBugNumSpriteImages = 6;
@@ -28,19 +28,24 @@ const int NullBugNumSpriteImages = 6;
 NullBug::NullBug(Game *game) : BugCollection(game)
 {
     mNullBugImage = make_unique<wxImage>(NullBugSpriteImageName, wxBITMAP_TYPE_ANY);
-    mNullBugBitmap = make_unique<wxBitmap>(*mNullBugImage);
 }
 
-///**
-// * Draw this bug
-// * @param dc Device context to draw on
-// */
-//void NullBug::Draw(wxDC *dc)
-//{
-//    double wid = mNullBugBitmap->GetWidth();
-//    double hit = mNullBugBitmap->GetHeight();
-//
-//    dc->DrawBitmap(*mNullBugBitmap,
-//                   int(GetX() - wid / 2),
-//                   int(GetY() - hit / 2));
-//}
+/**
+ * Draw this bug
+ * @param dc Device context to draw on
+ */
+void NullBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
+{
+
+	if(mNullBugBitmap.IsNull())
+	{
+		mNullBugBitmap = graphics->CreateBitmapFromImage(*mNullBugImage);
+	}
+
+    double wid = mNullBugImage->GetWidth();
+    double hit = mNullBugImage->GetHeight();
+
+	graphics->DrawBitmap(mNullBugBitmap,
+						 int(GetX() - wid / 2),
+						 int(GetY() - hit / 2), wid, hit);
+}
