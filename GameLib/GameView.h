@@ -28,6 +28,7 @@ private:
 
 	void OnPaint(wxPaintEvent& event);
 
+
 	/// the game
 	Game mGame;
 
@@ -76,6 +77,9 @@ public:
 	void OnShrink(wxCommandEvent& event);
 
 	void OnShrinkUpdate(wxUpdateUIEvent& event);
+
+	void OnMouseDoubleClick(wxMouseEvent& event);
+
 };
 
 #endif //PROJECT1_GAMELIB_GAMEVIEW_H

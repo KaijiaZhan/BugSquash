@@ -17,7 +17,7 @@ TEST(GarbageBugTest, Construct){
 }
 
 TEST(GarbageBugTest, HitTest) {
-// Create a fish to test
+// Create a bug to test
 	Game game;
 	game.Clear();
 
@@ -25,22 +25,22 @@ TEST(GarbageBugTest, HitTest) {
 	gbug->SetLocation(100, 200);
 	game.Add(gbug);
 
-	// Center of the fish should be a true
+	// Center of the bug should be a true
 	ASSERT_TRUE(gbug->HitTest(100, 200));
 
-	// Left of the fish
+	// Left of the bug
 	ASSERT_FALSE(gbug->HitTest(10, 200));
 
-	// Right of the fish
+	// Right of the bug
 	ASSERT_FALSE(gbug->HitTest(200, 200));
 
-	// Above the fish
+	// Above the bug
 	ASSERT_FALSE(gbug->HitTest(100, 0));
 
-	// Below the fish
+	// Below the bug
 	ASSERT_FALSE(gbug->HitTest(100, 300));
 
-	// On a fish transparent pixel
+	// On a bug transparent pixel
 	ASSERT_FALSE(gbug->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
 
 }

@@ -48,7 +48,6 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
 	{
 		mScale *= ShrinkScale;
 	}
-
 	mXOffset = (width - Width * mScale) / 2;
 	mYOffset = (height - Height * mScale) / 2;
 
