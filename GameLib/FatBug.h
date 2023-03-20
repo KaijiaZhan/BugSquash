@@ -53,7 +53,7 @@ public:
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
-	bool HitTest(int x, int y);
+	bool HitTest(int x, int y) override;
 
 	void OpenWindow(int x); //temp parameter
 

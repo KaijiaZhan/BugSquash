@@ -10,7 +10,6 @@
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
-#include "Item.h"
 #include "Level.h"
 
 #include <memory>

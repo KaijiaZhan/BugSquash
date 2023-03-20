@@ -1,14 +1,13 @@
 /**
  * @file LeadershipBoard.h
  * @author Flora Pieters
+ * @author Courtney Thang
  *
  * Initializes the leadership board for the game
  */
 
 #ifndef PROJECT1_GAMELIB_FEATURE_H
 #define PROJECT1_GAMELIB_FEATURE_H
-
-using namespace std;
 
 /**
 * Initializes the leadership board for the game
@@ -21,11 +20,11 @@ private:
     int mScoreFourth = 0;
     int mScoreFifth = 0;
 
-    string mNameFirst;
-    string mNameSecond;
-    string mNameThird;
-    string mNameFourth;
-    string mNameFifth;
+    wxString mNameFirst;
+    wxString mNameSecond;
+    wxString mNameThird;
+    wxString mNameFourth;
+    wxString mNameFifth;
 
 public:
 
