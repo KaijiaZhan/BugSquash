@@ -41,6 +41,7 @@ void GameView::Initialize(wxFrame* mainFrame)
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
+
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel0, this, IDM_LEVEL0);
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel1, this, IDM_LEVEL1);
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel2, this, IDM_LEVEL2);
@@ -216,4 +217,17 @@ void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 	mGame.SetShrink(mShrinkCheck);
 	event.Check(mGame.GetShrink());
 //	mGame.SetShrink(!mGame.GetShrink());
+}
+
+/**
+ * Handle a left-mouse double-click event
+ * @param event Mouse event
+ */
+void GameView::OnMouseDoubleClick(wxMouseEvent& event)
+{
+	auto bug = mGame.HitTest(event.GetX(), event.GetY());
+	if(bug != nullptr)
+	{
+		// We have double-clicked on a bug, want the window to appear
+	}
 }

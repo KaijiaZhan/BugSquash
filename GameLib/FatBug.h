@@ -48,7 +48,7 @@ public:
 	/// Constructor 
 	FatBug(Game* game);
 
-//	/// Draws FatBug
+	/// Draws FatBug
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
@@ -56,6 +56,8 @@ public:
 	bool HitTest(int x, int y) override;
 
 	void OpenWindow(int x); //temp parameter
+
+	void DoubleClick(int x, int y) override;
 
 };
 

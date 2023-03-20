@@ -84,6 +84,16 @@ wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
 	return itemNode;
 }
 
+/**
+ * Handle a double-click on an item
+ * @param x X location in the aquarium of the double-click
+ * @param y Y location in the aquarium of the double-click
+ */
+void FatBug::DoubleClick(int x, int y)
+{
+
+}
+
 /// Function to open IDE window that displays code
 void FatBug::OpenWindow(int x) // temp parameter
 {
