@@ -36,6 +36,8 @@ private:
 
 	double mSpeed = 0;
 
+	int mItemHitRange = 50;
+
 protected:
 	Item(Game *game);
 
@@ -88,7 +90,7 @@ public:
 
 	virtual wxXmlNode *XmlSave(wxXmlNode *node);
 
-	double GetHitRange() { return BugHitRange; }
+	double GetHitRange() { return mItemHitRange; }
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
