@@ -2,6 +2,7 @@
  * @file FatBug.cpp
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
+ * @author Parker Morgan
  */
 
 #include "pch.h"
@@ -23,6 +24,12 @@ const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
 
 /// The splat image
 const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
+
+/// The code to be displayed in the code window
+//const wstring mCode = L"test!!";
+
+/// The FatBug size modifier (25% larger than counterparts)
+const double FatBugSize = 1.25;
 
 /**
  * Constructor
@@ -77,7 +84,13 @@ wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
 	return itemNode;
 }
 
-
+/// Function to open IDE window that displays code
+void FatBug::OpenWindow(int x) // temp parameter
+{
+	//copied from fat bug page not sure how to implement
+	//CodeDlg dlg(window, mCode);
+	//dlg.ShowModal();
+}
 
 
 

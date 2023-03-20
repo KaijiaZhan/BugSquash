@@ -2,7 +2,7 @@
  * @file FatBug.h
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
- *
+ * @author Parker Morgan
  */
 
 #ifndef PROJECT1_GAMELIB_FATBUG_H
@@ -54,6 +54,9 @@ public:
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
 	bool HitTest(int x, int y);
+
+	void OpenWindow(int x); //temp parameter
+
 };
 
 #endif //PROJECT1_GAMELIB_FATBUG_H
