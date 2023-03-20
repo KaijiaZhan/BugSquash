@@ -116,6 +116,16 @@ void Game::Update(double elapsed, long totalTime)
 	for (auto item : mItems)
 	{
 		item->Update(elapsed, totalTime);
+		if (item->GetDel())
+		{
+//			auto loc = find(begin(mItems), end(mItems), item);
+//			if (loc != end(mItems))
+//			{
+//				mItems.erase(loc);
+//			}
+			item->SetLocation(-1000,-1000);
+			item->SetSpeed(0);
+		}
 	}
 }
 
