@@ -38,6 +38,8 @@ private:
 
 	int mItemHitRange = 50;
 
+	bool mToDel = false;
+
 protected:
 	Item(Game *game);
 
@@ -91,6 +93,10 @@ public:
 	virtual wxXmlNode *XmlSave(wxXmlNode *node);
 
 	double GetHitRange() { return mItemHitRange; }
+
+	virtual void SetDel(bool del) {mToDel = del;}
+
+	bool GetDel() {return mToDel;}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
