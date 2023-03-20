@@ -40,6 +40,8 @@ private:
 
 	bool mToDel = false;
 
+	double mStartTime = 0;
+
 protected:
 	Item(Game *game);
 
@@ -97,6 +99,10 @@ public:
 	virtual void SetDel(bool del) {mToDel = del;}
 
 	bool GetDel() {return mToDel;}
+
+	void SetStartTime(double starttime) {mStartTime = starttime;}
+
+	double GetStartTime() {return mStartTime;}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
