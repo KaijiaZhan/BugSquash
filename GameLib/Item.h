@@ -87,6 +87,8 @@ public:
 	virtual void XmlLoad(wxXmlNode *node);
 
 	virtual wxXmlNode *XmlSave(wxXmlNode *node);
+
+	double GetHitRange() { return BugHitRange; }
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
