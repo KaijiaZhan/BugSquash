@@ -43,7 +43,7 @@ private:
 	/// The last stopwatch time
 	long mTime = 0;
 
-	bool mShrinked = false;
+	//bool mShrinked = false;
 
 //	/// Score font size to use
 //	const int ScoreSize = 85;
@@ -63,6 +63,9 @@ private:
 //
 ///// Score label Y location
 //	const int ScoreLabelY = 100;
+
+	bool mShrink;
+	bool mShrinkCheck = true;
 
 public:
 	void Initialize(wxFrame *mainFrame);

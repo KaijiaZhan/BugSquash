@@ -8,6 +8,7 @@
 #ifndef PROJECT1_GAMELIB_FATBUG_H
 #define PROJECT1_GAMELIB_FATBUG_H
 
+#include "GameView.h"
 #include "BugCollection.h"
 
 /**
@@ -26,7 +27,13 @@ private:
 	std::unique_ptr<wxImage> mFatGarbageImage;
 
 	/// The bitmap we can display for this bug
-	std::unique_ptr<wxBitmap> mFatGarbageBitImage;
+	wxGraphicsBitmap mFatGarbageBitImage;
+
+	/// The underlying garbage splat image
+	std::unique_ptr<wxImage> mFatGarbageSplat;
+
+	/// The bitmap for the splat image
+	wxGraphicsBitmap mFatGarbageSplatBitmap;
 
 public:
 	/// Default constructor (disabled)
@@ -42,7 +49,11 @@ public:
 	FatBug(Game* game);
 
 //	/// Draws FatBug
-//	void Draw(wxDC* dc) override;
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	bool HitTest(int x, int y);
 };
 
 #endif //PROJECT1_GAMELIB_FATBUG_H

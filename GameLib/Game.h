@@ -40,7 +40,7 @@ private:
 	const double ShrinkScale = 0.75;
 
 	/// boolean that sets window size
-	bool mShrinked = true;
+	bool mShrinked = false;
 
 	double mXOffset = 0;
 
@@ -113,7 +113,7 @@ public:
 	std::mt19937 &GetRandom() { return mRandom; }
 
 	/// Getter for mShrinked
-	//bool GetShrink() const {return mShrinked;}
+	bool GetShrink() const {return mShrinked;}
 
 	void SetShrink(bool shrink) {mShrinked = shrink;}
 

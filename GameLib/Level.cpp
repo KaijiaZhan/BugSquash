@@ -9,6 +9,7 @@
 #include "GarbageBug.h"
 #include "NullBug.h"
 #include "Laptop.h"
+#include "FatBug.h"
 
 using namespace std;
 
@@ -89,6 +90,12 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	if (type == L"null")
 	{
 		item = make_shared<NullBug>(mGame);
+		item->SetLocation(x,y);
+		item->SetSpeed(speed);
+	}
+	if (type == L"fat")
+	{
+		item = make_shared<FatBug>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
 	}

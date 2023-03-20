@@ -203,8 +203,8 @@ void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu
 */
 void GameView::OnShrink(wxCommandEvent& event)
 {
-	mShrinked = !mShrinked;
-	mGame.SetShrink(mShrinked);
+	bool shrink = mGame.GetShrink();
+	mGame.SetShrink(shrink);
 }
 
 /**
@@ -213,5 +213,7 @@ void GameView::OnShrink(wxCommandEvent& event)
  */
 void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 {
-	event.Check(mShrinked);
+	mGame.SetShrink(mShrinkCheck);
+	event.Check(mGame.GetShrink());
+//	mGame.SetShrink(!mGame.GetShrink());
 }

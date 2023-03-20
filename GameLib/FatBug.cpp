@@ -28,35 +28,58 @@ const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
  * Constructor
  * @param game Game this bug is a member of
  */
-FatBug::FatBug(Game *game) : BugCollection(game)
+FatBug::FatBug(Game *game) : BugCollection(game, GarbageBugSpriteImageName)
 {
 	mFatGarbageImage = make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
-	mFatGarbageBitImage = make_unique<wxBitmap>(*mFatGarbageImage);
+	mFatGarbageSplat = make_unique<wxImage>(GarbageBugSplatImageName, wxBITMAP_TYPE_ANY);
 
-	mFatNullImage = make_unique<wxImage>(NullBugSpriteImageName, wxBITMAP_TYPE_ANY);
-	mFatNullBitImage = make_unique<wxBitmap>(*mFatNullImage);
+//	mFatNullImage = make_unique<wxImage>(NullBugSpriteImageName, wxBITMAP_TYPE_ANY);
+//	mFatNullBitImage = make_unique<wxBitmap>(*mFatNullImage);
 }
 
-///**
-// * Draw this bug
-// * @param dc Device context to draw on
-// */
-//void FatBug::Draw(wxDC *dc)
-//{
-//	double wid = (mFatGarbageBitImage->GetWidth()) * 1.25;
-//	double hit = mFatGarbageBitImage->GetHeight() * 1.25;
-//
-//	double wid2 = mFatNullBitImage->GetWidth() * 1.25;
-//	double hit2 = mFatNullBitImage->GetHeight() * 1.25;
-//
-//	dc->DrawBitmap(*mFatGarbageBitImage,
-//				   int(GetX() - wid / 2),
-//				   int(GetY() - hit / 2));
-//
-//	dc->DrawBitmap(*mFatNullBitImage,
-//				   int(GetX() - wid2 / 2),
-//				   int(GetY() - hit2 / 2));
-//}
+/**
+ * Draw this bug
+ * @param dc Device context to draw on
+ */
+void FatBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
+{
+	if(mFatGarbageBitImage.IsNull())
+	{
+		mFatGarbageBitImage = graphics->CreateBitmapFromImage(*mFatGarbageImage);
+	}
+	double wid = mFatGarbageImage->GetWidth();
+	double hit = mFatGarbageImage->GetHeight();
+	graphics->DrawBitmap(mFatGarbageBitImage,
+						 int(GetX() - wid / 2),
+						 int(GetY() - hit / 2),wid,hit);
+}
+
+/**
+ * Test to see if we hit this object with a mouse.
+ * @param x X position to test
+ * @param y Y position to test
+ * @return true if hit.
+ */
+bool FatBug::HitTest(int x, int y)
+{
+	double dx = x - GetX();
+	double dy = y - GetY();
+
+	return sqrt(dx * dx + dy * dy) < GetHitRange();
+}
+
+wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
+{
+	auto itemNode = Item::XmlSave(node);
+
+	itemNode->AddAttribute(L"type", L"fat");
+
+	return itemNode;
+}
+
+
+
+
 
 
 

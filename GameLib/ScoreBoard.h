@@ -11,6 +11,8 @@
 /**
 * Initializes the score board for the game
 */
+
+
 class ScoreBoard
 {
 private:

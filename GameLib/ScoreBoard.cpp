@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "ScoreBoard.h"
+#include <wx/graphics.h>
 
 /**
  * Draw the game
