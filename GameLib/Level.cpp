@@ -75,29 +75,36 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	double speed;
 	node->GetAttribute(L"speed").ToDouble(&speed);
 
+	double starttime;
+	node->GetAttribute(L"start").ToDouble(&starttime);
+
 	if (type == L"redundancy")
 	{
 		item = make_shared<RedundancyFly>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
 	}
 	if (type == L"garbage")
 	{
 		item = make_shared<GarbageBug>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
 	}
 	if (type == L"null")
 	{
 		item = make_shared<NullBug>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
 	}
 	if (type == L"fat")
 	{
 		item = make_shared<FatBug>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
 	}
 	if (item != nullptr)
 	{
