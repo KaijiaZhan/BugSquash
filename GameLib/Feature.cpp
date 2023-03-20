@@ -6,6 +6,7 @@
 
 #include "pch.h"
 #include "Feature.h"
+#include "Game.h"
 #include <string>
 
 using namespace std;
@@ -54,4 +55,18 @@ wxXmlNode* Feature::XmlSave(wxXmlNode* node)
     itemNode->AddAttribute(L"type", L"feature");
 
     return itemNode;
+}
+
+/**
+ * Test to see if we hit this object with a mouse.
+ * @param x X position to test
+ * @param y Y position to test
+ * @return true if hit.
+ */
+bool Feature::HitTest(int x, int y)
+{
+    double dx = x - GetX();
+    double dy = y - GetY();
+
+    return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
