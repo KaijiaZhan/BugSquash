@@ -2,16 +2,14 @@
  * @file Feature.h
  * @author Courtney Thang
  * @author Parker Morgan
- *
+ * @author Flora Pieters
  */
 
 #ifndef PROJECT1_GAMELIB_FEATURE_H
 #define PROJECT1_GAMELIB_FEATURE_H
 
 #include "Game.h"
-#include "Item.h"
-#include "ScoreBoard.h"
-#include "GameView.h"
+#include "BugCollection.h"
 
 /**
  * Initializes the feature item
@@ -47,6 +45,8 @@ public:
     void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
     wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	bool HitTest(int x, int y) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H
