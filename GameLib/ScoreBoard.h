@@ -81,7 +81,7 @@ public:
 
 	void SetMissed(double missed) {mMissed = missed;}
 
-	void OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 };
 

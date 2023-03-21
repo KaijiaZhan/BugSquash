@@ -75,7 +75,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	//graphics->SetTextForeground(FontColor);
 
 
-	mScoreBoard.OnDraw(dc, graphics, width, height);
+	mScoreBoard.OnDraw(graphics, width, height);
 	graphics->PopState();
 }
 

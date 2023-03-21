@@ -11,7 +11,7 @@
  * Draw the game
  * @param dc The device context to draw on
  */
-void ScoreBoard::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
+void ScoreBoard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
 {
 //    //
 //    // Automatic Scaling
