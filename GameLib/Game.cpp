@@ -9,6 +9,7 @@
 #include "pch.h"
 #include "Game.h"
 #include "Laptop.h"
+#include "ScoreBoard.h"
 #include "Feature.h"
 #include "RedundancyFly.h"
 #include "wx/xml/xml.h"
@@ -102,6 +103,8 @@ void Game::Update(double elapsed, long totalTime)
 //			}
 			item->SetLocation(-1000,-1000);
 			item->SetSpeed(0);
+			double missed = mScoreBoard.GetMissed();
+			mScoreBoard.SetMissed(missed);
 		}
 	}
 }
