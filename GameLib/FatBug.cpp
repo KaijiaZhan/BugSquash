@@ -84,15 +84,6 @@ wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
 	return itemNode;
 }
 
-/**
- * Handle a double-click on an item
- * @param x X location in the aquarium of the double-click
- * @param y Y location in the aquarium of the double-click
- */
-void FatBug::DoubleClick(int x, int y)
-{
-
-}
 
 /// Function to open IDE window that displays code
 void FatBug::OpenWindow(int x) // temp parameter
@@ -102,21 +93,21 @@ void FatBug::OpenWindow(int x) // temp parameter
 	//dlg.ShowModal();
 }
 
-///Function to call OpenWindow if Fat Bug is double clicked
+/////Function to call OpenWindow if Fat Bug is double clicked
 //void FatBug::DoubleClick(wxMouseEvent &event)
 //{
-//	// how to implement mAquarium type variable from step 4
-//	mSelectedBug = mAquarium.HitTest(event.GetX(), event.GetY());
-//	// If an item is being moved, we only continue to
-//	// move it while the left button is down.
-//	if(event.LeftIsDown())
-//	{
-//		mSelectedBug->SetLocation(event.GetX(), event.GetY());
-//	}
-//	else
-//	{
-//		// When the left button is released, we release the
-//		// item.
-//		mSelectedBug = nullptr;
-//	}
+////	// how to implement mAquarium type variable from step 4
+////	mSelectedBug = mAquarium.HitTest(event.GetX(), event.GetY());
+////	// If an item is being moved, we only continue to
+////	// move it while the left button is down.
+////	if(event.LeftIsDown())
+////	{
+////		mSelectedBug->SetLocation(event.GetX(), event.GetY());
+////	}
+////	else
+////	{
+////		// When the left button is released, we release the
+////		// item.
+////		mSelectedBug = nullptr;
+////	}
 //}
