@@ -227,3 +227,13 @@ void Game::Add(std::shared_ptr<Item> item)
     mItems.push_back(item);
 }
 
+/**
+* Handle a mouse click
+* @param x X location clicked on
+* @param y Y location clicked on
+*/
+void Game::OnLeftDown(int x, int y)
+{
+	double oX = (x - mXOffset) / mScale;
+	double oY = (y - mYOffset) / mScale;
+}

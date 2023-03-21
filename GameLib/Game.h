@@ -116,6 +116,9 @@ public:
 
 	void SetShrink(bool shrink) {mShrinked = shrink;}
 
+	void OnLeftDown(int x, int y);
+
+
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

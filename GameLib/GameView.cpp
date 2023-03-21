@@ -117,14 +117,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 }
 
 /**
- * Handle the left mouse button down event
- * @param event
- */
-void GameView::OnLeftDown(wxMouseEvent &event)
-{
-}
-
-/**
 * Handle the left mouse button down event
 * @param event
 */
@@ -205,7 +197,7 @@ void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu
 void GameView::OnShrink(wxCommandEvent& event)
 {
 	bool shrink = mGame.GetShrink();
-	mGame.SetShrink(shrink);
+	mGame.SetShrink(!shrink);
 }
 
 /**
@@ -230,4 +222,13 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 	{
 		// We have double-clicked on a bug, want the window to appear
 	}
+}
+
+/**
+ * Handle the left mouse button down event
+ * @param event The moust click event
+ */
+void GameView::OnLeftDown(wxMouseEvent &event)
+{
+	mGame.OnLeftDown(event.GetX(), event.GetY());
 }

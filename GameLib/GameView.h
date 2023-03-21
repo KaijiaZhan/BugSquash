@@ -17,7 +17,6 @@
 class GameView : public wxWindow {
 private:
 	void OnTimer(wxTimerEvent& event);
-	void OnLeftDown(wxMouseEvent& event);
 	void OnLeftUp(wxMouseEvent& event);
 	void OnLeftDoubleClick(wxMouseEvent& event);
 	void OnLevel0(wxCommandEvent& event);
@@ -79,6 +78,9 @@ public:
 	void OnShrinkUpdate(wxUpdateUIEvent& event);
 
 	void OnMouseDoubleClick(wxMouseEvent& event);
+
+	void OnLeftDown(wxMouseEvent& event);
+
 
 };
 
