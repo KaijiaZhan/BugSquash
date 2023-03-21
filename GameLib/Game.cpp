@@ -77,6 +77,7 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
 				wxFONTWEIGHT_NORMAL);
 	graphics->SetFont(font, wxColour(0,200,200));
 	//graphics->SetTextForeground(FontColor);
+	graphics->PopState();
 }
 
 
