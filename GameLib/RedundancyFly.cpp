@@ -9,6 +9,7 @@
 #include "RedundancyFly.h"
 #include "Game.h"
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -162,4 +163,14 @@ bool RedundancyFly::HitTest(int x, int y)
 	double dy = y - GetY();
 
 	return sqrt(dx * dx + dy * dy) < 50;
+}
+
+void RedundancyFly::MultiplyBug()
+{
+	//int flyMultiplier = rand() % 3 + 6;
+	//int flyLocation = rand() % location clicked +- 200 y and x direction;
+	//if redundancyfly is clicked
+		//replace clicked fly with 3-6 other redundancy flies at random
+		//locations an average of 200 pixels from bug initially clicked
+
 }
