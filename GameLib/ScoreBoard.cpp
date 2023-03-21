@@ -44,7 +44,7 @@ void ScoreBoard::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, i
                        50,     // x coordinate for the left size of the text
                        ScoreLabelY);    // y coordinate for the top of the text
 
-    graphics->DrawText(L"0",  // Text to draw
+    graphics->DrawText(std::to_string(mFixed),  // Text to draw
                        90,     // x coordinate for the left size of the text
                        ScoreLabelY - 50);    // y coordinate for the top of the text
 
@@ -52,7 +52,7 @@ void ScoreBoard::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, i
                        450,     // x coordinate for the left size of the text
                        ScoreLabelY);    // y coordinate for the top of the text
 
-    graphics->DrawText(L"0",  // Text to draw
+    graphics->DrawText(std::to_string(mMissed),  // Text to draw
                        490,     // x coordinate for the left size of the text
                        ScoreLabelY - 50);    // y coordinate for the top of the text
 
@@ -60,7 +60,7 @@ void ScoreBoard::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, i
                        875,     // x coordinate for the left size of the text
                        ScoreLabelY);    // y coordinate for the top of the text
 
-    graphics->DrawText(L"0",  // Text to draw
+    graphics->DrawText(std::to_string(mOops),  // Text to draw
                        915,     // x coordinate for the left size of the text
                        ScoreLabelY - 50);    // y coordinate for the top of the text
 
