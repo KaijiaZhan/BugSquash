@@ -10,6 +10,7 @@
 
 #include <wx/wx.h>
 #include "Game.h"
+#include "ScoreBoard.h"
 
 /**
  * Class that is the view of our Game
@@ -17,7 +18,6 @@
 class GameView : public wxWindow {
 private:
 	void OnTimer(wxTimerEvent& event);
-	void OnLeftDown(wxMouseEvent& event);
 	void OnLeftUp(wxMouseEvent& event);
 	void OnLeftDoubleClick(wxMouseEvent& event);
 	void OnLevel0(wxCommandEvent& event);
@@ -31,6 +31,9 @@ private:
 
 	/// the game
 	Game mGame;
+
+	/// the ScoreBoard
+    ScoreBoard mScoreBoard;
 
 	/// Any item we are currently dragging
 	std::shared_ptr<Item> mGrabbedItem;
@@ -79,6 +82,9 @@ public:
 	void OnShrinkUpdate(wxUpdateUIEvent& event);
 
 	void OnMouseDoubleClick(wxMouseEvent& event);
+
+	void OnLeftDown(wxMouseEvent& event);
+
 
 };
 

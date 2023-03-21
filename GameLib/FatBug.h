@@ -48,19 +48,14 @@ public:
 	/// Constructor 
 	FatBug(Game* game);
 
-	/// Any item we are currently clicking
-	std::shared_ptr<Item> mSelectedBug;
-
 //	/// Draws FatBug
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
-	bool HitTest(int x, int y);
+	bool HitTest(int x, int y) override;
 
 	void OpenWindow(int x); //temp parameter
-
-	void DoubleClick(wxMouseEvent &event);
 
 };
 

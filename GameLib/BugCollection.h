@@ -29,7 +29,7 @@ private:
 	double mSpeedY = 50;
 
 	/// Elapsed Time that the bug should start to move
-	double mStartTime = 3;
+	//double mStartTime = 0;
 
 	/// If true the item is mirrored
 	bool mMirror = false;

@@ -10,7 +10,6 @@
 #ifndef PROJECT1_GAMELIB_GAME_H
 #define PROJECT1_GAMELIB_GAME_H
 
-#include "Item.h"
 #include "Level.h"
 
 #include <memory>
@@ -19,6 +18,8 @@
 #include <random>
 
 class Item;
+
+class ScoreBoard;
 
 /**
  * Class game that holds all of the items
@@ -116,6 +117,9 @@ public:
 	bool GetShrink() const {return mShrinked;}
 
 	void SetShrink(bool shrink) {mShrinked = shrink;}
+
+	void OnLeftDown(int x, int y);
+
 
 };
 
