@@ -113,3 +113,12 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	}
 }
 
+/**
+ * Clear the level data
+ * Deletes all known items in the level
+*/
+void Level::Clear()
+{
+	mLevelItems.erase(mLevelItems.begin(), mLevelItems.end());
+}
+

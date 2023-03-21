@@ -78,6 +78,8 @@ private:
 	/// Score label Y location
 	const int ScoreLabelY = 100;
 
+	double mElapsed = 0;
+
 public:
 
 	/**
@@ -85,7 +87,7 @@ public:
 	 */
 	Game();
 
-	void OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 	void Update(double elapsed, long totalTime);
 	std::shared_ptr<Item> HitTest(int x, int y);
 

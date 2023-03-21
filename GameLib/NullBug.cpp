@@ -37,17 +37,23 @@ NullBug::NullBug(Game *game) : BugCollection(game,NullBugSpriteImageName)
 void NullBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
 
-	if(mNullBugBitmap.IsNull())
-	{
-		mNullBugBitmap = graphics->CreateBitmapFromImage(*mNullBugImage);
-	}
+	double wid = mNullBugImage->GetWidth();
+	double hit = mNullBugImage->GetHeight();
 
-    double wid = mNullBugImage->GetWidth();
-    double hit = mNullBugImage->GetHeight();
+	double spriteHit = hit/6;
 
-	graphics->DrawBitmap(mNullBugBitmap,
-						 int(GetX() - wid / 2),
-						 int(GetY() - hit / 2), wid, hit);
+	//if(mNullBugBitmap.IsNull())
+	//{
+	mNullBugBitmap = graphics->CreateBitmap(*mNullBugImage);
+	mNullBugSubBitmap = graphics->CreateSubBitmap(mNullBugBitmap, 0, mSprite, 100, spriteHit);
+
+	//}
+
+	graphics->PushState();
+	graphics->Translate(GetX(),GetY());
+//	graphics->Rotate(angle);
+	graphics->DrawBitmap(mNullBugSubBitmap, -wid/2, -hit/2, wid, spriteHit);
+	graphics->PopState();
 }
 
 /**
@@ -71,4 +77,25 @@ wxXmlNode* NullBug::XmlSave(wxXmlNode* node)
 	itemNode->AddAttribute(L"type", L"null");
 
 	return itemNode;
+}
+
+void NullBug::Update(double elapsed, long totalTime)
+{
+	double startTime = GetStartTime();
+
+	if (totalTime < startTime)
+	{
+		mSprite = 600;
+	}
+	else
+	{
+		BugCollection::Update(elapsed, totalTime);
+
+		mSprite += 100;
+		if (mSprite >= 600)
+		{
+			mSprite = 0;
+		}
+	}
+
 }

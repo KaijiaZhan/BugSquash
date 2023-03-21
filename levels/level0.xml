@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bug-squash level="Level Zero">
   <program name="Bug Squash" x="1000" y="500">
-    <bug type="garbage" x="-100" y="200" speed="120" start="0"/>
-    <bug type="garbage" x="-100" y="300" speed="200" start="5"/>
-    <bug type="null" x="-100" y="400" speed="120" start="20"/>
+    <bug type="garbage" x="-100" y="200" speed="120" start="10"/>
+    <bug type="garbage" x="-100" y="300" speed="200" start="50"/>
+    <bug type="null" x="200" y="400" speed="120" start="5"/>
     <bug type="redundancy" x="300" y="500" speed="120" start="0"/>
     <feature x="-100" y="600" speed="120" start="50"/>
     <feature x="-100" y="600" speed="120" start="60"/>

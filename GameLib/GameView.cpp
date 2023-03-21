@@ -72,7 +72,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	// Tell the game class to draw
 	wxRect rect = GetRect();
-	mGame.OnDraw(&dc, gc, rect.GetWidth(), rect.GetHeight());
+	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
 	auto newTime = mStopWatch.Time();
 	auto elapsed = (double)(newTime - mTime) * 0.001;
@@ -111,7 +111,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 //                915,     // x coordinate for the left size of the text
 //                ScoreLabelY - 50);    // y coordinate for the top of the text
 
-	mGame.OnDraw(&dc, gc, rect.GetWidth(), rect.GetHeight());
+	mGame.OnDraw( gc, rect.GetWidth(), rect.GetHeight());
 
 }
 
@@ -154,6 +154,7 @@ void GameView::OnTimer(wxTimerEvent& event)
  */
 void GameView::OnLevel0(wxCommandEvent& event)
 {
+
 	mGame.LoadLevel(0);
 }
 

@@ -40,8 +40,6 @@ private:
 
 	bool mToDel = false;
 
-	double mStartTime = 0;
-
 protected:
 	Item(Game *game);
 
@@ -76,7 +74,7 @@ public:
 	 */
 	void SetLocation(double x, double y) { mX = x; mY = y; }
 
-	void SetSpeed(double speed) {mSpeed = speed;}
+	virtual void SetSpeed(double speed) {}
 
 	double GetSpeed() { return mSpeed; }
 
@@ -100,9 +98,8 @@ public:
 
 	bool GetDel() {return mToDel;}
 
-	void SetStartTime(double starttime) {mStartTime = starttime;}
+	virtual void SetStartTime(double startTime) {}
 
-	double GetStartTime() {return mStartTime;}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

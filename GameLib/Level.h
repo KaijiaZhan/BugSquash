@@ -49,6 +49,8 @@ public:
 	*/
 	std::mt19937 &GetRandom() { return mRandom; }
 
+	void Clear();
+
 };
 
 #endif //PROJECT1_GAMELIB_LEVEL_H

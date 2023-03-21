@@ -29,7 +29,7 @@ private:
 	double mSpeedY = 50;
 
 	/// Elapsed Time that the bug should start to move
-	//double mStartTime = 0;
+	double mStartTime = 0;
 
 	/// If true the item is mirrored
 	bool mMirror = false;
@@ -79,11 +79,16 @@ public:
 	 * @param x SpeedX*x in pixels
 	 * @param y SpeedY*y in pixels
 	 */
-	 virtual void SetSpeed(double x, double y) { mSpeedX=mSpeedX * x; mSpeedY=mSpeedY *y;};
-
-	void Save(const wxString &filename);
+	 void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
 
 	double GetHitRange() { return BugHitRange; }
+
+	void SetStartTime(double startTime) { mStartTime = startTime; }
+
+	double GetStartTime() { return mStartTime; }
+
+//	double GetSpeeds() { return mSpeedX, mSpeedY; }
+
 
 };
 

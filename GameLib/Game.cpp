@@ -22,10 +22,6 @@ using namespace std;
 */
 Game::Game()
 {
-	mLevel0.Load(L"levels/level0.xml", this);
-	mLevel1.Load(L"levels/level1.xml", this);
-	mLevel2.Load(L"levels/level2.xml", this);
-	mLevel3.Load(L"levels/level3.xml", this);
 
 	LoadLevel(0);
 
@@ -35,7 +31,7 @@ Game::Game()
  * Draw the game
  * @param dc The device context to draw on
  */
-void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
+void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
 {
 	//
 	// Automatic Scaling
@@ -113,9 +109,10 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
  */
 void Game::Update(double elapsed, long totalTime)
 {
+	mElapsed += elapsed;
 	for (auto item : mItems)
 	{
-		item->Update(elapsed, totalTime);
+		item->Update(elapsed, mElapsed);
 		if (item->GetDel())
 		{
 //			auto loc = find(begin(mItems), end(mItems), item);
@@ -159,18 +156,32 @@ void Game::LoadLevel(int level)
 
 	if (level == 0)
 	{
+		mElapsed = 0;
+		mLevel0.Clear();
+		mLevel0.Load(L"levels/level0.xml", this);
+
 		SetLevel(mLevel0.GetLevel());
 	}
 	if (level == 1)
 	{
+		mElapsed = 0;
+		mLevel1.Clear();
+		mLevel1.Load(L"levels/level1.xml", this);
+
 		SetLevel(mLevel1.GetLevel());
 	}
 	if (level == 2)
 	{
+		mElapsed = 0;
+		mLevel2.Clear();
+		mLevel2.Load(L"levels/level1.xml", this);
 		SetLevel(mLevel2.GetLevel());
 	}
 	if (level == 3)
 	{
+		mElapsed = 0;
+		mLevel3.Clear();
+		mLevel3.Load(L"levels/level1.xml", this);
 		SetLevel(mLevel3.GetLevel());
 	}
 
@@ -214,16 +225,6 @@ void Game::Save(const wxString &filename)
  */
 void Game::Add(std::shared_ptr<Item> item)
 {
-//    auto nextBug = 50;
-//    item->SetLocation(10, 10);
-//
-//    for (auto bugs : mItems)
-//    {
-//        for (auto bug : mItems)
-//        {
-//            item->SetLocation(item->GetX() + nextBug, item->GetY() + nextBug);
-//        }
-//    }
     mItems.push_back(item);
 }
 

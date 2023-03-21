@@ -29,10 +29,10 @@ void BugCollection::Update(double elapsed, long totalTime)
 {
 
 	double angle = atan2(500-GetY(), 625-GetX());
-	if (totalTime > GetStartTime()*1000)
+	if (totalTime >= GetStartTime())
 	{
-		SetLocation(GetX() + GetSpeed() * (elapsed) * cos(angle),
-					GetY() + GetSpeed() * (elapsed) * sin(angle));
+		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),
+					GetY() + mSpeedY * (elapsed) * sin(angle));
 
 	}
 
@@ -56,18 +56,6 @@ void BugCollection::XmlLoad(wxXmlNode *node)
 {
 	Item::XmlLoad(node);
 
-	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
-	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
-}
-
-/**
- * Save the game as a .game XML file.
- *
- * Open an XML file and stream the game data to it.
- *
- * @param filename The filename of the file to save the game to
- */
-void BugCollection::Save(const wxString &filename)
-{
-
+//	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
+//	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
 }

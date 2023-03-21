@@ -22,6 +22,11 @@ private:
     /// The bitmap we can display for this bug
 	wxGraphicsBitmap mNullBugBitmap;
 
+	wxGraphicsBitmap mNullBugSubBitmap;
+
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
+
 public:
 	/// Default constructor (disabled)
 	NullBug() = delete;
@@ -39,6 +44,8 @@ public:
 	bool HitTest(int x, int y) override;
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	void Update(double elapsed, long totaltime) override;
 
 };
 
