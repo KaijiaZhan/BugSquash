@@ -85,13 +85,13 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 }
 
-/**
- * Handle the left mouse button down event
- * @param event
- */
-void GameView::OnLeftDown(wxMouseEvent &event)
-{
-}
+///**
+// * Handle the left mouse button down event
+// * @param event
+// */
+//void GameView::OnLeftDown(wxMouseEvent &event)
+//{
+//}
 
 /**
 * Handle the left mouse button down event

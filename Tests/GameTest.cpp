@@ -90,7 +90,7 @@ protected:
 		cout << xml << endl;
 
 		// Ensure the positions are correct
-		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item x=\"625\" y=\"500\"/><item x=\"-100\" y=\"200\" type=\"garbage\"/><item x=\"-100\" y=\"300\" type=\"garbage\"/><item x=\"-100\" y=\"400\" type=\"null\"/><item x=\"300\" y=\"500\" type=\"redundancyfly\"/><item x=\"-100\" y=\"600\" type=\"garbage\"/><item x=\"100\" y=\"200\" type=\"redundancyfly\"/></game>")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item x=\"625\" y=\"500\"/><item x=\"-100\" y=\"200\" type=\"garbage\"/><item x=\"-100\" y=\"300\" type=\"garbage\"/><item x=\"300\" y=\"500\" type=\"redundancyfly\"/><item x=\"-100\" y=\"600\" type=\"garbage\"/><item x=\"100\" y=\"200\" type=\"redundancyfly\"/></game>")));
 
 	}
 	void SaveBugs(wxString filename)
@@ -100,7 +100,7 @@ protected:
 		auto xml = ReadFile(filename);
 		cout << xml << endl;
 
-		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item x=\"625\" y=\"500\"/><item x=\"-100\" y=\"200\" type=\"garbage\"/><item x=\"-100\" y=\"300\" type=\"garbage\"/><item x=\"-100\" y=\"400\" type=\"null\"/><item x=\"300\" y=\"500\" type=\"redundancyfly\"/><item x=\"-100\" y=\"600\" type=\"garbage\"/></game>")));
+		ASSERT_TRUE(regex_search(xml, wregex(L"<game><item x=\"625\" y=\"500\"/><item x=\"-100\" y=\"200\" type=\"garbage\"/><item x=\"-100\" y=\"300\" type=\"garbage\"/><item x=\"300\" y=\"500\" type=\"redundancyfly\"/><item x=\"-100\" y=\"600\" type=\"garbage\"/></game>")));
 	}
 
 };

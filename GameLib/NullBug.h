@@ -37,15 +37,15 @@ public:
 	/// Assignment operator
 	void operator=(const NullBug &) = delete;
 
-	NullBug(Game *game);
+//	NullBug(Game *game);
 
-	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
-
-	bool HitTest(int x, int y) override;
-
-	wxXmlNode* XmlSave(wxXmlNode* node) override;
-
-	void Update(double elapsed, long totaltime) override;
+//	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+//
+//	bool HitTest(int x, int y) override;
+//
+//	wxXmlNode* XmlSave(wxXmlNode* node) override;
+//
+//	void Update(double elapsed, long totaltime) override;
 
 };
 
