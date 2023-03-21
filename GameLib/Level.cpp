@@ -92,13 +92,13 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 		item->SetSpeed(speed);
 		item->SetStartTime(starttime);
 	}
-//	if (type == L"null")
-//	{
-//		item = make_shared<NullBug>(mGame);
-//		item->SetLocation(x,y);
-//		item->SetSpeed(speed);
-//		item->SetStartTime(starttime);
-//	}
+	if (type == L"null")
+	{
+		item = make_shared<NullBug>(mGame);
+		item->SetLocation(x,y);
+		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
+	}
 	if (type == L"fat")
 	{
 		item = make_shared<FatBug>(mGame);
