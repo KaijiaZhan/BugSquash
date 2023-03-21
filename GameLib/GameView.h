@@ -74,7 +74,7 @@ public:
 	void Initialize(wxFrame *mainFrame);
 
 	//void Stop() {mTimer.Stop();}
-	void AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu);
+//	void AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu);
 
 	void OnShrink(wxCommandEvent& event);
 

@@ -65,16 +65,6 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		item->Draw(graphics);
 	}
-	// need to draw white rectangle, items, then scoreboard
-
-//	wxFont font(LabelSize,
-//				wxFONTFAMILY_SWISS,
-//				wxFONTSTYLE_NORMAL,
-//				wxFONTWEIGHT_NORMAL);
-//	graphics->SetFont(font, wxColour(0,200,200));
-	//graphics->SetTextForeground(FontColor);
-
-
 	mScoreBoard.OnDraw(graphics, width, height);
 	graphics->PopState();
 }
@@ -155,14 +145,14 @@ void Game::LoadLevel(int level)
 	{
 		mElapsed = 0;
 		mLevel2.Clear();
-		mLevel2.Load(L"levels/level1.xml", this);
+		mLevel2.Load(L"levels/level2.xml", this);
 		SetLevel(mLevel2.GetLevel());
 	}
 	if (level == 3)
 	{
 		mElapsed = 0;
 		mLevel3.Clear();
-		mLevel3.Load(L"levels/level1.xml", this);
+		mLevel3.Load(L"levels/level3.xml", this);
 		SetLevel(mLevel3.GetLevel());
 	}
 

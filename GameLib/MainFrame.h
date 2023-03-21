@@ -21,7 +21,7 @@ class Game;
 class MainFrame : public wxFrame
 {
 private:
-	GameView *mGameView;
+//	GameView *mGameView = nullptr;
 	/// View class for our game
 	//Game *mGame;
 

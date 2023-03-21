@@ -48,12 +48,10 @@ void MainFrame::Initialize()
 
 	menuBar->Append(helpMenu, L"&Help");
 
-	mGameView->AddMenus(this, menuBar, viewMenu);
-
-
+	//mGameView->AddMenus(this, menuBar, viewMenu);
 	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
-	Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, mGameView, IDM_VIEW);
-	Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, mGameView, IDM_VIEW);
+	Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, gameView, IDM_VIEW);
+	Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, gameView, IDM_VIEW);
 
 	levelMenu->Append(IDM_LEVEL0, "Open &Level 0", L"Open level file...");
 	levelMenu->Append(IDM_LEVEL1, "Open &Level 1", L"Open level file...");
