@@ -164,9 +164,9 @@ void GameView::OnLevel3(wxCommandEvent& event)
  */
 void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu)
 {
-	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
-	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_VIEW);
-	mainFrame->Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, this, IDM_VIEW);
+//	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
+//	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_VIEW);
+//	mainFrame->Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, this, IDM_VIEW);
 }
 
 /**
@@ -176,6 +176,7 @@ void GameView::OnShrink(wxCommandEvent& event)
 {
 	bool shrink = mGame.GetShrink();
 	mGame.SetShrink(!shrink);
+	wxWindow::Refresh();
 }
 
 /**
@@ -184,8 +185,8 @@ void GameView::OnShrink(wxCommandEvent& event)
  */
 void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 {
-	mGame.SetShrink(mShrinkCheck);
-	event.Check(mGame.GetShrink());
+	//mGame.SetShrink(mShrinkCheck);
+	event.Check(!mGame.GetShrink());
 //	mGame.SetShrink(!mGame.GetShrink());
 }
 
