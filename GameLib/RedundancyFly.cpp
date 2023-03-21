@@ -167,7 +167,12 @@ bool RedundancyFly::HitTest(int x, int y)
 
 void RedundancyFly::MultiplyBug()
 {
-	//int flyMultiplier = rand() % 3 + 6;
+	int flyMultiplier = rand() % 3 + 3;
+	double xPos = GetX();
+	double yPos = GetY();
+	int flyLocationX = xPos + (rand() % 200);
+	int flyLocationY = yPos + (rand() % 200);
+
 	//int flyLocation = rand() % location clicked +- 200 y and x direction;
 	//if redundancyfly is clicked
 		//replace clicked fly with 3-6 other redundancy flies at random

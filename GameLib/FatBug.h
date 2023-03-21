@@ -57,7 +57,7 @@ public:
 
 	void OpenWindow(int x); //temp parameter
 
-//	virtual void DoubleClick(int x, int y) override;
+//	void DoubleClick(wxMouseEvent &event);
 
 };
 
