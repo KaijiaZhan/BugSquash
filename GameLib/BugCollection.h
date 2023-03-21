@@ -70,9 +70,9 @@ public:
 //     */
 //    virtual void Draw(wxDC *dc) = 0;
 
-	void Update(double elapsed, long totalTime);
+	void Update(double elapsed, long totalTime) override;
 
-	virtual void XmlLoad(wxXmlNode *node); //override;
+	void XmlLoad(wxXmlNode *node) override;
 
 	/**
 	 * Set the item speed
@@ -83,7 +83,7 @@ public:
 
 	double GetHitRange() { return BugHitRange; }
 
-	void SetStartTime(double startTime) { mStartTime = startTime; }
+	void SetStartTime(double startTime) override { mStartTime = startTime; }
 
 	double GetStartTime() { return mStartTime; }
 
