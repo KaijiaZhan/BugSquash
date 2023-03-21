@@ -19,6 +19,8 @@
 
 class Item;
 
+class ScoreBoard;
+
 /**
  * Class game that holds all of the items
  */
