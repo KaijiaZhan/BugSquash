@@ -48,6 +48,9 @@ public:
 	/// Constructor 
 	FatBug(Game* game);
 
+	/// Any item we are currently clicking
+	std::shared_ptr<Item> mSelectedBug;
+
 //	/// Draws FatBug
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
@@ -56,6 +59,8 @@ public:
 	bool HitTest(int x, int y);
 
 	void OpenWindow(int x); //temp parameter
+
+	void DoubleClick(wxMouseEvent &event);
 
 };
 
