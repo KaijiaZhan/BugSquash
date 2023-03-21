@@ -31,6 +31,9 @@ private:
 	/// the game
 	Game mGame;
 
+	/// the ScoreBoard
+    ScoreBoard mScoreBoard;
+
 	/// Any item we are currently dragging
 	std::shared_ptr<Item> mGrabbedItem;
 
