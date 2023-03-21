@@ -71,12 +71,15 @@ void Game::OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int wid
 	}
 	// need to draw white rectangle, items, then scoreboard
 
-	wxFont font(LabelSize,
-				wxFONTFAMILY_SWISS,
-				wxFONTSTYLE_NORMAL,
-				wxFONTWEIGHT_NORMAL);
-	graphics->SetFont(font, wxColour(0,200,200));
+//	wxFont font(LabelSize,
+//				wxFONTFAMILY_SWISS,
+//				wxFONTSTYLE_NORMAL,
+//				wxFONTWEIGHT_NORMAL);
+//	graphics->SetFont(font, wxColour(0,200,200));
 	//graphics->SetTextForeground(FontColor);
+
+
+	mScoreBoard.OnDraw(dc, graphics, width, height);
 	graphics->PopState();
 }
 
