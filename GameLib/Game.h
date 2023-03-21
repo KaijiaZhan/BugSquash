@@ -11,6 +11,7 @@
 #define PROJECT1_GAMELIB_GAME_H
 
 #include "Level.h"
+#include "ScoreBoard.h"
 
 #include <memory>
 #include <string>
@@ -79,6 +80,9 @@ private:
 
 	/// Score label Y location
 	const int ScoreLabelY = 100;
+
+	/// the ScoreBoard
+	ScoreBoard mScoreBoard;
 
 public:
 
