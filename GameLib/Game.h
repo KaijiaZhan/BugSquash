@@ -11,6 +11,7 @@
 #define PROJECT1_GAMELIB_GAME_H
 
 #include "Level.h"
+#include "ScoreBoard.h"
 
 #include <memory>
 #include <string>
@@ -18,6 +19,8 @@
 #include <random>
 
 class Item;
+
+class ScoreBoard;
 
 /**
  * Class game that holds all of the items
@@ -80,6 +83,9 @@ private:
 
 	double mElapsed = 0;
 
+	/// the ScoreBoard
+	ScoreBoard mScoreBoard;
+
 public:
 
 	/**
@@ -117,6 +123,9 @@ public:
 	bool GetShrink() const {return mShrinked;}
 
 	void SetShrink(bool shrink) {mShrinked = shrink;}
+
+	void OnLeftDown(int x, int y);
+
 
 };
 

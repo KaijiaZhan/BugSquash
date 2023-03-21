@@ -67,38 +67,15 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	}
 	// need to draw white rectangle, items, then scoreboard
 
-	wxFont font(LabelSize,
-				wxFONTFAMILY_SWISS,
-				wxFONTSTYLE_NORMAL,
-				wxFONTWEIGHT_NORMAL);
-	graphics->SetFont(font, wxColour(0,200,200));
+//	wxFont font(LabelSize,
+//				wxFONTFAMILY_SWISS,
+//				wxFONTSTYLE_NORMAL,
+//				wxFONTWEIGHT_NORMAL);
+//	graphics->SetFont(font, wxColour(0,200,200));
 	//graphics->SetTextForeground(FontColor);
 
-	graphics->DrawText(L"Fixed",  // Text to draw
-				50,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
 
-	graphics->DrawText(L"0",  // Text to draw
-				90,     // x coordinate for the left size of the text
-				ScoreLabelY - 50);    // y coordinate for the top of the text
-
-	graphics->DrawText(L"Missed",  // Text to draw
-				450,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
-
-	graphics->DrawText(L"0",  // Text to draw
-				490,     // x coordinate for the left size of the text
-				ScoreLabelY - 50);    // y coordinate for the top of the text
-
-	graphics->DrawText(L"Oops",  // Text to draw
-				875,     // x coordinate for the left size of the text
-				ScoreLabelY);    // y coordinate for the top of the text
-
-	graphics->DrawText(L"0",  // Text to draw
-				915,     // x coordinate for the left size of the text
-				ScoreLabelY - 50);    // y coordinate for the top of the text
-
-				// need laptop and bug scaled
+	mScoreBoard.OnDraw(dc, graphics, width, height);
 	graphics->PopState();
 }
 
@@ -122,6 +99,10 @@ void Game::Update(double elapsed, long totalTime)
 //			}
 			item->SetLocation(-1000,-1000);
 			item->SetSpeed(0);
+			double missed = mScoreBoard.GetMissed();
+			missed++;
+			mScoreBoard.SetMissed(missed);
+			item->SetDel(false);
 		}
 	}
 }
@@ -228,3 +209,13 @@ void Game::Add(std::shared_ptr<Item> item)
     mItems.push_back(item);
 }
 
+/**
+* Handle a mouse click
+* @param x X location clicked on
+* @param y Y location clicked on
+*/
+void Game::OnLeftDown(int x, int y)
+{
+	double oX = (x - mXOffset) / mScale;
+	double oY = (y - mYOffset) / mScale;
+}

@@ -83,6 +83,8 @@ public:
 
 	bool HitTest(int x, int y) override;
 
+	void MultiplyBug();
+
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H

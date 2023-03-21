@@ -58,10 +58,10 @@ TEST(FatBugTest, DoubleClickTest1)
 	// Set some locations
 	fatBug->SetLocation(200, 250);
 
-//	// Double-click on Gus:
-//	fatBug->DoubleClick(200, 250);
+	// Double-click on FatBug:
+	fatBug->DoubleClick(200, 250);
 
-	// Ensure Gus did not move
+	// Ensure the FatBug did not move
 	ASSERT_NEAR(200, fatBug->GetX(), 0.01);
 	ASSERT_NEAR(250, fatBug->GetY(), 0.01);
 

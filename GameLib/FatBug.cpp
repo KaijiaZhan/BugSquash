@@ -84,6 +84,7 @@ wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
 	return itemNode;
 }
 
+
 /// Function to open IDE window that displays code
 void FatBug::OpenWindow(int x) // temp parameter
 {
@@ -92,8 +93,21 @@ void FatBug::OpenWindow(int x) // temp parameter
 	//dlg.ShowModal();
 }
 
-
-
-
-
-
+/////Function to call OpenWindow if Fat Bug is double clicked
+//void FatBug::DoubleClick(wxMouseEvent &event)
+//{
+////	// how to implement mAquarium type variable from step 4
+////	mSelectedBug = mAquarium.HitTest(event.GetX(), event.GetY());
+////	// If an item is being moved, we only continue to
+////	// move it while the left button is down.
+////	if(event.LeftIsDown())
+////	{
+////		mSelectedBug->SetLocation(event.GetX(), event.GetY());
+////	}
+////	else
+////	{
+////		// When the left button is released, we release the
+////		// item.
+////		mSelectedBug = nullptr;
+////	}
+//}

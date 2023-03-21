@@ -100,6 +100,12 @@ public:
 
 	virtual void SetStartTime(double startTime) {}
 
+	/**
+	 * Handle a double-click on an item
+	 * @param x X location in the aquarium of the double-click
+	 * @param y Y location in the aquarium of the double-click
+	 */
+	virtual void DoubleClick(int x, int y) {}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

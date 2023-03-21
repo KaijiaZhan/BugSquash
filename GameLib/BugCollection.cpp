@@ -39,6 +39,7 @@ void BugCollection::Update(double elapsed, long totalTime)
 	if(625 - GetX() < 50 && 500 - GetY() < 50)
 	{
 		SetDel(true);
+
 	}
 
 }

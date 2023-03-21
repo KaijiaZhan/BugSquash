@@ -41,6 +41,7 @@ void GameView::Initialize(wxFrame* mainFrame)
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
+
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel0, this, IDM_LEVEL0);
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel1, this, IDM_LEVEL1);
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel2, this, IDM_LEVEL2);
@@ -80,38 +81,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	mGame.Update(elapsed, mTime);
 
-//	wxFont font(LabelSize,
-//				wxFONTFAMILY_SWISS,
-//				wxFONTSTYLE_NORMAL,
-//				wxFONTWEIGHT_NORMAL);
-//	dc.SetFont(font);
-//	dc.SetTextForeground(FontColor);
-//
-//	dc.DrawText(L"Fixed",  // Text to draw
-//				50,     // x coordinate for the left size of the text
-//				ScoreLabelY);    // y coordinate for the top of the text
-//
-//	dc.DrawText(L"0",  // Text to draw
-//                90,     // x coordinate for the left size of the text
-//                ScoreLabelY - 50);    // y coordinate for the top of the text
-//
-//	dc.DrawText(L"Missed",  // Text to draw
-//				450,     // x coordinate for the left size of the text
-//				ScoreLabelY);    // y coordinate for the top of the text
-//
-//	dc.DrawText(L"0",  // Text to draw
-//                490,     // x coordinate for the left size of the text
-//                ScoreLabelY - 50);    // y coordinate for the top of the text
-//
-//	dc.DrawText(L"Oops",  // Text to draw
-//				875,     // x coordinate for the left size of the text
-//				ScoreLabelY);    // y coordinate for the top of the text
-//
-//	dc.DrawText(L"0",  // Text to draw
-//                915,     // x coordinate for the left size of the text
-//                ScoreLabelY - 50);    // y coordinate for the top of the text
-
-	mGame.OnDraw( gc, rect.GetWidth(), rect.GetHeight());
+	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
 }
 
@@ -205,7 +175,7 @@ void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu
 void GameView::OnShrink(wxCommandEvent& event)
 {
 	bool shrink = mGame.GetShrink();
-	mGame.SetShrink(shrink);
+	mGame.SetShrink(!shrink);
 }
 
 /**
@@ -217,4 +187,26 @@ void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 	mGame.SetShrink(mShrinkCheck);
 	event.Check(mGame.GetShrink());
 //	mGame.SetShrink(!mGame.GetShrink());
+}
+
+/**
+ * Handle a left-mouse double-click event
+ * @param event Mouse event
+ */
+void GameView::OnMouseDoubleClick(wxMouseEvent& event)
+{
+	auto bug = mGame.HitTest(event.GetX(), event.GetY());
+	if(bug != nullptr)
+	{
+		// We have double-clicked on a bug, want the window to appear
+	}
+}
+
+/**
+ * Handle the left mouse button down event
+ * @param event The moust click event
+ */
+void GameView::OnLeftDown(wxMouseEvent &event)
+{
+	mGame.OnLeftDown(event.GetX(), event.GetY());
 }
