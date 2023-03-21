@@ -79,7 +79,7 @@ public:
 	 */
     double GetMissed() const { return mMissed; }
 
-	void SetMissed(bool missed) {mMissed= missed;}
+	void SetMissed(double missed) {mMissed = missed;}
 
 	void OnDraw(wxDC *dc, std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
