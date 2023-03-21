@@ -10,6 +10,7 @@
 
 #include <wx/wx.h>
 #include "Game.h"
+#include "ScoreBoard.h"
 
 /**
  * Class that is the view of our Game
