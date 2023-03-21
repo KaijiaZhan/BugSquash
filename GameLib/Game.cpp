@@ -67,6 +67,11 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	}
 	mScoreBoard.OnDraw(graphics, width, height);
 	graphics->PopState();
+
+	if (mWhatLevel == 0)
+	{
+		mLevel0.DrawTitle(graphics);
+	}
 }
 
 
@@ -95,7 +100,13 @@ void Game::Update(double elapsed, long totalTime)
 			item->SetDel(false);
 		}
 	}
+	if (mWhatLevel == 0)
+	{
+		mLevel0.Update(elapsed);
+	}
 }
+
+
 
 /**
  * Test an x,y click location to see if it clicked
@@ -125,6 +136,7 @@ void Game::LoadLevel(int level)
 {
 	Clear();
 
+	mWhatLevel = level;
 	if (level == 0)
 	{
 		mElapsed = 0;
