@@ -46,11 +46,23 @@ void Level::Load(const wxString &filename, Game * game)
 	auto rootName = root->GetName();
 
 	auto firstChild = root->GetChildren();
-
-	auto child = firstChild->GetChildren();
+//	mProgramName = firstChild->GetAttribute(L"name");
+//
+//	double x;
+//	double y;
+//	firstChild->GetAttribute(L"x").ToDouble(&x);
+//	firstChild->GetAttribute(L"y").ToDouble(&y);
+//
+//	for( ; firstChild; firstChild=firstChild->GetNext())
+//	{
+//
+//	}
 
 	shared_ptr<Item> laptop = make_shared<Laptop>(game);
 	mLevelItems.push_back(laptop);
+
+
+	auto child = firstChild->GetChildren();
 
 	for( ; child; child=child->GetNext())
 	{
@@ -138,6 +150,11 @@ void Level::DrawTitle(std::shared_ptr<wxGraphicsContext> graphics)
 {
 	if ((mCurrentTime) <= 5) // need to change the time
 	{
+		wxFont font(wxSize(0, 100),
+					wxFONTFAMILY_SWISS,
+					wxFONTSTYLE_NORMAL,
+					wxFONTWEIGHT_NORMAL);
+		graphics->SetFont(font, *wxRED);
 		graphics->DrawText(wxString(mLevelName),
 						   0,
 						   0);

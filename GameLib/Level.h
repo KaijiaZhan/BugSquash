@@ -35,6 +35,8 @@ private:
 
 	double mCurrentTime;
 
+	std::string mProgramName;
+
 public:
 
 	/// Constructor

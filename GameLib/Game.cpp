@@ -72,6 +72,18 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		mLevel0.DrawTitle(graphics);
 	}
+	if (mWhatLevel == 1)
+	{
+		mLevel1.DrawTitle(graphics);
+	}
+	if (mWhatLevel == 2)
+	{
+		mLevel2.DrawTitle(graphics);
+	}
+	if (mWhatLevel == 3)
+	{
+		mLevel3.DrawTitle(graphics);
+	}
 }
 
 
@@ -103,6 +115,18 @@ void Game::Update(double elapsed, long totalTime)
 	if (mWhatLevel == 0)
 	{
 		mLevel0.Update(elapsed);
+	}
+	else if (mWhatLevel == 1)
+	{
+		mLevel1.Update(mElapsed);
+	}
+	if (mWhatLevel == 2)
+	{
+		mLevel2.Update(elapsed);
+	}
+	if (mWhatLevel == 3)
+	{
+		mLevel3.Update(elapsed);
 	}
 }
 
