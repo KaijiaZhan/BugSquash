@@ -26,7 +26,6 @@ GarbageBug::GarbageBug(Game *game) : BugCollection(game, GarbageBugSpriteImageNa
 {
     mGarbageBugImage = make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
 	mGarbageSplat = make_unique<wxImage>(GarbageBugSplatImageName, wxBITMAP_TYPE_ANY);
-    //mGarbageBugBitmap = make_unique<wxBitmap>(*mGarbageBugImage);
 }
 
 /**
@@ -35,15 +34,25 @@ GarbageBug::GarbageBug(Game *game) : BugCollection(game, GarbageBugSpriteImageNa
  */
 void GarbageBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
+
+	double wid = mGarbageBugImage->GetWidth();
+	double hit = mGarbageBugImage->GetHeight();
+
+	double spriteHit = hit/6;
+
 	if(mGarbageBugBitmap.IsNull())
 	{
-		mGarbageBugBitmap = graphics->CreateBitmapFromImage(*mGarbageBugImage);
+		mGarbageBugBitmap = graphics->CreateBitmap(*mGarbageBugImage);
+
 	}
-    double wid = mGarbageBugImage->GetWidth();
-    double hit = mGarbageBugImage->GetHeight();
-	graphics->DrawBitmap(mGarbageBugBitmap,
-						 int(GetX() - wid / 2),
-						 int(GetY() - hit / 2),wid,hit);
+	double angle = atan2(500-GetY(), 625-GetX());
+
+	graphics->PushState();
+	graphics->Translate(GetX(),GetY());
+	graphics->Rotate(angle);
+	graphics->Clip(-wid/2,-spriteHit/2,wid,spriteHit);
+	graphics->DrawBitmap(mGarbageBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
+	graphics->PopState();
 }
 
 /**
@@ -67,4 +76,25 @@ wxXmlNode* GarbageBug::XmlSave(wxXmlNode* node)
 	itemNode->AddAttribute(L"type", L"garbage");
 
 	return itemNode;
+}
+
+void GarbageBug::Update(double elapsed, long totalTime)
+{
+	double startTime = GetStartTime();
+
+	if (totalTime < startTime)
+	{
+		mSprite = 600;
+	}
+	else
+	{
+		BugCollection::Update(elapsed, totalTime);
+
+		mSprite += 100;
+		if (mSprite >= 600)
+		{
+			mSprite = 0;
+		}
+	}
+
 }

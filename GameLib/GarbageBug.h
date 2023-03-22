@@ -31,6 +31,9 @@ private:
 	/// The bitmap for the splat image
 	wxGraphicsBitmap mGarbageSplatBitmap;
 
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
+
 public:
 	/// Default constructor (disabled)
 	GarbageBug() = delete;
@@ -48,6 +51,9 @@ public:
 	bool HitTest(int x, int y) override;
 
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	void Update(double elapsed, long totaltime) override;
+
 };
 
 #endif //PROJECT1_COPY_GAMELIB_GARBAGEBUG_H

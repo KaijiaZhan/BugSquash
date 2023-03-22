@@ -8,13 +8,12 @@
 #ifndef PROJECT1_GAMELIB_FEATURE_H
 #define PROJECT1_GAMELIB_FEATURE_H
 
-#include "Game.h"
 #include "BugCollection.h"
 
 /**
  * Initializes the feature item
  */
-class Feature : public Item
+class Feature : public BugCollection
 {
 private:
 	/// The underlying Feature image
@@ -26,8 +25,9 @@ private:
     /// The bitmap we can display for feature
     wxGraphicsBitmap mFeatureBitmap;
 
-    /// The bitmap we can display for feature
-    wxGraphicsBitmap mFeatureSplatBitmap;
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
+
 public:
 	/// Default constructor (disabled)
 	Feature() = delete;
@@ -44,9 +44,11 @@ public:
 	/// Draws Feature
     void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
-    wxXmlNode* XmlSave(wxXmlNode* node) override;
-
 	bool HitTest(int x, int y) override;
+
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	void Update(double elapsed, long totaltime) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H

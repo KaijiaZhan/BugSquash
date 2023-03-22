@@ -2,6 +2,7 @@
  * @file NullBug.cpp
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
+ * @author Courtney Thang
  *
  * Source file for NullBug
  */
@@ -47,10 +48,11 @@ void NullBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	mNullBugBitmap = graphics->CreateBitmap(*mNullBugImage);
 
 	}
+	double angle = atan2(500-GetY(), 625-GetX());
 
 	graphics->PushState();
 	graphics->Translate(GetX(),GetY());
-//	graphics->Rotate(angle);
+	graphics->Rotate(angle);
 	graphics->Clip(-wid/2,-spriteHit/2,wid,spriteHit);
 	graphics->DrawBitmap(mNullBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
 	graphics->PopState();

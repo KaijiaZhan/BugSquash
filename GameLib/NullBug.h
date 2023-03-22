@@ -2,6 +2,7 @@
  * @file NullBug.h
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
+ * @author Courtney Thang
  *
  */
 

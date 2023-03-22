@@ -23,7 +23,7 @@ const wstring FeatureSplat = L"images/feature-splat.png";
  * Constructor
  * @param game Game this bug is a member of
  */
-Feature::Feature(Game *game) : Item(game)
+Feature::Feature(Game *game) : BugCollection(game,FeatureImage)
 {
     mFeatureImage = make_unique<wxImage>(FeatureImage, wxBITMAP_TYPE_ANY);
 
@@ -32,29 +32,30 @@ Feature::Feature(Game *game) : Item(game)
 }
 
 /**
- * Draw this fly
+ * Draw this feature
  * @param dc Device context to draw on
  */
 void Feature::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
-    if(mFeatureBitmap.IsNull())
-    {
-        mFeatureBitmap = graphics->CreateBitmapFromImage(*mFeatureImage);
-    }
-    int wid = mFeatureImage->GetWidth();
-    int hit = mFeatureImage->GetHeight();
-    graphics->DrawBitmap(mFeatureBitmap,
-                         int(GetX() - wid / 2),
-                         int(GetY() - hit / 2), wid, hit);
-}
 
-wxXmlNode* Feature::XmlSave(wxXmlNode* node)
-{
-    auto itemNode = Item::XmlSave(node);
+	double wid = mFeatureImage->GetWidth();
+	double hit = mFeatureImage->GetHeight();
 
-    itemNode->AddAttribute(L"type", L"feature");
+	double spriteHit = hit/6;
 
-    return itemNode;
+	if(mFeatureBitmap.IsNull())
+	{
+		mFeatureBitmap = graphics->CreateBitmap(*mFeatureImage);
+
+	}
+	double angle = atan2(500-GetY(), 625-GetX());
+
+	graphics->PushState();
+	graphics->Translate(GetX(),GetY());
+	graphics->Rotate(angle);
+	graphics->Clip(-wid/2,-spriteHit/2,wid,spriteHit);
+	graphics->DrawBitmap(mFeatureBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
+	graphics->PopState();
 }
 
 /**
@@ -69,4 +70,34 @@ bool Feature::HitTest(int x, int y)
     double dy = y - GetY();
 
     return sqrt(dx * dx + dy * dy) < GetHitRange();
+}
+
+wxXmlNode* Feature::XmlSave(wxXmlNode* node)
+{
+	auto itemNode = Item::XmlSave(node);
+
+	itemNode->AddAttribute(L"type", L"feature");
+
+	return itemNode;
+}
+
+void Feature::Update(double elapsed, long totalTime)
+{
+	double startTime = GetStartTime();
+
+	if (totalTime < startTime)
+	{
+		mSprite = 600;
+	}
+	else
+	{
+		BugCollection::Update(elapsed, totalTime);
+
+		mSprite += 100;
+		if (mSprite >= 600)
+		{
+			mSprite = 0;
+		}
+	}
+
 }

@@ -9,7 +9,7 @@
 #include "GarbageBug.h"
 #include "NullBug.h"
 #include "Laptop.h"
-#include "FatBug.h"
+#include "Feature.h"
 
 using namespace std;
 
@@ -104,9 +104,9 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 		item->SetSpeed(speed);
 		item->SetStartTime(starttime);
 	}
-	if (type == L"fat")
+	if (type == L"feature")
 	{
-		item = make_shared<FatBug>(mGame);
+		item = make_shared<Feature>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
 		item->SetStartTime(starttime);
