@@ -57,7 +57,7 @@ public:
 
 	void OpenWindow(int x); //temp parameter
 
-//	void DoubleClick(wxMouseEvent &event);
+	void DoubleClick(wxMouseEvent &event);
 
 };
 

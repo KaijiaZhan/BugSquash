@@ -8,7 +8,7 @@
 #include "pch.h"
 #include "FatBug.h"
 #include "BugCollection.h"
-
+#include <wx/event.h>
 #include <string>
 
 using namespace std;
@@ -93,21 +93,11 @@ void FatBug::OpenWindow(int x) // temp parameter
 	//dlg.ShowModal();
 }
 
-/////Function to call OpenWindow if Fat Bug is double clicked
+///Function to call OpenWindow if Fat Bug is double clicked
 //void FatBug::DoubleClick(wxMouseEvent &event)
 //{
-////	// how to implement mAquarium type variable from step 4
-////	mSelectedBug = mAquarium.HitTest(event.GetX(), event.GetY());
-////	// If an item is being moved, we only continue to
-////	// move it while the left button is down.
-////	if(event.LeftIsDown())
-////	{
-////		mSelectedBug->SetLocation(event.GetX(), event.GetY());
-////	}
-////	else
-////	{
-////		// When the left button is released, we release the
-////		// item.
-////		mSelectedBug = nullptr;
-////	}
+//	if (event.LeftDClick())
+//	{
+//
+//	}
 //}

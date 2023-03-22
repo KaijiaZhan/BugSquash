@@ -84,7 +84,7 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void MultiplyBug();
+	void MultiplyBug(wxMouseEvent &event);
 
 };
 

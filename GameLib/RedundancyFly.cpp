@@ -10,6 +10,8 @@
 #include "Game.h"
 #include <string>
 #include <stdlib.h>
+#include <wx/event.h>
+
 
 using namespace std;
 
@@ -165,7 +167,7 @@ bool RedundancyFly::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < 50;
 }
 
-void RedundancyFly::MultiplyBug()
+void RedundancyFly::MultiplyBug(wxMouseEvent &event)
 {
 	// Amount of flies to appear after clicking bug
 	int flyMultiplier = rand() % 3 + 3;
@@ -178,6 +180,10 @@ void RedundancyFly::MultiplyBug()
 	int flyLocationY = yPos + (rand() % 200);
 
 	//mClickedFly = mFly;
+	if (event.LeftIsDown())
+	{
+
+	}
 //	if (mClickedFly != nullptr)
 //	{
 //		for(int i = 0; i < flyMultiplier; i++)
