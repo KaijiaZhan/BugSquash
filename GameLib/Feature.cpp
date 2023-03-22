@@ -41,7 +41,7 @@ void Feature::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	double wid = mFeatureImage->GetWidth();
 	double hit = mFeatureImage->GetHeight();
 
-	double spriteHit = hit/6;
+	double spriteHit = hit/7;
 
 	if(mFeatureBitmap.IsNull())
 	{
@@ -87,14 +87,14 @@ void Feature::Update(double elapsed, long totalTime)
 
 	if (totalTime < startTime)
 	{
-		mSprite = 600;
+		mSprite = 700;
 	}
 	else
 	{
 		BugCollection::Update(elapsed, totalTime);
 
 		mSprite += 100;
-		if (mSprite >= 600)
+		if (mSprite >= 700)
 		{
 			mSprite = 0;
 		}
