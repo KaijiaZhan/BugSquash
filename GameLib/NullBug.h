@@ -22,8 +22,6 @@ private:
     /// The bitmap we can display for this bug
 	wxGraphicsBitmap mNullBugBitmap;
 
-	wxGraphicsBitmap mNullBugSubBitmap;
-
 	/// Keeps track of what sprite we are at
 	int mSprite = 0;
 
@@ -37,15 +35,15 @@ public:
 	/// Assignment operator
 	void operator=(const NullBug &) = delete;
 
-//	NullBug(Game *game);
+	NullBug(Game *game);
 
-//	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
-//
-//	bool HitTest(int x, int y) override;
-//
-//	wxXmlNode* XmlSave(wxXmlNode* node) override;
-//
-//	void Update(double elapsed, long totaltime) override;
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+	bool HitTest(int x, int y) override;
+
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	void Update(double elapsed, long totaltime) override;
 
 };
 

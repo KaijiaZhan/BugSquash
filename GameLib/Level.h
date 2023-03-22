@@ -29,6 +29,12 @@ private:
 	///Random number generator
 	std::mt19937 mRandom;
 
+	double mTimeLoaded;
+
+	std::string mLevelName;
+
+	double mCurrentTime;
+
 public:
 
 	/// Constructor
@@ -50,6 +56,13 @@ public:
 	std::mt19937 &GetRandom() { return mRandom; }
 
 	void Clear();
+
+	//
+
+	void Update(double elapsed);
+
+	void DrawTitle(std::shared_ptr<wxGraphicsContext> graphics);
+
 
 };
 

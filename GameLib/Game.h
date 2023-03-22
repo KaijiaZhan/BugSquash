@@ -50,6 +50,8 @@ private:
 
 	double mScale = 0;
 
+	int mWhatLevel = 0;
+
 	/// XML for level 0
 	Level mLevel0;
 

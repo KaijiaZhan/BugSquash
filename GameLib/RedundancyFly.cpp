@@ -58,6 +58,11 @@ const int WingSetY = 5;
  */
 RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 {
+	/// m var in game that holds map of all images
+	/// a function in game that gets the image (65-73)
+	/// a function in game that gets the images into the map
+	/// call game function that adds image to the map
+
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);
 

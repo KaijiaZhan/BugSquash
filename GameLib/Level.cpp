@@ -38,6 +38,11 @@ void Level::Load(const wxString &filename, Game * game)
 
 	auto root = xmlDoc.GetRoot();
 
+//	root->GetAttribute(L"level");
+
+
+	mLevelName = root->GetAttribute(L"level");
+
 	auto rootName = root->GetName();
 
 	auto firstChild = root->GetChildren();
@@ -92,13 +97,13 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 		item->SetSpeed(speed);
 		item->SetStartTime(starttime);
 	}
-//	if (type == L"null")
-//	{
-//		item = make_shared<NullBug>(mGame);
-//		item->SetLocation(x,y);
-//		item->SetSpeed(speed);
-//		item->SetStartTime(starttime);
-//	}
+	if (type == L"null")
+	{
+		item = make_shared<NullBug>(mGame);
+		item->SetLocation(x,y);
+		item->SetSpeed(speed);
+		item->SetStartTime(starttime);
+	}
 	if (type == L"fat")
 	{
 		item = make_shared<FatBug>(mGame);
@@ -120,5 +125,22 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 void Level::Clear()
 {
 	mLevelItems.erase(mLevelItems.begin(), mLevelItems.end());
+}
+
+//need an update in level
+
+void Level::Update(double elapsed)
+{
+	mCurrentTime += elapsed;
+}
+
+void Level::DrawTitle(std::shared_ptr<wxGraphicsContext> graphics)
+{
+	if ((mCurrentTime) <= 5) // need to change the time
+	{
+		graphics->DrawText(wxString(mLevelName),
+						   0,
+						   0);
+	}
 }
 
