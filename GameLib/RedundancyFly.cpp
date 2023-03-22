@@ -13,7 +13,6 @@
 #include <wx/event.h>
 
 
-
 using namespace std;
 
 /// Redundancy fly filename
@@ -75,8 +74,6 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 
 	mFlySplat = make_unique<wxImage>(FlySplat, wxBITMAP_TYPE_ANY);
 	//mFlyBitmap = make_unique<wxBitmap>(*mFlySplat);
-
-	//Bind(wxEVT_LEFT_DOWN, &RedundancyFly::OnMouseClick, this);
 
 }
 
@@ -187,27 +184,23 @@ void RedundancyFly::MultiplyBug(wxMouseEvent &event)
 	int flyLocationX = xPos + (rand() % 200);
 	int flyLocationY = yPos + (rand() % 200);
 
-//	auto bug = mGame.HitTest(event.GetX(), event.GetY());
-//	if(bug != nullptr)
+	//mClickedFly = mFly;
+	if (event.LeftIsDown())
+	{
+
+	}
+//	if (mClickedFly != nullptr)
 //	{
-//		if (event.LeftIsDown())
+//		for(int i = 0; i < flyMultiplier; i++)
 //		{
-//			for(int i = 0; i < flyMultiplier; i++)
-//			{
-//				Draw();
-//			}
+//			// Spawn new fly
 //		}
 //	}
 
 
-
-}
-
-/**
- * Handle a left-mouse click event
- * @param event Mouse event
- */
-void RedundancyFly::OnRedundancyClick(wxMouseEvent& event)
-{
+	//int flyLocation = rand() % location clicked +- 200 y and x direction;
+	//if redundancyfly is clicked
+		//replace clicked fly with 3-6 other redundancy flies at random
+		//locations an average of 200 pixels from bug initially clicked
 
 }
