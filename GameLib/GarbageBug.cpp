@@ -2,6 +2,7 @@
  * @file GarbageBug.cpp
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
+ * @author Courtney Thang
  *
  * Source file for type GarbageBug
  */
@@ -38,7 +39,7 @@ void GarbageBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	double wid = mGarbageBugImage->GetWidth();
 	double hit = mGarbageBugImage->GetHeight();
 
-	double spriteHit = hit/6;
+	double spriteHit = hit/5;
 
 	if(mGarbageBugBitmap.IsNull())
 	{
@@ -50,7 +51,7 @@ void GarbageBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	graphics->PushState();
 	graphics->Translate(GetX(),GetY());
 	graphics->Rotate(angle);
-	graphics->Clip(-wid/2,-spriteHit/2,wid,spriteHit);
+	graphics->Clip(-wid/2,-spriteHit/2,wid,100);
 	graphics->DrawBitmap(mGarbageBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
 	graphics->PopState();
 }
@@ -84,14 +85,14 @@ void GarbageBug::Update(double elapsed, long totalTime)
 
 	if (totalTime < startTime)
 	{
-		mSprite = 600;
+		mSprite = 500;
 	}
 	else
 	{
 		BugCollection::Update(elapsed, totalTime);
 
 		mSprite += 100;
-		if (mSprite >= 600)
+		if (mSprite >= 500)
 		{
 			mSprite = 0;
 		}
