@@ -4,11 +4,12 @@
  * @author Flora Pieters
  * @author Courtney Thang
  */
-#include <iostream>
-#include <cmath>
+
 #include "pch.h"
 #include "Laptop.h"
 #include "BugCollection.h"
+#include <iostream>
+#include <cmath>
 
 /*
  * Constructor
