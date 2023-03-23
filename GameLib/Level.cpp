@@ -109,15 +109,15 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetLocation(x,y);
 			item->SetSpeed(speed);
 			item->SetStartTime(starttime);
-			item->SetLaptop(parent);
 			if (node->GetChildren())
 			{
-				item = make_shared<FatBug>(mGame);
+				item = make_shared<FatBug>(mGame,L"garbage");
 				item->SetLocation(x,y);
 				item->SetSpeed(speed);
 				item->SetStartTime(starttime);
 				item->SetLaptop(parent);
 			}
+			item->SetLaptop(parent);
 		}
 		if (type == L"null")
 		{
@@ -125,15 +125,15 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetLocation(x,y);
 			item->SetSpeed(speed);
 			item->SetStartTime(starttime);
-			item->SetLaptop(parent);
 			if (node->GetChildren())
 			{
-				item = make_shared<FatBug>(mGame);
+				item = make_shared<FatBug>(mGame,L"null");
 				item->SetLocation(x,y);
 				item->SetSpeed(speed);
 				item->SetStartTime(starttime);
 				item->SetLaptop(parent);
 			}
+			item->SetLaptop(parent);
 		}
 	}
 	if (name == L"feature")
