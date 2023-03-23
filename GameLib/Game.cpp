@@ -202,16 +202,17 @@ void Game::LoadLevel(int level)
 		mElapsed = 0;
 		mLevel0.Clear();
 		mLevel0.Load(L"levels/level0.xml", this);
-
 		SetLevel(mLevel0.GetLevel());
+		mScoreBoard.Reset();
 	}
 	if (level == 1)
 	{
 		mElapsed = 0;
 		mLevel1.Clear();
 		mLevel1.Load(L"levels/level1.xml", this);
-
 		SetLevel(mLevel1.GetLevel());
+		mScoreBoard.Reset();
+
 	}
 	if (level == 2)
 	{
@@ -219,6 +220,7 @@ void Game::LoadLevel(int level)
 		mLevel2.Clear();
 		mLevel2.Load(L"levels/level2.xml", this);
 		SetLevel(mLevel2.GetLevel());
+		mScoreBoard.Reset();
 	}
 	if (level == 3)
 	{
@@ -226,6 +228,7 @@ void Game::LoadLevel(int level)
 		mLevel3.Clear();
 		mLevel3.Load(L"levels/level3.xml", this);
 		SetLevel(mLevel3.GetLevel());
+		mScoreBoard.Reset();
 	}
 
 }
