@@ -59,9 +59,6 @@ public:
 
 	void DoubleClick(wxMouseEvent &event);
 
-	void SingleClick(int x, int y) override;
-
-	virtual std::string GetType() {return "FatBug";}
 };
 
 #endif //PROJECT1_GAMELIB_FATBUG_H

@@ -140,11 +140,7 @@ public:
 	std::shared_ptr<wxImage> SetImage(std::wstring imageName);
 
 	void SetImagesDirectory(const std::wstring &dir);
-	//void IncreaseMiss(int add);
 
-	void IncreaseOops(int add);
-
-	void IncreaseFix(int add);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

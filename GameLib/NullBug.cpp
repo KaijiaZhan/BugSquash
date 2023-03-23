@@ -45,8 +45,3 @@ bool NullBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
-
-void NullBug::SingleClick(int x, int y)
-{
-
-}
