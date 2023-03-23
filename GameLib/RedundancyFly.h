@@ -86,8 +86,6 @@ public:
 
 	void MultiplyBug(wxMouseEvent &event);
 
-	void SingleClick(int x, int y) override;
-
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H
