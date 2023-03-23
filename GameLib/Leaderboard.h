@@ -68,6 +68,8 @@ private:
 
 	std::vector<Player> mPlayerScores = {};
 
+	bool mActive = false;
+
 public:
 	/**
 	 * Get fixed score
@@ -96,6 +98,10 @@ public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 	void Reset();
+
+	void SetActive(bool active) {mActive = active;}
+
+	bool GetActive() {return mActive;}
 
 	//bool Compare(std::tuple<int,std::string> ps1, std::tuple<int,std::string> ps2);
 

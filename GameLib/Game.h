@@ -100,8 +100,6 @@ private:
 	Leaderboard mLeaderboard;
 
 	std::wstring mState = L"Start";
-
-
 public:
 
 	/**
@@ -151,6 +149,8 @@ public:
 	void IncreaseOops(int add);
 
 	void IncreaseFix(int add);
+
+	void SetState(wxString state) {mState = state;}
 
 };
 

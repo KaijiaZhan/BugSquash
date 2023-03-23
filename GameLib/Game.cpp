@@ -21,6 +21,8 @@ using namespace std;
 
 const int levelStartDuration = 2;
 
+const int levelTotalDuration = 10;
+
 /**
 * Game Constructor
 */
@@ -94,10 +96,9 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	}
 	mScoreBoard.OnDraw(graphics, width, height);
 
-//	Leaderboard leaderboard;
-//	leaderboard.OnDraw(graphics, width, height);
 
-	graphics->PopState();
+
+
 
 	if (mState == L"Start")
 	//if (mElapsed <= 2)
@@ -119,6 +120,14 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 			mLevel3.DrawTitle(graphics, Width, Height);
 		}
 	}
+
+	if (mState == L"End")
+	{
+		//	Leaderboard leaderboard;
+		//	leaderboard.OnDraw(graphics, width, height);
+	}
+
+	graphics->PopState();
 }
 
 
@@ -151,10 +160,25 @@ void Game::Update(double elapsed, long totalTime)
 	{
 		mState = L"Start";
 	}
-	if (mElapsed >= levelStartDuration)
+	if (mLeaderboard.GetActive())
 	{
-		mState = L"Playing";
+		if (mElapsed >= levelStartDuration && mElapsed < levelTotalDuration)
+		{
+			mState = L"Playing";
+		}
+		if (mElapsed > levelTotalDuration)
+		{
+			mState = L"End";
+		}
 	}
+	else
+	{
+		if (mElapsed >= levelStartDuration)
+		{
+			mState = L"Playing";
+		}
+	}
+
 	if (mWhatLevel == 0)
 	{
 		mLevel0.Update(elapsed);
@@ -211,6 +235,7 @@ void Game::LoadLevel(int level)
 		mLevel0.Load(L"levels/level0.xml", this);
 		SetLevel(mLevel0.GetLevel());
 		mScoreBoard.Reset();
+		mLeaderboard.SetActive(false);
 	}
 	if (level == 1)
 	{
@@ -219,7 +244,7 @@ void Game::LoadLevel(int level)
 		mLevel1.Load(L"levels/level1.xml", this);
 		SetLevel(mLevel1.GetLevel());
 		mScoreBoard.Reset();
-
+		mLeaderboard.SetActive(false);
 	}
 	if (level == 2)
 	{
@@ -228,6 +253,7 @@ void Game::LoadLevel(int level)
 		mLevel2.Load(L"levels/level2.xml", this);
 		SetLevel(mLevel2.GetLevel());
 		mScoreBoard.Reset();
+		mLeaderboard.SetActive(false);
 	}
 	if (level == 3)
 	{
@@ -236,6 +262,8 @@ void Game::LoadLevel(int level)
 		mLevel3.Load(L"levels/level3.xml", this);
 		SetLevel(mLevel3.GetLevel());
 		mScoreBoard.Reset();
+		mLeaderboard.SetActive(true);
+
 	}
 
 }
