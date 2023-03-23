@@ -33,6 +33,7 @@ public:
 
 	bool HitTest(int x, int y) override;
 
+	void SingleClick(int x, int y) override;
 };
 
 #endif //PROJECT1_COPY_GAMELIB_NULLBUG_H
