@@ -43,6 +43,7 @@ const double FatBugSize = 1.25;
  */
 FatBug::FatBug(Game *game, std::wstring bugType) : BugCollection(game, GarbageBugSpriteImageName)
 {
+	SetScale(1.25);
 	if (bugType =="null")
 	{
 		BugCollection::BugSetImage(NullBugSpriteImageName, NullBugNumSpriteImages, NullBugSplatImageName);
@@ -77,15 +78,15 @@ void FatBug::OpenWindow(int x) // temp parameter
 }
 
 ///Function to call OpenWindow if Fat Bug is double clicked
-//void FatBug::DoubleClick(wxMouseEvent &event)
-//{
-//	if (event.LeftDClick())
-//	{
-//
-//	}
-//}
 
 void FatBug::SingleClick(int x, int y)
 {
 
+}
+
+void FatBug::Draw(std::shared_ptr<wxGraphicsContext> graphics){
+	//graphics->PushState();
+	//graphics->Scale(1.25, 1.25);
+	BugCollection::Draw(graphics);
+	//graphics->PopState();
 }

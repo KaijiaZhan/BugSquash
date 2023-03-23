@@ -34,6 +34,7 @@ void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstri
  */
 void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
+
 	double wid = mBugImage->GetWidth();
 	double hit = mBugImage->GetHeight();
 
@@ -48,6 +49,7 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 
 	graphics->PushState();
 	graphics->Translate(GetX(),GetY());
+	graphics->Scale(mScaling, mScaling);
 	graphics->Rotate(angle);
 	graphics->Clip(-wid/2,-spriteHit/2,wid,100);
 	graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);

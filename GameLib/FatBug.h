@@ -18,6 +18,7 @@ class FatBug : public BugCollection
 {
 private:
 
+
 public:
 	/// Default constructor (disabled)
 	FatBug() = delete;
@@ -40,6 +41,10 @@ public:
 	void SingleClick(int x, int y) override;
 
 	std::string GetType() override {return "FatBug";}
+
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+
 
 };
 

@@ -54,6 +54,8 @@ private:
 	/// Sprite count
 	int mSpriteCount = 0;
 
+	double mScaling = 0;
+
 protected:
 
 	/**
@@ -115,6 +117,8 @@ public:
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	std::string GetType() override {return "Bug";}
+
+	virtual void SetScale(double scale) { mScaling = scale;};
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
