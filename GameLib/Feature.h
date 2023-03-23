@@ -33,6 +33,10 @@ public:
 
 	bool HitTest(int x, int y) override;
 
+	void SingleClick(int x, int y) override;
+
+	virtual std::string GetType() {return "Feature";}
+
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H

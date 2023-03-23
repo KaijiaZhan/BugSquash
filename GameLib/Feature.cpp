@@ -46,3 +46,8 @@ bool Feature::HitTest(int x, int y)
     return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+void Feature::SingleClick(int x, int y)
+{
+
+}
+

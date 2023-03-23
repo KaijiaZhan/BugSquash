@@ -114,7 +114,7 @@ public:
 
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
-
+	virtual std::string GetType() {return "Bug";}
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H
