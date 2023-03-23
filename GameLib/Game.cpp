@@ -9,8 +9,6 @@
 #include "pch.h"
 #include "Game.h"
 #include "Laptop.h"
-#include "Feature.h"
-#include "RedundancyFly.h"
 #include "DoublePointsBug.h"
 #include "Leaderboard.h"
 #include "wx/xml/xml.h"
@@ -21,7 +19,7 @@ using namespace std;
 
 const int levelStartDuration = 2;
 
-const int levelTotalDuration = 10;
+const int levelTotalDuration = 50;
 
 /**
 * Game Constructor

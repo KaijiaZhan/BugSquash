@@ -39,9 +39,6 @@ void Level::Load(const wxString &filename, Game * game)
 
 	auto root = xmlDoc.GetRoot();
 
-//	root->GetAttribute(L"level");
-
-
 	mLevelName = root->GetAttribute(L"level");
 
 	auto rootName = root->GetName();
