@@ -23,6 +23,8 @@ private:
 	/// The laptop bitmap
 	wxGraphicsBitmap mLaptopBitmap;
 
+	std::wstring mName;
+
 
 protected:
 
@@ -44,6 +46,8 @@ public:
 	 * @param dc Device context to draw on
 	 */
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+	void SetName(std::wstring name);
 
 };
 

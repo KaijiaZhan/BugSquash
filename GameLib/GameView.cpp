@@ -186,7 +186,7 @@ void GameView::OnShrink(wxCommandEvent& event)
 void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 {
 	//mGame.SetShrink(mShrinkCheck);
-	event.Check(!mGame.GetShrink());
+	event.Check(mGame.GetShrink());
 //	mGame.SetShrink(!mGame.GetShrink());
 }
 

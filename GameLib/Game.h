@@ -70,6 +70,8 @@ private:
 	/// Lable for score font size to use
 	const int LabelSize = 40;
 
+
+
 	/// The font color to use
 	const wxColour FontColor = wxColour(0, 200, 200);
 
@@ -87,6 +89,8 @@ private:
 
 	/// the ScoreBoard
 	ScoreBoard mScoreBoard;
+
+	std::wstring mState = L"Start";
 
 public:
 

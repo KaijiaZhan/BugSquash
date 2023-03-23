@@ -38,14 +38,29 @@ void Laptop::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	{
 		mLaptopBitmap = graphics->CreateBitmapFromImage(*mLaptopImage);
 	}
-
+	graphics->PushState();
+	graphics->Translate(GetX(), GetY());
 	graphics->DrawBitmap(mLaptopBitmap,
-						 int(GetX() - wid / 2),
-						 int(GetY() - hit / 2), wid, hit);
+						 int( -wid / 2),
+						 int(-hit / 2), wid, hit);
 	wxFont font(wxSize(0, 20),
 				wxFONTFAMILY_SWISS,
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_NORMAL);
 	graphics->SetFont(font, *wxWHITE);
-	graphics->DrawText(L"BugSquash", int(GetX() - wid / 2) + 50, int(GetY() - hit / 2) + 40);
+
+
+	graphics->PopState();
+
+	double textwid;
+	double textheight;
+	graphics->GetTextExtent(wxString(mName), &textwid, &textheight);
+	graphics->DrawText(wxString(mName),
+					   (GetX()-(textwid)/2),
+					   (GetY()-(textheight)/2));
+}
+
+void Laptop::SetName(std::wstring name)
+{
+	mName = name;
 }

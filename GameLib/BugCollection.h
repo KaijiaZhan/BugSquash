@@ -9,6 +9,7 @@
 
 #include "Game.h"
 #include "Item.h"
+#include "Laptop.h"
 
 class Game;
 
@@ -35,6 +36,8 @@ private:
 	bool mMirror = false;
 
 	double BugHitRange = 50;
+
+	std::shared_ptr<Laptop> mLaptop;
 
 protected:
 
@@ -86,6 +89,8 @@ public:
 	void SetStartTime(double startTime) override { mStartTime = startTime; }
 
 	double GetStartTime() { return mStartTime; }
+
+	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
 

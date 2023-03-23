@@ -17,6 +17,8 @@
 
 using namespace std;
 
+const int levelStartDuration = 2;
+
 /**
 * Game Constructor
 */
@@ -68,21 +70,25 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	mScoreBoard.OnDraw(graphics, width, height);
 	graphics->PopState();
 
-	if (mWhatLevel == 0)
+	if (mState == L"Start")
+	//if (mElapsed <= 2)
 	{
-		mLevel0.DrawTitle(graphics);
-	}
-	if (mWhatLevel == 1)
-	{
-		mLevel1.DrawTitle(graphics);
-	}
-	if (mWhatLevel == 2)
-	{
-		mLevel2.DrawTitle(graphics);
-	}
-	if (mWhatLevel == 3)
-	{
-		mLevel3.DrawTitle(graphics);
+		if (mWhatLevel == 0)
+		{
+			mLevel0.DrawTitle(graphics, Width, Height);
+		}
+		if (mWhatLevel == 1)
+		{
+			mLevel1.DrawTitle(graphics, Width, Height);
+		}
+		if (mWhatLevel == 2)
+		{
+			mLevel2.DrawTitle(graphics, Width, Height);
+		}
+		if (mWhatLevel == 3)
+		{
+			mLevel3.DrawTitle(graphics, Width, Height);
+		}
 	}
 }
 
@@ -112,13 +118,21 @@ void Game::Update(double elapsed, long totalTime)
 			item->SetDel(false);
 		}
 	}
+	if (mElapsed < levelStartDuration)
+	{
+		mState = L"Start";
+	}
+	if (mElapsed >= levelStartDuration)
+	{
+		mState = L"Playing";
+	}
 	if (mWhatLevel == 0)
 	{
 		mLevel0.Update(elapsed);
 	}
 	else if (mWhatLevel == 1)
 	{
-		mLevel1.Update(mElapsed);
+		mLevel1.Update(elapsed);
 	}
 	if (mWhatLevel == 2)
 	{

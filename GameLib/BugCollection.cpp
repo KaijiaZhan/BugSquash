@@ -4,8 +4,10 @@
  * @author Flora Pieters
  * @author Courtney Thang
  */
-
+#include <iostream>
+#include <cmath>
 #include "pch.h"
+#include "Laptop.h"
 #include "BugCollection.h"
 
 /*
@@ -28,18 +30,16 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 void BugCollection::Update(double elapsed, long totalTime)
 {
 
-	double angle = atan2(500-GetY(), 625-GetX());
+	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
 	if (totalTime >= GetStartTime())
 	{
 		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),
 					GetY() + mSpeedY * (elapsed) * sin(angle));
 
 	}
-
-	if(625 - GetX() < 50 && 500 - GetY() < 50)
+	if(sqrt((pow(mLaptop->GetX() - GetX(), 2)  + pow(mLaptop->GetY()-GetY(),2))) < 5)
 	{
 		SetDel(true);
-
 	}
 
 }
@@ -59,4 +59,9 @@ void BugCollection::XmlLoad(wxXmlNode *node)
 
 //	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
 //	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
+}
+
+void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
+{
+	mLaptop = laptop;
 }
