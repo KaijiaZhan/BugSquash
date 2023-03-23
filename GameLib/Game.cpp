@@ -11,6 +11,7 @@
 #include "Laptop.h"
 #include "Feature.h"
 #include "RedundancyFly.h"
+#include "Leaderboard.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
 
@@ -84,6 +85,10 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	// From here on you are drawing virtual pixels
 	graphics->SetBrush(*wxWHITE_BRUSH);
 	graphics->DrawRectangle(0,0,Width,Height);
+
+//	Leaderboard leaderboard;
+//	leaderboard.OnDraw(graphics, width, height);
+
 
 	for (auto item : mItems)
 	{
