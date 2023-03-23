@@ -125,6 +125,9 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		//	Leaderboard leaderboard;
 		//	leaderboard.OnDraw(graphics, width, height);
+
+
+		mLeaderboard.OnDraw(graphics, width, height);
 	}
 
 	graphics->PopState();
@@ -166,9 +169,11 @@ void Game::Update(double elapsed, long totalTime)
 		{
 			mState = L"Playing";
 		}
-		if (mElapsed > levelTotalDuration)
+		if (mElapsed > levelTotalDuration && mState != L"End")
 		{
 			mState = L"End";
+			int score = mScoreBoard.GetScore();
+			mLeaderboard.AssessPlayerScore(score);
 		}
 	}
 	else

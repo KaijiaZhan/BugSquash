@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "Leaderboard.h"
 #include <wx/graphics.h>
+#include <wx/textdlg.h>
 
 /**
  * Draw the game
@@ -35,21 +36,17 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 				wxFONTWEIGHT_NORMAL);
 	graphics->SetFont(font, wxColour(0,200,200));
 
-	Player p1;
-	p1.SetName("ABB");
-	p1.SetScore(20);
-	Player p2;
-	Player p3;
-	p3.SetName("HHH");
-	p3.SetScore(30);
-	mPlayerScores.push_back(p1);
-	mPlayerScores.push_back(p2);
-	mPlayerScores.push_back(p3);
-	///Sort Leaderboard
-	sort(mPlayerScores.begin(), mPlayerScores.end(), [](Player p1, Player p2)
-	{
-		return (p1.GetScore() > p2.GetScore());
-	});
+//	Player p1;
+//	p1.SetName("ABB");
+//	p1.SetScore(20);
+//	Player p2;
+//	Player p3;
+//	p3.SetName("HHH");
+//	p3.SetScore(30);
+//	mPlayerScores.push_back(p1);
+//	mPlayerScores.push_back(p2);
+//	mPlayerScores.push_back(p3);
+
 
 	for(Player player : mPlayerScores)
 	{
@@ -72,10 +69,47 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 
 void Leaderboard::Reset()
 {
-
+	mPlayerScores.clear();
 }
 
-bool Compare(Player p1, Player p2)
+void Leaderboard::AssessPlayerScore(int score)
 {
-	return (p1.GetScore() < p2.GetScore());
+	///Prompt for user name
+	wxString name = wxGetTextFromUser(L"Max 3 Letters", L"Input Name", L"AAA");
+	if(name.length() > 3)
+	{
+		name = name.substr(0,3);
+	}
+
+
+	///Make new player
+	Player player;
+	player.SetName(name);
+	player.SetScore(score);
+
+
+	///Add to leaderboard
+	if(static_cast<int>(mPlayerScores.size()) > 5)
+	{
+		Player low_player = mPlayerScores[4];
+		int low_score = low_player.GetScore();
+
+		if(score > low_score)
+		{
+			mPlayerScores.pop_back();
+			mPlayerScores.push_back(player);
+		}
+	}
+	else
+	{
+		mPlayerScores.push_back(player);
+	}
+
+
+
+	///Sort Leaderboard
+	sort(mPlayerScores.begin(), mPlayerScores.end(), [](Player p1, Player p2)
+	{
+		return (p1.GetScore() > p2.GetScore());
+	});
 }

@@ -103,7 +103,7 @@ public:
 
 	bool GetActive() {return mActive;}
 
-	//bool Compare(std::tuple<int,std::string> ps1, std::tuple<int,std::string> ps2);
+	void AssessPlayerScore(int score);
 
 };
 
