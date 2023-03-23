@@ -11,6 +11,7 @@
 #include "Laptop.h"
 #include "Feature.h"
 #include "RedundancyFly.h"
+#include "DoublePointsBug.h"
 #include "Leaderboard.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
@@ -304,6 +305,11 @@ void Game::OnLeftDown(int x, int y)
 		{
 			int add = 1;
 			IncreaseOops(add);
+		}
+		if(what_item == "DoublePointsBug")
+		{
+			int add = 2;
+			IncreaseFix(add);
 		}
 	}
 
