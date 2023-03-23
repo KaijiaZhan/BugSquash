@@ -106,6 +106,8 @@ public:
 	 * @param y Y location in the aquarium of the double-click
 	 */
 	virtual void DoubleClick(int x, int y) {}
+
+	Game * GetGame() { return mGame; }
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

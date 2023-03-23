@@ -39,6 +39,21 @@ private:
 
 	std::shared_ptr<Laptop> mLaptop;
 
+	/// The underlying Bug image
+	std::shared_ptr<wxImage> mBugImage;
+
+	///Splat image
+	std::shared_ptr<wxImage> mBugSplatImage;
+
+	/// The bitmap we can display for this bug
+	wxGraphicsBitmap mBugBitmap;
+
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
+
+	/// Sprite count
+	int mSpriteCount = 0;
+
 protected:
 
 	/**
@@ -93,6 +108,11 @@ public:
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
+
+	/// bug image, number of sprites, splat image
+	void BugSetImage(std::wstring BugImage, int spriteNum, std::wstring splatImage);
+
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 
 };

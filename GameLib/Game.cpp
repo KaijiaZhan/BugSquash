@@ -24,9 +24,31 @@ const int levelStartDuration = 2;
 */
 Game::Game()
 {
-
 	LoadLevel(0);
+}
 
+/**
+ * Set the directory the images are stored in
+ * @param dir
+ */
+void Game::SetImagesDirectory(const std::wstring &dir) {
+	mResourcesDirectory = dir;
+}
+
+std::shared_ptr<wxImage> Game::SetImage(std::wstring imageName)
+{
+	auto image = mImage.find(imageName);
+	if (image != mImage.end())
+	{
+		return image->second;
+	}
+	else
+	{
+		auto path =  imageName;
+		auto newImage = make_shared<wxImage>(path);
+		mImage[imageName] = newImage;
+		return newImage;
+	}
 }
 
 /**

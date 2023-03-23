@@ -19,20 +19,7 @@
 class GarbageBug : public BugCollection
 {
 private:
-	/// The underlying GarbageBug image
-    std::unique_ptr<wxImage> mGarbageBugImage;
 
-	/// The underlying garbage splat image
-	std::unique_ptr<wxImage> mGarbageSplat;
-
-    /// The bitmap we can display for this bug
-	wxGraphicsBitmap mGarbageBugBitmap;
-
-	/// The bitmap for the splat image
-	wxGraphicsBitmap mGarbageSplatBitmap;
-
-	/// Keeps track of what sprite we are at
-	int mSprite = 0;
 
 public:
 	/// Default constructor (disabled)
@@ -46,13 +33,7 @@ public:
 
 	GarbageBug(Game* game);
 
-	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
-
 	bool HitTest(int x, int y) override;
-
-	wxXmlNode* XmlSave(wxXmlNode* node) override;
-
-	void Update(double elapsed, long totaltime) override;
 
 };
 

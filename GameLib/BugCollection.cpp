@@ -19,6 +19,40 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 
 }
 
+void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstring splatImage)
+{
+	mBugImage = GetGame()->SetImage(bugImage);
+	mBugSplatImage = GetGame()->SetImage(splatImage);
+
+	mSpriteCount = spriteNum;
+}
+
+/**
+ * Draw this bug
+ * @param dc Device context to draw on
+ */
+void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
+{
+	double wid = mBugImage->GetWidth();
+	double hit = mBugImage->GetHeight();
+
+	double spriteHit = hit/mSpriteCount;
+
+	if(mBugBitmap.IsNull())
+	{
+		mBugBitmap = graphics->CreateBitmap(*mBugImage);
+
+	}
+	double angle = atan2(500-GetY(), 625-GetX());
+
+	graphics->PushState();
+	graphics->Translate(GetX(),GetY());
+	graphics->Rotate(angle);
+	graphics->Clip(-wid/2,-spriteHit/2,wid,100);
+	graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
+	graphics->PopState();
+}
+
 /**
  * Handle updates in time of our bug
  *
@@ -40,6 +74,21 @@ void BugCollection::Update(double elapsed, long totalTime)
 	if(sqrt((pow(mLaptop->GetX() - GetX(), 2)  + pow(mLaptop->GetY()-GetY(),2))) < 5)
 	{
 		SetDel(true);
+	}
+
+	double startTime = GetStartTime();
+
+	if (totalTime < startTime)
+	{
+		mSprite = 100*mSpriteCount;
+	}
+	else
+	{
+		mSprite += 100;
+		if (mSprite >= 100*mSpriteCount)
+		{
+			mSprite = 0;
+		}
 	}
 
 }

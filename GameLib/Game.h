@@ -32,6 +32,12 @@ private:
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
 
+	/// Unordered map for bug images
+	std::unordered_map<std::wstring, std::shared_ptr<wxImage>> mImage;
+
+	/// Resources directory
+	std::wstring mResourcesDirectory;
+
 	/// Game area in virtual pixels
 	const static int Width = 1250;
 
@@ -70,8 +76,6 @@ private:
 	/// Lable for score font size to use
 	const int LabelSize = 40;
 
-
-
 	/// The font color to use
 	const wxColour FontColor = wxColour(0, 200, 200);
 
@@ -91,6 +95,7 @@ private:
 	ScoreBoard mScoreBoard;
 
 	std::wstring mState = L"Start";
+
 
 public:
 
@@ -132,6 +137,9 @@ public:
 
 	void OnLeftDown(int x, int y);
 
+	std::shared_ptr<wxImage> SetImage(std::wstring imageName);
+
+	void SetImagesDirectory(const std::wstring &dir);
 
 };
 
