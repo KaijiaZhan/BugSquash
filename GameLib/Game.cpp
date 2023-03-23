@@ -86,15 +86,16 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	graphics->SetBrush(*wxWHITE_BRUSH);
 	graphics->DrawRectangle(0,0,Width,Height);
 
-//	Leaderboard leaderboard;
-//	leaderboard.OnDraw(graphics, width, height);
-
 
 	for (auto item : mItems)
 	{
 		item->Draw(graphics);
 	}
 	mScoreBoard.OnDraw(graphics, width, height);
+
+//	Leaderboard leaderboard;
+//	leaderboard.OnDraw(graphics, width, height);
+
 	graphics->PopState();
 
 	if (mState == L"Start")

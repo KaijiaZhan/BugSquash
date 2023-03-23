@@ -47,9 +47,9 @@ private:
 	const int HeaderSize = 60;
 
 	/// Score label Y location
-	const int HeaderLabelY = 60;
+	const int HeaderLabelY = 140;
 
-	//const int HeaderLableX = 100;
+	const int HeaderLableX = 40;
 
 	/// Lable for score font size to use
 	const int LabelSize = 40;
@@ -59,12 +59,12 @@ private:
 
 	/// Left score X location. The right score is
 	/// the width minus this value.
-	const int ScoreX = 150;
+	const int ScoreX = 340;
 
 	/// Score Y location
-	int mScoreY = 40;
+	int mScoreY = 300;
 
-	const int ScoreLableX = 100;
+	const int ScoreLableX = 75;
 
 	std::vector<Player> mPlayerScores = {};
 

@@ -12,6 +12,7 @@
 
 #include "Level.h"
 #include "ScoreBoard.h"
+#include "Leaderboard.h"
 
 #include <memory>
 #include <string>
@@ -93,6 +94,9 @@ private:
 
 	/// the ScoreBoard
 	ScoreBoard mScoreBoard;
+
+	// the leaderboard
+	Leaderboard mLeaderboard;
 
 	std::wstring mState = L"Start";
 

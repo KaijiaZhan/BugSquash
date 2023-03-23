@@ -24,7 +24,7 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 	graphics->SetFont(headfont, wxColour(0,200,200));
 
 	graphics->DrawText(L"Leaderboard",  // Text to draw
-					   100,     // x coordinate for the left size of the text
+					   (Width/7)*2 + HeaderLableX,     // x coordinate for the left size of the text
 					   HeaderLabelY);    // y coordinate for the top of the text
 
 
@@ -48,23 +48,23 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 	///Sort Leaderboard
 	sort(mPlayerScores.begin(), mPlayerScores.end(), [](Player p1, Player p2)
 	{
-		return (p1.GetScore() < p2.GetScore());
+		return (p1.GetScore() > p2.GetScore());
 	});
 
 	for(Player player : mPlayerScores)
 	{
 		graphics->DrawText(player.GetName(),  // Text to draw
-						   ScoreLableX,     // x coordinate for the left size of the text
+						   (Width/7)*2 + ScoreLableX,     // x coordinate for the left size of the text
 						   mScoreY);    // y coordinate for the top of the text
 
 		graphics->DrawText(wxString::Format(wxT("%i"),player.GetScore()),  // Text to draw
-						   ScoreX,     // x coordinate for the left size of the text
+						   (Width/7)*2 + ScoreX,     // x coordinate for the left size of the text
 						   mScoreY);    // y coordinate for the top of the text
 
-	    mScoreY += 60;
+	    mScoreY += 120;
 	}
 
-	mScoreY = 40;
+	mScoreY = 300;
 
 
 }
