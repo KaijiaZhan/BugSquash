@@ -17,6 +17,7 @@
 #include <string>
 #include <algorithm>
 #include <random>
+#include <map>
 
 class Item;
 
@@ -33,7 +34,7 @@ private:
 	std::vector<std::shared_ptr<Item>> mItems;
 
 	/// Unordered map for bug images
-	std::unordered_map<std::wstring, std::shared_ptr<wxImage>> mImage;
+	std::map<std::wstring, std::shared_ptr<wxImage>> mImage;
 
 	/// Resources directory
 	std::wstring mResourcesDirectory;

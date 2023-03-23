@@ -9,11 +9,8 @@
 #include "pch.h"
 #include "Game.h"
 #include "Laptop.h"
-#include "Feature.h"
-#include "RedundancyFly.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
-
 
 using namespace std;
 
