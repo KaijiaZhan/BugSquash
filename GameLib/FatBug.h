@@ -61,7 +61,7 @@ public:
 
 	void SingleClick(int x, int y) override;
 
-	virtual std::string GetType() {return "FatBug";}
+	std::string GetType() override {return "FatBug";}
 
 };
 

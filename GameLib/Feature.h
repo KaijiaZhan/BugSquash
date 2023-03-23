@@ -35,7 +35,7 @@ public:
 
 	void SingleClick(int x, int y) override;
 
-	virtual std::string GetType() {return "Feature";}
+	std::string GetType() override {return "Feature";}
 
 };
 

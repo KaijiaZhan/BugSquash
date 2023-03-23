@@ -37,8 +37,6 @@ public:
 
 	void SingleClick(int x, int y) override;
 
-	std::string GetType() override {return "GarbageBug";}
-
 };
 
 #endif //PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
