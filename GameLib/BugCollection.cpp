@@ -43,7 +43,7 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 		mBugBitmap = graphics->CreateBitmap(*mBugImage);
 
 	}
-	double angle = atan2(500-GetY(), 625-GetX());
+	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
 
 	graphics->PushState();
 	graphics->Translate(GetX(),GetY());
