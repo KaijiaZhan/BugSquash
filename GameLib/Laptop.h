@@ -49,6 +49,7 @@ public:
 
 	void SetName(std::wstring name);
 
+	bool HitTest(int x, int y) override;
 };
 
 #endif //PROJECT1_GAMELIB_LAPTOP_H

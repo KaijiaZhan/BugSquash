@@ -64,3 +64,11 @@ void Laptop::SetName(std::wstring name)
 {
 	mName = name;
 }
+
+bool Laptop::HitTest(int x, int y)
+{
+	double dx = x - GetX();
+	double dy = y - GetY();
+
+	return sqrt(dx * dx + dy * dy) < GetHitRange();
+}

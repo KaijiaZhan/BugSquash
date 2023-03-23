@@ -284,7 +284,7 @@ void Game::OnLeftDown(int x, int y)
 	double oX = (x - mXOffset) / mScale;
 	double oY = (y - mYOffset) / mScale;
 
-	auto item = HitTest(oX, oY);
+	auto item = Game::HitTest(oX, oY);
 	if(item != nullptr)
 	{
 		std::string what_item = item->GetType();
