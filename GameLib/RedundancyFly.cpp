@@ -204,8 +204,3 @@ void RedundancyFly::MultiplyBug(wxMouseEvent &event)
 		//locations an average of 200 pixels from bug initially clicked
 
 }
-
-void RedundancyFly::SingleClick(int x, int y)
-{
-
-}

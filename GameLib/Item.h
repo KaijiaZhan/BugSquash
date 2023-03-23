@@ -108,11 +108,6 @@ public:
 	virtual void DoubleClick(int x, int y) {}
 
 	Game * GetGame() { return mGame; }
-
-	virtual void SingleClick(int x, int y) {}
-
-	virtual std::string GetType() {return "Item";}
-
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
