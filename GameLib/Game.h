@@ -18,6 +18,7 @@
 #include <string>
 #include <algorithm>
 #include <random>
+#include <unordered_map>
 
 class Item;
 
