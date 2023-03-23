@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "Level.h"
 #include "RedundancyFly.h"
+#include "FatBug.h"
 #include "GarbageBug.h"
 #include "NullBug.h"
 #include "Laptop.h"
@@ -109,6 +110,14 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetSpeed(speed);
 			item->SetStartTime(starttime);
 			item->SetLaptop(parent);
+			if (node->GetChildren())
+			{
+				item = make_shared<FatBug>(mGame);
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
 		}
 		if (type == L"null")
 		{
@@ -117,6 +126,14 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetSpeed(speed);
 			item->SetStartTime(starttime);
 			item->SetLaptop(parent);
+			if (node->GetChildren())
+			{
+				item = make_shared<FatBug>(mGame);
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
 		}
 	}
 	if (name == L"feature")
