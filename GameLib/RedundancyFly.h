@@ -84,7 +84,10 @@ public:
 
 	bool HitTest(int x, int y) override;
 
+	///Should just have work done in single click
 	void MultiplyBug(wxMouseEvent &event);
+
+	void SingleClick(int x, int y) override;
 
 };
 

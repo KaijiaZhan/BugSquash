@@ -214,4 +214,6 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 void GameView::OnLeftDown(wxMouseEvent &event)
 {
 	mGame.OnLeftDown(event.GetX(), event.GetY());
+
 }
+

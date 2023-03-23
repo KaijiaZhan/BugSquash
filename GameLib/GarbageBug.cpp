@@ -45,3 +45,8 @@ bool GarbageBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+
+void GarbageBug::SingleClick(int x, int y)
+{
+
+}

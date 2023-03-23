@@ -283,4 +283,36 @@ void Game::OnLeftDown(int x, int y)
 {
 	double oX = (x - mXOffset) / mScale;
 	double oY = (y - mYOffset) / mScale;
+
+	auto item = HitTest(oX, oY);
+	if(item != nullptr)
+	{
+		std::string what_item = item->GetType();
+		if(what_item == "Bug")
+		{
+			int add = 1;
+			IncreaseFix(add);
+		}
+
+		if(what_item == "Feature")
+		{
+			int add = 1;
+			IncreaseOops(add);
+		}
+	}
 }
+
+
+void Game::IncreaseFix(int add)
+{
+	double fixed = mScoreBoard.GetFixed();
+	fixed += add;
+	mScoreBoard.SetFixed(fixed);
+}
+void Game::IncreaseOops(int add)
+{
+	double oops = mScoreBoard.GetOops();
+	oops += add;
+	mScoreBoard.SetOops(oops);
+}
+

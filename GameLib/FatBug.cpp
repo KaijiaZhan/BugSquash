@@ -101,3 +101,9 @@ void FatBug::OpenWindow(int x) // temp parameter
 //
 //	}
 //}
+
+
+void FatBug::SingleClick(int x, int y)
+{
+
+}

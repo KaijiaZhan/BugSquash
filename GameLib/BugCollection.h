@@ -109,6 +109,7 @@ public:
 
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
 
+	virtual std::string GetType() {return "Bug";}
 	/// bug image, number of sprites, splat image
 	void BugSetImage(std::wstring BugImage, int spriteNum, std::wstring splatImage);
 

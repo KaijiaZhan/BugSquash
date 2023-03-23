@@ -30,6 +30,24 @@ Feature::Feature(Game *game) : BugCollection(game,FeatureImage)
 {
 	BugCollection::BugSetImage(FeatureImage, FeatureNumSpriteImages, FeatureSplat);
 
+	double wid = mFeatureImage->GetWidth();
+	double hit = mFeatureImage->GetHeight();
+
+	double spriteHit = hit/7;
+
+	if(mFeatureBitmap.IsNull())
+	{
+		mFeatureBitmap = graphics->CreateBitmap(*mFeatureImage);
+
+	}
+	double angle = atan2(500-GetY(), 625-GetX());
+
+	graphics->PushState();
+	graphics->Translate(GetX(),GetY());
+	graphics->Rotate(angle);
+	graphics->Clip(-wid/2,-spriteHit/2,wid,spriteHit);
+	graphics->DrawBitmap(mFeatureBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
+	graphics->PopState();
 }
 
 /**
@@ -46,3 +64,37 @@ bool Feature::HitTest(int x, int y)
     return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+wxXmlNode* Feature::XmlSave(wxXmlNode* node)
+{
+	auto itemNode = Item::XmlSave(node);
+
+	itemNode->AddAttribute(L"type", L"feature");
+
+	return itemNode;
+}
+
+void Feature::Update(double elapsed, long totalTime)
+{
+	double startTime = GetStartTime();
+
+	if (totalTime < startTime)
+	{
+		mSprite = 700;
+	}
+	else
+	{
+		BugCollection::Update(elapsed, totalTime);
+
+		mSprite += 100;
+		if (mSprite >= 700)
+		{
+			mSprite = 0;
+		}
+	}
+
+}
+
+void Feature::SingleClick(int x, int y)
+{
+
+}
