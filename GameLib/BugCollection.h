@@ -101,7 +101,9 @@ public:
 	 * @param x SpeedX*x in pixels
 	 * @param y SpeedY*y in pixels
 	 */
-	 void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
+	void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
+
+	void SetSplat(bool splat) { mSplat = splat; }
 
 	double GetHitRange() { return BugHitRange; }
 
