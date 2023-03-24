@@ -42,10 +42,6 @@ public:
 
 	std::string GetType() override {return "FatBug";}
 
-	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
-
-
-
 };
 
 #endif //PROJECT1_GAMELIB_FATBUG_H

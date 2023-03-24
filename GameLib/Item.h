@@ -11,8 +11,8 @@
 #define PROJECT1_GAMELIB_ITEM_H
 
 #include <wx/graphics.h>
+#include "BugCounter.h"
 #include "Game.h"
-
 
 class Game;
 
@@ -112,6 +112,8 @@ public:
 	virtual void SingleClick(int x, int y) {}
 
 	virtual std::string GetType() {return "Item";}
+
+	virtual void Accept(BugCounter* visitor){};
 
 };
 

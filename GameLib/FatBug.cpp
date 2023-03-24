@@ -84,9 +84,3 @@ void FatBug::SingleClick(int x, int y)
 
 }
 
-void FatBug::Draw(std::shared_ptr<wxGraphicsContext> graphics){
-	//graphics->PushState();
-	//graphics->Scale(1.25, 1.25);
-	BugCollection::Draw(graphics);
-	//graphics->PopState();
-}

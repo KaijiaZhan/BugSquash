@@ -9,6 +9,7 @@
 
 #include "Game.h"
 #include "Item.h"
+#include "BugCounter.h"
 #include "Laptop.h"
 
 class Game;
@@ -119,6 +120,9 @@ public:
 	std::string GetType() override {return "Bug";}
 
 	virtual void SetScale(double scale) { mScaling = scale;};
+
+	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
+
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H

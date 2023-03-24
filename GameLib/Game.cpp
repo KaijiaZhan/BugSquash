@@ -13,6 +13,7 @@
 #include "Leaderboard.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
+#include "BugCounter.h"
 
 
 using namespace std;
@@ -121,10 +122,18 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 
 	if (mState == L"End")
 	{
-		//	Leaderboard leaderboard;
-		//	leaderboard.OnDraw(graphics, width, height);
-
-
+		wxFont font(wxSize(0, 130),
+					wxFONTFAMILY_SWISS,
+					wxFONTSTYLE_NORMAL,
+					wxFONTWEIGHT_NORMAL);
+		double textwid;
+		double textheight;
+		std::wstring levelCompleted = L"Level Completed";
+		graphics->SetFont(font, *wxRED);
+		graphics->GetTextExtent(wxString(levelCompleted), &textwid, &textheight);
+		graphics->DrawText(wxString(levelCompleted),
+						   (Width-textwid)/2,
+						   (Height-textheight)/2);
 		mLeaderboard.OnDraw(graphics, width, height);
 	}
 
@@ -138,6 +147,8 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
  */
 void Game::Update(double elapsed, long totalTime)
 {
+
+
 	mElapsed += elapsed;
 	for (auto item : mItems)
 	{
@@ -157,6 +168,17 @@ void Game::Update(double elapsed, long totalTime)
 			item->SetDel(false);
 		}
 	}
+	BugCounter visitor;
+	for (auto item:mItems){
+		item->Accept(&visitor);
+	}
+	int numBugs = visitor.GetNumbBugs();
+
+	if (numBugs == 0)
+	{
+		mState = L"End";
+	}
+
 	if (mElapsed < levelStartDuration)
 	{
 		mState = L"Start";
