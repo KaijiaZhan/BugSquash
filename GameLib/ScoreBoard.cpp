@@ -67,3 +67,11 @@ void ScoreBoard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, 
     // need laptop and bug scaled
 //    graphics->PopState();
 }
+
+
+void ScoreBoard::Reset()
+{
+	mFixed = 0;
+	mOops = 0;
+	mMissed = 0;
+}

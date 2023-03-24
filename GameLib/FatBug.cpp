@@ -19,11 +19,17 @@ const wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
 /// The splat image
 const wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 
+/// Number of sprite images
+const int GarbageBugNumSpriteImages = 5;
+
 /// The bug sprite image
 const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
 
 /// The splat image
 const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
+
+/// Number of sprite images
+const int NullBugNumSpriteImages = 6;
 
 /// The code to be displayed in the code window
 //const wstring mCode = L"test!!";
@@ -35,30 +41,17 @@ const double FatBugSize = 1.25;
  * Constructor
  * @param game Game this bug is a member of
  */
-FatBug::FatBug(Game *game) : BugCollection(game, GarbageBugSpriteImageName)
+FatBug::FatBug(Game *game, std::wstring bugType) : BugCollection(game, GarbageBugSpriteImageName)
 {
-	mFatGarbageImage = make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
-	mFatGarbageSplat = make_unique<wxImage>(GarbageBugSplatImageName, wxBITMAP_TYPE_ANY);
-
-//	mFatNullImage = make_unique<wxImage>(NullBugSpriteImageName, wxBITMAP_TYPE_ANY);
-//	mFatNullBitImage = make_unique<wxBitmap>(*mFatNullImage);
-}
-
-/**
- * Draw this bug
- * @param dc Device context to draw on
- */
-void FatBug::Draw(std::shared_ptr<wxGraphicsContext> graphics)
-{
-	if(mFatGarbageBitImage.IsNull())
+	SetScale(1.25);
+	if (bugType =="null")
 	{
-		mFatGarbageBitImage = graphics->CreateBitmapFromImage(*mFatGarbageImage);
+		BugCollection::BugSetImage(NullBugSpriteImageName, NullBugNumSpriteImages, NullBugSplatImageName);
 	}
-	double wid = mFatGarbageImage->GetWidth();
-	double hit = mFatGarbageImage->GetHeight();
-	graphics->DrawBitmap(mFatGarbageBitImage,
-						 int(GetX() - wid / 2),
-						 int(GetY() - hit / 2),wid,hit);
+	else if (bugType == "garbage")
+	{
+		BugCollection::BugSetImage(GarbageBugSpriteImageName, GarbageBugNumSpriteImages, GarbageBugSplatImageName);
+	}
 }
 
 /**
@@ -75,15 +68,6 @@ bool FatBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
-wxXmlNode* FatBug::XmlSave(wxXmlNode* node)
-{
-	auto itemNode = Item::XmlSave(node);
-
-	itemNode->AddAttribute(L"type", L"fat");
-
-	return itemNode;
-}
-
 
 /// Function to open IDE window that displays code
 void FatBug::OpenWindow(int x) // temp parameter
@@ -94,10 +78,8 @@ void FatBug::OpenWindow(int x) // temp parameter
 }
 
 ///Function to call OpenWindow if Fat Bug is double clicked
-//void FatBug::DoubleClick(wxMouseEvent &event)
-//{
-//	if (event.LeftDClick())
-//	{
-//
-//	}
-//}
+
+void FatBug::SingleClick(int x, int y)
+{
+
+}

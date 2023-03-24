@@ -6,10 +6,12 @@
 #include "pch.h"
 #include "Level.h"
 #include "RedundancyFly.h"
+#include "FatBug.h"
 #include "GarbageBug.h"
 #include "NullBug.h"
 #include "Laptop.h"
 #include "Feature.h"
+#include "DoublePointsBug.h"
 
 using namespace std;
 
@@ -38,38 +40,31 @@ void Level::Load(const wxString &filename, Game * game)
 
 	auto root = xmlDoc.GetRoot();
 
-//	root->GetAttribute(L"level");
-
-
 	mLevelName = root->GetAttribute(L"level");
 
 	auto rootName = root->GetName();
 
-	auto firstChild = root->GetChildren();
-//	mProgramName = firstChild->GetAttribute(L"name");
-//
-//	double x;
-//	double y;
-//	firstChild->GetAttribute(L"x").ToDouble(&x);
-//	firstChild->GetAttribute(L"y").ToDouble(&y);
-//
-//	for( ; firstChild; firstChild=firstChild->GetNext())
-//	{
-//
-//	}
+	auto laptopChild = root->GetChildren();
 
-	shared_ptr<Item> laptop = make_shared<Laptop>(game);
-	mLevelItems.push_back(laptop);
+	double x;
+	double y;
 
-
-	auto child = firstChild->GetChildren();
-
-	for( ; child; child=child->GetNext())
+	for( ; laptopChild; laptopChild=laptopChild->GetNext())
 	{
-		auto name = child->GetName();
-		if(name == L"bug")
+		laptopChild->GetAttribute(L"x").ToDouble(&x);
+		laptopChild->GetAttribute(L"y").ToDouble(&y);
+		shared_ptr<Laptop> laptop = make_shared<Laptop>(game);
+		laptop->SetLocation(x,y);
+		mProgramName = laptopChild->GetAttribute(L"name");
+		laptop->SetName(mProgramName);
+		mLevelItems.push_back(laptop);
+
+		auto child = laptopChild->GetChildren();
+
+		for( ; child; child=child->GetNext())
 		{
-			XmlItem(child, game);
+			auto name = child->GetName();
+			XmlItem(child, game, laptop);
 		}
 	}
 }
@@ -78,9 +73,10 @@ void Level::Load(const wxString &filename, Game * game)
  * Handle a node of type item.
  * @param node XML node
  */
-void Level::XmlItem(wxXmlNode *node, Game * game)
+void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 {
-	shared_ptr<Item> item;
+
+	shared_ptr<BugCollection> item;
 
 	auto type = node->GetAttribute(L"type");
 
@@ -95,33 +91,64 @@ void Level::XmlItem(wxXmlNode *node, Game * game)
 	double starttime;
 	node->GetAttribute(L"start").ToDouble(&starttime);
 
-	if (type == L"redundancy")
-	{
-		item = make_shared<RedundancyFly>(mGame);
-		item->SetLocation(x,y);
-		item->SetSpeed(speed);
-		item->SetStartTime(starttime);
+	auto name = node->GetName();
+	if(name == L"bug"){
+		if (type == L"redundancy")
+		{
+			item = make_shared<RedundancyFly>(mGame);
+			item->SetLocation(x,y);
+			item->SetSpeed(speed);
+			item->SetStartTime(starttime);
+			item->SetLaptop(parent);
+		}
+		if (type == L"garbage")
+		{
+			item = make_shared<GarbageBug>(mGame);
+			item->SetLocation(x,y);
+			item->SetSpeed(speed);
+			item->SetStartTime(starttime);
+			if (node->GetChildren())
+			{
+				item = make_shared<FatBug>(mGame,L"garbage");
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
+			item->SetLaptop(parent);
+		}
+		if (type == L"null")
+		{
+			item = make_shared<NullBug>(mGame);
+			item->SetLocation(x,y);
+			item->SetSpeed(speed);
+			item->SetStartTime(starttime);
+			if (node->GetChildren() && node->GetChildren()->GetName() == L"code")
+			{
+				item = make_shared<FatBug>(mGame,L"null");
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
+			if (node->GetChildren() && node->GetChildren()->GetName() == L"double")
+			{
+				item = make_shared<DoublePointsBug>(mGame);
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
+			item->SetLaptop(parent);
+		}
 	}
-	if (type == L"garbage")
-	{
-		item = make_shared<GarbageBug>(mGame);
-		item->SetLocation(x,y);
-		item->SetSpeed(speed);
-		item->SetStartTime(starttime);
-	}
-	if (type == L"null")
-	{
-		item = make_shared<NullBug>(mGame);
-		item->SetLocation(x,y);
-		item->SetSpeed(speed);
-		item->SetStartTime(starttime);
-	}
-	if (type == L"feature")
+	if (name == L"feature")
 	{
 		item = make_shared<Feature>(mGame);
 		item->SetLocation(x,y);
 		item->SetSpeed(speed);
 		item->SetStartTime(starttime);
+		item->SetLaptop(parent);
 	}
 	if (item != nullptr)
 	{
@@ -139,25 +166,25 @@ void Level::Clear()
 	mLevelItems.erase(mLevelItems.begin(), mLevelItems.end());
 }
 
-//need an update in level
-
 void Level::Update(double elapsed)
 {
 	mCurrentTime += elapsed;
 }
 
-void Level::DrawTitle(std::shared_ptr<wxGraphicsContext> graphics)
+void Level::DrawTitle(std::shared_ptr<wxGraphicsContext> graphics, int wid, int height)
 {
-	if ((mCurrentTime) <= 5) // need to change the time
-	{
-		wxFont font(wxSize(0, 100),
-					wxFONTFAMILY_SWISS,
-					wxFONTSTYLE_NORMAL,
-					wxFONTWEIGHT_NORMAL);
-		graphics->SetFont(font, *wxRED);
-		graphics->DrawText(wxString(mLevelName),
-						   0,
-						   0);
-	}
+	wxFont font(wxSize(0, 130),
+				wxFONTFAMILY_SWISS,
+				wxFONTSTYLE_NORMAL,
+				wxFONTWEIGHT_NORMAL);
+	double textwid;
+	double textheight;
+	graphics->SetFont(font, *wxRED);
+	graphics->GetTextExtent(wxString(mLevelName), &textwid, &textheight);
+	graphics->DrawText(wxString(mLevelName),
+					   (wid-textwid)/2,
+					   (height-textheight)/2);
 }
+
+
 
