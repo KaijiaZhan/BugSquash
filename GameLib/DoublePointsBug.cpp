@@ -25,6 +25,7 @@ const int NullBugNumSpriteImages = 6;
  */
 DoublePointsBug::DoublePointsBug(Game *game) : BugCollection(game,DoublePointsBugSpriteImageName)
 {
+	SetScale(0.5);
 	BugCollection::BugSetImage(DoublePointsBugSpriteImageName, NullBugNumSpriteImages, DoublePointsBugSplatImageName);
 }
 

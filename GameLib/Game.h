@@ -12,13 +12,11 @@
 
 #include "Level.h"
 #include "ScoreBoard.h"
-#include "Leaderboard.h"
 
 #include <memory>
 #include <string>
 #include <algorithm>
 #include <random>
-#include <unordered_map>
 
 class Item;
 
@@ -33,12 +31,6 @@ private:
 
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
-
-	/// Unordered map for bug images
-	std::unordered_map<std::wstring, std::shared_ptr<wxImage>> mImage;
-
-	/// Resources directory
-	std::wstring mResourcesDirectory;
 
 	/// Game area in virtual pixels
 	const static int Width = 1250;
@@ -96,10 +88,6 @@ private:
 	/// the ScoreBoard
 	ScoreBoard mScoreBoard;
 
-	// the leaderboard
-	Leaderboard mLeaderboard;
-
-	std::wstring mState = L"Start";
 public:
 
 	/**
@@ -140,17 +128,6 @@ public:
 
 	void OnLeftDown(int x, int y);
 
-	std::shared_ptr<wxImage> SetImage(std::wstring imageName);
-
-	void SetImagesDirectory(const std::wstring &dir);
-
-	//void IncreaseMiss(int add);
-
-	void IncreaseOops(int add);
-
-	void IncreaseFix(int add);
-
-	void SetState(wxString state) {mState = state;}
 
 };
 

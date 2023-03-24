@@ -57,6 +57,8 @@ private:
 
 	double mScaling = 0;
 
+	bool mSplat = false;
+
 protected:
 
 	/**
@@ -100,13 +102,21 @@ public:
 	 * @param x SpeedX*x in pixels
 	 * @param y SpeedY*y in pixels
 	 */
-	 void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
+	void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
+
+	void SetSplat(bool splat) { mSplat = splat; }
 
 	double GetHitRange() { return BugHitRange; }
 
 	void SetStartTime(double startTime) override { mStartTime = startTime; }
 
 	double GetStartTime() { return mStartTime; }
+
+	bool GetSplat() { return mSplat; }
+
+    int GetSpriteCount() { return mSpriteCount; }
+
+    int GetSprite() { return mSprite; }
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
@@ -118,6 +128,10 @@ public:
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	std::string GetType() override {return "Bug";}
+
+	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
+
+
 
 	virtual void SetScale(double scale) { mScaling = scale;};
 

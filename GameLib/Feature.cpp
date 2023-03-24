@@ -48,6 +48,7 @@ bool Feature::HitTest(int x, int y)
 
 void Feature::SingleClick(int x, int y)
 {
-
+    //SetSplat(true);
+    BugCollection::SetSpeed(0);
 }
 

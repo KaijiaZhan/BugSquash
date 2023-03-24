@@ -6,10 +6,7 @@
  */
 
 #include "pch.h"
-#include "Laptop.h"
 #include "BugCollection.h"
-#include <iostream>
-#include <cmath>
 
 /*
  * Constructor
@@ -18,42 +15,6 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 	Item(game)
 {
 
-}
-
-void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstring splatImage)
-{
-	mBugImage = GetGame()->SetImage(bugImage);
-	mBugSplatImage = GetGame()->SetImage(splatImage);
-
-	mSpriteCount = spriteNum;
-}
-
-/**
- * Draw this bug
- * @param dc Device context to draw on
- */
-void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
-{
-
-	double wid = mBugImage->GetWidth();
-	double hit = mBugImage->GetHeight();
-
-	double spriteHit = hit/mSpriteCount;
-
-	if(mBugBitmap.IsNull())
-	{
-		mBugBitmap = graphics->CreateBitmap(*mBugImage);
-
-	}
-	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
-
-	graphics->PushState();
-	graphics->Translate(GetX(),GetY());
-	graphics->Scale(mScaling, mScaling);
-	graphics->Rotate(angle);
-	graphics->Clip(-wid/2,-spriteHit/2,wid,100);
-	graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
-	graphics->PopState();
 }
 
 /**
@@ -67,31 +28,18 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 void BugCollection::Update(double elapsed, long totalTime)
 {
 
-	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
+	double angle = atan2(500-GetY(), 625-GetX());
 	if (totalTime >= GetStartTime())
 	{
 		SetLocation(GetX() + mSpeedX * (elapsed) * cos(angle),
 					GetY() + mSpeedY * (elapsed) * sin(angle));
 
 	}
-	if(sqrt((pow(mLaptop->GetX() - GetX(), 2)  + pow(mLaptop->GetY()-GetY(),2))) < 5)
+
+	if(625 - GetX() < 50 && 500 - GetY() < 50)
 	{
 		SetDel(true);
-	}
 
-	double startTime = GetStartTime();
-
-	if (totalTime < startTime)
-	{
-		mSprite = 100*mSpriteCount;
-	}
-	else
-	{
-		mSprite += 100;
-		if (mSprite >= 100*mSpriteCount)
-		{
-			mSprite = 0;
-		}
 	}
 
 }
@@ -111,9 +59,4 @@ void BugCollection::XmlLoad(wxXmlNode *node)
 
 //	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
 //	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
-}
-
-void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
-{
-	mLaptop = laptop;
 }
