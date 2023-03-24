@@ -56,6 +56,8 @@ private:
 
 	double mScaling = 0;
 
+	bool mSplat = false;
+
 protected:
 
 	/**
