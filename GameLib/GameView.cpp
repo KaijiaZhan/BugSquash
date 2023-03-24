@@ -35,6 +35,10 @@ void GameView::Initialize(wxFrame* mainFrame)
 	SetBackgroundColour(*wxBLACK);
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
 
+	wxStandardPaths& standardPaths = wxStandardPaths::Get();
+	std::wstring resourcesDir = standardPaths.GetResourcesDir().ToStdWstring();
+	mGame.SetImagesDirectory(resourcesDir);
+
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
@@ -186,7 +190,7 @@ void GameView::OnShrink(wxCommandEvent& event)
 void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 {
 	//mGame.SetShrink(mShrinkCheck);
-	event.Check(!mGame.GetShrink());
+	event.Check(mGame.GetShrink());
 //	mGame.SetShrink(!mGame.GetShrink());
 }
 
