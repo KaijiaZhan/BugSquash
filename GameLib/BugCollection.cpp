@@ -35,16 +35,36 @@ void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstri
 void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
 
-	double wid = mBugImage->GetWidth();
-	double hit = mBugImage->GetHeight();
+	double wid = 0;
+    double hit = 0;
+    double spriteHit = 0;
+    if (!mSplat)
+    {
+        wid = mBugImage->GetWidth();
+        hit = mBugImage->GetHeight();
 
-	double spriteHit = hit/mSpriteCount;
+        spriteHit = hit/mSpriteCount;
 
-	if(mBugBitmap.IsNull())
-	{
-		mBugBitmap = graphics->CreateBitmap(*mBugImage);
+        if(mBugBitmap.IsNull())
+        {
+            mBugBitmap = graphics->CreateBitmap(*mBugImage);
 
-	}
+        }
+
+    } else
+    {
+        wid = mBugSplatImage->GetWidth();
+        hit = mBugSplatImage->GetHeight();
+
+        spriteHit = hit/mSpriteCount;
+
+        if(mBugBitmap.IsNull())
+        {
+            mBugBitmap = graphics->CreateBitmap(*mBugSplatImage);
+
+        }
+
+    }
 	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
 
 	graphics->PushState();
