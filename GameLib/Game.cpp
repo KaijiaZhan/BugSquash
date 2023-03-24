@@ -141,11 +141,12 @@ void Game::Update(double elapsed, long totalTime)
 */
 std::shared_ptr<Item> Game::HitTest(int x, int y)
 {
-	for (auto i = mItems.rbegin(); i != mItems.rend();  i++)
+	for (auto item : mItems)
 	{
-		if ((*i)->HitTest(x, y))
+		if (item->HitTest(x, y))
 		{
-			return *i;
+            item->SingleClick(x,y);
+			return item;
 		}
 	}
 
