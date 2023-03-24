@@ -11,6 +11,7 @@
 #include "NullBug.h"
 #include "Laptop.h"
 #include "Feature.h"
+#include "DoublePointsBug.h"
 
 using namespace std;
 
@@ -122,9 +123,17 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetLocation(x,y);
 			item->SetSpeed(speed);
 			item->SetStartTime(starttime);
-			if (node->GetChildren())
+			if (node->GetChildren() && node->GetChildren()->GetName() == L"code")
 			{
 				item = make_shared<FatBug>(mGame,L"null");
+				item->SetLocation(x,y);
+				item->SetSpeed(speed);
+				item->SetStartTime(starttime);
+				item->SetLaptop(parent);
+			}
+			if (node->GetChildren() && node->GetChildren()->GetName() == L"double")
+			{
+				item = make_shared<DoublePointsBug>(mGame);
 				item->SetLocation(x,y);
 				item->SetSpeed(speed);
 				item->SetStartTime(starttime);

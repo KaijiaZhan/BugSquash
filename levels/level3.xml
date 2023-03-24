@@ -22,7 +22,9 @@
     <bug type="redundancy" x="900" y="1200" speed="170" start="35"/>
 
     <bug type="null" x="-100" y="-150" speed="165" start="35"/>
-    <bug type="null" x="-100" y="-150" speed="150" start="35"/>
+    <bug type="null" x="-100" y="-150" speed="150" start="35">
+      <double/>
+    </bug>
 
     <bug type="garbage" x="-350" y="600" speed="145" start="35"/>
 
@@ -71,6 +73,9 @@ public:
     <bug type="redundancy" x="900" y="1200" speed="160" start="35"/>
 
     <bug type="null" x="1250" y="-100" speed="145" start="35"/>
+    <bug type="null" x="1250" y="-100" speed="145" start="35">
+      <double/>
+    </bug>
 
     <bug type="garbage" x="-250" y="900" speed="155" start="35"/>
     <bug type="garbage" x="1350" y="700" speed="160" start="35"/>
