@@ -17,7 +17,14 @@
 class NullBug : public BugCollection
 {
 private:
+	/// The underlying NullBug image
+    std::unique_ptr<wxImage> mNullBugImage;
 
+    /// The bitmap we can display for this bug
+	wxGraphicsBitmap mNullBugBitmap;
+
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
 
 public:
 	/// Default constructor (disabled)
@@ -31,9 +38,14 @@ public:
 
 	NullBug(Game *game);
 
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
 	bool HitTest(int x, int y) override;
 
-	void SingleClick(int x, int y) override;
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
+
+	void Update(double elapsed, long totaltime) override;
+
 };
 
 #endif //PROJECT1_COPY_GAMELIB_NULLBUG_H

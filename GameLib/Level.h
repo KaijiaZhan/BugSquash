@@ -10,7 +10,6 @@
 #define PROJECT1_GAMELIB_LEVEL_H
 
 #include <random>
-class Laptop;
 
 class Game;
 class Item;
@@ -22,7 +21,6 @@ class Level
 {
 private:
 
-	/// Ask if this needs to be initialized to something
 	Game* mGame;
 
 	/// All of the items in level
@@ -37,7 +35,7 @@ private:
 
 	double mCurrentTime;
 
-	std::wstring mProgramName;
+	std::string mProgramName;
 
 public:
 
@@ -45,7 +43,7 @@ public:
 	Level();
 
 	void Load(const wxString &filename, Game * game);
-	void XmlItem(wxXmlNode *node, Game * game,std::shared_ptr<Laptop> parent);
+	void XmlItem(wxXmlNode *node, Game * game);
 
 	/**
 	 * Getter for mLevelItems
@@ -65,7 +63,7 @@ public:
 
 	void Update(double elapsed);
 
-	void DrawTitle(std::shared_ptr<wxGraphicsContext> graphics, int wid, int height);
+	void DrawTitle(std::shared_ptr<wxGraphicsContext> graphics);
 
 
 };

@@ -67,15 +67,11 @@ public:
 	 */
     double GetFixed() const { return mFixed; }
 
-	void SetFixed(double fixed) {mFixed = fixed;}
-
     /**
 	 * Get oops
 	 * @return oops number
 	 */
     double GetOops() const { return mOops; }
-
-	void SetOops(double oops) {mOops = oops;}
 
     /**
 	 * Get missed
@@ -86,10 +82,6 @@ public:
 	void SetMissed(double missed) {mMissed = missed;}
 
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
-
-	void Reset();
-
-	int GetScore() {return (mFixed - mOops);}
 
 };
 
