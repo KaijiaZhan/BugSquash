@@ -3,6 +3,7 @@
  * @author Parker Morgan
  * @author Joanna Rodriguez
  * @author Courtney Thang
+ * @author Flora Pieters
  *
  * Base class for any item in our game.
  */
@@ -106,6 +107,10 @@ public:
 	 * @param y Y location in the aquarium of the double-click
 	 */
 	virtual void DoubleClick(int x, int y) {}
+
+	virtual void SingleClick(int x, int y) {}
+
+    virtual std::string GetType() {return "Item";}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
