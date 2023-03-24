@@ -120,6 +120,10 @@ public:
 
 	std::string GetType() override {return "Bug";}
 
+	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
+
+
+
 	virtual void SetScale(double scale) { mScaling = scale;};
 };
 
