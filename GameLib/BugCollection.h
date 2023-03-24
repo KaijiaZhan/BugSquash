@@ -111,6 +111,12 @@ public:
 
 	double GetStartTime() { return mStartTime; }
 
+	bool GetSplat() { return mSplat; }
+
+    int GetSpriteCount() { return mSpriteCount; }
+
+    int GetSprite() { return mSprite; }
+
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
