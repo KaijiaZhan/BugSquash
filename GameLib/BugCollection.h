@@ -9,6 +9,7 @@
 
 #include "Game.h"
 #include "Item.h"
+#include "Laptop.h"
 
 class Game;
 
@@ -35,6 +36,27 @@ private:
 	bool mMirror = false;
 
 	double BugHitRange = 50;
+
+	std::shared_ptr<Laptop> mLaptop;
+
+	/// The underlying Bug image
+	std::shared_ptr<wxImage> mBugImage;
+
+	///Splat image
+	std::shared_ptr<wxImage> mBugSplatImage;
+
+	/// The bitmap we can display for this bug
+	wxGraphicsBitmap mBugBitmap;
+
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
+
+	/// Sprite count
+	int mSpriteCount = 0;
+
+	double mScaling = 0;
+
+	bool mSplat = false;
 
 protected:
 
@@ -87,9 +109,18 @@ public:
 
 	double GetStartTime() { return mStartTime; }
 
+	void SetLaptop(std::shared_ptr<Laptop> laptop);
+
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
 
+	/// bug image, number of sprites, splat image
+	void BugSetImage(std::wstring BugImage, int spriteNum, std::wstring splatImage);
 
+	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
+	std::string GetType() override {return "Bug";}
+
+	virtual void SetScale(double scale) { mScaling = scale;};
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H

@@ -23,6 +23,8 @@ private:
 	/// The laptop bitmap
 	wxGraphicsBitmap mLaptopBitmap;
 
+	std::wstring mName;
+
 
 protected:
 
@@ -45,6 +47,9 @@ public:
 	 */
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
+	void SetName(std::wstring name);
+
+	bool HitTest(int x, int y) override;
 };
 
 #endif //PROJECT1_GAMELIB_LAPTOP_H
