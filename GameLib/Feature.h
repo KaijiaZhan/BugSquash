@@ -16,7 +16,17 @@
 class Feature : public BugCollection
 {
 private:
+	/// The underlying Feature image
+	std::unique_ptr<wxImage> mFeatureImage;
 
+    /// The underlying fly splat image
+    std::unique_ptr<wxImage> mFeatureSplat;
+
+    /// The bitmap we can display for feature
+    wxGraphicsBitmap mFeatureBitmap;
+
+	/// Keeps track of what sprite we are at
+	int mSprite = 0;
 
 public:
 	/// Default constructor (disabled)
@@ -31,12 +41,14 @@ public:
 	/// Constructor
 	Feature(Game* game);
 
+	/// Draws Feature
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
+
 	bool HitTest(int x, int y) override;
 
-	void SingleClick(int x, int y) override;
+	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
-	std::string GetType() override {return "Feature";}
-
+	void Update(double elapsed, long totaltime) override;
 };
 
 #endif //PROJECT1_GAMELIB_FEATURE_H

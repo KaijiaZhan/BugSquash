@@ -66,6 +66,12 @@ private:
 	//How to get mAquarium type variable for HitTest
 	//RedundancyFly  mRedundancyFly;
 
+	/// The game the bug is contained in
+	Game* mGame;
+
+	bool mInitFly = true;
+
+
 public:
 	/// Default constructor (disabled)
 	RedundancyFly() = delete;
@@ -84,9 +90,9 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void MultiplyBug(wxMouseEvent &event);
+	void setInit(bool init);
 
-	void SingleClick(int x, int y) override;
+	virtual void processHit() override;
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H
