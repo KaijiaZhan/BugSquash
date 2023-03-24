@@ -74,7 +74,6 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 
 	mFlySplat = make_unique<wxImage>(FlySplat, wxBITMAP_TYPE_ANY);
 	//mFlyBitmap = make_unique<wxBitmap>(*mFlySplat);
-	mGame = game;
 
 }
 
@@ -173,21 +172,35 @@ bool RedundancyFly::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < 50;
 }
 
-void RedundancyFly::setInit(bool init)
+void RedundancyFly::MultiplyBug(wxMouseEvent &event)
 {
-	mInitFly = init;
-}
+	// Amount of flies to appear after clicking bug
+	int flyMultiplier = rand() % 3 + 3;
 
-void RedundancyFly::processHit()
-{
-	if (mInitFly)
+	double xPos = GetX();
+	double yPos = GetY();
+
+	// New fly positions that are +- 200 x/y location from originally clicked bug
+	int flyLocationX = xPos + (rand() % 200);
+	int flyLocationY = yPos + (rand() % 200);
+
+	//mClickedFly = mFly;
+	if (event.LeftIsDown())
 	{
-		//tell game to multiply
-		mGame->RedundancyFlySplit(this);
-		SetDel(true);
+
 	}
-	else
-	{
-		SetDel(true);
-	}
+//	if (mClickedFly != nullptr)
+//	{
+//		for(int i = 0; i < flyMultiplier; i++)
+//		{
+//			// Spawn new fly
+//		}
+//	}
+
+
+	//int flyLocation = rand() % location clicked +- 200 y and x direction;
+	//if redundancyfly is clicked
+		//replace clicked fly with 3-6 other redundancy flies at random
+		//locations an average of 200 pixels from bug initially clicked
+
 }
