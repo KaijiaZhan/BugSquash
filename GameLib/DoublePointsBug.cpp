@@ -1,6 +1,7 @@
 /**
  * @file DoublePointsBug.cpp
  * @author rmpal
+ * @author Flora Pieters
  */
 
 
@@ -45,5 +46,6 @@ bool DoublePointsBug::HitTest(int x, int y)
 
 void DoublePointsBug::SingleClick(int x, int y)
 {
-
+	SetSplat(true);
+    BugCollection::SetSpeed(0);
 }
