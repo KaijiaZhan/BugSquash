@@ -121,6 +121,8 @@ public:
 
     int GetSprite() { return mSprite; }
 
+	double GetScaling() { return mScaling; }
+
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
 //	double GetSpeeds() { return mSpeedX, mSpeedY; }
