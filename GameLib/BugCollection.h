@@ -49,6 +49,9 @@ private:
 	/// The bitmap we can display for this bug
 	wxGraphicsBitmap mBugBitmap;
 
+	/// Splay bitmap
+    wxGraphicsBitmap mBugSplatBitmap;
+
 	/// Keeps track of what sprite we are at
 	int mSprite = 0;
 
