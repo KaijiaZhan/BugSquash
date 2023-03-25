@@ -2,6 +2,7 @@
  * @file Feature.cpp
  * @author Courtney Thang
  * @author Parker Morgan
+ * @author Flora Pieters
  */
 
 #include "pch.h"
@@ -48,7 +49,7 @@ bool Feature::HitTest(int x, int y)
 
 void Feature::SingleClick(int x, int y)
 {
-    //SetSplat(true);
+    SetSplat(true);
     BugCollection::SetSpeed(0);
 }
 
