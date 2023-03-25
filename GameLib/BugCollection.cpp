@@ -34,25 +34,46 @@ void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstri
  */
 void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
-	double wid = mBugImage->GetWidth();
-	double hit = mBugImage->GetHeight();
+	if (!mSplat) {
+		double wid = mBugImage->GetWidth();
+		double hit = mBugImage->GetHeight();
 
-	double spriteHit = hit/mSpriteCount;
+		double spriteHit = hit/mSpriteCount;
 
-	if(mBugBitmap.IsNull())
+		if(mBugBitmap.IsNull())
+		{
+			mBugBitmap = graphics->CreateBitmap(*mBugImage);
+
+		}
+		double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
+
+		graphics->PushState();
+		graphics->Translate(GetX(),GetY());
+		graphics->Scale(mScaling, mScaling);
+		graphics->Rotate(angle);
+		graphics->Clip(-wid/2,-spriteHit/2,wid,100);
+		graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
+		graphics->PopState();
+	} else 
 	{
-		mBugBitmap = graphics->CreateBitmap(*mBugImage);
+		double wid = mBugSplatImage->GetWidth();
+        double hit = mBugSplatImage->GetHeight();
 
+        if(mBugSplatBitmap.IsNull())
+        {
+            mBugSplatBitmap = graphics->CreateBitmap(*mBugSplatImage);
+
+        }
+        double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
+
+        graphics->PushState();
+        graphics->Translate(GetX(),GetY());
+        graphics->Scale(mScaling, mScaling);
+        graphics->Rotate(angle);
+        //graphics->Clip(-wid/2,-spriteHit/2,wid,hit);
+        graphics->DrawBitmap(mBugSplatBitmap, -wid/2, -hit/2, wid, hit);
+        graphics->PopState();
 	}
-	double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
-
-	graphics->PushState();
-	graphics->Translate(GetX(),GetY());
-	graphics->Scale(mScaling, mScaling);
-	graphics->Rotate(angle);
-	graphics->Clip(-wid/2,-spriteHit/2,wid,100);
-	graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
-	graphics->PopState();
 }
 
 
