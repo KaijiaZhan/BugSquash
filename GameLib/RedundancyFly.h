@@ -63,8 +63,11 @@ private:
 /// Y position relative to center of bug for the right wings. The negative
 /// of this is the Y position for the left wings.
 	const int WingSetY = 5;
-	//How to get mAquarium type variable for HitTest
-	//RedundancyFly  mRedundancyFly;
+
+	/// The game the bug is contained in
+	Game* mGame;
+
+	bool mInitFly = true;
 
 public:
 	/// Default constructor (disabled)
@@ -87,6 +90,8 @@ public:
 	void MultiplyBug(wxMouseEvent &event);
 
 	void SingleClick(int x, int y) override;
+
+	void setInit(bool init);
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H

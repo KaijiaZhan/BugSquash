@@ -52,6 +52,7 @@ const int FirstWingSetX = -36;
 /// of this is the Y position for the left wings.
 const int WingSetY = 5;
 
+
 /**
  * Constructor
  * @param game Game this fly is a member of
@@ -73,7 +74,8 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 	mFlyTopImage = make_unique<wxImage>(FlyTopImage, wxBITMAP_TYPE_ANY);
 
 	mFlySplat = make_unique<wxImage>(FlySplat, wxBITMAP_TYPE_ANY);
-	//mFlyBitmap = make_unique<wxBitmap>(*mFlySplat);
+
+	mGame = game;
 
 	BugCollection::BugSetImage(FlyBaseImage, 0, FlySplat);
 
@@ -212,5 +214,20 @@ void RedundancyFly::MultiplyBug(wxMouseEvent &event)
 
 void RedundancyFly::SingleClick(int x, int y)
 {
-
+	if (mInitFly)
+	{
+		//tell game to multiply
+		mGame->RedundancyFlySplit(this);
+		SetDel(true);
+	}
+	else
+	{
+		SetDel(true);
+	}
 }
+
+void RedundancyFly::setInit(bool init)
+{
+	mInitFly = init;
+}
+
