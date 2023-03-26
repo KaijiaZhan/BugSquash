@@ -1,7 +1,7 @@
 /**
  * @file BugCollection.h
  * @author Rossi Palomba
- * @author Courtney Thang
+ *
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
