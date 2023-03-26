@@ -156,20 +156,11 @@ void Game::Update(double elapsed, long totalTime)
 		item->Update(elapsed, mElapsed);
 		if (item->GetDel())
 		{
-//			auto loc = find(begin(mItems), end(mItems), item);
-//			if (loc != end(mItems))
-//			{
-//				mItems.erase(loc);
-//			}
-			/// Crashes
-//			DeleteItem(item);
-
-			item->SetLocation(-1000,-1000);
-			item->SetSpeed(0);
+			ToDelete(item);
 			double missed = mScoreBoard.GetMissed();
 			missed++;
 			mScoreBoard.SetMissed(missed);
-			item->SetDel(false);
+
 		}
 	}
 	BugCounter visitor;
@@ -224,6 +215,7 @@ void Game::Update(double elapsed, long totalTime)
 	{
 		mLevel3.Update(elapsed);
 	}
+	DeleteItem();
 }
 
 
@@ -415,21 +407,25 @@ void Game::SetLaptop(std::shared_ptr<Laptop> laptop)
 	mLaptop = laptop;
 }
 
+void Game::ToDelete(std::shared_ptr<Item> item)
+{
+	mDeleteItems.push_back(item);
+}
+
 /**  Delete an item from the game
 *
 * @param item The item to delete.
 */
-void Game::DeleteItem(std::shared_ptr<Item> bug)
+void Game::DeleteItem()
 {
-	if (!bug->GetDel())
+	for (auto item : mDeleteItems)
 	{
-		return;
-	}
-
-	auto loc = find(std::begin(mItems), std::end(mItems), bug);
-	if (loc != std::end(mItems))
-	{
-		mItems.erase(loc);
+		auto loc = find(std::begin(mItems), std::end(mItems), item);
+		if (loc != std::end(mItems))
+		{
+			mItems.erase(loc);
+		}
+		mDeleteItems.clear();
 	}
 }
 
