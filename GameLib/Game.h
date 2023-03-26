@@ -158,6 +158,8 @@ public:
 	void RedundancyFlySplit(RedundancyFly* fly);
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
+
+//	void DeleteItem(std::shared_ptr<Item> bug);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

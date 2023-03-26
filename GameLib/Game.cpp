@@ -411,3 +411,21 @@ void Game::SetLaptop(std::shared_ptr<Laptop> laptop)
 {
 	mLaptop = laptop;
 }
+
+///**  Delete an item from the game
+//*
+//* @param item The item to delete.
+//*/
+//void Game::DeleteItem(std::shared_ptr<Item> bug)
+//{
+//	if (!bug->PendingDelete())
+//	{
+//		return;
+//	}
+//
+//	auto loc = find(std::begin(mItems), std::end(mItems), bug);
+//	if (loc != std::end(mItems))
+//	{
+//		mItems.erase(loc);
+//	}
+//}

@@ -115,6 +115,14 @@ public:
 
 	virtual void Accept(BugCounter* visitor){};
 
+//	/**
+//     * Indicate that this object is about to be deleted by
+//     * reaching the laptop. If the function
+//     * override returns false, the delete will not occur.
+//     * @return true if okay to delete.
+//    */
+//	virtual bool PendingDelete() { return true; }
+
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H
