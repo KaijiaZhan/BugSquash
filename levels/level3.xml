@@ -32,14 +32,14 @@
     <feature x="-300" y="-600" speed="165" start="35"/>
 
     <bug type="garbage" x="400" y="1200" speed="200" start="35">
-      <code pass="int.*mFixed.*=.*[0-9]*.*;"><![CDATA[/**
+      <code pass="int.*mOops.*=.*[0-9]*.*;"><![CDATA[/**
  * The game scoreboard/scoring area
  */
 class ScoreBoard
 {
 private:
-    /// The current score
-    int mFixed;
+    /// The current oops score
+    int mOops;
 
 public:
     void Draw(std::shared_ptr<wxGraphicsContext> graphics);
@@ -84,12 +84,12 @@ public:
     <feature x="1500" y="400" speed="145" start="35"/>
 
     <bug type="null" x="-100" y="1100" speed="200" start="35">
-      <code pass="if.*\(.*mCode.*!=.*nullptr.*\).*\n.*{.*\n.*mCode->Clear\(\);.*\n.*"><![CDATA[
-    GetGame()->SetPause(false);
+      <code pass="if.*\(.*mItem.*!=.*nullptr.*\).*\n.*{.*\n.*mItem->SetLocation\(100,200);.*\n.*"><![CDATA[
+Game::SetLocation(x,y)
+{
+    mItem->SetLocation(100,200);
+}
 
-    mCode->Clear();
-
-    return true;
 ]]></code>
 
     </bug>
