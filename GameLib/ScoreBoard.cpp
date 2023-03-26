@@ -1,6 +1,7 @@
 /**
  * @file ScoreBoard.cpp
  * @author joann
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"

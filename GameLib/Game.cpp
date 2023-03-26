@@ -2,7 +2,7 @@
  * @file Game.cpp
  * @author rmpal
  * @author Courtney Thang
- * @author Kaijia Joanna Zhan
+ * @author Kaijia Zhan
  * @author Parker Morgan
  */
 

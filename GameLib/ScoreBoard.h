@@ -1,7 +1,7 @@
 /**
  * @file ScoreBoard.h
  * @author joann
- *
+ * @author Kaijia Zhan
  * Initializes the score board for the game
  */
 

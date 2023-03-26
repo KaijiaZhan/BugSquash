@@ -1,6 +1,6 @@
 /**
  * @file NullBugTest.cpp
- * @author Kaijia Joanna Zhan
+ * @author Kaijia Zhan
  */
 
 #include <pch.h>

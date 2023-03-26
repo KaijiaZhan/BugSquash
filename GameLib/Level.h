@@ -1,7 +1,7 @@
 /**
  * @file Level.h
  * @author Courtney Thang
- *
+ * @author Kaijia Zhan
  * Initializes the level base class where all levels are derived from.
  *
  */

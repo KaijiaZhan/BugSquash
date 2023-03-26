@@ -2,7 +2,7 @@
  * @file RedundancyFly.h
  * @author Courtney Thang
  * @author Parker Morgan
- *
+ * @author Kaijia Zhan
  * Initializes the Redundancy Fly in the game
  */
 
