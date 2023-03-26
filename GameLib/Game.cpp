@@ -161,6 +161,9 @@ void Game::Update(double elapsed, long totalTime)
 //			{
 //				mItems.erase(loc);
 //			}
+			/// Crashes
+//			DeleteItem(item);
+
 			item->SetLocation(-1000,-1000);
 			item->SetSpeed(0);
 			double missed = mScoreBoard.GetMissed();
@@ -411,3 +414,22 @@ void Game::SetLaptop(std::shared_ptr<Laptop> laptop)
 {
 	mLaptop = laptop;
 }
+
+/**  Delete an item from the game
+*
+* @param item The item to delete.
+*/
+void Game::DeleteItem(std::shared_ptr<Item> bug)
+{
+	if (!bug->GetDel())
+	{
+		return;
+	}
+
+	auto loc = find(std::begin(mItems), std::end(mItems), bug);
+	if (loc != std::end(mItems))
+	{
+		mItems.erase(loc);
+	}
+}
+
