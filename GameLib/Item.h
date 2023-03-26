@@ -3,7 +3,7 @@
  * @author Parker Morgan
  * @author Joanna Rodriguez
  * @author Courtney Thang
- *
+ * @author Kaijia Zhan
  * Base class for any item in our game.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @file PlayingArea.h
- * @author joann
+ * @author Kaijia Zhan
  *
  *
  */

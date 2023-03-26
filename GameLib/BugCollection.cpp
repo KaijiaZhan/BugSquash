@@ -3,6 +3,7 @@
  * @author Rossi Palomba
  * @author Flora Pieters
  * @author Courtney Thang
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"

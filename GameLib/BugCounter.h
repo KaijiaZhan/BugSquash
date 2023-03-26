@@ -1,8 +1,6 @@
 /**
  * @file BugCounter.h
- * @author Kaijia
- *
- *
+ * @author Kaijia Zhan
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOUNTER_H

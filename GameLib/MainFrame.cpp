@@ -2,6 +2,7 @@
  * @file MainFrame.cpp
  * @author joann
  * @author Courtney Thang
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"

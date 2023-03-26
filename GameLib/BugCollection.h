@@ -2,6 +2,7 @@
  * @file BugCollection.h
  * @author Rossi Palomba
  * @author Courtney Thang
+ * @author Kaijia Zhan
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
