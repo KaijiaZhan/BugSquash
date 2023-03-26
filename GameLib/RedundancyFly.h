@@ -87,8 +87,6 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void MultiplyBug(wxMouseEvent &event);
-
 	void SingleClick(int x, int y) override;
 
 	void setInit(bool init);

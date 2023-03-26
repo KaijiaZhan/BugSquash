@@ -174,39 +174,6 @@ bool RedundancyFly::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < 50;
 }
 
-void RedundancyFly::MultiplyBug(wxMouseEvent &event)
-{
-	// Amount of flies to appear after clicking bug
-	int flyMultiplier = rand() % 3 + 3;
-
-	double xPos = GetX();
-	double yPos = GetY();
-
-	// New fly positions that are +- 200 x/y location from originally clicked bug
-	int flyLocationX = xPos + (rand() % 200);
-	int flyLocationY = yPos + (rand() % 200);
-
-	//mClickedFly = mFly;
-	if (event.LeftIsDown())
-	{
-
-	}
-//	if (mClickedFly != nullptr)
-//	{
-//		for(int i = 0; i < flyMultiplier; i++)
-//		{
-//			// Spawn new fly
-//		}
-//	}
-
-
-	//int flyLocation = rand() % location clicked +- 200 y and x direction;
-	//if redundancyfly is clicked
-	//replace clicked fly with 3-6 other redundancy flies at random
-	//locations an average of 200 pixels from bug initially clicked
-
-}
-
 void RedundancyFly::SingleClick(int x, int y)
 {
 	if (mInitFly)
