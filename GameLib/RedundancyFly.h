@@ -90,6 +90,9 @@ public:
 	void SingleClick(int x, int y) override;
 
 	void setInit(bool init);
+
+	void WingUpdate();
+
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H
