@@ -102,6 +102,8 @@ void BugCollection::Update(double elapsed, long totalTime)
 	if(sqrt((pow(mLaptop->GetX() - GetX(), 2)  + pow(mLaptop->GetY()-GetY(),2))) < 5)
 	{
 		mGame->ToDelete(this);
+		double add = 1;
+		mGame->IncreaseMissed(add);
 	}
 
 	double startTime = GetStartTime();

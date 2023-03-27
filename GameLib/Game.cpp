@@ -154,13 +154,6 @@ void Game::Update(double elapsed, long totalTime)
 	for (auto item : mItems)
 	{
 		item->Update(elapsed, mElapsed);
-		if (item->GetDel())
-		{
-			double missed = mScoreBoard.GetMissed();
-			missed++;
-			mScoreBoard.SetMissed(missed);
-
-		}
 	}
 	DeleteItem();
 	BugCounter visitor;
@@ -343,6 +336,7 @@ void Game::OnLeftDown(int x, int y)
 	auto item = Game::HitTest(oX, oY);
 	if(item != nullptr)
 	{
+		item->SingleClick(oX, oY);
 		std::string what_item = item->GetType();
 		if(what_item == "Bug")
 		{
@@ -375,6 +369,13 @@ void Game::IncreaseOops(int add)
 	double oops = mScoreBoard.GetOops();
 	oops += add;
 	mScoreBoard.SetOops(oops);
+}
+
+void Game::IncreaseMissed(int add)
+{
+	double miss = mScoreBoard.GetMissed();
+	miss += add;
+	mScoreBoard.SetMissed(miss);
 }
 
 void Game::RedundancyFlySplit(RedundancyFly* fly)

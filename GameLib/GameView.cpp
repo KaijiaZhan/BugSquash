@@ -225,13 +225,15 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
  */
 void GameView::OnLeftDown(wxMouseEvent &event)
 {
-	mGrabbedItem = mGame.HitTest(event.GetX(), event.GetY());
-    if (mGrabbedItem != nullptr)
-    {
-        mGrabbedItem->SingleClick(event.GetX(), event.GetY());
-        Refresh();
 
-    }
+//	auto mGrabbedItem = mGame.HitTest(event.GetX(), event.GetY());
+//    if (mGrabbedItem  != nullptr)
+//    {
+//        mGrabbedItem->SingleClick(event.GetX(), event.GetY());
+//        Refresh();
+//    }
+
+	mGame.OnLeftDown(event.GetX(), event.GetY());
 }
 
 void GameView::OpenDialog(const wxString &text)

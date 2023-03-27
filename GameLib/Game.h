@@ -161,6 +161,8 @@ public:
 
 	void IncreaseFix(int add);
 
+	void IncreaseMissed(int add);
+
 	//void SetState(wxString state) {mState = state;}
 
 	void RedundancyFlySplit(RedundancyFly* fly);
