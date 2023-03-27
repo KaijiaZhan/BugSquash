@@ -5,15 +5,18 @@
  *
  */
 
+#include <wx/string.h>
+
 #ifndef PROJECT1_GAMELIB_CODEWINDOW_H
 #define PROJECT1_GAMELIB_CODEWINDOW_H
 
 /**
  * Class that is our CodeWindow
  */
-class CodeWindow
+class CodeWindow: public wxDialog
 {
 private:
+	wxString mCode;
 
 public:
 	/// Default constructor (disabled)
@@ -24,6 +27,9 @@ public:
 
 	/// Assignment operator
 	void operator=(const CodeWindow &) = delete;
+
+	CodeWindow(wxWindow *parent, const wxString &title, const wxString &code);
+
 
 };
 

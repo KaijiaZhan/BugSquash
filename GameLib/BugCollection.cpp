@@ -138,3 +138,8 @@ void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 {
 	mLaptop = laptop;
 }
+
+void BugCollection::DoubleClick(int x, int y)
+{
+
+}

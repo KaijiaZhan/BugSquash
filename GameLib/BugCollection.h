@@ -142,6 +142,8 @@ public:
 
 	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
 
+	virtual void DoubleClick(int x, int y);
+
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H

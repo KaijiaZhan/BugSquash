@@ -11,6 +11,8 @@
 #include <wx/wx.h>
 #include "Game.h"
 #include "ScoreBoard.h"
+#include "CodeWindow.h"
+#include <wx/string.h>
 
 /**
  * Class that is the view of our Game
@@ -84,7 +86,7 @@ public:
 
 	void OnLeftDown(wxMouseEvent& event);
 
-
+	void OpenDialog(const wxString &text);
 };
 
 #endif //PROJECT1_GAMELIB_GAMEVIEW_H

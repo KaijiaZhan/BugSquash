@@ -9,3 +9,9 @@
 #include <string>
 
 using namespace std;
+
+CodeWindow::CodeWindow(wxWindow *parent, const wxString &title, const wxString &code) :
+wxDialog(parent, -1, title)
+{
+	mCode = code;
+}

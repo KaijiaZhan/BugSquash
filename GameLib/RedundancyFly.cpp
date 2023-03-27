@@ -186,7 +186,6 @@ void RedundancyFly::SingleClick(int x, int y)
 	{
 		SetSplat(true);
         BugCollection::SetSpeed(0);
-		//SetDel(true);
 	}
 }
 

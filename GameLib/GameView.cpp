@@ -43,7 +43,7 @@ void GameView::Initialize(wxFrame* mainFrame)
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
 	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
-	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
+	Bind(wxEVT_LEFT_DCLICK, &GameView::OnMouseDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
 
 	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel0, this, IDM_LEVEL0);
@@ -204,6 +204,8 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 	if(bug != nullptr)
 	{
 		// We have double-clicked on a bug, want the window to appear
+		mGrabbedItem->DoubleClick(event.GetX(), event.GetY());
+		Refresh();
 	}
 }
 
@@ -220,4 +222,11 @@ void GameView::OnLeftDown(wxMouseEvent &event)
         Refresh();
 
     }
+}
+
+void GameView::OpenDialog(const wxString &text)
+{
+	const wxString title = L"Bug Squash IDE";
+	CodeWindow dialog(this, title, text);
+	dialog.ShowModal();
 }
