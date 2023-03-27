@@ -180,7 +180,12 @@ void Game::Update(double elapsed, long totalTime)
 	}
 	else
 	{
-		if (mElapsed >= levelStartDuration)
+		int numBugs = visitor.GetNumbBugs();
+		if (numBugs == 0 || GetBugsLeft() == 0)
+		{
+			mState = State::End;
+		}
+		else if (mElapsed >= levelStartDuration)
 		{
 			mState = State::Playing;
 		}
@@ -203,12 +208,6 @@ void Game::Update(double elapsed, long totalTime)
 		mLevel3.Update(elapsed);
 	}
 	DeleteItem();
-	int numBugs = visitor.GetNumbBugs();
-
-	if (numBugs == 0)
-	{
-		mState = State::End;
-	}
 }
 
 double Game::GetBugsLeft()
