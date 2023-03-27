@@ -142,9 +142,7 @@ public:
 
 	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
 
-	virtual void DoubleClick(GameView * view, int x, int y);
-
-	bool IsSquashed(){};
+	void DoubleClick(GameView * view, int x, int y) override;
 
 	bool GetSquashed() override {return mSplat;}
 
