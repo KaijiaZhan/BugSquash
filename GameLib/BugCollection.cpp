@@ -7,6 +7,7 @@
  */
 
 #include "pch.h"
+#include "Game.h"
 #include "Laptop.h"
 #include "BugCollection.h"
 #include <iostream>
@@ -20,6 +21,7 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 	Item(game)
 {
 	mGame = game;
+
 }
 
 void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstring splatImage)

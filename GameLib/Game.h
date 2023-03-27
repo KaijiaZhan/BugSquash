@@ -21,6 +21,7 @@
 #include <unordered_map>
 
 class RedundancyFly;
+class BugCollection;
 
 
 class Item;
@@ -102,7 +103,11 @@ private:
 	// the leaderboard
 	Leaderboard mLeaderboard;
 
-	std::wstring mState = L"Start";
+	/// The types of shark breeds we can have
+	enum class State {Start, Playing, End};
+
+	/// The type of shark: GreatWhite, HammerHead, Nurse, Thresher
+	State mState =State::Start;
 
 	std::shared_ptr<Laptop> mLaptop;
 
@@ -156,7 +161,7 @@ public:
 
 	void IncreaseFix(int add);
 
-	void SetState(wxString state) {mState = state;}
+	//void SetState(wxString state) {mState = state;}
 
 	void RedundancyFlySplit(RedundancyFly* fly);
 

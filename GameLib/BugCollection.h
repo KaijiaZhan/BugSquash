@@ -144,6 +144,8 @@ public:
 
 	virtual void DoubleClick(GameView * view, int x, int y);
 
+	bool IsSquashed(){};
+
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H

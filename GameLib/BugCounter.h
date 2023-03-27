@@ -12,7 +12,6 @@ class BugCounter
 private:
 	/// Bug counter
 	int mNumBugs = 0;
-
 public:
 	int GetNumbBugs() const {return mNumBugs;}
 
@@ -24,7 +23,6 @@ public:
 	{
 		mNumBugs++;
 	}
-
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOUNTER_H

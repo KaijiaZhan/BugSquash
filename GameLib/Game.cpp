@@ -97,10 +97,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	mScoreBoard.OnDraw(graphics, width, height);
 
 
-
-
-
-	if (mState == L"Start")
+	if (mState == State::Start)
 	//if (mElapsed <= 2)
 	{
 		if (mWhatLevel == 0)
@@ -121,7 +118,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		}
 	}
 
-	if (mState == L"End")
+	if (mState == State::End)
 	{
 		wxFont font(wxSize(0, 130),
 					wxFONTFAMILY_SWISS,
@@ -135,7 +132,10 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		graphics->DrawText(wxString(levelCompleted),
 						   (Width-textwid)/2,
 						   (Height-textheight)/2);
-		mLeaderboard.OnDraw(graphics, width, height);
+		if (mWhatLevel == 3)
+		{
+			mLeaderboard.OnDraw(graphics, width, height);
+		}
 	}
 
 	graphics->PopState();
@@ -167,26 +167,20 @@ void Game::Update(double elapsed, long totalTime)
 	for (auto item:mItems){
 		item->Accept(&visitor);
 	}
-	int numBugs = visitor.GetNumbBugs();
-
-	if (numBugs == 0)
-	{
-		mState = L"End";
-	}
 
 	if (mElapsed < levelStartDuration)
 	{
-		mState = L"Start";
+		mState = State::Start;
 	}
 	if (mLeaderboard.GetActive())
 	{
 		if (mElapsed >= levelStartDuration && mElapsed < levelTotalDuration)
 		{
-			mState = L"Playing";
+			mState = State::Playing;
 		}
-		if (mElapsed > levelTotalDuration && mState != L"End")
+		if (mElapsed > levelTotalDuration && mState != State::End)
 		{
-			mState = L"End";
+			mState = State::End;
 			int score = mScoreBoard.GetScore();
 			mLeaderboard.AssessPlayerScore(score);
 		}
@@ -195,7 +189,7 @@ void Game::Update(double elapsed, long totalTime)
 	{
 		if (mElapsed >= levelStartDuration)
 		{
-			mState = L"Playing";
+			mState = State::Playing;
 		}
 	}
 
@@ -214,6 +208,13 @@ void Game::Update(double elapsed, long totalTime)
 	if (mWhatLevel == 3)
 	{
 		mLevel3.Update(elapsed);
+	}
+	DeleteItem();
+	int numBugs = visitor.GetNumbBugs();
+
+	if (numBugs == 0)
+	{
+		mState = State::End;
 	}
 }
 
