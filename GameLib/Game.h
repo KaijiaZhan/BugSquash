@@ -2,7 +2,7 @@
  * @file Game.h
  * @author rmpal
  * @author Courtney Thang
- * @author Kaijia Joanna Zhan
+ * @author Kaijia Zhan
  * @author Parker Morgan
  */
 
@@ -21,6 +21,7 @@
 #include <unordered_map>
 
 class RedundancyFly;
+
 
 class Item;
 
@@ -105,6 +106,8 @@ private:
 
 	std::shared_ptr<Laptop> mLaptop;
 
+	std::vector<std::shared_ptr<Item>> mDeleteItems;
+
 public:
 
 	/**
@@ -159,7 +162,9 @@ public:
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
-	void DeleteItem(std::shared_ptr<Item> bug);
+	void ToDelete(std::shared_ptr<Item> item);
+
+	void DeleteItem();
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

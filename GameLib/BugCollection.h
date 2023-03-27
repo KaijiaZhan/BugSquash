@@ -2,6 +2,7 @@
  * @file BugCollection.h
  * @author Rossi Palomba
  * @author Courtney Thang
+ * @author Kaijia Zhan
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
@@ -39,7 +40,7 @@ private:
 	double BugHitRange = 50;
 
 	std::shared_ptr<Laptop> mLaptop;
-
+	
 	/// The underlying Bug image
 	std::shared_ptr<wxImage> mBugImage;
 
@@ -135,7 +136,6 @@ public:
 	std::string GetType() override {return "Bug";}
 
 	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
-
 
 
 	virtual void SetScale(double scale) { mScaling = scale;};

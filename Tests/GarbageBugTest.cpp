@@ -1,6 +1,6 @@
 /**
  * @file GarbageBugTest.cpp
- * @author Kaijia Joanna Zhan
+ * @author Kaijia Zhan
  * @author Courtney Thang
  */
 

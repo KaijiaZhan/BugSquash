@@ -1,6 +1,6 @@
 /**
  * @file BugCounter.cpp
- * @author Kaijia
+ * @author Kaijia Zhan
  */
 #include "pch.h"
 #include "BugCounter.h"

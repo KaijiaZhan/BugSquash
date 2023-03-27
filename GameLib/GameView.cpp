@@ -3,6 +3,7 @@
  * @author joann
  * @author Courtney Thang
  * @author Flora Pieters
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"
@@ -12,6 +13,7 @@
 #include "Laptop.h"
 #include "ids.h"
 #include "Game.h"
+
 #include <sstream>
 #include <wx/stdpaths.h>
 #include <wx/dcbuffer.h>

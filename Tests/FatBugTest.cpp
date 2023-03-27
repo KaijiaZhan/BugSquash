@@ -1,6 +1,6 @@
 /**
  * @file FatBugTest.cpp
- * @author Kaijia Joanna Zhan
+ * @author Kaijia Zhan
  * @author Joanna Rodriguez Zamarron
  */
 

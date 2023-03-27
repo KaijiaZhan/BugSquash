@@ -2,7 +2,7 @@
  * @file GameView.h
  * @author joann
  * @author Courtney Thang
- *
+ * @author Kaijia Zhan
  */
 
 #ifndef PROJECT1_GAMELIB_GAMEVIEW_H

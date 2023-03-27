@@ -3,6 +3,7 @@
  * @author Rossi Palomba
  * @author Flora Pieters
  * @author Courtney Thang
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"
@@ -43,18 +44,18 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 		if(mBugBitmap.IsNull())
 		{
 			mBugBitmap = graphics->CreateBitmap(*mBugImage);
-
 		}
 		double angle = atan2(mLaptop->GetY()-GetY(), mLaptop->GetX()-GetX());
 
 		graphics->PushState();
 		graphics->Translate(GetX(),GetY());
-		graphics->Scale(mScaling, mScaling);
+		//graphics->Scale(mScaling, mScaling);
 		graphics->Rotate(angle);
 		graphics->Clip(-wid/2,-spriteHit/2,wid,100);
 		graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
 		graphics->PopState();
-	} else 
+	}
+	else
 	{
 		double wid = mBugSplatImage->GetWidth();
         double hit = mBugSplatImage->GetHeight();
@@ -68,7 +69,7 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 
         graphics->PushState();
         graphics->Translate(GetX(),GetY());
-        graphics->Scale(mScaling, mScaling);
+        //graphics->Scale(mScaling, mScaling);
         graphics->Rotate(angle);
         //graphics->Clip(-wid/2,-spriteHit/2,wid,hit);
         graphics->DrawBitmap(mBugSplatBitmap, -wid/2, -hit/2, wid, hit);

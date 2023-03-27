@@ -1,6 +1,6 @@
 /**
  * @file PlayingArea.cpp
- * @author joann
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"

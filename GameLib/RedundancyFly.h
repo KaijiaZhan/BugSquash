@@ -2,7 +2,7 @@
  * @file RedundancyFly.h
  * @author Courtney Thang
  * @author Parker Morgan
- *
+ * @author Kaijia Zhan
  * Initializes the Redundancy Fly in the game
  */
 
@@ -90,6 +90,9 @@ public:
 	void SingleClick(int x, int y) override;
 
 	void setInit(bool init);
+
+	void WingUpdate();
+
 };
 
 #endif //PROJECT1_GAMELIB_REDUNDANCYFLY_H

@@ -1,6 +1,6 @@
 /**
  * @file Laptop.h
- * @author Kaijia
+ * @author Kaijia Zhan
  * @author Courtney Thang
  *
  */
