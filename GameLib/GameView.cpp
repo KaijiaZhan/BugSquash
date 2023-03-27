@@ -81,11 +81,19 @@ void GameView::OnPaint(wxPaintEvent& event)
 	wxRect rect = GetRect();
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
-	auto newTime = mStopWatch.Time();
-	auto elapsed = (double)(newTime - mTime) * 0.001;
-	mTime = newTime;
+	if (mFrozen)
+	{
+		mFrozenElapsed = mStopWatch.Time() - mTime;
+	}
+	else
+	{
+		auto newTime = mStopWatch.Time();
+		auto elapsed = (double)(newTime - mTime - mFrozenElapsed) * 0.001;
+		mTime = newTime;
 
-	mGame.Update(elapsed, mTime);
+		mGame.Update(elapsed, mTime);
+		mFrozenElapsed = 0;
+	}
 
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
@@ -206,7 +214,7 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 	if(bug != nullptr)
 	{
 		// We have double-clicked on a bug, want the window to appear
-		mGrabbedItem->DoubleClick(event.GetX(), event.GetY());
+		mGrabbedItem->DoubleClick(this, event.GetX(), event.GetY());
 		Refresh();
 	}
 }
@@ -230,5 +238,7 @@ void GameView::OpenDialog(const wxString &text)
 {
 	const wxString title = L"Bug Squash IDE";
 	CodeWindow dialog(this, title, text);
+	mFrozen = true;
 	dialog.ShowModal();
+	mFrozen = false;
 }

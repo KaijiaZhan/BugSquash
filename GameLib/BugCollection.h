@@ -142,7 +142,7 @@ public:
 
 	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
 
-	virtual void DoubleClick(int x, int y);
+	virtual void DoubleClick(GameView * view, int x, int y);
 
 };
 

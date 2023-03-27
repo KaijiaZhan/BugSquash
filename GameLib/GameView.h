@@ -72,6 +72,10 @@ private:
 	bool mShrink;
 	bool mShrinkCheck = true;
 
+	bool mFrozen = false;
+
+	long mFrozenElapsed = 0;
+
 public:
 	void Initialize(wxFrame *mainFrame);
 

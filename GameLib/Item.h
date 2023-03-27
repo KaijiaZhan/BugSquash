@@ -14,6 +14,8 @@
 #include "BugCounter.h"
 #include "Game.h"
 
+class GameView;
+
 class Game;
 
 /**
@@ -105,7 +107,7 @@ public:
 	 * @param x X location in the aquarium of the double-click
 	 * @param y Y location in the aquarium of the double-click
 	 */
-	virtual void DoubleClick(int x, int y) {}
+	virtual void DoubleClick(GameView* view, int x, int y) {}
 
 	Game * GetGame() { return mGame; }
 

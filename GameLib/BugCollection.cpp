@@ -11,6 +11,7 @@
 #include "BugCollection.h"
 #include <iostream>
 #include <cmath>
+#include "GameView.h"
 
 /*
  * Constructor
@@ -140,7 +141,8 @@ void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 	mLaptop = laptop;
 }
 
-void BugCollection::DoubleClick(int x, int y)
+void BugCollection::DoubleClick(GameView* view, int x, int y)
 {
-
+	// if fatbug
+	view->OpenDialog(L"hello world");
 }
