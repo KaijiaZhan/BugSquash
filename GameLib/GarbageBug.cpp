@@ -47,6 +47,10 @@ bool GarbageBug::HitTest(int x, int y)
 
 void GarbageBug::SingleClick(int x, int y)
 {
+	if(!GetSplat())
+	{
+		AddToSquash(this);
+	}
 	SetSplat(true);
     BugCollection::SetSpeed(0);
 }

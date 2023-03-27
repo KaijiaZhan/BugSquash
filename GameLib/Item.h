@@ -117,6 +117,7 @@ public:
 
 	virtual void Accept(BugCounter* visitor){};
 
+	virtual bool GetSquashed() {return false;}
 };
 
 #endif //PROJECT1_GAMELIB_ITEM_H

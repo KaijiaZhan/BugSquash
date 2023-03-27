@@ -210,8 +210,8 @@ void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
  */
 void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 {
-	auto bug = mGame.HitTest(event.GetX(), event.GetY());
-	if(bug != nullptr)
+	mGrabbedItem = mGame.HitTest(event.GetX(), event.GetY());
+	if(mGrabbedItem != nullptr)
 	{
 		// We have double-clicked on a bug, want the window to appear
 		mGrabbedItem->DoubleClick(this, event.GetX(), event.GetY());

@@ -38,6 +38,8 @@ private:
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
 
+	std::vector<Item*> mItemsSquashed;
+
 	/// Unordered map for bug images
 	std::unordered_map<std::wstring, std::shared_ptr<wxImage>> mImage;
 
@@ -103,10 +105,10 @@ private:
 	// the leaderboard
 	Leaderboard mLeaderboard;
 
-	/// The types of shark breeds we can have
+	/// The types of state
 	enum class State {Start, Playing, End};
 
-	/// The type of shark: GreatWhite, HammerHead, Nurse, Thresher
+	/// The type of state
 	State mState =State::Start;
 
 	std::shared_ptr<Laptop> mLaptop;
@@ -133,6 +135,8 @@ public:
 
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
+
+	void AddSquashed(Item* item);
 
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
@@ -172,6 +176,8 @@ public:
 	void ToDelete(Item* item);
 
 	void DeleteItem();
+
+	double GetBugsLeft();
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

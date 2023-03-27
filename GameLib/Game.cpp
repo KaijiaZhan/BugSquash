@@ -21,7 +21,7 @@ using namespace std;
 
 const int levelStartDuration = 2;
 
-const int levelTotalDuration = 50;
+const int levelTotalDuration = 5;
 
 /**
 * Game Constructor
@@ -154,6 +154,10 @@ void Game::Update(double elapsed, long totalTime)
 	for (auto item : mItems)
 	{
 		item->Update(elapsed, mElapsed);
+		if(item->GetSquashed())
+		{
+
+		}
 	}
 	DeleteItem();
 	BugCounter visitor;
@@ -171,7 +175,7 @@ void Game::Update(double elapsed, long totalTime)
 		{
 			mState = State::Playing;
 		}
-		if (mElapsed > levelTotalDuration && mState != State::End)
+		if (mState != State::End && GetBugsLeft() == 0)
 		{
 			mState = State::End;
 			int score = mScoreBoard.GetScore();
@@ -211,7 +215,22 @@ void Game::Update(double elapsed, long totalTime)
 	}
 }
 
-
+double Game::GetBugsLeft()
+{
+	double total = mItems.size();
+	for (auto item : mItems)
+	{
+		if(item->GetSquashed())
+		{
+			total -= 1;
+		}
+		if(item->GetType() == "Item")
+		{
+			total -= 1;
+		}
+	}
+	return total;
+}
 
 /**
  * Test an x,y click location to see if it clicked
@@ -323,6 +342,11 @@ void Game::Add(std::shared_ptr<Item> item)
     mItems.push_back(item);
 }
 
+void Game::AddSquashed(Item* item)
+{
+	mItemsSquashed.push_back(item);
+}
+
 /**
 * Handle a mouse click
 * @param x X location clicked on
@@ -336,24 +360,28 @@ void Game::OnLeftDown(int x, int y)
 	auto item = Game::HitTest(oX, oY);
 	if(item != nullptr)
 	{
-		item->SingleClick(oX, oY);
 		std::string what_item = item->GetType();
-		if(what_item == "Bug")
+		if (!item->GetSquashed())
 		{
-			int add = 1;
-			IncreaseFix(add);
+			if(what_item == "Bug")
+			{
+				int add = 1;
+				IncreaseFix(add);
+			}
+
+			if(what_item == "Feature")
+			{
+				int add = 1;
+				IncreaseOops(add);
+			}
+			if(what_item == "DoublePointsBug")
+			{
+				int add = 2;
+				IncreaseFix(add);
+			}
 		}
 
-		if(what_item == "Feature")
-		{
-			int add = 1;
-			IncreaseOops(add);
-		}
-		if(what_item == "DoublePointsBug")
-		{
-			int add = 2;
-			IncreaseFix(add);
-		}
+		item->SingleClick(oX, oY);
 	}
 
 }
