@@ -148,8 +148,6 @@ public:
 
 	bool GetSquashed() override {return mSplat;}
 
-	void AddToSquash(Item* item) {mGame->AddSquashed(item);}
-
 };
 
 #endif //PROJECT1_GAMELIB_BUGCOLLECTION_H

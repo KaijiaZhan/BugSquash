@@ -154,10 +154,6 @@ void Game::Update(double elapsed, long totalTime)
 	for (auto item : mItems)
 	{
 		item->Update(elapsed, mElapsed);
-		if(item->GetSquashed())
-		{
-
-		}
 	}
 	DeleteItem();
 	BugCounter visitor;
@@ -342,10 +338,6 @@ void Game::Add(std::shared_ptr<Item> item)
     mItems.push_back(item);
 }
 
-void Game::AddSquashed(Item* item)
-{
-	mItemsSquashed.push_back(item);
-}
 
 /**
 * Handle a mouse click

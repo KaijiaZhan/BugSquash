@@ -49,10 +49,6 @@ bool Feature::HitTest(int x, int y)
 
 void Feature::SingleClick(int x, int y)
 {
-	if(!GetSplat())
-	{
-		AddToSquash(this);
-	}
     SetSplat(true);
     BugCollection::SetSpeed(0);
 }

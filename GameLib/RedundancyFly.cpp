@@ -195,10 +195,6 @@ void RedundancyFly::SingleClick(int x, int y)
 	}
 	else
 	{
-		if(!GetSplat())
-		{
-			AddToSquash(this);
-		}
 		SetSplat(true);
         BugCollection::SetSpeed(0);
 	}

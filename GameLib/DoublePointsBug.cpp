@@ -46,10 +46,6 @@ bool DoublePointsBug::HitTest(int x, int y)
 
 void DoublePointsBug::SingleClick(int x, int y)
 {
-	if(!GetSplat())
-	{
-		AddToSquash(this);
-	}
 	SetSplat(true);
     BugCollection::SetSpeed(0);
 }

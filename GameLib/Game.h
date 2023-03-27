@@ -38,8 +38,6 @@ private:
 	/// All of the items in our Game
 	std::vector<std::shared_ptr<Item>> mItems;
 
-	std::vector<Item*> mItemsSquashed;
-
 	/// Unordered map for bug images
 	std::unordered_map<std::wstring, std::shared_ptr<wxImage>> mImage;
 
@@ -135,8 +133,6 @@ public:
 
 	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
-
-	void AddSquashed(Item* item);
 
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
