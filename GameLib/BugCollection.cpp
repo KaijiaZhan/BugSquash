@@ -19,7 +19,7 @@
 BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 	Item(game)
 {
-
+	mGame = game;
 }
 
 void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstring splatImage)
@@ -99,7 +99,7 @@ void BugCollection::Update(double elapsed, long totalTime)
 	}
 	if(sqrt((pow(mLaptop->GetX() - GetX(), 2)  + pow(mLaptop->GetY()-GetY(),2))) < 5)
 	{
-		SetDel(true);
+		mGame->ToDelete(this);
 	}
 
 	double startTime = GetStartTime();

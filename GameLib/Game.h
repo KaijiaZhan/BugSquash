@@ -106,7 +106,7 @@ private:
 
 	std::shared_ptr<Laptop> mLaptop;
 
-	std::vector<std::shared_ptr<Item>> mDeleteItems;
+	std::vector<Item*> mDeleteItems;
 
 public:
 
@@ -162,7 +162,7 @@ public:
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
-	void ToDelete(std::shared_ptr<Item> item);
+	void ToDelete(Item* item);
 
 	void DeleteItem();
 };
