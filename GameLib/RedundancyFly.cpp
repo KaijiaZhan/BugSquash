@@ -191,7 +191,9 @@ void RedundancyFly::SingleClick(int x, int y)
 	{
 		//tell game to multiply
 		mGame->RedundancyFlySplit(this);
-		SetDel(true);
+		//SetDel(true);
+		SetSplat(true);
+		BugCollection::SetSpeed(0);
 	}
 	else
 	{

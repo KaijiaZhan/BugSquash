@@ -174,6 +174,8 @@ public:
 	void DeleteItem();
 
 	double GetBugsLeft();
+
+	void MoveItemFirst(std::shared_ptr<Item> item);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

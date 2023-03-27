@@ -370,11 +370,21 @@ void Game::OnLeftDown(int x, int y)
 				int add = 2;
 				IncreaseFix(add);
 			}
-		}
 
-		item->SingleClick(oX, oY);
+			item->SingleClick(oX, oY);
+			MoveItemFirst(item);
+		}
 	}
 
+}
+
+void Game::MoveItemFirst(std::shared_ptr<Item> item){
+	auto loc = find(begin(mItems), end(mItems), item);
+	if (loc != end(mItems))
+	{
+		mItems.erase(loc);
+	}
+	mItems.insert(mItems.begin(), item);
 }
 
 void Game::IncreaseFix(int add)
