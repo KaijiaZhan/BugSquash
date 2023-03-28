@@ -21,7 +21,7 @@ const wstring FeatureImage = L"images/feature.png";
 const wstring FeatureSplat = L"images/feature-splat.png";
 
 /// Number of sprite images
-const int FeatureNumSpriteImages = 7;
+const int FeatureNumSpriteImages = 6;
 
 /**
  * Constructor

@@ -52,7 +52,7 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 
 		graphics->PushState();
 		graphics->Translate(GetX(),GetY());
-		//graphics->Scale(mScaling, mScaling);
+		graphics->Scale(mScaling, mScaling);
 		graphics->Rotate(angle);
 		graphics->Clip(-wid/2,-spriteHit/2,wid,100);
 		graphics->DrawBitmap(mBugBitmap, -wid/2, -mSprite - spriteHit/2, wid, hit);
@@ -72,9 +72,8 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 
         graphics->PushState();
         graphics->Translate(GetX(),GetY());
-        //graphics->Scale(mScaling, mScaling);
+        graphics->Scale(mScaling, mScaling);
         graphics->Rotate(angle);
-        //graphics->Clip(-wid/2,-spriteHit/2,wid,hit);
         graphics->DrawBitmap(mBugSplatBitmap, -wid/2, -hit/2, wid, hit);
         graphics->PopState();
 	}

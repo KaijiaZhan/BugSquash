@@ -7,8 +7,8 @@
       <double/>
     </bug>
     <bug type="redundancy" x="-100" y="500" speed="120" start="0"/>
-    <feature x="-100" y="600" speed="120" start="50"/>
-    <feature x="-100" y="600" speed="120" start="60"/>
+    <feature x="-100" y="700" speed="120" start="5"/>
+    <feature x="-100" y="400" speed="120" start="6"/>
     <bug type="garbage" x="-100" y="600" speed="60" start="80">
       <code pass="int.*mScore.*=.*[0-9]*.*;"><![CDATA[/**
  * The game scoreboard/scoring area
