@@ -1,7 +1,7 @@
 /**
  * @file CodeWindow.h
  * @author Parker Morgan
- *
+ * @author Flora Pieters
  *
  */
 
@@ -16,7 +16,9 @@
 class CodeWindow: public wxDialog
 {
 private:
-	wxString mCode;
+	wxString mCodeOutput;
+
+    wxTextCtrl *mText = nullptr;
 
 public:
 	/// Default constructor (disabled)
@@ -30,6 +32,11 @@ public:
 
 	CodeWindow(wxWindow *parent, const wxString &title, const wxString &code);
 
+	void Initialize();
+
+    void OnClose(wxCloseEvent& event);
+
+    void OnOk(wxCommandEvent& event);
 
 };
 
