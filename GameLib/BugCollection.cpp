@@ -150,3 +150,9 @@ void BugCollection::DoubleClick(GameView* view, int x, int y)
 	// if fatbug
 	view->OpenDialog(L"hello world");
 }
+
+void BugCollection::SingleClick(int x, int y)
+{
+	SetSplat(true);
+	BugCollection::SetSpeed(0);
+}

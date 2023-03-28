@@ -144,6 +144,8 @@ public:
 
 	void DoubleClick(GameView * view, int x, int y) override;
 
+	void SingleClick(int x, int y) override;
+
 	bool GetSquashed() override {return mSplat;}
 
 };

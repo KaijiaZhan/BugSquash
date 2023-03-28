@@ -81,7 +81,5 @@ void FatBug::OpenWindow(int x) // temp parameter
 
 void FatBug::SingleClick(int x, int y)
 {
-	SetSplat(true);
-    BugCollection::SetSpeed(0);
 }
 

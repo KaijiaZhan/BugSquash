@@ -28,8 +28,6 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void SingleClick(int x, int y) override;
-
 	std::string GetType() override {return "DoublePointsBug";}
 
 };
