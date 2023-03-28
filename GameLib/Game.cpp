@@ -21,7 +21,7 @@ using namespace std;
 
 const int levelStartDuration = 2;
 
-const int levelTotalDuration = 5;
+const int levelBetweenTime = 3;
 
 /**
 * Game Constructor
@@ -167,7 +167,7 @@ void Game::Update(double elapsed, long totalTime)
 	}
 	if (mLeaderboard.GetActive())
 	{
-		if (mElapsed >= levelStartDuration && mElapsed < levelTotalDuration)
+		if (mElapsed >= levelStartDuration && GetBugsLeft() != 0)
 		{
 			mState = State::Playing;
 		}
@@ -180,15 +180,28 @@ void Game::Update(double elapsed, long totalTime)
 	}
 	else
 	{
-		int numBugs = visitor.GetNumbBugs();
-		if (numBugs == 0 || GetBugsLeft() == 0)
+		if (GetBugsLeft() == 0)
 		{
-			mState = State::End;
+			if(mState != State::End)
+			{
+				mState = State::End;
+				mLevelEnd = mElapsed;
+			}
+			else
+			{
+				if(mElapsed > (levelBetweenTime + mLevelEnd))
+				{
+					int level = mWhatLevel + 1;
+					LoadLevel(level);
+				}
+			}
+
 		}
 		else if (mElapsed >= levelStartDuration)
 		{
 			mState = State::Playing;
 		}
+
 	}
 
 	if (mWhatLevel == 0)

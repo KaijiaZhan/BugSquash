@@ -113,6 +113,8 @@ private:
 
 	std::vector<Item*> mDeleteItems;
 
+	double mLevelEnd = 0;
+
 public:
 
 	/**
