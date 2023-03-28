@@ -99,14 +99,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 }
 
-///**
-// * Handle the left mouse button down event
-// * @param event
-// */
-//void GameView::OnLeftDown(wxMouseEvent &event)
-//{
-//}
-
 /**
 * Handle the left mouse button down event
 * @param event
@@ -169,19 +161,6 @@ void GameView::OnLevel3(wxCommandEvent& event)
 	mGame.LoadLevel(3);
 
 }
-
-///**
-// * Add menus specific to the view
-// * @param mainFrame The main frame that owns the menu bar
-// * @param menuBar The menu bar to add menus to
-// * @param viewMenu The view menu, so we can add to it if we wish
-// */
-//void GameView::AddMenus(wxFrame *mainFrame, wxMenuBar *menuBar, wxMenu* viewMenu)
-//{
-////	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
-////	mainFrame->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_VIEW);
-////	mainFrame->Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, this, IDM_VIEW);
-//}
 
 /**
 * Shrink function

@@ -49,7 +49,6 @@ void MainFrame::Initialize()
 
 	menuBar->Append(helpMenu, L"&Help");
 
-	//mGameView->AddMenus(this, menuBar, viewMenu);
 	viewMenu->Append(IDM_VIEW, L"&Shrink", L"Enable Shrink", wxITEM_CHECK);
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, gameView, IDM_VIEW);
 	Bind(wxEVT_UPDATE_UI, &GameView::OnShrinkUpdate, gameView, IDM_VIEW);
@@ -59,7 +58,6 @@ void MainFrame::Initialize()
 	levelMenu->Append(IDM_LEVEL2, "Open &Level 2", L"Open level file...");
 	levelMenu->Append(IDM_LEVEL3, "Open &Level 3", L"Open level file...");
 
-	fileMenu->Append(wxID_SAVEAS, "Save &As...\tCtrl-S", L"Save game as...");
 	fileMenu->Append(wxID_EXIT, "E&xit\tAlt-X", "Quit this program");
 
 	helpMenu->Append(wxID_ABOUT, "&About\tF1", "Show about dialog");
