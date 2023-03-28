@@ -15,3 +15,7 @@ bool Code::CompareCodes()
     return mCodeInput == mCodeValid;
 }
 
+Code::Code(wxXmlNode *codeTag) {
+    mCodeValid = codeTag->GetAttribute("pass");
+}
+
