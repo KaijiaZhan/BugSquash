@@ -4,6 +4,7 @@
  * @author Courtney Thang
  * @author Kaijia Zhan
  * @author Parker Morgan
+ * @author Joanna Rodriguez
  */
 
 #include "pch.h"

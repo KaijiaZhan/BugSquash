@@ -4,6 +4,7 @@
  * @author Flora Pieters
  * @author Courtney Thang
  * @author Kaijia Zhan
+ * @author Joanna Rodriguez
  */
 
 #include "pch.h"
@@ -119,7 +120,6 @@ void BugCollection::Update(double elapsed, long totalTime)
 			mSprite = 0;
 		}
 	}
-
 }
 
 /**

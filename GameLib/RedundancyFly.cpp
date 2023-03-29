@@ -12,6 +12,7 @@
 #include <string>
 #include <stdlib.h>
 #include <wx/event.h>
+#include <cmath>
 
 
 using namespace std;
@@ -114,52 +115,96 @@ void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 		int hitright = mFlyLeftWingImage->GetHeight();
 
 		int draw_amt = 0;
+		double wingTime = (2 * fmod(mDuration, WingPeriod))/ WingPeriod;
+
+		if (wingTime > 1)
+		{
+			wingTime = 2 - wingTime;
+		}
+
 		double angle = atan2(GetLaptop()->GetY() - GetY(), GetLaptop()->GetX() - GetX());
+		double angleWings = (WingRotateStart + (wingTime * (WingRotateEnd - WingRotateStart)));
+
+		graphics->PushState();
+		graphics->Translate(GetX(), GetY());
+		graphics->Rotate(angle);
+		graphics->DrawBitmap(mFlyBaseBitmap, (-wid / 2), (-hit / 2), wid, hit);
 
 		while(draw_amt < NumberOfSetsOfWings)
 		{
+			graphics->PushState();
+			graphics->Translate(FirstWingSetX + (WingSetXOffset * (draw_amt)), -WingSetY);
+			graphics->Rotate(-angleWings);
+			graphics->DrawBitmap(mFlyLeftWingBitmap, (- wid / 2), - hit / 2, widleft, hitleft);
+			graphics->PopState();
 
 			graphics->PushState();
-			graphics->Translate(GetX(), GetY());
-			graphics->Rotate(angle);
-
-			if (draw_amt == 0)
-			{
-				graphics->DrawBitmap(mFlyBaseBitmap, (-wid / 2), (-hit / 2), wid, hit);
-
-			}
-
-			graphics->DrawBitmap(mFlyLeftWingBitmap, ((-WingSetXOffset * (draw_amt)) - wid / 2), -WingSetY - hit / 2, widleft, hitleft);
-			graphics->DrawBitmap(mFlyRightWingBitmap, ((-WingSetXOffset * (draw_amt)) - wid / 2), WingSetY - hit / 2, widright, hitright);
-
-			if (draw_amt == 3)
-			{
-				graphics->DrawBitmap(mFlyTopBitmap, (-wid / 2), (-hit / 2), wid, hit);
-
-			}
-
+			graphics->Translate(FirstWingSetX + (WingSetXOffset * (draw_amt)), WingSetY);
+			graphics->Rotate(angleWings);
+			graphics->DrawBitmap(mFlyRightWingBitmap, (- wid / 2), -hit / 2, widright, hitright);
 			graphics->PopState();
+
 			draw_amt += 1;
-		} 
-	} else {
-        double wid = mFlySplat->GetWidth();
-        double hit = mFlySplat->GetHeight();
+		}
 
-        if(mFlySplatBitmap.IsNull())
-        {
-            mFlySplatBitmap = graphics->CreateBitmap(*mFlySplat);
+		graphics->DrawBitmap(mFlyTopBitmap, (-wid / 2), (-hit / 2), wid, hit);
 
-        }
-        double angle = atan2(GetLaptop()->GetY()-GetY(), GetLaptop()->GetX()-GetX());
+		graphics->PopState();
 
-        graphics->PushState();
-        graphics->Translate(GetX(),GetY());
-        //graphics->Scale(mScaling, mScaling);
-        graphics->Rotate(angle);
-        //graphics->Clip(-wid/2,-spriteHit/2,wid,hit);
-        graphics->DrawBitmap(mFlySplatBitmap, -wid/2, -hit/2, wid, hit);
-        graphics->PopState();
-    }
+		//pass in graphics, bitmaps to wings if new update function is made
+		//create member variable of elapsed time
+		//time increases, so does angle
+		//make sure to set bounds with period
+		//create a duration
+		//wing moves at a constant speed - speed * time
+		//how do we get wing to move a little bit?
+
+//		auto newTime = mStopWatch.Time();
+//		auto elapsed = (double)(newTime - mTime) * 0.001;
+//		mTime = newTime;
+//
+//		//TA said this was the correct angle equation
+//		double angleWings = (WingRotateStart + (mTime * (WingRotateEnd - WingRotateStart)));
+//
+//
+//		if (elapsed <= WingPeriod)
+//		{
+////			angleWings = (WingRotateStart + (mTime * (WingRotateEnd - WingRotateStart)));
+//				graphics->PushState();
+//				graphics->Translate(GetX(), GetY());
+//				graphics->Rotate(angleWings);
+//				graphics->DrawBitmap(mFlyLeftWingBitmap,
+//									 ((-WingSetXOffset) - wid / 2),
+//									 -WingSetY - hit / 2,
+//									 widleft,
+//									 hitleft);
+//				graphics->PopState();
+//
+//				//			elapsed += elapsed;
+//		}
+//		else
+//		{
+//			elapsed = 0;
+//		}
+	}
+	else
+	{
+		double wid = mFlySplat->GetWidth();
+		double hit = mFlySplat->GetHeight();
+
+		if(mFlySplatBitmap.IsNull())
+		{
+			mFlySplatBitmap = graphics->CreateBitmap(*mFlySplat);
+
+		}
+		double angle = atan2(GetLaptop()->GetY() - GetY(), GetLaptop()->GetX() - GetX());
+
+		graphics->PushState();
+		graphics->Translate(GetX(), GetY());
+		graphics->Rotate(angle);
+		graphics->DrawBitmap(mFlySplatBitmap, -wid / 2, -hit / 2, wid, hit);
+		graphics->PopState();
+	}
 }
 
 wxXmlNode* RedundancyFly::XmlSave(wxXmlNode* node)
@@ -207,22 +252,9 @@ void RedundancyFly::setInit(bool init)
 	mInitFly = init;
 }
 
-/**
-// * Handle updates in time of our bug
-// *
-// * This is called before we draw and allows us to
-// * move the wings. We add our speed times the amount
-// * of time that has elapsed.
-// * @param elapsed Time elapsed since the class call
-//
-*/
-void RedundancyFly::WingUpdate()
+void RedundancyFly::Update(double elapsed, long totalTime)
 {
-//	auto newTime = mStopWatch.Time();
-//	auto elapsed = (double)(newTime - mTime) * 0.001;
-//	mTime = newTime;
-//
-//	int angle = WingRotateStart + (mTime * (WingRotateEnd - WingRotateStart));
-
-
+	BugCollection::Update(elapsed, totalTime);
+	mDuration += elapsed;
 }
+

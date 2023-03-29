@@ -106,7 +106,6 @@ void Leaderboard::AssessPlayerScore(int score)
 	}
 
 
-
 	///Sort Leaderboard
 	sort(mPlayerScores.begin(), mPlayerScores.end(), [](Player p1, Player p2)
 	{

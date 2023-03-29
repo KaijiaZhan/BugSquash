@@ -3,6 +3,7 @@
  * @author Courtney Thang
  * @author Parker Morgan
  * @author Flora Pieters
+ * @author Joanna Rodriguez
  */
 
 #ifndef PROJECT1_GAMELIB_FEATURE_H

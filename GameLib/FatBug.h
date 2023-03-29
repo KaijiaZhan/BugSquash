@@ -3,6 +3,7 @@
  * @author Courtney Thang
  * @author Kaijia Joanna Zhan
  * @author Parker Morgan
+ * @author Joanna Rodriguez
  */
 
 #ifndef PROJECT1_GAMELIB_FATBUG_H

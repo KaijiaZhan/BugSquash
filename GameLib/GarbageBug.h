@@ -2,6 +2,7 @@
  * @file GarbageBug.h
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
+ * @author Joanna Rodriguez
  *
  * Header for bug type Garbage Bug
  */

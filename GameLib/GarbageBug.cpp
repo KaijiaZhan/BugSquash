@@ -3,6 +3,7 @@
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
  * @author Courtney Thang
+ * @author Joanna Rodriguez
  *
  * Source file for type GarbageBug
  */

@@ -13,7 +13,7 @@ using namespace std;
 CodeWindow::CodeWindow(wxWindow *parent, const wxString &title, const wxString &code) :
 wxDialog(parent, -1, title)
 {
-	mCode = code;
+//	mCode = code;
 }
 
 /**

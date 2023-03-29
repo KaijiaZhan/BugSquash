@@ -3,6 +3,7 @@
  * @author Courtney Thang
  * @author Parker Morgan
  * @author Flora Pieters
+ * @author Joanna Rodriguez
  */
 
 #include "pch.h"

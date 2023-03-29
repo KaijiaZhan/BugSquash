@@ -1,6 +1,6 @@
 /**
  * @file ScoreBoard.cpp
- * @author joann
+ * @author Joanna Rodriguez
  * @author Kaijia Zhan
  */
 

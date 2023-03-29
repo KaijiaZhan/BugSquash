@@ -3,6 +3,7 @@
  * @author Rossi Palomba
  * @author Courtney Thang
  * @author Kaijia Zhan
+ * @author Joanna Rodriguez
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
@@ -97,7 +98,7 @@ public:
 //     */
 //    virtual void Draw(wxDC *dc) = 0;
 
-	void Update(double elapsed, long totalTime) override;
+	virtual void Update(double elapsed, long totalTime) override;
 
 	void XmlLoad(wxXmlNode *node) override;
 
@@ -136,7 +137,6 @@ public:
 	std::string GetType() override {return "Bug";}
 
 	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
-
 
 	virtual void SetScale(double scale) { mScaling = scale;};
 

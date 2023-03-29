@@ -1,6 +1,6 @@
 /**
  * @file MainFrame.cpp
- * @author joann
+ * @author Joanna Rodriguez
  * @author Courtney Thang
  * @author Kaijia Zhan
  */

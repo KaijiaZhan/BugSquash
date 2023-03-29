@@ -1,6 +1,6 @@
 /**
  * @file GameView.cpp
- * @author joann
+ * @author Joanna Rodriguez
  * @author Courtney Thang
  * @author Flora Pieters
  * @author Kaijia Zhan

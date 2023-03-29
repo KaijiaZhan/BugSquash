@@ -1,6 +1,6 @@
 /**
  * @file GameView.h
- * @author joann
+ * @author Joanna Rodriguez
  * @author Courtney Thang
  * @author Kaijia Zhan
  */

@@ -1,6 +1,6 @@
 /**
  * @file MainFrame.h
- * @author joann
+ * @author Joanna Rodriguez
  * @author Courtney Thang
  * @author Kaijia Zhan
  * The top-level (main) frame of the application

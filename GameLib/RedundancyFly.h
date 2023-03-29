@@ -3,6 +3,7 @@
  * @author Courtney Thang
  * @author Parker Morgan
  * @author Kaijia Zhan
+ * @author Joanna Rodriguez
  * Initializes the Redundancy Fly in the game
  */
 
@@ -69,6 +70,18 @@ private:
 
 	bool mInitFly = true;
 
+	/// The timer that allows for animation
+	wxTimer mTimer;
+
+	/// Stopwatch used to measure elapsed time
+	wxStopWatch mStopWatch;
+
+	/// The last stopwatch time
+	long mTime = 0;
+
+	double mDuration = 0;
+
+
 public:
 	/// Default constructor (disabled)
 	RedundancyFly() = delete;
@@ -91,7 +104,8 @@ public:
 
 	void setInit(bool init);
 
-	void WingUpdate();
+	void Update(double elapsed, long totalTime) override;
+
 
 };
 
