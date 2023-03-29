@@ -34,19 +34,18 @@ const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
 /// Number of sprite images
 const int NullBugNumSpriteImages = 6;
 
-/// The code to be displayed in the code window
-//const wstring mCode = L"test!!";
-
 /// The FatBug size modifier (25% larger than counterparts)
 const double FatBugSize = 1.25;
 
 /**
  * Constructor
  * @param game Game this bug is a member of
+ * @param bugType the type of bug
+ * @param node the node from the xml
  */
 FatBug::FatBug(Game *game, std::wstring bugType, wxXmlNode *node) : BugCollection(game, GarbageBugSpriteImageName)
 {
-	SetScale(1.25);
+	SetScale(FatBugSize);
 	if (bugType =="null")
 	{
 		BugCollection::BugSetImage(NullBugSpriteImageName, NullBugNumSpriteImages, NullBugSplatImageName);
@@ -80,21 +79,17 @@ bool FatBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
-
-/// Function to open IDE window that displays code
-void FatBug::OpenWindow(int x) // temp parameter
-{
-	//copied from fat bug page not sure how to implement
-	//CodeDlg dlg(window, mCode);
-	//dlg.ShowModal();
-}
-
+/**
+ * Handles when fatbug is double clicked
+ * @param view the game view
+ * @param x the x location
+ * @param y the y location
+ */
 void FatBug::DoubleClick(wxWindow* view, int x, int y)
 {
 	if (GetSplat()) {
 		return;
 	}
-	//view->SetFrozen(true);
 
 	CodeWindow dialog(view, mCodeFatBug);
 	dialog.ShowModal();

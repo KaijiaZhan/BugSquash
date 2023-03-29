@@ -13,7 +13,6 @@
 #include "BugCollection.h"
 #include <iostream>
 #include <cmath>
-#include "GameView.h"
 
 /*
  * Constructor
@@ -153,7 +152,3 @@ void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 	mLaptop = laptop;
 }
 
-void BugCollection::DoubleClick(wxWindow* view, int x, int y)
-{
-
-}

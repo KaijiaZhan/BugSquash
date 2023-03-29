@@ -5,10 +5,7 @@
 
 #include "pch.h"
 #include "Code.h"
-#include "Game.h"
-#include "GameView.h"
 
-#include <wx/string.h>
 #include <wx/regex.h>
 
 bool Code::CompareCodes()

@@ -120,6 +120,7 @@ private:
 	/// Vector of items to be deleted
 	std::vector<Item*> mDeleteItems;
 
+	/// The elapsed time to end the level and move onto next
 	double mLevelEnd = 0;
 
 public:

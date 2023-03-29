@@ -82,12 +82,6 @@ public:
 	 */
 	virtual void SetSpeed(double speed) {}
 
-	/**
-	 * Getter to get the speed
-	 * @return mSpeed the speed of the item
-	 */
-	double GetSpeed() { return mSpeed; }
-
 	virtual void Draw(std::shared_ptr<wxGraphicsContext> graphics) = 0;
 
 	/**

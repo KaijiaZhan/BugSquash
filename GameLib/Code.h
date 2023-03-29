@@ -37,9 +37,11 @@ public:
     
     bool CompareCodes();
 
+	/**
+	 * Set the user code
+	 * @param code the code inputted
+	 */
     virtual void SetCode(wxString code) { mCodeValid = code; };
-
-    wxString GetCodeValid() { return mCodeValid; };
 
     wxString GetCodeInput() { return mCodeInput; };
 

@@ -18,8 +18,10 @@ class FatBug : public BugCollection
 {
 private:
 
+	/// Node for the fat bug code from xml
 	wxXmlNode mFatBugCode;
 
+	/// The code for the fat bug
 	std::shared_ptr<Code> mCodeFatBug;
 
 public:
@@ -37,10 +39,12 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void OpenWindow(int x);
-
 	void DoubleClick(wxWindow * view, int x, int y) override;
 
+	/**
+	 * Get the type of bug
+	 * @return FatBug the type of bug
+	 */
 	std::string GetType() override {return "FatBug";}
 
 };

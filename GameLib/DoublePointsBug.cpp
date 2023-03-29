@@ -44,6 +44,11 @@ bool DoublePointsBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+/**
+ * Sets the splat when the bug is clicked
+ * @param x the x location
+ * @param y the y location
+ */
 void DoublePointsBug::SingleClick(int x, int y)
 {
 	SetSplat(true);

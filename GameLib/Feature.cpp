@@ -48,6 +48,11 @@ bool Feature::HitTest(int x, int y)
     return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+/**
+ * Sets the bug to squash when clicked on
+ * @param x the x location
+ * @param y the y location
+ */
 void Feature::SingleClick(int x, int y)
 {
     SetSplat(true);

@@ -10,8 +10,6 @@
 #include "pch.h"
 #include "Game.h"
 #include "Laptop.h"
-#include "DoublePointsBug.h"
-#include "Leaderboard.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
 #include "RedundancyFly.h"
@@ -104,7 +102,6 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 
 
 	if (mState == State::Start)
-	//if (mElapsed <= 2)
 	{
 		if (mWhatLevel == 0)
 		{
@@ -509,6 +506,12 @@ void Game::DeleteItem()
 	mDeleteItems.clear();
 }
 
+/**
+ * Implements the double click functionality when the bug is double clicked on
+ * @param view The game view
+ * @param x The x location
+ * @param y The y location
+ */
 void Game::OnDoubleClick(wxWindow *view, int x, int y)
 {
 	double oX = (x - mXOffset) / mScale;

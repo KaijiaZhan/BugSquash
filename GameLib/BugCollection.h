@@ -33,9 +33,6 @@ private:
 	/// Elapsed Time that the bug should start to move
 	double mStartTime = 0;
 
-	/// If true the item is mirrored
-	bool mMirror = false;
-
 	/// The bug hit range
 	double BugHitRange = 50;
 
@@ -135,12 +132,6 @@ public:
 	 */
 	bool GetSplat() { return mSplat; }
 
-	/**
-	 * Get the scaling for the bugs
-	 * @return mScaling the scaling of the bugs
-	 */
-	double GetScaling() { return mScaling; }
-
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
 	void BugSetImage(std::wstring BugImage, int spriteNum, std::wstring splatImage);
@@ -160,8 +151,6 @@ public:
 	 * @param scale the scaling of the bugs
 	 */
 	virtual void SetScale(double scale) { mScaling = scale;};
-
-	void DoubleClick(wxWindow* view, int x, int y) override;
 
 	bool GetSquashed() override {return mSplat;}
 

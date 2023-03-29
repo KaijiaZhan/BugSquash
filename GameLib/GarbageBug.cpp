@@ -45,6 +45,11 @@ bool GarbageBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+/**
+ * Sets the splat of the bug when single clicked
+ * @param x The x location
+ * @param y The y location
+ */
 void GarbageBug::SingleClick(int x, int y)
 {
 	SetSplat(true);

@@ -185,20 +185,3 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 	mGame.OnLeftDown(event.GetX(), event.GetY());
 }
 
-/**
- * Opens the dialog box
- * @param text the text
- */
-void GameView::OpenDialog(const wxString &text)
-{
-	Level l;
-	l.GetLevel();
-	std::vector<std::shared_ptr<Item>> listItems = l.GetLevel();
-
-
-	//CodeWindow dialog(this, l.fatBug);
-
-	mFrozen = true;
-//	dialog.ShowModal();
-	mFrozen = false;
-}

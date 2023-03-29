@@ -11,6 +11,11 @@
 
 using namespace std;
 
+/**
+ * Constructor
+ * @param parent the window
+ * @param code the code from the xml
+ */
 CodeWindow::CodeWindow(wxWindow *parent, shared_ptr<Code> code) :
 	wxDialog(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition, wxSize(600, 600), wxDEFAULT_DIALOG_STYLE)
 {
@@ -19,7 +24,7 @@ CodeWindow::CodeWindow(wxWindow *parent, shared_ptr<Code> code) :
 }
 
 /**
- * Initialize the Dialog.
+ * Initialize the dialog box.
  */
 void CodeWindow::Initialize()
 {
@@ -41,7 +46,7 @@ void CodeWindow::Initialize()
 
 /**
  * Ok menu option handler
- * @param event
+ * @param event button event
  */
 void CodeWindow::OnOk(wxCommandEvent& event)
 {

@@ -3,6 +3,7 @@
  * @author Kaijia Joanna Zhan
  * @author Flora Pieters
  * @author Joanna Rodriguez
+ * @author Courtney Thang
  *
  * Initializing the garbage bug in our game
  */

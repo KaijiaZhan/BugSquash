@@ -3,6 +3,8 @@
  * @author Joanna Rodriguez
  * @author Courtney Thang
  * @author Kaijia Zhan
+ *
+ * Creates the game view of our game
  */
 
 #ifndef PROJECT1_GAMELIB_GAMEVIEW_H
@@ -14,13 +16,9 @@
 #include "CodeWindow.h"
 #include <wx/string.h>
 
-/**
- * Class that is the view of our Game
- */
 class GameView : public wxWindow {
 private:
 	void OnTimer(wxTimerEvent& event);
-	void OnLeftUp(wxMouseEvent& event);
 	void OnLevel0(wxCommandEvent& event);
 	void OnLevel1(wxCommandEvent& event);
 	void OnLevel2(wxCommandEvent& event);
@@ -60,8 +58,10 @@ public:
 
 	void OnLeftDown(wxMouseEvent& event);
 
-	void OpenDialog(const wxString &text);
-
+	/**
+	 * Sets the freeze boolean to pause the game
+	 * @param freeze The boolean that pauses the game
+	 */
 	void SetFrozen(bool freeze) { mFrozen = freeze; };
 };
 
