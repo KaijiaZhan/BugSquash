@@ -18,7 +18,7 @@ TEST(RedundancyFlyTest, Construct){
 }
 
 TEST(RedundancyFlyTest, HitTest) {
-	// Create a fish to test
+	// Create a fly
 	Game game;
 	game.Clear();
 
@@ -26,23 +26,15 @@ TEST(RedundancyFlyTest, HitTest) {
 	rfly->SetLocation(100, 200);
 	game.Add(rfly);
 
-
-
-	// Center of the fish should be a true
 	ASSERT_TRUE(rfly->HitTest(100, 200));
 
-	// Left of the fish
 	ASSERT_FALSE(rfly->HitTest(10, 200));
 
-	// Right of the fish
 	ASSERT_FALSE(rfly->HitTest(200, 200));
 
-	// Above the fish
 	ASSERT_FALSE(rfly->HitTest(100, 0));
 
-	// Below the fish
 	ASSERT_FALSE(rfly->HitTest(100, 300));
 
-	// On a fish transparent pixel
 	ASSERT_FALSE(rfly->HitTest(100 - 125/2 + 17, 200 - 117/2 + 16));
 }
