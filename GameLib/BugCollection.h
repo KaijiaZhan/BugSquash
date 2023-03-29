@@ -142,7 +142,7 @@ public:
 
 	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
 
-	void DoubleClick(wxWindow * view, int x, int y) override;
+	void DoubleClick(GameView * view, int x, int y) override;
 
 	bool GetSquashed() override {return mSplat;}
 
