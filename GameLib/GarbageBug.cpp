@@ -5,7 +5,6 @@
  * @author Courtney Thang
  * @author Joanna Rodriguez
  *
- * Source file for type GarbageBug
  */
 
 #include "pch.h"

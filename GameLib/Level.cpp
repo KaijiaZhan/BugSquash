@@ -27,6 +27,8 @@ Level::Level()
  * Opens the XML file and reads the nodes, creating items as appropriate.
  *
  * @param filename The filename of the file to load the game level from.
+ *
+ * @param game The game
  */
 void Level::Load(const wxString &filename, Game * game)
 {
@@ -72,8 +74,10 @@ void Level::Load(const wxString &filename, Game * game)
 }
 
 /**
- * Handle a node of type item.
- * @param node XML node
+ * Creates the items from the xml file
+ * @param node The node in the xml file
+ * @param game The game
+ * @param parent The laptop associated with the bugs
  */
 void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 {
@@ -168,11 +172,21 @@ void Level::Clear()
 	mLevelItems.erase(mLevelItems.begin(), mLevelItems.end());
 }
 
+/**
+ * Update the current time in game
+ * @param elapsed elapsed time since last call
+ */
 void Level::Update(double elapsed)
 {
 	mCurrentTime += elapsed;
 }
 
+/**
+ * Draws the title of the level at the beginning of level
+ * @param graphics graphics context to draw on
+ * @param wid the width
+ * @param height the height
+ */
 void Level::DrawTitle(std::shared_ptr<wxGraphicsContext> graphics, int wid, int height)
 {
 	wxFont font(wxSize(0, 130),

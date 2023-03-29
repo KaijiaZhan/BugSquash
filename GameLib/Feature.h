@@ -4,6 +4,8 @@
  * @author Parker Morgan
  * @author Flora Pieters
  * @author Joanna Rodriguez
+ *
+ * Initialize the feature item
  */
 
 #ifndef PROJECT1_GAMELIB_FEATURE_H
@@ -11,9 +13,6 @@
 
 #include "BugCollection.h"
 
-/**
- * Initializes the feature item
- */
 class Feature : public BugCollection
 {
 private:
@@ -36,6 +35,10 @@ public:
 
 	void SingleClick(int x, int y) override;
 
+	/**
+	 * Getter to get the bug type
+	 * @return the bug type
+	 */
 	std::string GetType() override {return "Feature";}
 
 };

@@ -61,10 +61,6 @@ const int WingSetY = 5;
  */
 RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 {
-	/// m var in game that holds map of all images
-	/// a function in game that gets the image (65-73)
-	/// a function in game that gets the images into the map
-	/// call game function that adds image to the map
 
 	//loads the image of the flybase
 	mFlyBaseImage = make_unique<wxImage>(FlyBaseImage, wxBITMAP_TYPE_ANY);
@@ -83,7 +79,7 @@ RedundancyFly::RedundancyFly(Game *game) : BugCollection(game, FlyBaseImage)
 
 /**
  * Draw this fly
- * @param dc Device context to draw on
+ * @param graphics Graphics context to draw on
  */
 void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
@@ -150,7 +146,7 @@ void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 		graphics->DrawBitmap(mFlyTopBitmap, (-wid / 2), (-hit / 2), wid, hit);
 
 		graphics->PopState();
-		
+
 	}
 	else
 	{
@@ -195,13 +191,17 @@ bool RedundancyFly::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < 50;
 }
 
+/**
+ * Single click the fly
+ * @param x x coordinate
+ * @param y x coordinate
+ */
 void RedundancyFly::SingleClick(int x, int y)
 {
 	if (mInitFly)
 	{
 		//tell game to multiply
 		mGame->RedundancyFlySplit(this);
-		//SetDel(true);
 		SetSplat(true);
 		BugCollection::SetSpeed(0);
 	}
@@ -212,11 +212,20 @@ void RedundancyFly::SingleClick(int x, int y)
 	}
 }
 
+/**
+ * Sets the initial fly
+ * @param init boolean to see if it's the inital fly
+ */
 void RedundancyFly::setInit(bool init)
 {
 	mInitFly = init;
 }
 
+/**
+ * Updates the elapsed time and time duration
+ * @param elapsed The elapsed time since last call
+ * @param totalTime The total time
+ */
 void RedundancyFly::Update(double elapsed, long totalTime)
 {
 	BugCollection::Update(elapsed, totalTime);

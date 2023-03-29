@@ -10,7 +10,9 @@
 
 /**
  * Draw the game
- * @param dc The device context to draw on
+ * @param graphics The graphics context to draw on
+ * @param width The width
+ * @param height The height
  */
 void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
 {
@@ -36,18 +38,6 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 				wxFONTWEIGHT_NORMAL);
 	graphics->SetFont(font, wxColour(0,200,200));
 
-//	Player p1;
-//	p1.SetName("ABB");
-//	p1.SetScore(20);
-//	Player p2;
-//	Player p3;
-//	p3.SetName("HHH");
-//	p3.SetScore(30);
-//	mPlayerScores.push_back(p1);
-//	mPlayerScores.push_back(p2);
-//	mPlayerScores.push_back(p3);
-
-
 	for(Player player : mPlayerScores)
 	{
 		graphics->DrawText(player.GetName(),  // Text to draw
@@ -66,12 +56,18 @@ void Leaderboard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width,
 
 }
 
-
+/**
+ * Reset the players scores
+ */
 void Leaderboard::Reset()
 {
 	mPlayerScores.clear();
 }
 
+/**
+ * Sets player name and scores on scoreboard
+ * @param score the score for the level
+ */
 void Leaderboard::AssessPlayerScore(int score)
 {
 	///Prompt for user name

@@ -3,6 +3,7 @@
  * @author Kaijia Zhan
  * @author Courtney Thang
  *
+ * Initializes the laptop/program in the game
  */
 
 #ifndef PROJECT1_GAMELIB_LAPTOP_H
@@ -10,10 +11,6 @@
 
 #include "Item.h"
 
-
-/**
- * Class that is our Laptop/program Item
- */
 class Laptop : public Item
 {
 private:
@@ -22,7 +19,7 @@ private:
 	std::unique_ptr<wxImage> mLaptopImage;
 	/// The laptop bitmap
 	wxGraphicsBitmap mLaptopBitmap;
-
+	/// The name of the laptop
 	std::wstring mName;
 
 

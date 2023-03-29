@@ -4,6 +4,7 @@
  * @author Flora Pieters
  * @author Courtney Thang
  *
+ * Creates our Null bug in the game
  */
 
 #ifndef PROJECT1_COPY_GAMELIB_NULLBUG_H
@@ -11,9 +12,6 @@
 
 #include "BugCollection.h"
 
-/**
- * Class for bug type NullBug
- */
 class NullBug : public BugCollection
 {
 private:

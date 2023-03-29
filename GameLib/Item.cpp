@@ -34,7 +34,7 @@ Item::~Item()
 
 /**
  * Draw this item
- * @param dc Device context to draw on
+ * @param graphics Graphics context to draw on
  */
 void Item::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {

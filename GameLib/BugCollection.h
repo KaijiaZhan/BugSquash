@@ -4,21 +4,19 @@
  * @author Courtney Thang
  * @author Kaijia Zhan
  * @author Joanna Rodriguez
+ *
+ * Base class for bugs
  */
 
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
 #define PROJECT1_GAMELIB_BUGCOLLECTION_H
 
 #include "Item.h"
-#include "BugCounter.h"
 #include "Laptop.h"
 #include "CodeWindow.h"
 
 class Game;
 
-/**
- * Base Class for a Bug
- */
 class BugCollection : public Item
 {
 private:
@@ -38,8 +36,10 @@ private:
 	/// If true the item is mirrored
 	bool mMirror = false;
 
+	/// The bug hit range
 	double BugHitRange = 50;
 
+	/// The laptop
 	std::shared_ptr<Laptop> mLaptop;
 	
 	/// The underlying Bug image
@@ -60,8 +60,10 @@ private:
 	/// Sprite count
 	int mSpriteCount = 0;
 
+	/// The scaling of the bug
 	double mScaling = 0;
 
+	/// Boolean to indicate if the bug is squashed
 	bool mSplat = false;
 
 protected:
@@ -92,12 +94,6 @@ public:
 	/// Assignment operator
 	void operator=(const BugCollection &) = delete;
 
-//	/**
-//     * Draw this item
-//     * @param dc Device context to draw on
-//     */
-//    virtual void Draw(wxDC *dc) = 0;
-
 	virtual void Update(double elapsed, long totalTime) override;
 
 	void XmlLoad(wxXmlNode *node) override;
@@ -109,40 +105,65 @@ public:
 	 */
 	void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
 
+	/**
+	 * Set the splat bool to indicate splat
+	 * @param splat boolean to indicate if the bug is squashed
+	 */
 	void SetSplat(bool splat) { mSplat = splat; }
 
+	/**
+	 * Gt the hit range of the bug
+	 * @return The bugs hit range
+	 */
 	double GetHitRange() { return BugHitRange; }
 
+	/**
+	 * Set the start time for the bug
+	 * @param startTime The start time of the bug
+	 */
 	void SetStartTime(double startTime) override { mStartTime = startTime; }
 
+	/**
+	 * Get the start time of the bug
+	 * @return mStarTime the start time of the bug
+	 */
 	double GetStartTime() { return mStartTime; }
 
+	/**
+	 * Get the boolean that indicates bug squashed
+	 * @return mSplat the bool that indicates if the bug is squashed
+	 */
 	bool GetSplat() { return mSplat; }
 
-    int GetSpriteCount() { return mSpriteCount; }
-
-    int GetSprite() { return mSprite; }
-
+	/**
+	 * Get the scaling for the bugs
+	 * @return mScaling the scaling of the bugs
+	 */
 	double GetScaling() { return mScaling; }
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
 
-//	double GetSpeeds() { return mSpeedX, mSpeedY; }
-
-	/// bug image, number of sprites, splat image
 	void BugSetImage(std::wstring BugImage, int spriteNum, std::wstring splatImage);
 
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
+	/**
+	 * Gets the type of item
+	 * @return Bug the type of item
+	 */
 	std::string GetType() override {return "Bug";}
 
 	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
 
+	/**
+	 * Set the scaling of the bugs
+	 * @param scale the scaling of the bugs
+	 */
 	virtual void SetScale(double scale) { mScaling = scale;};
 
-	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
-
 	void DoubleClick(GameView * view, int x, int y) override;
+
+	void SingleClick(int x, int y) override;
 
 	bool GetSquashed() override {return mSplat;}
 

@@ -25,6 +25,12 @@ BugCollection::BugCollection(Game *game, const std::wstring &filename) :
 
 }
 
+/**
+ * Sets the images for the bugs
+ * @param bugImage The image for the bug
+ * @param spriteNum The number of sprites for the bug
+ * @param splatImage The splat image for the bug
+ */
 void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstring splatImage)
 {
 	mBugImage = GetGame()->SetImage(bugImage);
@@ -35,7 +41,7 @@ void BugCollection::BugSetImage(std::wstring bugImage, int spriteNum, std::wstri
 
 /**
  * Draw this bug
- * @param dc Device context to draw on
+ * @param graphics Graphics context to draw on
  */
 void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
@@ -88,6 +94,7 @@ void BugCollection::Draw(std::shared_ptr<wxGraphicsContext> graphics)
  * move our bug. We add our speed times the amount
  * of time that has elapsed.
  * @param elapsed Time elapsed since the class call
+ * @param totalTime The total time of the game
  */
 void BugCollection::Update(double elapsed, long totalTime)
 {
@@ -135,10 +142,12 @@ void BugCollection::XmlLoad(wxXmlNode *node)
 {
 	Item::XmlLoad(node);
 
-//	node->GetAttribute(L"speedx", L"0").ToDouble(&mSpeedX);
-//	node->GetAttribute(L"speedy", L"0").ToDouble(&mSpeedY);
 }
 
+/**
+ * Set the laptop
+ * @param laptop The laptop
+ */
 void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 {
 	mLaptop = laptop;
@@ -150,6 +159,11 @@ void BugCollection::DoubleClick(GameView* view, int x, int y)
 	view->OpenDialog(L"hello world");
 }
 
+/**
+ * Indicates if the bug is single clicked on
+ * @param x the x location
+ * @param y the y location
+ */
 void BugCollection::SingleClick(int x, int y)
 {
 	SetSplat(true);

@@ -2,7 +2,7 @@
  * @file DoublePointsBug.h
  * @author rmpal
  *
- *
+ * Initialize our double point bug
  */
 
 #ifndef PROJECT1_GAMELIB_DOUBLEPOINTSBUG_H
@@ -28,6 +28,10 @@ public:
 
 	bool HitTest(int x, int y) override;
 
+	/**
+	 * Gets the type of bug
+	 * @return The DoublePointsBug type
+	 */
 	std::string GetType() override {return "DoublePointsBug";}
 
 };

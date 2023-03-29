@@ -4,6 +4,7 @@
  * @author Parker Morgan
  * @author Kaijia Zhan
  * @author Joanna Rodriguez
+ *
  * Initializes the Redundancy Fly in the game
  */
 
@@ -16,69 +17,49 @@
 
 #include "GameView.h"
 
-/**
- * Initializes the Redundancy Fly in the game
- */
 class RedundancyFly : public BugCollection
 {
 private:
 	/// The underlying fly image
 	std::unique_ptr<wxImage> mFlyBaseImage;
+
 	/// The underlying fly left wing image
 	std::unique_ptr<wxImage> mFlyLeftWingImage;
+
 	/// The underlying fly right wing image
 	std::unique_ptr<wxImage> mFlyRightWingImage;
+
 	/// The underlying fly top image
 	std::unique_ptr<wxImage> mFlyTopImage;
+
 	/// The underlying fly splat image
 	std::unique_ptr<wxImage> mFlySplat;
-	/// The bitmap we can display for this fly
+
+	/// The bitmap we can display for this flybase
 	wxGraphicsBitmap mFlyBaseBitmap;
 
+	/// The bitmap we can display for this flyleftwing
 	wxGraphicsBitmap mFlyLeftWingBitmap;
 
+	/// The bitmap we can display for this flyrightwing
 	wxGraphicsBitmap mFlyRightWingBitmap;
 
+	/// The bitmap we can display for this flytop
 	wxGraphicsBitmap mFlyTopBitmap;
 
+	/// The bitmap we can display for a splat fly
 	wxGraphicsBitmap mFlySplatBitmap;
-
-	/// Wing flapping period in seconds
-	const double WingPeriod = 0.2;
-
-/// Starting rotation angle for wings in radians
-	const double WingRotateStart = 0.0;
-
-/// End rotation angle for wings in radians
-	const double WingRotateEnd = 1.5;
-
-/// How many sets of wings does this bug have?
-	const int NumberOfSetsOfWings = 4;
-
-/// Number of virtual pixels between each of the wing sets
-	const int WingSetXOffset = 12;
-
-/// X position relative to center of bug for the first (back) wing set
-	const int FirstWingSetX = -36;
-
-/// Y position relative to center of bug for the right wings. The negative
-/// of this is the Y position for the left wings.
-	const int WingSetY = 5;
 
 	/// The game the bug is contained in
 	Game* mGame;
 
+	/// Whether it is the initial fly to spawn more flies
 	bool mInitFly = true;
 
 	/// The timer that allows for animation
 	wxTimer mTimer;
 
-	/// Stopwatch used to measure elapsed time
-	wxStopWatch mStopWatch;
-
-	/// The last stopwatch time
-	long mTime = 0;
-
+	/// Duration of elapsed time
 	double mDuration = 0;
 
 

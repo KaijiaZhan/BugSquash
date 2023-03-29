@@ -27,7 +27,7 @@ Laptop::Laptop(Game *game) : Item(game)
 
 /**
  * Draw this item
- * @param dc Device context to draw on
+ * @param graphics Graphics context to draw on
  */
 void Laptop::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
@@ -60,11 +60,21 @@ void Laptop::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 					   (GetY()-(textheight)/2));
 }
 
+/**
+ * Set the name of the laptop
+ * @param name the name of the laptop
+ */
 void Laptop::SetName(std::wstring name)
 {
 	mName = name;
 }
 
+/**
+ * Hit test the laptop
+ * @param x the x location
+ * @param y the y location
+ * @return boolean indicating if the laptop was hit
+ */
 bool Laptop::HitTest(int x, int y)
 {
 	double dx = x - GetX();

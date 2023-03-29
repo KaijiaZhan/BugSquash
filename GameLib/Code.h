@@ -1,6 +1,8 @@
 /**
  * @file Code.h
  * @author Flora Pieters
+ *
+ * Class for the code loaded from the xml
  */
 
 #ifndef PROJECT1_CODE_H

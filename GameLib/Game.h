@@ -5,6 +5,8 @@
  * @author Kaijia Zhan
  * @author Parker Morgan
  * @author Joanna Rodriguez
+ *
+ * Our game
  */
 
 
@@ -29,9 +31,6 @@ class Item;
 
 class ScoreBoard;
 
-/**
- * Class game that holds all of the items
- */
 class Game
 {
 private:
@@ -57,12 +56,16 @@ private:
 	/// boolean that sets window size
 	bool mShrinked = false;
 
+	/// The x offset for virtual pixels
 	double mXOffset = 0;
 
+	/// The y offset for virtual pixels
 	double mYOffset = 0;
 
+	/// Scaling
 	double mScale = 0;
 
+	/// The level we are on
 	int mWhatLevel = 0;
 
 	/// XML for level 0
@@ -77,10 +80,10 @@ private:
 	/// XML for level 3
 	Level mLevel3;
 
-	///Random number generator
+	/// Random number generator
 	std::mt19937 mRandom;
 
-	/// Lable for score font size to use
+	/// Label for score font size to use
 	const int LabelSize = 40;
 
 	/// The font color to use
@@ -96,12 +99,13 @@ private:
 	/// Score label Y location
 	const int ScoreLabelY = 100;
 
+	/// The elapsed time
 	double mElapsed = 0;
 
 	/// the ScoreBoard
 	ScoreBoard mScoreBoard;
 
-	// the leaderboard
+	/// the leaderboard
 	Leaderboard mLeaderboard;
 
 	/// The types of state
@@ -110,8 +114,10 @@ private:
 	/// The type of state
 	State mState =State::Start;
 
+	/// The laptop
 	std::shared_ptr<Laptop> mLaptop;
 
+	/// Vector of items to be deleted
 	std::vector<Item*> mDeleteItems;
 
 	double mLevelEnd = 0;
@@ -124,23 +130,31 @@ public:
 	Game();
 
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+
 	void Update(double elapsed, long totalTime);
+
 	std::shared_ptr<Item> HitTest(int x, int y);
 
 	void LoadLevel(int level);
 
-	/// Initializing clearing the old data
 	void Clear();
 
 	void Save(const wxString &filename);
 
-	/// Adds new bug to the game
 	void Add(std::shared_ptr<Item> item);
 
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
+	/**
+	 * Get the width of the game
+	 * @return Width the width of the game
+	 */
 	double GetWidth() const { return Width; }
 
+	/**
+	 * Get the height of the game
+	 * @return
+	 */
 	double GetHeight() const { return Height; }
 
 	/**
@@ -149,9 +163,16 @@ public:
 	*/
 	std::mt19937 &GetRandom() { return mRandom; }
 
-	/// Getter for mShrinked
+	/**
+	 * Getter to get mShrinked
+	 * @return mShrinked the boolean for shrinking the game
+	 */
 	bool GetShrink() const {return mShrinked;}
 
+	/**
+	 * Setter to set mShrinked
+	 * @param shrink the boolean that sets mShrinked
+	 */
 	void SetShrink(bool shrink) {mShrinked = shrink;}
 
 	void OnLeftDown(int x, int y);
@@ -166,8 +187,6 @@ public:
 
 	void IncreaseMissed(int add);
 
-	//void SetState(wxString state) {mState = state;}
-
 	void RedundancyFlySplit(RedundancyFly* fly);
 
 	void SetLaptop(std::shared_ptr<Laptop> laptop);
@@ -177,8 +196,6 @@ public:
 	void DeleteItem();
 
 	double GetBugsLeft();
-
-	void OnDoubleClick(wxWindow *view, int x, int y);
 
 	void MoveItemFirst(std::shared_ptr<Item> item);
 };

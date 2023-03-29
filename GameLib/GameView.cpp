@@ -12,7 +12,6 @@
 #include "RedundancyFly.h"
 #include "Laptop.h"
 #include "ids.h"
-#include "Game.h"
 
 #include <sstream>
 #include <wx/stdpaths.h>
@@ -108,14 +107,6 @@ void GameView::OnLeftUp(wxMouseEvent &event)
 }
 
 /**
-* Handle the left mouse double click event
-* @param event
-*/
-void GameView::OnLeftDoubleClick(wxMouseEvent &event)
-{
-}
-
-/**
  * Handle timer events
  * @param event timer event
  */
@@ -163,8 +154,9 @@ void GameView::OnLevel3(wxCommandEvent& event)
 }
 
 /**
-* Shrink function
-*/
+ * Shrink function
+ * @param event Menu event
+ */
 void GameView::OnShrink(wxCommandEvent& event)
 {
 	bool shrink = mGame.GetShrink();
@@ -173,14 +165,12 @@ void GameView::OnShrink(wxCommandEvent& event)
 }
 
 /**
- *
- * @param event
+ * Updates the shrink
+ * @param event Update UI event
  */
 void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
 {
-	//mGame.SetShrink(mShrinkCheck);
 	event.Check(mGame.GetShrink());
-//	mGame.SetShrink(!mGame.GetShrink());
 }
 
 /**
@@ -200,21 +190,17 @@ void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 
 /**
  * Handle the left mouse button down event
- * @param event The moust click event
+ * @param event The mouse click event
  */
 void GameView::OnLeftDown(wxMouseEvent &event)
 {
-
-//	auto mGrabbedItem = mGame.HitTest(event.GetX(), event.GetY());
-//    if (mGrabbedItem  != nullptr)
-//    {
-//        mGrabbedItem->SingleClick(event.GetX(), event.GetY());
-//        Refresh();
-//    }
-
 	mGame.OnLeftDown(event.GetX(), event.GetY());
 }
 
+/**
+ * Opens the dialog box
+ * @param text the text
+ */
 void GameView::OpenDialog(const wxString &text)
 {
 	const wxString title = L"Bug Squash IDE";

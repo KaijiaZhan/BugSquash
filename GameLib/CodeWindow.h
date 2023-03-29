@@ -16,11 +16,10 @@
 class CodeWindow: public wxDialog
 {
 private:
-	std::shared_ptr<Code> mCodeOutput;
 
-    wxTextCtrl *mText = nullptr;
+	wxString mCodeOutput;
 
-	wxButton *mButton = nullptr;
+	wxTextCtrl *mText = nullptr;
 
 public:
 	/// Default constructor (disabled)
@@ -36,9 +35,9 @@ public:
 
 	void Initialize();
 
-    //void OnClose(wxCloseEvent& event);
+	void OnClose(wxCloseEvent& event);
 
-    void OnOk(wxCommandEvent& event);
+	void OnOk(wxCommandEvent& event);
 
 };
 

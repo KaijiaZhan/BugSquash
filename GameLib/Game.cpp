@@ -14,9 +14,7 @@
 #include "Leaderboard.h"
 #include "wx/xml/xml.h"
 #include <wx/graphics.h>
-#include "BugCounter.h"
 #include "RedundancyFly.h"
-
 
 using namespace std;
 
@@ -34,12 +32,17 @@ Game::Game()
 
 /**
  * Set the directory the images are stored in
- * @param dir
+ * @param dir the directory
  */
 void Game::SetImagesDirectory(const std::wstring &dir) {
 	mResourcesDirectory = dir;
 }
 
+/**
+ * Sets the images for all items and caches them
+ * @param imageName the name of the image
+ * @return a wxImage pointer of the item image
+ */
 std::shared_ptr<wxImage> Game::SetImage(std::wstring imageName)
 {
 	auto image = mImage.find(imageName);
@@ -58,7 +61,9 @@ std::shared_ptr<wxImage> Game::SetImage(std::wstring imageName)
 
 /**
  * Draw the game
- * @param dc The device context to draw on
+ * @param graphics Graphics context to draw on
+ * @param width The width o the game
+ * @param height The height of the game
  */
 void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
 {
@@ -144,12 +149,12 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 
 
 /**
- * Handle updates for animation
- * @param elapsed The time since the last update
+ * Handle game animation
+ * @param elapsed The elapsed time
+ * @param totalTime The total time of the game
  */
 void Game::Update(double elapsed, long totalTime)
 {
-
 
 	mElapsed += elapsed;
 	for (auto item : mItems)
@@ -157,10 +162,6 @@ void Game::Update(double elapsed, long totalTime)
 		item->Update(elapsed, mElapsed);
 	}
 	DeleteItem();
-	BugCounter visitor;
-	for (auto item:mItems){
-		item->Accept(&visitor);
-	}
 
 	if (mElapsed < levelStartDuration)
 	{
@@ -224,6 +225,10 @@ void Game::Update(double elapsed, long totalTime)
 	DeleteItem();
 }
 
+/**
+ * Keeps track of how many bugs are left in the level
+ * @return double of how many bugs are left
+ */
 double Game::GetBugsLeft()
 {
 	double total = mItems.size();
@@ -262,7 +267,7 @@ std::shared_ptr<Item> Game::HitTest(int x, int y)
 }
 
 /**
- * Load level
+ * Load level that is clicked on in menu bar
  * @param level the level number
  */
 void Game::LoadLevel(int level)
@@ -320,8 +325,9 @@ void Game::Clear()
 }
 
 /**
-* @param filename The filename of the file to save the game to
-*/
+ * Save the game
+ * @param filename The filename to save the game to
+ */
 void Game::Save(const wxString &filename)
 {
 	wxXmlDocument xmlDoc;
@@ -392,6 +398,10 @@ void Game::OnLeftDown(int x, int y)
 
 }
 
+/**
+ * Moves the item to the front of the mItems vector
+ * @param item The item
+ */
 void Game::MoveItemFirst(std::shared_ptr<Item> item){
 	auto loc = find(begin(mItems), end(mItems), item);
 	if (loc != end(mItems))
@@ -401,12 +411,21 @@ void Game::MoveItemFirst(std::shared_ptr<Item> item){
 	mItems.insert(mItems.begin(), item);
 }
 
+/**
+ * Adds to the fixed score
+ * @param add The number to add to the fixed score
+ */
 void Game::IncreaseFix(int add)
 {
 	double fixed = mScoreBoard.GetFixed();
 	fixed += add;
 	mScoreBoard.SetFixed(fixed);
 }
+
+/**
+ * Adds to the oops score
+ * @param add The number to add to the oops score
+ */
 void Game::IncreaseOops(int add)
 {
 	double oops = mScoreBoard.GetOops();
@@ -414,6 +433,10 @@ void Game::IncreaseOops(int add)
 	mScoreBoard.SetOops(oops);
 }
 
+/**
+ * Adds to the missed score
+ * @param add The number to add to the missed score
+ */
 void Game::IncreaseMissed(int add)
 {
 	double miss = mScoreBoard.GetMissed();
@@ -421,6 +444,10 @@ void Game::IncreaseMissed(int add)
 	mScoreBoard.SetMissed(miss);
 }
 
+/**
+ * Multiplies the redundancy flies
+ * @param fly A fly
+ */
 void Game::RedundancyFlySplit(RedundancyFly* fly)
 {
 	// Amount of flies to appear after clicking bug
@@ -446,20 +473,27 @@ void Game::RedundancyFlySplit(RedundancyFly* fly)
 	}
 }
 
+/**
+ * Set the laptop in game
+ * @param laptop The laptop
+ */
 void Game::SetLaptop(std::shared_ptr<Laptop> laptop)
 {
 	mLaptop = laptop;
 }
 
+/**
+ * Pushes back items that are o be deleted into vector
+ * @param item The items pending delete
+ */
 void Game::ToDelete(Item* item)
 {
 	mDeleteItems.push_back(item);
 }
 
-/**  Delete an item from the game
-*
-* @param item The item to delete.
-*/
+/**
+ * Delete the to be deleted item from the mItems
+ */
 void Game::DeleteItem()
 {
 	for (auto item : mDeleteItems)
@@ -471,10 +505,6 @@ void Game::DeleteItem()
 				break;
 			}
 		}
-//        if (count < mItems.size())
-//        {
-//            mItems.erase(mItems.begin() + count);
-//        }
 	}
 	mDeleteItems.clear();
 }

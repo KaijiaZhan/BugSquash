@@ -2,16 +2,12 @@
  * @file ScoreBoard.h
  * @author Joanna Rodriguez
  * @author Kaijia Zhan
- * Initializes the score board for the game
+ *
+ * Initializes the scoreboard for the game
  */
 
 #ifndef PROJECT1_GAMELIB_SCOREBOARD_H
 #define PROJECT1_GAMELIB_SCOREBOARD_H
-
-/**
-* Initializes the score board for the game
-*/
-
 
 class ScoreBoard
 {
@@ -25,70 +21,94 @@ private:
 	///Bug missed header for the game
 	int mMissed = 0;
 
+	/// Game area in virtual pixels
+	const static int Width = 1250;
 
-    /// Game area in virtual pixels
-    const static int Width = 1250;
+	/// Game area height in virtual pixels
+	const static int Height = 1000;
 
-    /// Game area height in virtual pixels
-    const static int Height = 1000;
+	/// Scale to shrink to when in shrink mode
+	const double ShrinkScale = 0.75;
 
-    /// Scale to shrink to when in shrink mode
-    const double ShrinkScale = 0.75;
+	/// boolean that sets window size
+	bool mShrinked = true;
 
-    /// boolean that sets window size
-    bool mShrinked = true;
+	/// The x offset for virtual pixels
+	double mXOffset = 0;
 
-    double mXOffset = 0;
+	/// The y offset for virtual pixels
+	double mYOffset = 0;
 
-    double mYOffset = 0;
+	/// The scaling for virtual pixels
+	double mScale = 0;
 
-    double mScale = 0;
+	/// Lable for score font size to use
+	const int LabelSize = 40;
 
-    /// Lable for score font size to use
-    const int LabelSize = 40;
+	/// The font color to use
+	const wxColour FontColor = wxColour(0, 200, 200);
 
-    /// The font color to use
-    const wxColour FontColor = wxColour(0, 200, 200);
+	/// Left score X location. The right score is
+	/// the width minus this value.
+	const int LeftScoreX = 150;
 
-    /// Left score X location. The right score is
-    /// the width minus this value.
-    const int LeftScoreX = 150;
+	/// Score Y location
+	const int ScoreY = 20;
 
-    /// Score Y location
-    const int ScoreY = 20;
-
-    /// Score label Y location
-    const int ScoreLabelY = 100;
+	/// Score label Y location
+	const int ScoreLabelY = 100;
 
 public:
-    /**
+	/**
 	 * Get fixed score
-	 * @return fixed score
+	 * @return fixed the fixed score
 	 */
-    double GetFixed() const { return mFixed; }
+	double GetFixed() const { return mFixed; }
 
+	/**
+	 * Set fixed score
+	 * @param fixed the fixed score
+	 */
 	void SetFixed(double fixed) {mFixed = fixed;}
 
-    /**
+	/**
 	 * Get oops
-	 * @return oops number
+	 * @return oops score
 	 */
-    double GetOops() const { return mOops; }
+	double GetOops() const { return mOops; }
 
+	/**
+	 * Set oops score
+	 * @param oops the oops score
+	 */
 	void SetOops(double oops) {mOops = oops;}
 
-    /**
+	/**
 	 * Get missed
-	 * @return missed number
+	 * @return missed score
 	 */
-    double GetMissed() const { return mMissed; }
+	double GetMissed() const { return mMissed; }
 
+	/**
+	 * Set missed score
+	 * @param missed The missed score
+	 */
 	void SetMissed(double missed) {mMissed = missed;}
 
+	/**
+	 * Draw the fixed area for scoreboard
+	 * @param graphics Graphics context to draw on
+	 * @param width The width
+	 * @param height The height
+	 */
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 	void Reset();
 
+	/**
+	 * Getting the scores
+	 * @return (mFixed - mOops)
+	 */
 	int GetScore() {return (mFixed - mOops);}
 
 };

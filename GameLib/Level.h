@@ -2,6 +2,7 @@
  * @file Level.h
  * @author Courtney Thang
  * @author Kaijia Zhan
+ *
  * Initializes the level base class where all levels are derived from.
  *
  */
@@ -15,28 +16,29 @@ class Laptop;
 class Game;
 class Item;
 
-/**
- * Initializes the level base class where all levels are derived from.
- */
 class Level
 {
 private:
 
-	/// Ask if this needs to be initialized to something
+	/// Pointer to the game
 	Game* mGame;
 
 	/// All of the items in level
 	std::vector<std::shared_ptr<Item>> mLevelItems;
 
-	///Random number generator
+	/// Random number generator
 	std::mt19937 mRandom;
 
+	/// Time loaded in from the levels
 	double mTimeLoaded;
 
+	/// The name of the level
 	std::string mLevelName;
 
+	/// The current time in the game
 	double mCurrentTime;
 
+	/// The name that is displayed on top of the laptop
 	std::wstring mProgramName;
 
 public:
@@ -60,8 +62,6 @@ public:
 	std::mt19937 &GetRandom() { return mRandom; }
 
 	void Clear();
-
-	//
 
 	void Update(double elapsed);
 

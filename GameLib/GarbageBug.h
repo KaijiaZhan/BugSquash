@@ -4,7 +4,7 @@
  * @author Flora Pieters
  * @author Joanna Rodriguez
  *
- * Header for bug type Garbage Bug
+ * Initializing the garbage bug in our game
  */
 
 #ifndef PROJECT1_COPY_GAMELIB_GARBAGEBUG_H
@@ -12,10 +12,6 @@
 
 #include "GameView.h"
 #include "BugCollection.h"
-
-/**
- * Class for type GarbageBug
- */
 
 class GarbageBug : public BugCollection
 {

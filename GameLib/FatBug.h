@@ -4,6 +4,8 @@
  * @author Kaijia Joanna Zhan
  * @author Parker Morgan
  * @author Joanna Rodriguez
+ *
+ * Initialize our fat bug
  */
 
 #ifndef PROJECT1_GAMELIB_FATBUG_H
@@ -12,15 +14,9 @@
 #include "GameView.h"
 #include "BugCollection.h"
 
-/**
- * Class for type Fatbug
- */
 class FatBug : public BugCollection
 {
 private:
-	wxXmlNode mFatBugCode;
-
-    std::shared_ptr<Code> mCodeFatBug;
 
 public:
 	/// Default constructor (disabled)
@@ -37,9 +33,9 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-	void OpenWindow(int x); //temp parameter
+	void OpenWindow(int x);
 
-	void DoubleClick(wxWindow * view, int x, int y) override;
+	void DoubleClick(wxMouseEvent &event);
 
 	void SingleClick(int x, int y) override;
 

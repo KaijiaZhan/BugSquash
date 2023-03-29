@@ -4,7 +4,6 @@
  * @author Flora Pieters
  * @author Courtney Thang
  *
- * Source file for NullBug
  */
 
 #include  "pch.h"
