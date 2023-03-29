@@ -18,7 +18,9 @@
 class FatBug : public BugCollection
 {
 private:
+	wxXmlNode mFatBugCode;
 
+    std::shared_ptr<Code> mCodeFatBug;
 
 public:
 	/// Default constructor (disabled)
@@ -37,7 +39,7 @@ public:
 
 	void OpenWindow(int x); //temp parameter
 
-	void DoubleClick(wxMouseEvent &event);
+	void DoubleClick(wxWindow * view, int x, int y) override;
 
 	void SingleClick(int x, int y) override;
 
