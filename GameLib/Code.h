@@ -10,16 +10,17 @@
 
 #include "Game.h"
 
-class Code {
+class Code 
+{
 private:
 
-	/// the code to fix from xml
+	/// The code from the xml file that needs to be fixed by user 
 	wxString mCodeInput;
 
-	/// finalized user input code
+	/// Finalized user input code
 	wxString mCodeValid;
 
-	/// the correct code needed to pass from xml
+	/// The regular expression from xml file tha will determine correct Code
 	wxString mPass;
 
 
@@ -27,6 +28,7 @@ public:
     /// Default constructor (disabled)
     Code() = default;
 
+    /// Constructor
     Code(wxXmlNode *pNode);
 
     /// Copy constructor (disabled)
@@ -35,12 +37,16 @@ public:
     /// Assignment operator
     void operator=(const Code &) = delete;
     
+    /// Determines if Code is valid based on regular expression
     bool CompareCodes();
 
+    /// Setter for mCodeValid 
     virtual void SetCode(wxString code) { mCodeValid = code; };
 
+    /// Getter for mCodeValid 
     wxString GetCodeValid() { return mCodeValid; };
 
+    /// Getter for mCodeInput
     wxString GetCodeInput() { return mCodeInput; };
 
 
