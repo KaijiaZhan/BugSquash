@@ -44,6 +44,9 @@ bool NullBug::HitTest(int x, int y)
 	return sqrt(dx * dx + dy * dy) < GetHitRange();
 }
 
+/*
+ * Squashes NullBug when clicked on
+ */
 void NullBug::SingleClick(int x, int y)
 {
 	SetSplat(true);
