@@ -11,7 +11,6 @@
 
 #include "GameView.h"
 #include "BugCollection.h"
-#include <wx/string.h>
 
 /**
  * Class for type Fatbug
