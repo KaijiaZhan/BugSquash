@@ -13,8 +13,6 @@
 
 #include "Game.h"
 #include "BugCollection.h"
-
-
 #include "GameView.h"
 
 class RedundancyFly : public BugCollection
@@ -73,18 +71,25 @@ public:
 	/// Assignment operator
 	void operator=(const RedundancyFly &) = delete;
 
+	/// Constructor
 	RedundancyFly(Game *game);
 
+	/// Draw function
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
+	/// Saves Xml
 	wxXmlNode* XmlSave(wxXmlNode* node) override;
 
+	/// HitTest for Redundancy
 	bool HitTest(int x, int y) override;
 
+	/// SingleClick function for Redundancy 
 	void SingleClick(int x, int y) override;
 
+	/// Sets the initial redundancy fly
 	void setInit(bool init);
 
+	/// Updates elapsed time for redundancy fly
 	void Update(double elapsed, long totalTime) override;
 
 
