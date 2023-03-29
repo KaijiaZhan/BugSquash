@@ -14,9 +14,8 @@
 using namespace std;
 
 /**
- * Constructor
- * @param game The game this item is a member of
- * @param filename that the item is taking the image of
+ * Item constructor
+ * @param game
  */
 Item::Item(Game *game) : mGame(game)
 {

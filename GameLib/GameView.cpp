@@ -26,8 +26,8 @@ using namespace std;
 const int FrameDuration = 30;
 
 /**
- * Constructor
- * @param parent Pointer to wxFrame object, the main frame for the application
+ * Initializing game view
+ * @param mainFrame
  */
 void GameView::Initialize(wxFrame* mainFrame)
 {

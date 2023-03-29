@@ -98,13 +98,7 @@ public:
 	 */
 	void SetMissed(double missed) {mMissed = missed;}
 
-	/**
-	 * Draw the fixed area for scoreboard
-	 * @param graphics Graphics context to draw on
-	 * @param width The width
-	 * @param height The height
-	 */
-	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics);
 
 	/**
 	 * Resets the member variables to 0

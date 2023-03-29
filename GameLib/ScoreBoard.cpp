@@ -10,11 +10,9 @@
 
 /**
  * Draw the ScoreBoard
- * @param graphics The graphics context to draw on
- * @param width The width
- * @param height The height
+ * @param graphics
  */
-void ScoreBoard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
+void ScoreBoard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics)
 {
 
     wxFont font(LabelSize,

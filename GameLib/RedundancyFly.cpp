@@ -168,6 +168,13 @@ void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 	}
 }
 
+/**
+ * Saving the XmlNode type of Redundancy fly
+ * @param node wxXmlNode * type
+ * @return wxXmlNode*
+ *
+ */
+
 wxXmlNode* RedundancyFly::XmlSave(wxXmlNode* node)
 {
 	auto itemNode = Item::XmlSave(node);

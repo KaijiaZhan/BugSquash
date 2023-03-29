@@ -147,6 +147,10 @@ public:
 
 	void Add(std::shared_ptr<Item> item);
 
+	/**
+	 * Setting what level and getting what level items
+	 * @param levelItems
+	 */
 	void SetLevel(std::vector<std::shared_ptr<Item>> levelItems) {mItems = levelItems;}
 
 	/**

@@ -54,8 +54,16 @@ public:
 
 	void Reset();
 
+	/**
+	 * Setting whether the game is active or not
+	 * @param active
+	 */
 	void SetActive(bool active) {mActive = active;}
 
+	/**
+	 * Getting whether the game is active or not
+	 * @return mActive boolean
+	 */
 	bool GetActive() {return mActive;}
 
 	void AssessPlayerScore(int score);

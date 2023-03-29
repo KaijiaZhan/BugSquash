@@ -100,7 +100,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		item->Draw(graphics);
 	}
-	mScoreBoard.OnDraw(graphics, width, height);
+	mScoreBoard.OnDraw(graphics);
 
 
 	if (mState == State::Start)
