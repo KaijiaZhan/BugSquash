@@ -2,6 +2,7 @@
  * @file CodeWindow.cpp
  * @author Parker Morgan
  * @author Flora Pieters
+ * @author Kaijia Zhan
  */
 
 #include "pch.h"
@@ -12,11 +13,11 @@
 using namespace std;
 
 /**
- * Constructor
- * @param parent the window
- * @param code the code from the xml
+ * Constructor for code window
+ * @param parent this is the parent window
+ * @param code from the bugs xml code
  */
-CodeWindow::CodeWindow(wxWindow *parent, shared_ptr<Code> code) :
+CodeWindow::CodeWindow(wxWindow *parent, std::shared_ptr<Code> code) :
 	wxDialog(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition, wxSize(600, 600), wxDEFAULT_DIALOG_STYLE)
 {
 	mCodeOutput = code;

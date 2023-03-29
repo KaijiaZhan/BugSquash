@@ -2,7 +2,7 @@
  * @file CodeWindow.h
  * @author Parker Morgan
  * @author Flora Pieters
- *
+ * @author Kaijia Zhan
  */
 
 #include <wx/string.h>
@@ -37,11 +37,6 @@ public:
 	/// Assignment operator
 	void operator=(const CodeWindow &) = delete;
 
-	/**
-	 * Constructor
-	 * @param parent the parent game view
-	 * @param code the pointer to the code
-	 */
 	CodeWindow(wxWindow *parent, std::shared_ptr<Code> code);
 
 	/// Initializes CodeWindow
