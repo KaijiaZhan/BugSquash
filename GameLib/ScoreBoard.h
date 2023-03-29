@@ -103,6 +103,9 @@ public:
 	 */
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
+	/**
+	 * Resets the member variables to 0
+	 */
 	void Reset();
 
 	/**
