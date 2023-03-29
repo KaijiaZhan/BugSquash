@@ -34,6 +34,8 @@ public:
 	 */
 	std::string GetType() override {return "DoublePointsBug";}
 
+	void SingleClick(int x, int y) override;
+
 };
 
 #endif //PROJECT1_GAMELIB_DOUBLEPOINTSBUG_H

@@ -153,19 +153,7 @@ void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 	mLaptop = laptop;
 }
 
-void BugCollection::DoubleClick(GameView* view, int x, int y)
+void BugCollection::DoubleClick(wxWindow* view, int x, int y)
 {
-	// if fatbug
-	view->OpenDialog(L"hello world");
-}
 
-/**
- * Indicates if the bug is single clicked on
- * @param x the x location
- * @param y the y location
- */
-void BugCollection::SingleClick(int x, int y)
-{
-	SetSplat(true);
-	BugCollection::SetSpeed(0);
 }

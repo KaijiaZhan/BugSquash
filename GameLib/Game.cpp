@@ -509,3 +509,17 @@ void Game::DeleteItem()
 	mDeleteItems.clear();
 }
 
+void Game::OnDoubleClick(wxWindow *view, int x, int y)
+{
+	double oX = (x - mXOffset) / mScale;
+	double oY = (y - mYOffset) / mScale;
+
+	auto item = Game::HitTest(oX, oY);
+
+	if (item != nullptr)
+	{
+		item->DoubleClick(view, oX, oY);
+	}
+
+}
+

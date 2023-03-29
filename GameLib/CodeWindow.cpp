@@ -5,15 +5,17 @@
 
 #include "pch.h"
 #include "CodeWindow.h"
+#include "Code.h"
 
 #include <string>
 
 using namespace std;
 
-CodeWindow::CodeWindow(wxWindow *parent, const wxString &title, const wxString &code) :
-wxDialog(parent, -1, title)
+CodeWindow::CodeWindow(wxWindow *parent, shared_ptr<Code> code) :
+	wxDialog(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition, wxSize(600, 600), wxDEFAULT_DIALOG_STYLE)
 {
-//	mCode = code;
+	mCodeOutput = code;
+	Initialize();
 }
 
 /**
@@ -21,25 +23,19 @@ wxDialog(parent, -1, title)
  */
 void CodeWindow::Initialize()
 {
-    Create(nullptr,wxID_ANY, L"Bug Squash IDE",wxDefaultPosition, wxSize(600,600 ));
-    auto sizer = new wxBoxSizer( wxVERTICAL );
-    mText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(20,20), wxTE_MULTILINE);
-    sizer->Add(mText, 1, wxALIGN_CENTER, 6);
-    SetSizerAndFit(sizer);
-    Layout();
+	//Create(nullptr,wxID_ANY, L"Bug Squash IDE",wxDefaultPosition, wxSize(600,600 ));
+	this->SetSizeHints(wxDefaultSize, wxDefaultSize);
+	auto sizer = new wxBoxSizer( wxVERTICAL );
+	mText = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
+	mText->AppendText(mCodeOutput->GetCodeInput());
+	sizer->Add(mText, 1, wxALIGN_LEFT | wxALL | wxEXPAND, 6);
 
-    Bind(wxEVT_CLOSE_WINDOW, &CodeWindow::OnClose, this);
-    auto okbutton = new wxButton(this, wxID_ANY,L"Ok", wxPoint(200, 300));
-    okbutton->Bind(wxEVT_BUTTON, &CodeWindow::OnOk, this);
-
-}
-
-/**
- * Close menu option handlers
- * @param event
- */
-void CodeWindow::OnClose(wxCloseEvent& event)
-{
+	//Bind(wxEVT_CLOSE_WINDOW, &CodeWindow::OnClose, this);
+	mButton = new wxButton(this, wxID_ANY,L"OK", wxDefaultPosition, wxDefaultSize, 0);
+	sizer->Add(mButton, 1, wxALIGN_CENTER_HORIZONTAL | wxALL, 6);
+	this->SetSizer(sizer);
+	this->Layout();
+	mButton->Bind(wxEVT_BUTTON, &CodeWindow::OnOk, this);
 
 }
 
@@ -49,5 +45,6 @@ void CodeWindow::OnClose(wxCloseEvent& event)
  */
 void CodeWindow::OnOk(wxCommandEvent& event)
 {
-
+	mCodeOutput->SetCode(mText->GetValue().ToStdWstring());
+	Close();
 }

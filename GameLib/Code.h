@@ -12,9 +12,15 @@
 
 class Code {
 private:
-    wxString mCodeInput;
 
-    wxString mCodeValid;
+	/// the code to fix from xml
+	wxString mCodeInput;
+
+	/// finalized user input code
+	wxString mCodeValid;
+
+	/// the correct code needed to pass from xml
+	wxString mPass;
 
 
 public:

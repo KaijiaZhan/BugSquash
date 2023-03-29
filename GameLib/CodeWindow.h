@@ -10,6 +10,8 @@
 #ifndef PROJECT1_GAMELIB_CODEWINDOW_H
 #define PROJECT1_GAMELIB_CODEWINDOW_H
 
+class Code;
+
 /**
  * Class that is our CodeWindow
  */
@@ -17,9 +19,11 @@ class CodeWindow: public wxDialog
 {
 private:
 
-	wxString mCodeOutput;
+	std::shared_ptr<Code> mCodeOutput;
 
 	wxTextCtrl *mText = nullptr;
+
+	wxButton *mButton = nullptr;
 
 public:
 	/// Default constructor (disabled)
@@ -31,11 +35,9 @@ public:
 	/// Assignment operator
 	void operator=(const CodeWindow &) = delete;
 
-	CodeWindow(wxWindow *parent, const wxString &title, const wxString &code);
+	CodeWindow(wxWindow *parent, std::shared_ptr<Code> text);
 
 	void Initialize();
-
-	void OnClose(wxCloseEvent& event);
 
 	void OnOk(wxCommandEvent& event);
 

@@ -18,6 +18,10 @@ class FatBug : public BugCollection
 {
 private:
 
+	wxXmlNode mFatBugCode;
+
+	std::shared_ptr<Code> mCodeFatBug;
+
 public:
 	/// Default constructor (disabled)
 	FatBug() = delete;
@@ -29,15 +33,13 @@ public:
 	void operator=(const FatBug &) = delete;
 
 	/// Constructor 
-	FatBug(Game* game, std::wstring bugType);
+	FatBug(Game *game, std::wstring bugType, wxXmlNode *node);
 
 	bool HitTest(int x, int y) override;
 
 	void OpenWindow(int x);
 
-	void DoubleClick(wxMouseEvent &event);
-
-	void SingleClick(int x, int y) override;
+	void DoubleClick(wxWindow * view, int x, int y) override;
 
 	std::string GetType() override {return "FatBug";}
 

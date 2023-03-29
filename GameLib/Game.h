@@ -198,6 +198,8 @@ public:
 	double GetBugsLeft();
 
 	void MoveItemFirst(std::shared_ptr<Item> item);
+
+	void OnDoubleClick(wxWindow *view, int x, int y);
 };
 
 #endif //PROJECT1_GAMELIB_GAME_H

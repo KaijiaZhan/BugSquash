@@ -32,7 +32,7 @@ public:
 
 	bool HitTest(int x, int y) override;
 
-
+	void SingleClick(int x, int y) override;
 
 };
 

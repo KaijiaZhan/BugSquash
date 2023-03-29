@@ -132,7 +132,7 @@ public:
 	 * @param x X location in the aquarium of the double-click
 	 * @param y Y location in the aquarium of the double-click
 	 */
-	virtual void DoubleClick(GameView* view, int x, int y) {}
+	virtual void DoubleClick(wxWindow* view, int x, int y) {}
 
 	/**
 	 * Getter to get the game pointer

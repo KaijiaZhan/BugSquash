@@ -9,6 +9,8 @@
 #include "pch.h"
 #include "FatBug.h"
 #include "BugCollection.h"
+#include "Code.h"
+#include "CodeWindow.h"
 #include <wx/event.h>
 #include <string>
 
@@ -42,7 +44,7 @@ const double FatBugSize = 1.25;
  * Constructor
  * @param game Game this bug is a member of
  */
-FatBug::FatBug(Game *game, std::wstring bugType) : BugCollection(game, GarbageBugSpriteImageName)
+FatBug::FatBug(Game *game, std::wstring bugType, wxXmlNode *node) : BugCollection(game, GarbageBugSpriteImageName)
 {
 	SetScale(1.25);
 	if (bugType =="null")
@@ -52,6 +54,15 @@ FatBug::FatBug(Game *game, std::wstring bugType) : BugCollection(game, GarbageBu
 	else if (bugType == "garbage")
 	{
 		BugCollection::BugSetImage(GarbageBugSpriteImageName, GarbageBugNumSpriteImages, GarbageBugSplatImageName);
+	}
+
+	auto child = node->GetChildren();
+	for( ; child; child=child->GetNext())
+	{
+		auto name = child->GetName();
+		if (name == "code") {
+			mCodeFatBug = make_shared<Code>(child);
+		}
 	}
 }
 
@@ -78,9 +89,23 @@ void FatBug::OpenWindow(int x) // temp parameter
 	//dlg.ShowModal();
 }
 
-///Function to call OpenWindow if Fat Bug is double clicked
-
-void FatBug::SingleClick(int x, int y)
+void FatBug::DoubleClick(wxWindow* view, int x, int y)
 {
+	if (GetSplat()) {
+		return;
+	}
+	//view->SetFrozen(true);
+
+	CodeWindow dialog(view, mCodeFatBug);
+	dialog.ShowModal();
+
+	bool passes = mCodeFatBug->CompareCodes();
+
+	if (passes)
+	{
+		SetSplat(true);
+		FatBug::SetSpeed(0);
+	}
+
 }
 

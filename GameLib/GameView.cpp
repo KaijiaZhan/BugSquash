@@ -12,6 +12,7 @@
 #include "RedundancyFly.h"
 #include "Laptop.h"
 #include "ids.h"
+#include "Code.h"
 
 #include <sstream>
 #include <wx/stdpaths.h>
@@ -43,7 +44,6 @@ void GameView::Initialize(wxFrame* mainFrame)
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
-	Bind(wxEVT_LEFT_UP, &GameView::OnLeftUp, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnMouseDoubleClick, this);
 	Bind(wxEVT_TIMER, &GameView::OnTimer, this);
 
@@ -96,14 +96,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
-}
-
-/**
-* Handle the left mouse button down event
-* @param event
-*/
-void GameView::OnLeftUp(wxMouseEvent &event)
-{
 }
 
 /**
@@ -179,13 +171,9 @@ void GameView::OnShrinkUpdate(wxUpdateUIEvent& event)
  */
 void GameView::OnMouseDoubleClick(wxMouseEvent& event)
 {
-	mGrabbedItem = mGame.HitTest(event.GetX(), event.GetY());
-	if(mGrabbedItem != nullptr)
-	{
-		// We have double-clicked on a bug, want the window to appear
-		mGrabbedItem->DoubleClick(this, event.GetX(), event.GetY());
-		Refresh();
-	}
+	mFrozen = true;
+	mGame.OnDoubleClick(this, event.GetX(), event.GetY());
+	mFrozen = false;
 }
 
 /**
@@ -203,9 +191,14 @@ void GameView::OnLeftDown(wxMouseEvent &event)
  */
 void GameView::OpenDialog(const wxString &text)
 {
-	const wxString title = L"Bug Squash IDE";
-	CodeWindow dialog(this, title, text);
+	Level l;
+	l.GetLevel();
+	std::vector<std::shared_ptr<Item>> listItems = l.GetLevel();
+
+
+	//CodeWindow dialog(this, l.fatBug);
+
 	mFrozen = true;
-	dialog.ShowModal();
+//	dialog.ShowModal();
 	mFrozen = false;
 }

@@ -13,6 +13,7 @@
 #include "Laptop.h"
 #include "Feature.h"
 #include "DoublePointsBug.h"
+#include "Code.h"
 
 using namespace std;
 
@@ -115,7 +116,7 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetStartTime(starttime);
 			if (node->GetChildren())
 			{
-				item = make_shared<FatBug>(mGame,L"garbage");
+				item = make_shared<FatBug>(mGame,L"garbage", node);
 				item->SetLocation(x,y);
 				item->SetSpeed(speed);
 				item->SetStartTime(starttime);
@@ -131,7 +132,7 @@ void Level::XmlItem(wxXmlNode *node, Game * game, shared_ptr<Laptop> parent)
 			item->SetStartTime(starttime);
 			if (node->GetChildren() && node->GetChildren()->GetName() == L"code")
 			{
-				item = make_shared<FatBug>(mGame,L"null");
+				item = make_shared<FatBug>(mGame,L"null", node);
 				item->SetLocation(x,y);
 				item->SetSpeed(speed);
 				item->SetStartTime(starttime);
