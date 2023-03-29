@@ -43,7 +43,10 @@ public:
     /// Assignment operator
     void operator=(const Code &) = delete;
     
-    /// Determines if Code is valid based on regular expression
+    /**
+     * Compares the input code with the correct answer
+     * @return a boolean to indicate if they match
+     */
     bool CompareCodes();
 
 	/**
@@ -52,10 +55,10 @@ public:
 	 */
     virtual void SetCode(wxString code) { mCodeValid = code; };
 
-    /// Getter for mCodeValid
-    wxString GetCodeValid() { return mCodeValid; };
-
-    /// Getter for mCodeInput
+    /**
+     * Getter to get the input code
+     * @return mCodeInput the input code
+     */
     wxString GetCodeInput() { return mCodeInput; };
 
 
