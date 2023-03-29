@@ -99,9 +99,8 @@ public:
 	void XmlLoad(wxXmlNode *node) override;
 
 	/**
-	 * Set the item speed
-	 * @param x SpeedX*x in pixels
-	 * @param y SpeedY*y in pixels
+	 * Set the x and y speeds of the bugs
+	 * @param speed the speed of the bugs
 	 */
 	void SetSpeed(double speed) override { mSpeedX = speed, mSpeedY = speed; }
 
@@ -147,6 +146,10 @@ public:
 	 */
 	std::string GetType() override {return "Bug";}
 
+	/**
+	 * Getter to get the laptop
+	 * @return mLaptop the laptop pointer
+	 */
 	std::shared_ptr<Laptop> GetLaptop() { return mLaptop; }
 
 	/**
@@ -155,6 +158,10 @@ public:
 	 */
 	virtual void SetScale(double scale) { mScaling = scale;};
 
+	/**
+	 * Getter to get the squash boolean
+	 * @return mSplat the boolean that determines if bug is squashed
+	 */
 	bool GetSquashed() override {return mSplat;}
 
 };

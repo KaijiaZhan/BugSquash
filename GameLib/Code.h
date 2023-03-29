@@ -31,7 +31,10 @@ public:
     /// Default constructor (disabled)
     Code() = default;
 
-    /// Constructor
+    /**
+     * Constructor
+     * @param pNode the node for the code
+     */
     Code(wxXmlNode *pNode);
 
     /// Copy constructor (disabled)
