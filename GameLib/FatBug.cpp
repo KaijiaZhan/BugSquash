@@ -9,6 +9,8 @@
 #include "pch.h"
 #include "FatBug.h"
 #include "BugCollection.h"
+#include "CodeWindow.h"
+#include "Code.h"
 #include <wx/event.h>
 #include <string>
 
@@ -53,6 +55,14 @@ FatBug::FatBug(Game *game, std::wstring bugType) : BugCollection(game, GarbageBu
 	{
 		BugCollection::BugSetImage(GarbageBugSpriteImageName, GarbageBugNumSpriteImages, GarbageBugSplatImageName);
 	}
+	auto child = node->GetChildren();
+    for( ; child; child=child->GetNext())
+    {
+        auto name = child->GetName();
+        if (name == "code") {
+            mCodeFatBug = make_shared<Code>(child);
+        }
+    }
 }
 
 /**
