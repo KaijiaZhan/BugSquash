@@ -8,6 +8,12 @@
 #include "ScoreBoard.h"
 #include <wx/graphics.h>
 
+/**
+ * Draw the ScoreBoard
+ * @param graphics The graphics context to draw on
+ * @param width The width
+ * @param height The height
+ */
 void ScoreBoard::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height)
 {
 
