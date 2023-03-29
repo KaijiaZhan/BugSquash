@@ -9,10 +9,10 @@
 #ifndef PROJECT1_GAMELIB_BUGCOLLECTION_H
 #define PROJECT1_GAMELIB_BUGCOLLECTION_H
 
-#include "Game.h"
 #include "Item.h"
 #include "BugCounter.h"
 #include "Laptop.h"
+#include "CodeWindow.h"
 
 class Game;
 
@@ -143,8 +143,6 @@ public:
 	void Accept(BugCounter* visitor) override {visitor->VisitBugCollection(this);}
 
 	void DoubleClick(GameView * view, int x, int y) override;
-
-	void SingleClick(int x, int y) override;
 
 	bool GetSquashed() override {return mSplat;}
 
