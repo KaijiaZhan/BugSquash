@@ -38,7 +38,7 @@ public:
 	void operator=(const CodeWindow &) = delete;
 
 	/// Constructor
-	CodeWindow(wxWindow *parent, std::shared_ptr<Code> text);
+	CodeWindow(wxWindow *parent, std::shared_ptr<Code> code);
 
 	/// Initializes CodeWindow
 	void Initialize();

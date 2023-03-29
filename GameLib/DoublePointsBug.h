@@ -10,6 +10,9 @@
 
 #include "BugCollection.h"
 
+/**
+ * Initialize our double point bug derived from BugCollection
+ */
 class DoublePointsBug : public BugCollection
 {
 private:

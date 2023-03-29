@@ -14,6 +14,9 @@
 #include "GameView.h"
 #include "BugCollection.h"
 
+/**
+ * Initialize our fatbug derived from BugCollection
+ */
 class FatBug : public BugCollection
 {
 private:

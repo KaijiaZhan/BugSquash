@@ -31,6 +31,9 @@ class Item;
 
 class ScoreBoard;
 
+/**
+ * Initialize our game
+ */
 class Game
 {
 private:

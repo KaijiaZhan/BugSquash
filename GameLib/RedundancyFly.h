@@ -15,6 +15,9 @@
 #include "BugCollection.h"
 #include "GameView.h"
 
+/**
+ * Initializes the Redundancy Fly in the game dervied from BugCollection
+ */
 class RedundancyFly : public BugCollection
 {
 private:

@@ -2,7 +2,7 @@
  * @file Leaderboard.h
  * @author rmpal
  *
- *
+ * Creates our leaderboard for the game
  */
 
 #ifndef PROJECT1_GAMELIB_LEADERBOARD_H
@@ -12,6 +12,9 @@
 #include <string>
 #include "Player.h"
 
+/**
+ * Creates our leaderboard for the game
+ */
 class Leaderboard
 {
 private:

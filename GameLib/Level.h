@@ -16,6 +16,9 @@ class Laptop;
 class Game;
 class Item;
 
+/**
+ * Initializes the level base class where all levels are derived from.
+ */
 class Level
 {
 private:

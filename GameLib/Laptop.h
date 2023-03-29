@@ -11,6 +11,9 @@
 
 #include "Item.h"
 
+/**
+ * Initializes the laptop/program in the game derived from Item class
+ */
 class Laptop : public Item
 {
 private:

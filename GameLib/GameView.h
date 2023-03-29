@@ -16,6 +16,9 @@
 #include "CodeWindow.h"
 #include <wx/string.h>
 
+/**
+ * Create the game view of our game derived from wxWindow
+ */
 class GameView : public wxWindow {
 private:
 	void OnTimer(wxTimerEvent& event);

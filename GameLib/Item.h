@@ -18,6 +18,9 @@ class GameView;
 
 class Game;
 
+/**
+ * Base class for any item in our game
+ */
 class Item {
 private:
 	/// The game the item is contained in

@@ -10,6 +10,9 @@
 
 #include "Game.h"
 
+/**
+ * Class for the code loaded from the xml
+ */
 class Code
 {
 private:

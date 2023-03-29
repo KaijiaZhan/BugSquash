@@ -12,6 +12,9 @@
 
 #include "BugCollection.h"
 
+/**
+ * Creates our Null bug in the game derived from BugCollection class
+ */
 class NullBug : public BugCollection
 {
 private:

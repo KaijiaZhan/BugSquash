@@ -9,6 +9,9 @@
 #ifndef PROJECT1_GAMELIB_SCOREBOARD_H
 #define PROJECT1_GAMELIB_SCOREBOARD_H
 
+/**
+ * Initializes the scoreboard for our game
+ */
 class ScoreBoard
 {
 private:

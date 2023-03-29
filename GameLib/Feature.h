@@ -13,6 +13,9 @@
 
 #include "BugCollection.h"
 
+/**
+ * Initialize our feature "bug" derived from BugCollection
+ */
 class Feature : public BugCollection
 {
 private:

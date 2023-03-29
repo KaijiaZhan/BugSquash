@@ -17,6 +17,9 @@
 
 class Game;
 
+/**
+ * Base class for bugs derived from Item class
+ */
 class BugCollection : public Item
 {
 private:

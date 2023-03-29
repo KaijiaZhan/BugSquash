@@ -14,6 +14,9 @@
 #include "GameView.h"
 #include "BugCollection.h"
 
+/**
+ * Initialize our garbage bug derived from BugCollection class
+ */
 class GarbageBug : public BugCollection
 {
 private:

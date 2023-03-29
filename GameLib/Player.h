@@ -2,7 +2,7 @@
  * @file Player.h
  * @author Parker Morgan
  *
- * Creates our player
+ * Creates our player for the leaderboard
  */
 
 #ifndef PROJECT1_GAMELIB_PLAYER_H
@@ -10,6 +10,9 @@
 
 #include <wx/graphics.h>
 
+/**
+ * Creates and sets our player for our leaderboard
+ */
 class Player
 {
 private:
