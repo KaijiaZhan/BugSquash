@@ -178,6 +178,8 @@ public:
 
 	double GetBugsLeft();
 
+	void OnDoubleClick(wxWindow *view, int x, int y);
+
 	void MoveItemFirst(std::shared_ptr<Item> item);
 };
 
