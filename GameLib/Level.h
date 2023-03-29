@@ -29,9 +29,6 @@ private:
 	/// Random number generator
 	std::mt19937 mRandom;
 
-	/// Time loaded in from the levels
-	double mTimeLoaded;
-
 	/// The name of the level
 	std::string mLevelName;
 
