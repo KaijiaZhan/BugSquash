@@ -10,11 +10,9 @@
 
 class Code {
 private:
-    wxString mCodeInput; // wrong code from xml file
+    wxString mCodeInput;
 
-    wxString mCodeValid; // finalized user code
-
-    wxString mPass;
+    wxString mCodeValid;
 
 
 public:
@@ -24,7 +22,7 @@ public:
     Code(wxXmlNode *pNode);
 
     /// Copy constructor (disabled)
-    Code(const Code &) = default;
+    Code(const Code &) = delete;
 
     /// Assignment operator
     void operator=(const Code &) = delete;
