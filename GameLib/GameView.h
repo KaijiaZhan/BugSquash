@@ -91,8 +91,6 @@ public:
 	void OnLeftDown(wxMouseEvent& event);
 
 	void OpenDialog(const wxString &text);
-
-	void SetFrozen(bool freeze) { mFrozen = freeze; };
 };
 
 #endif //PROJECT1_GAMELIB_GAMEVIEW_H
