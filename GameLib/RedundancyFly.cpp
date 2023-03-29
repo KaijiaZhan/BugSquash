@@ -150,42 +150,7 @@ void RedundancyFly::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 		graphics->DrawBitmap(mFlyTopBitmap, (-wid / 2), (-hit / 2), wid, hit);
 
 		graphics->PopState();
-
-		//pass in graphics, bitmaps to wings if new update function is made
-		//create member variable of elapsed time
-		//time increases, so does angle
-		//make sure to set bounds with period
-		//create a duration
-		//wing moves at a constant speed - speed * time
-		//how do we get wing to move a little bit?
-
-//		auto newTime = mStopWatch.Time();
-//		auto elapsed = (double)(newTime - mTime) * 0.001;
-//		mTime = newTime;
-//
-//		//TA said this was the correct angle equation
-//		double angleWings = (WingRotateStart + (mTime * (WingRotateEnd - WingRotateStart)));
-//
-//
-//		if (elapsed <= WingPeriod)
-//		{
-////			angleWings = (WingRotateStart + (mTime * (WingRotateEnd - WingRotateStart)));
-//				graphics->PushState();
-//				graphics->Translate(GetX(), GetY());
-//				graphics->Rotate(angleWings);
-//				graphics->DrawBitmap(mFlyLeftWingBitmap,
-//									 ((-WingSetXOffset) - wid / 2),
-//									 -WingSetY - hit / 2,
-//									 widleft,
-//									 hitleft);
-//				graphics->PopState();
-//
-//				//			elapsed += elapsed;
-//		}
-//		else
-//		{
-//			elapsed = 0;
-//		}
+		
 	}
 	else
 	{
