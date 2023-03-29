@@ -145,7 +145,7 @@ void BugCollection::SetLaptop(std::shared_ptr<Laptop> laptop)
 	mLaptop = laptop;
 }
 
-void BugCollection::DoubleClick(wxWindow* view, int x, int y)
+void BugCollection::DoubleClick(GameView* view, int x, int y)
 {
 	
 }
