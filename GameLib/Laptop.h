@@ -38,10 +38,6 @@ public:
 
 	Laptop(Game* game);
 
-	/**
-	 * Draw this item
-	 * @param dc Device context to draw on
-	 */
 	void Draw(std::shared_ptr<wxGraphicsContext> graphics) override;
 
 	void SetName(std::wstring name);

@@ -43,7 +43,7 @@ private:
 	/// The players scores vector
 	std::vector<Player> mPlayerScores = {};
 
-	///
+	/// Bool to check if the game is still active
 	bool mActive = false;
 
 public:
