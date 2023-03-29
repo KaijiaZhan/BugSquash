@@ -94,3 +94,41 @@ void FatBug::SingleClick(int x, int y)
 {
 }
 
+
+void FatBug::DoubleClick(wxWindow* view, int x, int y)
+{
+    if (GetSplat()) {
+        return;
+    }
+    //view->SetFrozen(true);
+
+    CodeWindow dialog(view, mCodeFatBug);
+    dialog.ShowModal();
+
+    bool passes = mCodeFatBug->CompareCodes();
+
+    if (passes)
+    {
+        SetSplat(true);
+        FatBug::SetSpeed(0);
+    }
+
+
+    //mFrozen = true;
+    //dialog.ShowModal();
+    /*
+    wxXmlDocument xmlDoc;
+    if(!xmlDoc.Load(L"levels/garage-bug-1.xml"))
+    {
+        return;
+    }
+
+    auto root = xmlDoc.GetRoot();
+
+    Code code(root);
+
+    code.SetCode(root->GetNodeContent());
+    view->OpenDialog(code.GetCodeInput());
+     */
+}
+
