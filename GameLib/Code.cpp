@@ -5,17 +5,18 @@
 
 #include "pch.h"
 #include <wx/string.h>
+#include <wx/regex.h>
 #include "Code.h"
 #include "Game.h"
 #include "GameView.h"
 
-
 bool Code::CompareCodes()
 {
-    return mCodeInput == mCodeValid;
+    return wxRegEx(mPass, wxRE_NEWLINE).Matches(mCodeValid);
 }
 
 Code::Code(wxXmlNode *codeTag) {
-    mCodeValid = codeTag->GetAttribute("pass");
+    mPass = codeTag->GetAttribute("pass");
+    mCodeInput = codeTag->GetNodeContent();
 }
 
