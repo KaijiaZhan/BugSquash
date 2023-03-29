@@ -30,7 +30,7 @@ public:
 	/// Assignment operator
 	void operator=(const CodeWindow &) = delete;
 
-	CodeWindow(wxWindow *parent, const wxString &title, const wxString &code);
+	CodeWindow(wxWindow *parent, std::shared_ptr<Code> text);
 
 	void Initialize();
 
