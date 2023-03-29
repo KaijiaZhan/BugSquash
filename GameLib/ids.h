@@ -8,6 +8,9 @@
 #ifndef PROJECT1_GAMELIB_IDS_H
 #define PROJECT1_GAMELIB_IDS_H
 
+/**
+ * ID values for our program
+ */
 enum IDs
 {
 	IDM_LEVEL0 = wxID_HIGHEST + 1,

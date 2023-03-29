@@ -16,8 +16,10 @@
 
 using namespace std;
 
+/// level start time
 const int levelStartDuration = 2;
 
+/// time duration between the when one level is completed and starting the next
 const int levelBetweenTime = 3;
 
 /**
